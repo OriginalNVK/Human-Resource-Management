@@ -25,7 +25,7 @@ function App() {
             </div>
             <Button icon="fas fa-user" color="blue" text="Sign In" />
             <select className="bg-gray-800 text-white px-4 py-2 rounded-lg">
-              <option value="1">Notification 1</option>
+              <option value="1">trannghiach2</option>
               <option value="2">Notification 2</option>
               <option value="3">Notification 3</option>
             </select>
