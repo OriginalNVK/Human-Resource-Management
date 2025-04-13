@@ -1,7 +1,7 @@
 import React from "react";
 import { dashboardContent } from "../Constants";
 
-const Content = () => {
+const DBContent = () => {
   return (
     <div className="flex-1 p-6 bg-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -66,4 +66,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default DBContent;

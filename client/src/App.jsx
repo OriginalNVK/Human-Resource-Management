@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import Content from "./Components/Content";
+import DBContent from "./Components/DBContent";
 import Button from "./Components/Button";
+import Profile from "./Pages/Profile";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
             <Button icon="fas fa-setting" color="gray" text="Settings" />
           </div>
         </header>
-        <Content />
+        <DBContent />
+        <Profile /> 
       </div>
     </div>
   );

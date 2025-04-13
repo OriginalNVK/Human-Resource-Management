@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
+import NavbarItem from "./NavbarItem";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -15,36 +17,16 @@ const Navbar = () => {
         <nav className="mt-6">
           <ul className="text-xl">
             <li className="mb-2">
-              <a
-                href="#"
-                className="flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg"
-              >
-                <span className="mr-3">🏠</span> Dashboard
-              </a>
+              <NavbarItem url="/" icon ="🏠">Dashboard</NavbarItem>
             </li>
             <li className="mb-2">
-              <a
-                href="#"
-                className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 rounded-lg"
-              >
-                <span className="mr-3">👤</span> Profile
-              </a>
+              <NavbarItem url="/employees" icon ="👤">Profile</NavbarItem>
             </li>
             <li className="mb-2">
-              <a
-                href="#"
-                className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 rounded-lg"
-              >
-                <span className="mr-3">📊</span> Tables
-              </a>
+              <NavbarItem url="/users" icon ="📊">Users</NavbarItem>
             </li>
             <li className="mb-2">
-              <a
-                href="#"
-                className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 rounded-lg"
-              >
-                <span className="mr-3">🔔</span> Notifications
-              </a>
+              <NavbarItem url="/notifications" icon ="🔔">Notifications</NavbarItem>
             </li>
           </ul>
         </nav>
@@ -52,20 +34,10 @@ const Navbar = () => {
           <p className="text-sm font-semibold text-gray-500">AUTH PAGES</p>
           <ul className="mt-4 text-xl">
             <li className="mb-2">
-              <a
-                href="#"
-                className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 rounded-lg"
-              >
-                <span className="mr-3">🔑</span> Sign In
-              </a>
+              <NavbarItem url="/login" icon ="🔑">Sign In</NavbarItem>
             </li>
             <li className="mb-2">
-              <a
-                href="#"
-                className="flex items-center px-6 py-3 text-gray-600 hover:bg-gray-100 rounded-lg"
-              >
-                <span className="mr-3">📝</span> Sign Up
-              </a>
+              <NavbarItem url="/register" icon ="📝">Sign Up</NavbarItem>
             </li>
           </ul>
         </div>
