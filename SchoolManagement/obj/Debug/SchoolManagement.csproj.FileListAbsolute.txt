@@ -1,0 +1,119 @@
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\SchoolManagement.exe.config
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\SchoolManagement.exe
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\SchoolManagement.pdb
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.Properties.Resources.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.GenerateResource.cache
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.exe
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Docking.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Navigator.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Ribbon.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Workspace.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Buffers.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Memory.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Text.Json.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.ValueTuple.dll
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Buffers.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Memory.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Text.Json.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Code\Oracle\School Management\SchoolManagement\bin\Debug\System.ValueTuple.xml
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.Login.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherMenu.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentMenu.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.AdminMenu.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.AdminProfile.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentProfile.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherProfile.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentManager.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.ResolveComReference.cache
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherManager.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.ClassSectionManager.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentsInClassSection.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.ClassManager.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudensInClass.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentClassSectionList.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentClassList.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectManager.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.DepartmentManager.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentGrade.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherClassSection.resources
+D:\Code\Oracle\School Management\SchoolManagement\obj\Debug\SchoolManagement.Schedule.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.ResolveComReference.cache
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.exe
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\SchoolManagement.exe.config
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\SchoolManagement.exe
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\SchoolManagement.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Buffers.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Memory.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Text.Json.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.ValueTuple.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Buffers.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Memory.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Text.Json.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.ValueTuple.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.AdminMenu.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.Login.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.AdminProfile.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.Properties.Resources.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.Schedule.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudensInClass.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentClassList.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentClassSectionList.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentGrade.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentManager.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentMenu.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentProfile.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.StudentsInClassSection.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectManager.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherClassSection.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherMenu.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherProfile.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.GenerateResource.cache
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Formats.Asn1.dll
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\bin\Debug\System.Formats.Asn1.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.UsersManager.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.RoleManager.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelManager.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\school-management-main\School Management\SchoolManagement\obj\Debug\SchoolManagement.AddUser.resources
