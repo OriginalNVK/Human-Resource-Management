@@ -178,7 +178,6 @@ namespace SchoolManagement
             this.label2.Size = new System.Drawing.Size(144, 20);
             this.label2.TabIndex = 24;
             this.label2.Text = "MY CLASS SECTION";
-            this.label2.Click += new System.EventHandler(this.pbSection_Click);
             // 
             // pbSection
             // 
@@ -190,7 +189,6 @@ namespace SchoolManagement
             this.pbSection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSection.TabIndex = 23;
             this.pbSection.TabStop = false;
-            this.pbSection.Click += new System.EventHandler(this.pbSection_Click);
             // 
             // label1
             // 
@@ -202,7 +200,6 @@ namespace SchoolManagement
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 26;
             this.label1.Text = "SCHEDULE";
-            this.label1.Click += new System.EventHandler(this.pbCalendar_Click);
             // 
             // pbCalendar
             // 
@@ -214,7 +211,6 @@ namespace SchoolManagement
             this.pbCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCalendar.TabIndex = 25;
             this.pbCalendar.TabStop = false;
-            this.pbCalendar.Click += new System.EventHandler(this.pbCalendar_Click);
             // 
             // TeacherMenu
             // 

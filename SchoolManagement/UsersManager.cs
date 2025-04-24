@@ -253,17 +253,6 @@ namespace SchoolManagement
 			//}
 		}
 
-		private void pbDetail_Click(object sender, EventArgs e)
-		{
-			if (!isSelected)
-			{
-				MessageBox.Show("Please choose class to view!");
-				return;
-			}
-			StudensInClass studentsInClassSection = new StudensInClass();
-			studentsInClassSection.ShowDialog();
-		}
-
 		private void pbNext_Click(object sender, EventArgs e)
 		{
 
@@ -320,5 +309,11 @@ namespace SchoolManagement
 		{
 
 		}
+
+		public void RefreshUserList()
+		{
+			LoadUsers(); // Gọi private method
+		}
+
 	}
 }

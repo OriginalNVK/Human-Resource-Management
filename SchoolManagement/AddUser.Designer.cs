@@ -34,9 +34,9 @@ namespace SchoolManagement
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
 			this.label1 = new System.Windows.Forms.Label();
-			this.txtName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.txtPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
 			this.label4 = new System.Windows.Forms.Label();
@@ -57,20 +57,19 @@ namespace SchoolManagement
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.RoleDropdown = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.txtHoTen = new System.Windows.Forms.TextBox();
-			this.cbPhai = new System.Windows.Forms.ComboBox();
-			this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-			this.txtDiaChi = new System.Windows.Forms.TextBox();
-			this.txtDT = new System.Windows.Forms.TextBox();
-			this.cbTinhTrang = new System.Windows.Forms.ComboBox();
-			this.txtLuong = new System.Windows.Forms.TextBox();
-			this.txtPhuCap = new System.Windows.Forms.TextBox();
-			this.cbVaiTro = new System.Windows.Forms.ComboBox();
-			this.cbKhoa = new System.Windows.Forms.ComboBox();
-			this.btnLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.btnCreateUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.txtFullname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.txtPhoneNum = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.GenderDropdown = new System.Windows.Forms.ComboBox();
+			this.dtpDOB = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -93,26 +92,25 @@ namespace SchoolManagement
 			this.label1.Text = "----------USER INFORMATION----------";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// txtName
+			// txtPassword
 			// 
-			this.txtName.Enabled = false;
-			this.txtName.Location = new System.Drawing.Point(786, 219);
-			this.txtName.Margin = new System.Windows.Forms.Padding(4);
-			this.txtName.Name = "txtName";
-			this.txtName.Size = new System.Drawing.Size(285, 37);
-			this.txtName.StateCommon.Back.Color1 = System.Drawing.Color.White;
-			this.txtName.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtName.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.txtPassword.Location = new System.Drawing.Point(786, 219);
+			this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.Size = new System.Drawing.Size(285, 37);
+			this.txtPassword.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txtPassword.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtPassword.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.txtName.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.txtName.StateCommon.Border.Rounding = 20;
-			this.txtName.StateCommon.Border.Width = 1;
-			this.txtName.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-			this.txtName.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtName.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.txtName.TabIndex = 177;
+			this.txtPassword.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txtPassword.StateCommon.Border.Rounding = 20;
+			this.txtPassword.StateCommon.Border.Width = 1;
+			this.txtPassword.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.txtPassword.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPassword.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txtPassword.TabIndex = 177;
 			// 
 			// label2
 			// 
@@ -125,27 +123,25 @@ namespace SchoolManagement
 			this.label2.TabIndex = 176;
 			this.label2.Text = "PASSWORD:";
 			// 
-			// txtID
+			// txtUsername
 			// 
-			this.txtID.Enabled = false;
-			this.txtID.Location = new System.Drawing.Point(786, 171);
-			this.txtID.Margin = new System.Windows.Forms.Padding(4);
-			this.txtID.Name = "txtID";
-			this.txtID.Size = new System.Drawing.Size(285, 37);
-			this.txtID.StateCommon.Back.Color1 = System.Drawing.Color.White;
-			this.txtID.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtID.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtID.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.txtUsername.Location = new System.Drawing.Point(786, 171);
+			this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+			this.txtUsername.Name = "txtUsername";
+			this.txtUsername.Size = new System.Drawing.Size(285, 37);
+			this.txtUsername.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txtUsername.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtUsername.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtUsername.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.txtID.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.txtID.StateCommon.Border.Rounding = 20;
-			this.txtID.StateCommon.Border.Width = 1;
-			this.txtID.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-			this.txtID.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtID.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.txtID.TabIndex = 175;
-			this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
+			this.txtUsername.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txtUsername.StateCommon.Border.Rounding = 20;
+			this.txtUsername.StateCommon.Border.Width = 1;
+			this.txtUsername.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.txtUsername.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtUsername.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txtUsername.TabIndex = 175;
 			// 
 			// label10
 			// 
@@ -448,18 +444,17 @@ namespace SchoolManagement
 			this.panel1.Size = new System.Drawing.Size(1323, 100);
 			this.panel1.TabIndex = 204;
 			// 
-			// comboBox1
+			// RoleDropdown
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
-            "Admin",
+			this.RoleDropdown.FormattingEnabled = true;
+			this.RoleDropdown.Items.AddRange(new object[] {
+            "ADMIN",
             "SINH VIEN",
             "GIAO VIEN"});
-			this.comboBox1.Location = new System.Drawing.Point(787, 269);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(285, 24);
-			this.comboBox1.TabIndex = 207;
-			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+			this.RoleDropdown.Location = new System.Drawing.Point(787, 269);
+			this.RoleDropdown.Name = "RoleDropdown";
+			this.RoleDropdown.Size = new System.Drawing.Size(285, 24);
+			this.RoleDropdown.TabIndex = 207;
 			// 
 			// label3
 			// 
@@ -472,154 +467,218 @@ namespace SchoolManagement
 			this.label3.TabIndex = 208;
 			this.label3.Text = "ROLE:";
 			// 
-			// groupBox2
+			// btnCreateUser
 			// 
-			this.groupBox2.Location = new System.Drawing.Point(599, 328);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(473, 221);
-			this.groupBox2.TabIndex = 210;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "groupBox2";
-			// 
-			// txtHoTen
-			// 
-			this.txtHoTen.Location = new System.Drawing.Point(0, 0);
-			this.txtHoTen.Name = "txtHoTen";
-			this.txtHoTen.Size = new System.Drawing.Size(100, 22);
-			this.txtHoTen.TabIndex = 0;
-			// 
-			// cbPhai
-			// 
-			this.cbPhai.Location = new System.Drawing.Point(0, 0);
-			this.cbPhai.Name = "cbPhai";
-			this.cbPhai.Size = new System.Drawing.Size(121, 24);
-			this.cbPhai.TabIndex = 0;
-			// 
-			// dtpNgaySinh
-			// 
-			this.dtpNgaySinh.Location = new System.Drawing.Point(0, 0);
-			this.dtpNgaySinh.Name = "dtpNgaySinh";
-			this.dtpNgaySinh.Size = new System.Drawing.Size(200, 22);
-			this.dtpNgaySinh.TabIndex = 0;
-			// 
-			// txtDiaChi
-			// 
-			this.txtDiaChi.Location = new System.Drawing.Point(0, 0);
-			this.txtDiaChi.Name = "txtDiaChi";
-			this.txtDiaChi.Size = new System.Drawing.Size(100, 22);
-			this.txtDiaChi.TabIndex = 0;
-			// 
-			// txtDT
-			// 
-			this.txtDT.Location = new System.Drawing.Point(0, 0);
-			this.txtDT.Name = "txtDT";
-			this.txtDT.Size = new System.Drawing.Size(100, 22);
-			this.txtDT.TabIndex = 0;
-			// 
-			// cbTinhTrang
-			// 
-			this.cbTinhTrang.Location = new System.Drawing.Point(0, 0);
-			this.cbTinhTrang.Name = "cbTinhTrang";
-			this.cbTinhTrang.Size = new System.Drawing.Size(121, 24);
-			this.cbTinhTrang.TabIndex = 0;
-			// 
-			// txtLuong
-			// 
-			this.txtLuong.Location = new System.Drawing.Point(0, 0);
-			this.txtLuong.Name = "txtLuong";
-			this.txtLuong.Size = new System.Drawing.Size(100, 22);
-			this.txtLuong.TabIndex = 0;
-			// 
-			// txtPhuCap
-			// 
-			this.txtPhuCap.Location = new System.Drawing.Point(0, 0);
-			this.txtPhuCap.Name = "txtPhuCap";
-			this.txtPhuCap.Size = new System.Drawing.Size(100, 22);
-			this.txtPhuCap.TabIndex = 0;
-			// 
-			// cbVaiTro
-			// 
-			this.cbVaiTro.Location = new System.Drawing.Point(0, 0);
-			this.cbVaiTro.Name = "cbVaiTro";
-			this.cbVaiTro.Size = new System.Drawing.Size(121, 24);
-			this.cbVaiTro.TabIndex = 0;
-			// 
-			// cbKhoa
-			// 
-			this.cbKhoa.Location = new System.Drawing.Point(0, 0);
-			this.cbKhoa.Name = "cbKhoa";
-			this.cbKhoa.Size = new System.Drawing.Size(121, 24);
-			this.cbKhoa.TabIndex = 0;
-			// 
-			// btnLogin
-			// 
-			this.btnLogin.Location = new System.Drawing.Point(752, 587);
-			this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
-			this.btnLogin.Name = "btnLogin";
-			this.btnLogin.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.OverrideDefault.Back.ColorAngle = 62F;
-			this.btnLogin.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.OverrideDefault.Border.ColorAngle = 62F;
-			this.btnLogin.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.btnCreateUser.Location = new System.Drawing.Point(752, 559);
+			this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4);
+			this.btnCreateUser.Name = "btnCreateUser";
+			this.btnCreateUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.OverrideDefault.Back.ColorAngle = 62F;
+			this.btnCreateUser.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.OverrideDefault.Border.ColorAngle = 62F;
+			this.btnCreateUser.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.btnLogin.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.btnLogin.OverrideDefault.Border.Rounding = 20;
-			this.btnLogin.OverrideDefault.Border.Width = 1;
-			this.btnLogin.Size = new System.Drawing.Size(180, 53);
-			this.btnLogin.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateCommon.Back.ColorAngle = 62F;
-			this.btnLogin.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateCommon.Border.ColorAngle = 62F;
-			this.btnLogin.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.btnCreateUser.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.btnCreateUser.OverrideDefault.Border.Rounding = 20;
+			this.btnCreateUser.OverrideDefault.Border.Width = 1;
+			this.btnCreateUser.Size = new System.Drawing.Size(180, 53);
+			this.btnCreateUser.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateCommon.Back.ColorAngle = 62F;
+			this.btnCreateUser.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateCommon.Border.ColorAngle = 62F;
+			this.btnCreateUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.btnLogin.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.btnLogin.StateCommon.Border.Rounding = 20;
-			this.btnLogin.StateCommon.Border.Width = 1;
-			this.btnLogin.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-			this.btnLogin.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black;
-			this.btnLogin.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnLogin.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.StatePressed.Back.ColorAngle = 62F;
-			this.btnLogin.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.StatePressed.Border.ColorAngle = 62F;
-			this.btnLogin.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.btnCreateUser.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.btnCreateUser.StateCommon.Border.Rounding = 20;
+			this.btnCreateUser.StateCommon.Border.Width = 1;
+			this.btnCreateUser.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+			this.btnCreateUser.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black;
+			this.btnCreateUser.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnCreateUser.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StatePressed.Back.ColorAngle = 62F;
+			this.btnCreateUser.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StatePressed.Border.ColorAngle = 62F;
+			this.btnCreateUser.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.btnLogin.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.btnLogin.StatePressed.Border.Rounding = 20;
-			this.btnLogin.StatePressed.Border.Width = 1;
-			this.btnLogin.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateTracking.Back.ColorAngle = 62F;
-			this.btnLogin.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-			this.btnLogin.StateTracking.Border.ColorAngle = 62F;
-			this.btnLogin.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+			this.btnCreateUser.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.btnCreateUser.StatePressed.Border.Rounding = 20;
+			this.btnCreateUser.StatePressed.Border.Width = 1;
+			this.btnCreateUser.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateTracking.Back.ColorAngle = 62F;
+			this.btnCreateUser.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+			this.btnCreateUser.StateTracking.Border.ColorAngle = 62F;
+			this.btnCreateUser.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.btnLogin.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.btnLogin.StateTracking.Border.Rounding = 20;
-			this.btnLogin.StateTracking.Border.Width = 1;
-			this.btnLogin.TabIndex = 211;
-			this.btnLogin.Values.Text = "CREATE USER";
+			this.btnCreateUser.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.btnCreateUser.StateTracking.Border.Rounding = 20;
+			this.btnCreateUser.StateTracking.Border.Width = 1;
+			this.btnCreateUser.TabIndex = 211;
+			this.btnCreateUser.Values.Text = "CREATE USER";
+			this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
+			// 
+			// txtFullname
+			// 
+			this.txtFullname.Location = new System.Drawing.Point(786, 310);
+			this.txtFullname.Margin = new System.Windows.Forms.Padding(4);
+			this.txtFullname.Name = "txtFullname";
+			this.txtFullname.Size = new System.Drawing.Size(285, 37);
+			this.txtFullname.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txtFullname.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtFullname.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtFullname.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txtFullname.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txtFullname.StateCommon.Border.Rounding = 20;
+			this.txtFullname.StateCommon.Border.Width = 1;
+			this.txtFullname.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.txtFullname.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtFullname.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txtFullname.TabIndex = 213;
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.Location = new System.Drawing.Point(595, 320);
+			this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(110, 22);
+			this.label7.TabIndex = 212;
+			this.label7.Text = "FULLNAME:";
+			// 
+			// txtPhoneNum
+			// 
+			this.txtPhoneNum.Location = new System.Drawing.Point(788, 408);
+			this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4);
+			this.txtPhoneNum.Name = "txtPhoneNum";
+			this.txtPhoneNum.Size = new System.Drawing.Size(285, 37);
+			this.txtPhoneNum.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txtPhoneNum.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtPhoneNum.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtPhoneNum.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txtPhoneNum.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txtPhoneNum.StateCommon.Border.Rounding = 20;
+			this.txtPhoneNum.StateCommon.Border.Width = 1;
+			this.txtPhoneNum.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.txtPhoneNum.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtPhoneNum.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txtPhoneNum.TabIndex = 215;
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label11.Location = new System.Drawing.Point(597, 418);
+			this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(161, 22);
+			this.label11.TabIndex = 214;
+			this.label11.Text = "PHONE NUMBER:";
+			// 
+			// txtAddress
+			// 
+			this.txtAddress.Location = new System.Drawing.Point(787, 453);
+			this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+			this.txtAddress.Name = "txtAddress";
+			this.txtAddress.Size = new System.Drawing.Size(285, 37);
+			this.txtAddress.StateCommon.Back.Color1 = System.Drawing.Color.White;
+			this.txtAddress.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtAddress.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+			this.txtAddress.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txtAddress.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.txtAddress.StateCommon.Border.Rounding = 20;
+			this.txtAddress.StateCommon.Border.Width = 1;
+			this.txtAddress.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.txtAddress.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtAddress.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+			this.txtAddress.TabIndex = 217;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(596, 463);
+			this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(98, 22);
+			this.label12.TabIndex = 216;
+			this.label12.Text = "ADDRESS:";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label13.Location = new System.Drawing.Point(596, 508);
+			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(147, 22);
+			this.label13.TabIndex = 218;
+			this.label13.Text = "DATE OF BIRTH:";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label14.Location = new System.Drawing.Point(594, 369);
+			this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(92, 22);
+			this.label14.TabIndex = 221;
+			this.label14.Text = "GENDER:";
+			// 
+			// GenderDropdown
+			// 
+			this.GenderDropdown.FormattingEnabled = true;
+			this.GenderDropdown.Items.AddRange(new object[] {
+            "MALE",
+            "FEMALE"});
+			this.GenderDropdown.Location = new System.Drawing.Point(786, 367);
+			this.GenderDropdown.Name = "GenderDropdown";
+			this.GenderDropdown.Size = new System.Drawing.Size(285, 24);
+			this.GenderDropdown.TabIndex = 220;
+			// 
+			// dtpDOB
+			// 
+			this.dtpDOB.Location = new System.Drawing.Point(788, 505);
+			this.dtpDOB.Name = "dtpDOB";
+			this.dtpDOB.Size = new System.Drawing.Size(283, 22);
+			this.dtpDOB.TabIndex = 222;
 			// 
 			// AddUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1323, 853);
-			this.Controls.Add(this.btnLogin);
-			this.Controls.Add(this.groupBox2);
+			this.Controls.Add(this.dtpDOB);
+			this.Controls.Add(this.label14);
+			this.Controls.Add(this.GenderDropdown);
+			this.Controls.Add(this.label13);
+			this.Controls.Add(this.txtAddress);
+			this.Controls.Add(this.label12);
+			this.Controls.Add(this.txtPhoneNum);
+			this.Controls.Add(this.label11);
+			this.Controls.Add(this.txtFullname);
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.btnCreateUser);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.RoleDropdown);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.pbLogout);
@@ -636,9 +695,9 @@ namespace SchoolManagement
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.txtName);
+			this.Controls.Add(this.txtPassword);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.txtID);
+			this.Controls.Add(this.txtUsername);
 			this.Controls.Add(this.label10);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "AddUser";
@@ -646,7 +705,6 @@ namespace SchoolManagement
 			this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ADD USER";
-			this.Load += new System.EventHandler(this.DepartmentManager_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
@@ -664,9 +722,9 @@ namespace SchoolManagement
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtName;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPassword;
         private System.Windows.Forms.Label label2;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtID;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
         private System.Windows.Forms.Label label10;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
 		private System.Windows.Forms.Label label4;
@@ -687,9 +745,18 @@ namespace SchoolManagement
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox RoleDropdown;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogin;
+		private ComponentFactory.Krypton.Toolkit.KryptonButton btnCreateUser;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFullname;
+		private Label label7;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPhoneNum;
+		private Label label11;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
+		private Label label12;
+		private Label label13;
+		private Label label14;
+		private ComboBox GenderDropdown;
+		private DateTimePicker dtpDOB;
 	}
 }

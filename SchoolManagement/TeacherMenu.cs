@@ -68,16 +68,5 @@ namespace SchoolManagement
             teacherProfile.ShowDialog();
         }
 
-        private void pbSection_Click(object sender, EventArgs e)
-        {
-            TeacherClassSection teacherClassSection = new TeacherClassSection();
-            teacherClassSection.Show();
-        }
-
-        private void pbCalendar_Click(object sender, EventArgs e)
-        {
-            Schedule schedule = new Schedule(true);
-            schedule.Show();
-        }
     }
 }

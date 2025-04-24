@@ -418,16 +418,5 @@ namespace SchoolManagement
             workbook.SaveAs("Desktop\\Data.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             app.Quit();
         }
-
-        private void pbDetail_Click(object sender, EventArgs e)
-        {
-            if (!isSelected)
-            { 
-                MessageBox.Show("Please choose class to view!");
-                return;
-            }
-            StudentsInClassSection studentsInClassSection = new StudentsInClassSection();
-            studentsInClassSection.ShowDialog();
-        }
     }
 }

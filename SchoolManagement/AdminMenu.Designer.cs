@@ -53,9 +53,6 @@ namespace SchoolManagement
 			this.pbClasses = new System.Windows.Forms.PictureBox();
 			this.pbTeachers = new System.Windows.Forms.PictureBox();
 			this.pbStudents = new System.Windows.Forms.PictureBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.pictureBox5 = new System.Windows.Forms.PictureBox();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
@@ -68,9 +65,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbStudents)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -468,39 +462,6 @@ namespace SchoolManagement
 			this.pbStudents.TabStop = false;
 			this.pbStudents.Click += new System.EventHandler(this.pbStudents_Click);
 			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(1252, 154);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(233, 207);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 30;
-			this.pictureBox1.TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(-116, 632);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(263, 294);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox2.TabIndex = 31;
-			this.pictureBox2.TabStop = false;
-			// 
-			// pictureBox5
-			// 
-			this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-			this.pictureBox5.Location = new System.Drawing.Point(1252, 620);
-			this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox5.Name = "pictureBox5";
-			this.pictureBox5.Size = new System.Drawing.Size(183, 128);
-			this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox5.TabIndex = 34;
-			this.pictureBox5.TabStop = false;
-			// 
 			// Dashboard
 			// 
 			this.Dashboard.AutoSize = true;
@@ -517,7 +478,6 @@ namespace SchoolManagement
 			// 
 			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
 			this.panel2.Controls.Add(this.label1);
-			this.panel2.Controls.Add(this.pictureBox2);
 			this.panel2.Location = new System.Drawing.Point(0, -25);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(308, 867);
@@ -585,8 +545,6 @@ namespace SchoolManagement
 			this.Controls.Add(this.pbTeachers);
 			this.Controls.Add(this.lbStudents);
 			this.Controls.Add(this.pbStudents);
-			this.Controls.Add(this.pictureBox1);
-			this.Controls.Add(this.pictureBox5);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Margin = new System.Windows.Forms.Padding(4);
@@ -603,9 +561,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbStudents)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			this.panel1.ResumeLayout(false);
@@ -638,10 +593,7 @@ namespace SchoolManagement
         private System.Windows.Forms.Label lbTotalTeacher;
         private System.Windows.Forms.Label lbTotalClass;
         private System.Windows.Forms.Label lbTotalSubject;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.Label Dashboard;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label1;

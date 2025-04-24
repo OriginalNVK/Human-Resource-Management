@@ -62,22 +62,11 @@ namespace SchoolManagement
             this.Close();
         }
 
-        private void pbGrade_Click(object sender, EventArgs e)
-        {
-            StudentGrade studentGrade = new StudentGrade();
-            studentGrade.Show();
-        }
-
         private void pbProfile_Click(object sender, EventArgs e)
         {
             StudentProfile student = new StudentProfile();
             student.ShowDialog();
         }
 
-        private void pbCalendar_Click(object sender, EventArgs e)
-        { 
-            Schedule schedule = new Schedule(false);
-            schedule.Show();
-        }
     }
 }

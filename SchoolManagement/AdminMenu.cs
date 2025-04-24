@@ -37,6 +37,7 @@ namespace SchoolManagement
             login.ShowDialog();
             this.Close();
         }
+        
         private void LoadTotals()
         {
             LoadTotalStudent();
@@ -44,6 +45,7 @@ namespace SchoolManagement
             LoadTotalClass();
             LoadTotalSubject();
         }
+        
         private void LoadTotalStudent()
         {
             try
@@ -183,15 +185,5 @@ namespace SchoolManagement
             UsersManager userManager = new UsersManager();
 			userManager.Show();
         }
-
-		private void label5_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label6_Click(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

@@ -572,7 +572,6 @@ namespace SchoolManagement
             this.lbDetail.Size = new System.Drawing.Size(78, 20);
             this.lbDetail.TabIndex = 139;
             this.lbDetail.Text = "STUDENTS ";
-            this.lbDetail.Click += new System.EventHandler(this.pbDetail_Click);
             // 
             // pbDetail
             // 
@@ -584,7 +583,6 @@ namespace SchoolManagement
             this.pbDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbDetail.TabIndex = 138;
             this.pbDetail.TabStop = false;
-            this.pbDetail.Click += new System.EventHandler(this.pbDetail_Click);
             // 
             // pbSave
             // 
