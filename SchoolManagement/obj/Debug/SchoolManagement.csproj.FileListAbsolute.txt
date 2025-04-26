@@ -161,10 +161,13 @@ D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentMenu.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentProfile.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelManager.resources
-D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherMenu.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherProfile.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.GenerateResource.cache
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.exe
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateRole.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddRole.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateUser.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherManager.resources

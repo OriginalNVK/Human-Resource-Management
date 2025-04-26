@@ -61,7 +61,7 @@ namespace SchoolManagement
 						}
 						else if (dr.GetString(1) == "Giao Vien")
 						{
-							TeacherMenu teacherMenu = new TeacherMenu();
+							TeacherManager teacherMenu = new TeacherManager();
 							this.Hide();
 							teacherMenu.ShowDialog();
 							this.Close();
