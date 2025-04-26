@@ -108,6 +108,12 @@
     <Compile Include="AdminMenu.Designer.cs">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentManager.Designer.cs">
+      <DependentUpon>StudentManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,11 +146,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentManager.cs">
+    <Compile Include="TeacherManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentManager.Designer.cs">
-      <DependentUpon>StudentManager.cs</DependentUpon>
+    <Compile Include="TeacherManager.Designer.cs">
+      <DependentUpon>TeacherManager.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentMenu.cs">
       <SubType>Form</SubType>
@@ -164,12 +170,6 @@
     <Compile Include="PersonnelManager.Designer.cs">
       <DependentUpon>PersonnelManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeacherMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TeacherMenu.Designer.cs">
-      <DependentUpon>TeacherMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="TeacherProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +178,9 @@
     </Compile>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentManager.resx">
+      <DependentUpon>StudentManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersManager.resx">
       <DependentUpon>UsersManager.cs</DependentUpon>
@@ -204,8 +207,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StudentManager.resx">
-      <DependentUpon>StudentManager.cs</DependentUpon>
+    <EmbeddedResource Include="TeacherManager.resx">
+      <DependentUpon>TeacherManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentMenu.resx">
       <DependentUpon>StudentMenu.cs</DependentUpon>
@@ -215,9 +218,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PersonnelManager.resx">
       <DependentUpon>PersonnelManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TeacherMenu.resx">
-      <DependentUpon>TeacherMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherProfile.resx">
       <DependentUpon>TeacherProfile.cs</DependentUpon>

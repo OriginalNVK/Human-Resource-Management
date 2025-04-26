@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -13,7 +12,7 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SchoolManagement
 {
-    public partial class PersonnelManager : KryptonForm
+    public partial class TeacherManager : KryptonForm
     {
         private const int CS_DropShadow = 0x00020000;
         protected override CreateParams CreateParams
@@ -25,21 +24,15 @@ namespace SchoolManagement
                 return cp;
             }
         }
+
         private int action; // 0 - add, 1 - edit
         private bool isSelected = false;
-        private int currFrom = 1;
+        private int currFrom = 1; 
         private int pageSize = 10;
 
-        public PersonnelManager()
+        public TeacherManager()
         {
-            InitializeComponent();
-        }
-        private void pbPrev_Click(object sender, EventArgs e)
-        {
-            if (currFrom > 1)
-            {
-                currFrom--;
-            }
+			InitializeComponent();
         }
 
         private void pbNext_Click(object sender, EventArgs e)
@@ -47,19 +40,12 @@ namespace SchoolManagement
             currFrom++;
         }
 
-        private void pbReload_Click(object sender, EventArgs e)
+        private void pbPrev_Click(object sender, EventArgs e)
         {
-
+            if (currFrom > 1)
+            {
+                currFrom--;
+            }
         }
-
-		private void lbUsers_Click(object sender, EventArgs e)
-		{
-			UsersManager userManager = new UsersManager();
-			this.Hide();
-			userManager.Show();
-			this.Close();
-		}
-
-
-	}
+    }
 }

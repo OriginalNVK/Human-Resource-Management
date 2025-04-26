@@ -153,37 +153,49 @@ namespace SchoolManagement
         private void pbProfile_Click(object sender, EventArgs e)
         {
             AdminProfile myProfile = new AdminProfile();
+            this.Hide();
             myProfile.Show();
+            this.Close();
         }
 
         private void pbStudents_Click(object sender, EventArgs e)
         {
             StudentManager student = new StudentManager(); 
+            this.Hide();
             student.Show(); 
+            this.Close();
         }
 
         private void pbTeachers_Click(object sender, EventArgs e)
         {
             PersonnelManager teacher = new PersonnelManager();
+            this.Hide();
             teacher.Show();
+            this.Close();
         }
 
         private void pbPersonnel_Click(object sender, EventArgs e)
         {
             PersonnelManager personnelManager = new PersonnelManager();
+            this.Hide();
             personnelManager.Show();
+            this.Close();
         }
 
         private void pbRole_Click(object sender, EventArgs e)
         {
             RoleManager roleManager = new RoleManager();
+            this.Hide();
 			roleManager.Show();
+            this.Close();
         }
 
         private void pbUsers_Click(object sender, EventArgs e)
         {
             UsersManager userManager = new UsersManager();
+            this.Hide();
 			userManager.Show();
+            this.Close();
         }
 	}
 }

@@ -290,6 +290,7 @@ namespace SchoolManagement
 			this.lbClasses.Size = new System.Drawing.Size(167, 22);
 			this.lbClasses.TabIndex = 209;
 			this.lbClasses.Text = "USERS MANAGER";
+			this.lbClasses.Click += new System.EventHandler(this.lbUsers_Click);
 			// 
 			// pbClasses
 			// 
@@ -644,9 +645,8 @@ namespace SchoolManagement
 			this.Controls.Add(this.dgvUser);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "PersonnelManager";
-			this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PERSONNEL MANAGER";
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
