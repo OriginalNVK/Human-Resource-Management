@@ -141,7 +141,7 @@ namespace SchoolManagement
             };
 
             Label textLabel = new Label() { Left = 20, Top = 20, Text = "ROLE NAME:" };
-            TextBox textBox = new TextBox() { Left = 100, Top = 20, Width = 150 };
+            TextBox textBox = new TextBox() { Left = 125, Top = 20, Width = 150 };
             Button confirmation = new Button() { Text = "Add", Left = 60, Width = 80, Top = 70, DialogResult = DialogResult.OK };
             Button cancel = new Button() { Text = "Cancel", Left = 150, Width = 80, Top = 70, DialogResult = DialogResult.Cancel };
 
@@ -194,11 +194,44 @@ namespace SchoolManagement
 
 		private void pbEdit_Click(object sender, EventArgs e)
 		{
-			UpdateRole updateRole = new UpdateRole();
-			this.Hide();
-			updateRole.ShowDialog();
-			this.Close();
-		}
+            try
+            {
+                // Kiểm tra xem người dùng đã chọn role chưa
+                if (dgvUser.CurrentRow == null || dgvUser.CurrentRow.Cells["ROLE"].Value == null)
+                {
+                    MessageBox.Show("Please choose a role first!", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Lấy tên role đã chọn
+                string roleName = dgvUser.CurrentRow.Cells["ROLE"].Value.ToString();
+
+                // Hiển thị thông báo xác nhận trước khi chỉnh sửa
+                DialogResult result = MessageBox.Show(
+                    $"Do you want to edit this role \"{roleName}\"?",
+                    "Confirm Edit",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                // Nếu người dùng chọn Yes, thực hiện chỉnh sửa role
+                if (result == DialogResult.Yes)
+                {
+                    // Tạo form để chỉnh sửa role (có thể là form EditRole hoặc UpdateRole)
+                    UpdateRole updateRoleForm = new UpdateRole(roleName);
+
+                    this.Hide();  // Ẩn form hiện tại
+                    updateRoleForm.ShowDialog();  // Hiển thị form chỉnh sửa
+                    this.Close();  // Sau khi đóng form chỉnh sửa, hiển thị lại form hiện tại
+
+                    LoadRoles();  // Tải lại danh sách roles sau khi chỉnh sửa
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Edit role failed:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 		private void pbDelete_Click(object sender, EventArgs e)
 		{
@@ -206,7 +239,7 @@ namespace SchoolManagement
             {
                 if (dgvUser.CurrentRow == null || dgvUser.CurrentRow.Cells["ROLE"].Value == null)
                 {
-                    MessageBox.Show("Vui lòng chọn role để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please choose role first!", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -234,14 +267,14 @@ namespace SchoolManagement
                         }
                     }
 
-                    MessageBox.Show("Role đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Delete role successfully!", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     LoadRoles(); // Reload lại danh sách roles sau khi xóa
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa role:\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Delete role failed:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
