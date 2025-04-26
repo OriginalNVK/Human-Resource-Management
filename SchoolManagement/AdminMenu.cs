@@ -154,7 +154,7 @@ namespace SchoolManagement
         {
             AdminProfile myProfile = new AdminProfile();
             this.Hide();
-            myProfile.Show();
+            myProfile.ShowDialog();
             this.Close();
         }
 
@@ -162,7 +162,7 @@ namespace SchoolManagement
         {
             StudentManager student = new StudentManager(); 
             this.Hide();
-            student.Show(); 
+            student.ShowDialog(); 
             this.Close();
         }
 
@@ -170,7 +170,7 @@ namespace SchoolManagement
         {
             PersonnelManager teacher = new PersonnelManager();
             this.Hide();
-            teacher.Show();
+            teacher.ShowDialog();
             this.Close();
         }
 
@@ -178,7 +178,7 @@ namespace SchoolManagement
         {
             PersonnelManager personnelManager = new PersonnelManager();
             this.Hide();
-            personnelManager.Show();
+            personnelManager.ShowDialog();
             this.Close();
         }
 
@@ -186,7 +186,7 @@ namespace SchoolManagement
         {
             RoleManager roleManager = new RoleManager();
             this.Hide();
-			roleManager.Show();
+			roleManager.ShowDialog();
             this.Close();
         }
 
@@ -194,7 +194,7 @@ namespace SchoolManagement
         {
             UsersManager userManager = new UsersManager();
             this.Hide();
-			userManager.Show();
+			userManager.ShowDialog();
             this.Close();
         }
 	}
