@@ -166,14 +166,6 @@ namespace SchoolManagement
             this.Close();
         }
 
-        private void pbTeachers_Click(object sender, EventArgs e)
-        {
-            PersonnelManager teacher = new PersonnelManager();
-            this.Hide();
-            teacher.ShowDialog();
-            this.Close();
-        }
-
         private void pbPersonnel_Click(object sender, EventArgs e)
         {
             PersonnelManager personnelManager = new PersonnelManager();

@@ -447,7 +447,6 @@ namespace SchoolManagement
 			this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbTeachers.TabIndex = 5;
 			this.pbTeachers.TabStop = false;
-			this.pbTeachers.Click += new System.EventHandler(this.pbTeachers_Click);
 			// 
 			// pbStudents
 			// 

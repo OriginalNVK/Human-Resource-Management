@@ -45,15 +45,15 @@ namespace SchoolManagement
 			this.lbHello = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.pbLogout = new System.Windows.Forms.PictureBox();
-			this.label8 = new System.Windows.Forms.Label();
+			this.lbRoles = new System.Windows.Forms.Label();
 			this.pbSection = new System.Windows.Forms.PictureBox();
 			this.lbProfile = new System.Windows.Forms.Label();
 			this.pbProfile = new System.Windows.Forms.PictureBox();
-			this.lbClasses = new System.Windows.Forms.Label();
+			this.lbUsers = new System.Windows.Forms.Label();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
-			this.lbTeachers = new System.Windows.Forms.Label();
+			this.lbPersonnel = new System.Windows.Forms.Label();
 			this.pbTeachers = new System.Windows.Forms.PictureBox();
-			this.label9 = new System.Windows.Forms.Label();
+			this.lbStudents = new System.Windows.Forms.Label();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -280,6 +280,7 @@ namespace SchoolManagement
 			this.label6.Size = new System.Drawing.Size(90, 22);
 			this.label6.TabIndex = 203;
 			this.label6.Text = "LOGOUT";
+			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// pbLogout
 			// 
@@ -293,19 +294,20 @@ namespace SchoolManagement
 			this.pbLogout.TabIndex = 202;
 			this.pbLogout.TabStop = false;
 			// 
-			// label8
+			// lbRoles
 			// 
-			this.label8.AutoSize = true;
-			this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label8.Location = new System.Drawing.Point(81, 213);
-			this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(172, 22);
-			this.label8.TabIndex = 201;
-			this.label8.Text = "ROLES MANAGER";
+			this.lbRoles.AutoSize = true;
+			this.lbRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbRoles.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbRoles.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbRoles.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbRoles.Location = new System.Drawing.Point(81, 213);
+			this.lbRoles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbRoles.Name = "lbRoles";
+			this.lbRoles.Size = new System.Drawing.Size(172, 22);
+			this.lbRoles.TabIndex = 201;
+			this.lbRoles.Text = "ROLES MANAGER";
+			this.lbRoles.Click += new System.EventHandler(this.lbRoles_Click);
 			// 
 			// pbSection
 			// 
@@ -332,6 +334,7 @@ namespace SchoolManagement
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
 			this.lbProfile.TabIndex = 199;
 			this.lbProfile.Text = "MY PROFILE";
+			this.lbProfile.Click += new System.EventHandler(this.lbProfile_Click);
 			// 
 			// pbProfile
 			// 
@@ -345,19 +348,20 @@ namespace SchoolManagement
 			this.pbProfile.TabIndex = 198;
 			this.pbProfile.TabStop = false;
 			// 
-			// lbClasses
+			// lbUsers
 			// 
-			this.lbClasses.AutoSize = true;
-			this.lbClasses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbClasses.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbClasses.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbClasses.Location = new System.Drawing.Point(81, 145);
-			this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbClasses.Name = "lbClasses";
-			this.lbClasses.Size = new System.Drawing.Size(167, 22);
-			this.lbClasses.TabIndex = 197;
-			this.lbClasses.Text = "USERS MANAGER";
+			this.lbUsers.AutoSize = true;
+			this.lbUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbUsers.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbUsers.Location = new System.Drawing.Point(81, 145);
+			this.lbUsers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbUsers.Name = "lbUsers";
+			this.lbUsers.Size = new System.Drawing.Size(167, 22);
+			this.lbUsers.TabIndex = 197;
+			this.lbUsers.Text = "USERS MANAGER";
+			this.lbUsers.Click += new System.EventHandler(this.lbUsers_Click);
 			// 
 			// pbClasses
 			// 
@@ -372,19 +376,20 @@ namespace SchoolManagement
 			this.pbClasses.TabIndex = 196;
 			this.pbClasses.TabStop = false;
 			// 
-			// lbTeachers
+			// lbPersonnel
 			// 
-			this.lbTeachers.AutoSize = true;
-			this.lbTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbTeachers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbTeachers.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbTeachers.Location = new System.Drawing.Point(81, 340);
-			this.lbTeachers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbTeachers.Name = "lbTeachers";
-			this.lbTeachers.Size = new System.Drawing.Size(221, 22);
-			this.lbTeachers.TabIndex = 195;
-			this.lbTeachers.Text = "PERSONNEL MANAGER";
+			this.lbPersonnel.AutoSize = true;
+			this.lbPersonnel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbPersonnel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbPersonnel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbPersonnel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbPersonnel.Location = new System.Drawing.Point(81, 340);
+			this.lbPersonnel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbPersonnel.Name = "lbPersonnel";
+			this.lbPersonnel.Size = new System.Drawing.Size(221, 22);
+			this.lbPersonnel.TabIndex = 195;
+			this.lbPersonnel.Text = "PERSONNEL MANAGER";
+			this.lbPersonnel.Click += new System.EventHandler(this.lbPersonnel_Click);
 			// 
 			// pbTeachers
 			// 
@@ -398,19 +403,20 @@ namespace SchoolManagement
 			this.pbTeachers.TabIndex = 194;
 			this.pbTeachers.TabStop = false;
 			// 
-			// label9
+			// lbStudents
 			// 
-			this.label9.AutoSize = true;
-			this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label9.Location = new System.Drawing.Point(81, 273);
-			this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(199, 22);
-			this.label9.TabIndex = 193;
-			this.label9.Text = "STUDENTS MANAGER";
+			this.lbStudents.AutoSize = true;
+			this.lbStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbStudents.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbStudents.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbStudents.Location = new System.Drawing.Point(81, 273);
+			this.lbStudents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbStudents.Name = "lbStudents";
+			this.lbStudents.Size = new System.Drawing.Size(199, 22);
+			this.lbStudents.TabIndex = 193;
+			this.lbStudents.Text = "STUDENTS MANAGER";
+			this.lbStudents.Click += new System.EventHandler(this.lbStudents_Click);
 			// 
 			// pictureBox2
 			// 
@@ -682,15 +688,15 @@ namespace SchoolManagement
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.pbLogout);
-			this.Controls.Add(this.label8);
+			this.Controls.Add(this.lbRoles);
 			this.Controls.Add(this.pbSection);
 			this.Controls.Add(this.lbProfile);
 			this.Controls.Add(this.pbProfile);
-			this.Controls.Add(this.lbClasses);
+			this.Controls.Add(this.lbUsers);
 			this.Controls.Add(this.pbClasses);
-			this.Controls.Add(this.lbTeachers);
+			this.Controls.Add(this.lbPersonnel);
 			this.Controls.Add(this.pbTeachers);
-			this.Controls.Add(this.label9);
+			this.Controls.Add(this.lbStudents);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
@@ -733,15 +739,15 @@ namespace SchoolManagement
 		private System.Windows.Forms.Label lbHello;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.PictureBox pbLogout;
-		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label lbRoles;
 		private System.Windows.Forms.PictureBox pbSection;
 		private System.Windows.Forms.Label lbProfile;
 		private System.Windows.Forms.PictureBox pbProfile;
-		private System.Windows.Forms.Label lbClasses;
+		private System.Windows.Forms.Label lbUsers;
 		private System.Windows.Forms.PictureBox pbClasses;
-		private System.Windows.Forms.Label lbTeachers;
+		private System.Windows.Forms.Label lbPersonnel;
 		private System.Windows.Forms.PictureBox pbTeachers;
-		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label lbStudents;
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;

@@ -40,22 +40,22 @@ namespace SchoolManagement
 			this.dgvUser = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.pbDelete = new System.Windows.Forms.PictureBox();
 			this.pbEdit = new System.Windows.Forms.PictureBox();
-			this.pbStudents = new System.Windows.Forms.PictureBox();
+			this.pbAddUsers = new System.Windows.Forms.PictureBox();
 			this.pbPrev = new System.Windows.Forms.PictureBox();
 			this.pbNext = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.pbLogout = new System.Windows.Forms.PictureBox();
-			this.label8 = new System.Windows.Forms.Label();
+			this.lbRole = new System.Windows.Forms.Label();
 			this.pbSection = new System.Windows.Forms.PictureBox();
 			this.lbProfile = new System.Windows.Forms.Label();
 			this.pbProfile = new System.Windows.Forms.PictureBox();
-			this.lbClasses = new System.Windows.Forms.Label();
+			this.lbUsers = new System.Windows.Forms.Label();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
-			this.lbTeachers = new System.Windows.Forms.Label();
+			this.lbPersonnel = new System.Windows.Forms.Label();
 			this.pbTeachers = new System.Windows.Forms.PictureBox();
-			this.label9 = new System.Windows.Forms.Label();
+			this.lbStudent = new System.Windows.Forms.Label();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.lbHello = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbStudents)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbAddUsers)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbPrev)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbNext)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,47 +98,47 @@ namespace SchoolManagement
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-			this.kryptonPalette1.ButtonStyles.ButtonForm.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.ButtonStyles.ButtonForm.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateNormal.Border.Width = 0;
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StatePressed.Border.Width = 0;
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryptonPalette1.ButtonStyles.ButtonForm.StateTracking.Border.Width = 0;
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StatePressed.Border.Width = 0;
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryptonPalette1.ButtonStyles.ButtonFormClose.StateTracking.Border.Width = 0;
 			this.kryptonPalette1.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-			this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
 			this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
@@ -226,27 +226,27 @@ namespace SchoolManagement
 			this.dgvUser.StateCommon.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.dgvUser.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
 			this.dgvUser.StateCommon.DataCell.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-			this.dgvUser.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.dgvUser.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.dgvUser.StateCommon.DataCell.Border.Width = 1;
 			this.dgvUser.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dgvUser.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
 			this.dgvUser.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
 			this.dgvUser.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
 			this.dgvUser.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-			this.dgvUser.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.dgvUser.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.dgvUser.StateCommon.HeaderColumn.Border.Width = 1;
 			this.dgvUser.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
 			this.dgvUser.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
 			this.dgvUser.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dgvUser.StateCommon.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
 			this.dgvUser.StateCommon.HeaderRow.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-			this.dgvUser.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.dgvUser.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.dgvUser.StateCommon.HeaderRow.Border.Width = 1;
 			this.dgvUser.StateSelected.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
 			this.dgvUser.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
@@ -280,18 +280,18 @@ namespace SchoolManagement
 			this.pbEdit.TabStop = false;
 			this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
 			// 
-			// pbStudents
+			// pbAddUsers
 			// 
-			this.pbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pbStudents.Image = ((System.Drawing.Image)(resources.GetObject("pbStudents.Image")));
-			this.pbStudents.Location = new System.Drawing.Point(409, 208);
-			this.pbStudents.Margin = new System.Windows.Forms.Padding(4);
-			this.pbStudents.Name = "pbStudents";
-			this.pbStudents.Size = new System.Drawing.Size(55, 46);
-			this.pbStudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbStudents.TabIndex = 162;
-			this.pbStudents.TabStop = false;
-			this.pbStudents.Click += new System.EventHandler(this.pbStudents_Click);
+			this.pbAddUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pbAddUsers.Image = ((System.Drawing.Image)(resources.GetObject("pbAddUsers.Image")));
+			this.pbAddUsers.Location = new System.Drawing.Point(409, 208);
+			this.pbAddUsers.Margin = new System.Windows.Forms.Padding(4);
+			this.pbAddUsers.Name = "pbAddUsers";
+			this.pbAddUsers.Size = new System.Drawing.Size(55, 46);
+			this.pbAddUsers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbAddUsers.TabIndex = 162;
+			this.pbAddUsers.TabStop = false;
+			this.pbAddUsers.Click += new System.EventHandler(this.pbStudents_Click);
 			// 
 			// pbPrev
 			// 
@@ -358,6 +358,7 @@ namespace SchoolManagement
 			this.label4.Size = new System.Drawing.Size(90, 22);
 			this.label4.TabIndex = 183;
 			this.label4.Text = "LOGOUT";
+			this.label4.Click += new System.EventHandler(this.label4_Click);
 			// 
 			// pbLogout
 			// 
@@ -371,20 +372,20 @@ namespace SchoolManagement
 			this.pbLogout.TabIndex = 182;
 			this.pbLogout.TabStop = false;
 			// 
-			// label8
+			// lbRole
 			// 
-			this.label8.AutoSize = true;
-			this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label8.Location = new System.Drawing.Point(81, 228);
-			this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(172, 22);
-			this.label8.TabIndex = 181;
-			this.label8.Text = "ROLES MANAGER";
-			this.label8.Click += new System.EventHandler(this.label8_Click);
+			this.lbRole.AutoSize = true;
+			this.lbRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbRole.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbRole.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbRole.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbRole.Location = new System.Drawing.Point(81, 228);
+			this.lbRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbRole.Name = "lbRole";
+			this.lbRole.Size = new System.Drawing.Size(172, 22);
+			this.lbRole.TabIndex = 181;
+			this.lbRole.Text = "ROLES MANAGER";
+			this.lbRole.Click += new System.EventHandler(this.lbRole_Click);
 			// 
 			// pbSection
 			// 
@@ -411,6 +412,7 @@ namespace SchoolManagement
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
 			this.lbProfile.TabIndex = 179;
 			this.lbProfile.Text = "MY PROFILE";
+			this.lbProfile.Click += new System.EventHandler(this.lbProfile_Click);
 			// 
 			// pbProfile
 			// 
@@ -424,19 +426,20 @@ namespace SchoolManagement
 			this.pbProfile.TabIndex = 178;
 			this.pbProfile.TabStop = false;
 			// 
-			// lbClasses
+			// lbUsers
 			// 
-			this.lbClasses.AutoSize = true;
-			this.lbClasses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbClasses.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbClasses.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbClasses.Location = new System.Drawing.Point(81, 160);
-			this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbClasses.Name = "lbClasses";
-			this.lbClasses.Size = new System.Drawing.Size(167, 22);
-			this.lbClasses.TabIndex = 177;
-			this.lbClasses.Text = "USERS MANAGER";
+			this.lbUsers.AutoSize = true;
+			this.lbUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbUsers.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbUsers.Location = new System.Drawing.Point(81, 160);
+			this.lbUsers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbUsers.Name = "lbUsers";
+			this.lbUsers.Size = new System.Drawing.Size(167, 22);
+			this.lbUsers.TabIndex = 177;
+			this.lbUsers.Text = "USERS MANAGER";
+			this.lbUsers.Click += new System.EventHandler(this.lbUsers_Click);
 			// 
 			// pbClasses
 			// 
@@ -450,21 +453,21 @@ namespace SchoolManagement
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbClasses.TabIndex = 176;
 			this.pbClasses.TabStop = false;
-			this.pbClasses.Click += new System.EventHandler(this.pbClasses_Click);
 			// 
-			// lbTeachers
+			// lbPersonnel
 			// 
-			this.lbTeachers.AutoSize = true;
-			this.lbTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbTeachers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbTeachers.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbTeachers.Location = new System.Drawing.Point(81, 355);
-			this.lbTeachers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbTeachers.Name = "lbTeachers";
-			this.lbTeachers.Size = new System.Drawing.Size(221, 22);
-			this.lbTeachers.TabIndex = 175;
-			this.lbTeachers.Text = "PERSONNEL MANAGER";
+			this.lbPersonnel.AutoSize = true;
+			this.lbPersonnel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbPersonnel.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbPersonnel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbPersonnel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbPersonnel.Location = new System.Drawing.Point(81, 355);
+			this.lbPersonnel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbPersonnel.Name = "lbPersonnel";
+			this.lbPersonnel.Size = new System.Drawing.Size(221, 22);
+			this.lbPersonnel.TabIndex = 175;
+			this.lbPersonnel.Text = "PERSONNEL MANAGER";
+			this.lbPersonnel.Click += new System.EventHandler(this.lbPersonnel_Click);
 			// 
 			// pbTeachers
 			// 
@@ -478,19 +481,20 @@ namespace SchoolManagement
 			this.pbTeachers.TabIndex = 174;
 			this.pbTeachers.TabStop = false;
 			// 
-			// label9
+			// lbStudent
 			// 
-			this.label9.AutoSize = true;
-			this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label9.Location = new System.Drawing.Point(81, 288);
-			this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(199, 22);
-			this.label9.TabIndex = 173;
-			this.label9.Text = "STUDENTS MANAGER";
+			this.lbStudent.AutoSize = true;
+			this.lbStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.lbStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbStudent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbStudent.Location = new System.Drawing.Point(81, 288);
+			this.lbStudent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbStudent.Name = "lbStudent";
+			this.lbStudent.Size = new System.Drawing.Size(199, 22);
+			this.lbStudent.TabIndex = 173;
+			this.lbStudent.Text = "STUDENTS MANAGER";
+			this.lbStudent.Click += new System.EventHandler(this.lbStudent_Click);
 			// 
 			// pictureBox2
 			// 
@@ -539,7 +543,6 @@ namespace SchoolManagement
 			this.pbReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbReload.TabIndex = 157;
 			this.pbReload.TabStop = false;
-			this.pbReload.Click += new System.EventHandler(this.pbReload_Click);
 			// 
 			// btnLogin
 			// 
@@ -552,9 +555,9 @@ namespace SchoolManagement
 			this.btnLogin.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnLogin.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
 			this.btnLogin.OverrideDefault.Border.ColorAngle = 62F;
-			this.btnLogin.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.btnLogin.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btnLogin.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.btnLogin.OverrideDefault.Border.Rounding = 20;
 			this.btnLogin.OverrideDefault.Border.Width = 1;
@@ -565,9 +568,9 @@ namespace SchoolManagement
 			this.btnLogin.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnLogin.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
 			this.btnLogin.StateCommon.Border.ColorAngle = 62F;
-			this.btnLogin.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.btnLogin.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btnLogin.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.btnLogin.StateCommon.Border.Rounding = 20;
 			this.btnLogin.StateCommon.Border.Width = 1;
@@ -580,9 +583,9 @@ namespace SchoolManagement
 			this.btnLogin.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnLogin.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
 			this.btnLogin.StatePressed.Border.ColorAngle = 62F;
-			this.btnLogin.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.btnLogin.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btnLogin.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.btnLogin.StatePressed.Border.Rounding = 20;
 			this.btnLogin.StatePressed.Border.Width = 1;
@@ -592,9 +595,9 @@ namespace SchoolManagement
 			this.btnLogin.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnLogin.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
 			this.btnLogin.StateTracking.Border.ColorAngle = 62F;
-			this.btnLogin.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.btnLogin.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.btnLogin.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.btnLogin.StateTracking.Border.Rounding = 20;
 			this.btnLogin.StateTracking.Border.Width = 1;
@@ -611,9 +614,9 @@ namespace SchoolManagement
 			this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
 			this.txtSearch.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
 			this.txtSearch.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
-			| ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.txtSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
 			this.txtSearch.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
 			this.txtSearch.StateCommon.Border.Rounding = 20;
 			this.txtSearch.StateCommon.Border.Width = 1;
@@ -664,22 +667,22 @@ namespace SchoolManagement
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.pbLogout);
-			this.Controls.Add(this.label8);
+			this.Controls.Add(this.lbRole);
 			this.Controls.Add(this.pbSection);
 			this.Controls.Add(this.lbProfile);
 			this.Controls.Add(this.pbProfile);
-			this.Controls.Add(this.lbClasses);
+			this.Controls.Add(this.lbUsers);
 			this.Controls.Add(this.pbClasses);
-			this.Controls.Add(this.lbTeachers);
+			this.Controls.Add(this.lbPersonnel);
 			this.Controls.Add(this.pbTeachers);
-			this.Controls.Add(this.label9);
+			this.Controls.Add(this.lbStudent);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.lbDelete);
 			this.Controls.Add(this.pbDelete);
 			this.Controls.Add(this.lbEdit);
 			this.Controls.Add(this.pbEdit);
 			this.Controls.Add(this.lbStudents);
-			this.Controls.Add(this.pbStudents);
+			this.Controls.Add(this.pbAddUsers);
 			this.Controls.Add(this.pbPrev);
 			this.Controls.Add(this.pbNext);
 			this.Controls.Add(this.label7);
@@ -699,7 +702,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbStudents)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbAddUsers)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbPrev)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbNext)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -727,7 +730,7 @@ namespace SchoolManagement
 		private System.Windows.Forms.Label lbEdit;
 		private System.Windows.Forms.PictureBox pbEdit;
 		private System.Windows.Forms.Label lbStudents;
-		private System.Windows.Forms.PictureBox pbStudents;
+		private System.Windows.Forms.PictureBox pbAddUsers;
 		private System.Windows.Forms.PictureBox pbPrev;
 		private System.Windows.Forms.PictureBox pbNext;
 		private System.Windows.Forms.Label label7;
@@ -737,15 +740,15 @@ namespace SchoolManagement
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.PictureBox pbLogout;
-		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label lbRole;
 		private System.Windows.Forms.PictureBox pbSection;
 		private System.Windows.Forms.Label lbProfile;
 		private System.Windows.Forms.PictureBox pbProfile;
-		private System.Windows.Forms.Label lbClasses;
+		private System.Windows.Forms.Label lbUsers;
 		private System.Windows.Forms.PictureBox pbClasses;
-		private System.Windows.Forms.Label lbTeachers;
+		private System.Windows.Forms.Label lbPersonnel;
 		private System.Windows.Forms.PictureBox pbTeachers;
-		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Label lbStudent;
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Label Dashboard;
 		private System.Windows.Forms.Label lbHello;
