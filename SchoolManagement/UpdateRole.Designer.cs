@@ -52,22 +52,10 @@ namespace SchoolManagement
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.lbStudents = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
-			this.checkBox5 = new System.Windows.Forms.CheckBox();
-			this.checkBox6 = new System.Windows.Forms.CheckBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.checkBox7 = new System.Windows.Forms.CheckBox();
-			this.checkBox8 = new System.Windows.Forms.CheckBox();
-			this.checkBox9 = new System.Windows.Forms.CheckBox();
-			this.label5 = new System.Windows.Forms.Label();
 			this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -428,132 +416,6 @@ namespace SchoolManagement
 			this.lbStudents.TabIndex = 199;
 			this.lbStudents.Text = "---------- DETAIL INFORMATION -----------";
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label1.Font = new System.Drawing.Font("Century Gothic", 15F);
-			this.label1.Location = new System.Drawing.Point(414, 281);
-			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(100, 31);
-			this.label1.TabIndex = 218;
-			this.label1.Text = "Bảng A";
-			// 
-			// checkBox1
-			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(429, 320);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(42, 20);
-			this.checkBox1.TabIndex = 220;
-			this.checkBox1.Text = "ID";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// checkBox2
-			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(572, 320);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(66, 20);
-			this.checkBox2.TabIndex = 221;
-			this.checkBox2.Text = "Name";
-			this.checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// checkBox3
-			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Location = new System.Drawing.Point(726, 320);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(56, 20);
-			this.checkBox3.TabIndex = 222;
-			this.checkBox3.Text = "ABC";
-			this.checkBox3.UseVisualStyleBackColor = true;
-			// 
-			// checkBox4
-			// 
-			this.checkBox4.AutoSize = true;
-			this.checkBox4.Location = new System.Drawing.Point(726, 419);
-			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(56, 20);
-			this.checkBox4.TabIndex = 226;
-			this.checkBox4.Text = "ABC";
-			this.checkBox4.UseVisualStyleBackColor = true;
-			// 
-			// checkBox5
-			// 
-			this.checkBox5.AutoSize = true;
-			this.checkBox5.Location = new System.Drawing.Point(572, 419);
-			this.checkBox5.Name = "checkBox5";
-			this.checkBox5.Size = new System.Drawing.Size(66, 20);
-			this.checkBox5.TabIndex = 225;
-			this.checkBox5.Text = "Name";
-			this.checkBox5.UseVisualStyleBackColor = true;
-			// 
-			// checkBox6
-			// 
-			this.checkBox6.AutoSize = true;
-			this.checkBox6.Location = new System.Drawing.Point(429, 419);
-			this.checkBox6.Name = "checkBox6";
-			this.checkBox6.Size = new System.Drawing.Size(42, 20);
-			this.checkBox6.TabIndex = 224;
-			this.checkBox6.Text = "ID";
-			this.checkBox6.UseVisualStyleBackColor = true;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label2.Font = new System.Drawing.Font("Century Gothic", 15F);
-			this.label2.Location = new System.Drawing.Point(414, 380);
-			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(95, 31);
-			this.label2.TabIndex = 223;
-			this.label2.Text = "Bảng B";
-			// 
-			// checkBox7
-			// 
-			this.checkBox7.AutoSize = true;
-			this.checkBox7.Location = new System.Drawing.Point(726, 508);
-			this.checkBox7.Name = "checkBox7";
-			this.checkBox7.Size = new System.Drawing.Size(56, 20);
-			this.checkBox7.TabIndex = 230;
-			this.checkBox7.Text = "ABC";
-			this.checkBox7.UseVisualStyleBackColor = true;
-			// 
-			// checkBox8
-			// 
-			this.checkBox8.AutoSize = true;
-			this.checkBox8.Location = new System.Drawing.Point(572, 508);
-			this.checkBox8.Name = "checkBox8";
-			this.checkBox8.Size = new System.Drawing.Size(66, 20);
-			this.checkBox8.TabIndex = 229;
-			this.checkBox8.Text = "Name";
-			this.checkBox8.UseVisualStyleBackColor = true;
-			// 
-			// checkBox9
-			// 
-			this.checkBox9.AutoSize = true;
-			this.checkBox9.Location = new System.Drawing.Point(429, 508);
-			this.checkBox9.Name = "checkBox9";
-			this.checkBox9.Size = new System.Drawing.Size(42, 20);
-			this.checkBox9.TabIndex = 228;
-			this.checkBox9.Text = "ID";
-			this.checkBox9.UseVisualStyleBackColor = true;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label5.Font = new System.Drawing.Font("Century Gothic", 15F);
-			this.label5.Location = new System.Drawing.Point(414, 469);
-			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(101, 31);
-			this.label5.TabIndex = 227;
-			this.label5.Text = "Bảng C";
-			// 
 			// btnSave
 			// 
 			this.btnSave.Location = new System.Drawing.Point(752, 611);
@@ -621,26 +483,6 @@ namespace SchoolManagement
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
 			// 
-			// txtSearch
-			// 
-			this.txtSearch.Location = new System.Drawing.Point(635, 202);
-			this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-			this.txtSearch.Name = "txtSearch";
-			this.txtSearch.Size = new System.Drawing.Size(409, 37);
-			this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
-			this.txtSearch.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtSearch.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-			this.txtSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-			this.txtSearch.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-			this.txtSearch.StateCommon.Border.Rounding = 20;
-			this.txtSearch.StateCommon.Border.Width = 1;
-			this.txtSearch.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-			this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-			this.txtSearch.TabIndex = 233;
-			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
@@ -653,26 +495,26 @@ namespace SchoolManagement
 			this.label6.TabIndex = 234;
 			this.label6.Text = "ROLE NAME: ";
 			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.label7.Font = new System.Drawing.Font("Century Gothic", 13F);
+			this.label7.Location = new System.Drawing.Point(782, 208);
+			this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(104, 25);
+			this.label7.TabIndex = 235;
+			this.label7.Text = "TEST_123";
+			// 
 			// UpdateRole
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1309, 853);
+			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.txtSearch);
 			this.Controls.Add(this.btnSave);
-			this.Controls.Add(this.checkBox7);
-			this.Controls.Add(this.checkBox8);
-			this.Controls.Add(this.checkBox9);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.checkBox4);
-			this.Controls.Add(this.checkBox5);
-			this.Controls.Add(this.checkBox6);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.checkBox3);
-			this.Controls.Add(this.checkBox2);
-			this.Controls.Add(this.checkBox1);
-			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.pbLogout);
 			this.Controls.Add(this.lbRoles);
@@ -730,22 +572,10 @@ namespace SchoolManagement
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label lbStudents;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.CheckBox checkBox3;
-		private System.Windows.Forms.CheckBox checkBox4;
-		private System.Windows.Forms.CheckBox checkBox5;
-		private System.Windows.Forms.CheckBox checkBox6;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.CheckBox checkBox7;
-		private System.Windows.Forms.CheckBox checkBox8;
-		private System.Windows.Forms.CheckBox checkBox9;
-		private System.Windows.Forms.Label label5;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label Dashboard;
+		private System.Windows.Forms.Label label7;
 	}
 }

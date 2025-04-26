@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -37,8 +38,43 @@ namespace SchoolManagement
         public RoleManager()
         {
             InitializeComponent();
-
+			LoadRoles();
         }
+
+		// Load all role
+		private void LoadRoles()
+		{
+			try
+			{
+				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+
+				using (OracleConnection conn = new OracleConnection(oradb))
+				{
+					conn.Open();
+					string query = @"SELECT granted_role AS ROLE,
+									 LISTAGG(grantee, ', ') WITHIN GROUP (ORDER BY grantee) AS USERS
+									 FROM dba_role_privs
+									 WHERE (granted_role LIKE 'NV_%' OR granted_role = 'SV' OR granted_role LIKE 'TEST_%')
+									 AND grantee IN (SELECT username FROM dba_users)
+									 GROUP BY granted_role
+									 ORDER BY granted_role";
+
+                    OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
+					DataTable dt = new DataTable();
+					adapter.Fill(dt);
+
+					dgvUser.DataSource = dt;
+
+					// Show information
+					dgvUser.Columns["ROLE"].HeaderText = "Role";
+					dgvUser.Columns["USERS"].HeaderText = "User";
+				}
+			}
+			catch (Exception ex) 
+			{
+				MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
+			}
+		}
 
 		private void lbUsers_Click(object sender, EventArgs e)
 		{
@@ -90,11 +126,71 @@ namespace SchoolManagement
 
 		private void pbAddRoles_Click(object sender, EventArgs e)
 		{
-			AddRole addRole = new AddRole();
+            /*AddRole addRole = new AddRole();
 			this.Hide();
 			addRole.ShowDialog();
-			this.Close();
-		}
+			this.Close();*/
+            // Tạo form nhỏ
+            Form prompt = new Form()
+            {
+                Width = 300,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "ADD NEW ROLE",
+                StartPosition = FormStartPosition.CenterParent
+            };
+
+            Label textLabel = new Label() { Left = 20, Top = 20, Text = "ROLE NAME:" };
+            TextBox textBox = new TextBox() { Left = 100, Top = 20, Width = 150 };
+            Button confirmation = new Button() { Text = "Add", Left = 60, Width = 80, Top = 70, DialogResult = DialogResult.OK };
+            Button cancel = new Button() { Text = "Cancel", Left = 150, Width = 80, Top = 70, DialogResult = DialogResult.Cancel };
+
+            confirmation.Click += (s, ea) => { prompt.Close(); };
+            cancel.Click += (s, ea) => { prompt.Close(); };
+
+            prompt.Controls.Add(textLabel);
+            prompt.Controls.Add(textBox);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(cancel);
+
+            prompt.AcceptButton = confirmation;
+            prompt.CancelButton = cancel;
+
+            if (prompt.ShowDialog(this) == DialogResult.OK)
+            {
+                string roleName = textBox.Text.Trim().ToUpper();
+
+                if (!string.IsNullOrEmpty(roleName))
+                {
+                    try
+                    {
+                        string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+
+                        using (OracleConnection conn = new OracleConnection(oradb))
+                        {
+                            conn.Open();
+                            string query = $"CREATE ROLE {roleName}";
+
+                            using (OracleCommand cmd = new OracleCommand(query, conn))
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        MessageBox.Show("Role created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadRoles(); // Load lại danh sách
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error creating role:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a role name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
 
 		private void pbEdit_Click(object sender, EventArgs e)
 		{
@@ -106,7 +202,52 @@ namespace SchoolManagement
 
 		private void pbDelete_Click(object sender, EventArgs e)
 		{
+            try
+            {
+                if (dgvUser.CurrentRow == null || dgvUser.CurrentRow.Cells["ROLE"].Value == null)
+                {
+                    MessageBox.Show("Vui lòng chọn role để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-		}
-	}
+                string roleName = dgvUser.CurrentRow.Cells["ROLE"].Value.ToString();
+
+                DialogResult result = MessageBox.Show(
+                    $"Delete this role \"{roleName}\"?\nYou cannot undo!",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+
+                    using (OracleConnection conn = new OracleConnection(oradb))
+                    {
+                        conn.Open();
+                        string sql = $"DROP ROLE {roleName}";
+
+                        using (OracleCommand cmd = new OracleCommand(sql, conn))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Role đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    LoadRoles(); // Reload lại danh sách roles sau khi xóa
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa role:\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ReloadRolesList(object sender, EventArgs e)
+        {
+			LoadRoles();
+        }
+    }
 }
