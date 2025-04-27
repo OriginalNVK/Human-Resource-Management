@@ -16,7 +16,7 @@ namespace SchoolManagement
     public partial class UpdateUser : KryptonForm
     {
         private const int CS_DropShadow = 0x00020000;
-        protected override CreateParams CreateParams
+        protected override CreateParams CreateParams	
         {
             get
             {

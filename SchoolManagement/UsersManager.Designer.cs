@@ -264,6 +264,7 @@ namespace SchoolManagement
 			this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbDelete.TabIndex = 166;
 			this.pbDelete.TabStop = false;
+			this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
 			// 
 			// pbEdit
 			// 

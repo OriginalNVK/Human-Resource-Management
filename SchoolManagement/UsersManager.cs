@@ -183,107 +183,6 @@ namespace SchoolManagement
 			}
 		}
 
-		private void btnDeleteUser_Click(object sender, EventArgs e)
-		{
-			//try
-			//{
-			//	// Lấy username và role từ các controls
-			//	string username = txtUsername.Text.Trim();
-			//	string role = RoleDropdown.SelectedItem?.ToString();
-
-			//	// Kiểm tra dữ liệu đầu vào
-			//	if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(role))
-			//	{
-			//		MessageBox.Show("Vui lòng chọn Username và Role để xóa.");
-			//		return;
-			//	}
-
-			//	string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-			//	using (OracleConnection conn = new OracleConnection(oradb))
-			//	{
-			//		conn.Open();
-			//		OracleTransaction transaction = conn.BeginTransaction(); // Bắt đầu transaction
-
-			//		try
-			//		{
-			//			// 1. Xóa dữ liệu từ bảng tương ứng với Role trước
-			//			string roleSpecificDeleteQuery = "";
-
-			//			switch (role)
-			//			{
-			//				case "ADMIN":
-			//					roleSpecificDeleteQuery = "DELETE FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
-			//					break;
-
-			//				case "NHAN VIEN":
-			//					roleSpecificDeleteQuery = "DELETE FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
-			//					break;
-
-			//				case "SINH VIEN":
-			//					roleSpecificDeleteQuery = "DELETE FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
-			//					break;
-
-			//				default:
-			//					transaction.Rollback();
-			//					MessageBox.Show("Role không hợp lệ");
-			//					return;
-			//			}
-
-			//			using (OracleCommand cmdRoleDelete = new OracleCommand(roleSpecificDeleteQuery, conn))
-			//			{
-			//				cmdRoleDelete.Transaction = transaction;
-			//				cmdRoleDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-
-			//				int roleDeleteResult = cmdRoleDelete.ExecuteNonQuery();
-			//				if (roleDeleteResult <= 0)
-			//				{
-			//					transaction.Rollback();
-			//					MessageBox.Show("Không thể xóa thông tin chi tiết cho role");
-			//					return;
-			//				}
-			//			}
-
-			//			// 2. Xóa tài khoản trong bảng TAIKHOAN
-			//			string deleteAccountQuery = "DELETE FROM SYS.TAIKHOAN WHERE MATK = :username";
-
-			//			using (OracleCommand cmdAccountDelete = new OracleCommand(deleteAccountQuery, conn))
-			//			{
-			//				cmdAccountDelete.Transaction = transaction;
-			//				cmdAccountDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-
-			//				int accountDeleteResult = cmdAccountDelete.ExecuteNonQuery();
-			//				if (accountDeleteResult <= 0)
-			//				{
-			//					transaction.Rollback();
-			//					MessageBox.Show("Không thể xóa tài khoản");
-			//					return;
-			//				}
-			//			}
-
-			//			transaction.Commit(); // Commit transaction nếu mọi thứ thành công
-			//			MessageBox.Show("Xóa người dùng thành công!");
-
-			//			// Cập nhật danh sách người dùng
-			//			UsersManager userManager = new UsersManager();
-			//			this.Hide();
-			//			userManager.ShowDialog();
-			//			this.Close();
-			//		}
-			//		catch (Exception ex)
-			//		{
-			//			transaction.Rollback(); // Rollback nếu có lỗi
-			//			MessageBox.Show("Lỗi khi xóa người dùng:\n" + ex.Message);
-			//		}
-			//	}
-			//}
-			//catch (Exception ex)
-			//{
-			//	MessageBox.Show("Lỗi khi kết nối cơ sở dữ liệu:\n" + ex.Message);
-			//}
-		}
-
-
 		private void pbNext_Click(object sender, EventArgs e)
 		{
 
@@ -382,6 +281,109 @@ namespace SchoolManagement
 			this.Hide();
 			login.ShowDialog();
 			this.Close();
+		}
+
+		private void pbDelete_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+
+				using (OracleConnection conn = new OracleConnection(oradb))
+				{
+					conn.Open();
+					OracleTransaction transaction = conn.BeginTransaction();
+
+					try
+					{
+						// Tìm dòng đang được chọn (checkbox true)
+						string usernameToDelete = null;
+						string roleToDelete = null;
+
+						foreach (DataGridViewRow row in dgvUser.Rows)
+						{
+							bool isChecked = Convert.ToBoolean(row.Cells["chk"].Value ?? false);
+							if (isChecked)
+							{
+								usernameToDelete = row.Cells["Username"].Value?.ToString();
+								roleToDelete = row.Cells["Role"].Value?.ToString();
+								break; // chỉ lấy 1 dòng đầu tiên được chọn
+							}
+						}
+
+						if (string.IsNullOrEmpty(usernameToDelete) || string.IsNullOrEmpty(roleToDelete))
+						{
+							MessageBox.Show("Vui lòng chọn người dùng để xóa!");
+							return;
+						}
+
+						// 1. Xóa trong bảng chi tiết trước
+						string deleteDetailQuery = "";
+
+						switch (roleToDelete)
+						{
+							case "ADMIN":
+								deleteDetailQuery = "DELETE FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+								break;
+							case "NHAN VIEN":
+								deleteDetailQuery = "DELETE FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
+								break;
+							case "SINH VIEN":
+								deleteDetailQuery = "DELETE FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
+								break;
+							default:
+								MessageBox.Show("Role không hợp lệ!");
+								return;
+						}
+
+						using (OracleCommand cmdDetail = new OracleCommand(deleteDetailQuery, conn))
+						{
+							cmdDetail.Transaction = transaction;
+							cmdDetail.Parameters.Add("username", OracleDbType.Varchar2).Value = usernameToDelete;
+
+							int detailResult = cmdDetail.ExecuteNonQuery();
+							if (detailResult <= 0)
+							{
+								transaction.Rollback();
+								MessageBox.Show("Không thể xóa dữ liệu chi tiết!");
+								return;
+							}
+						}
+
+						// 2. Xóa trong bảng TAIKHOAN
+						string deleteAccountQuery = "DELETE FROM SYS.TAIKHOAN WHERE MATK = :username";
+
+						using (OracleCommand cmdAccount = new OracleCommand(deleteAccountQuery, conn))
+						{
+							cmdAccount.Transaction = transaction;
+							cmdAccount.Parameters.Add("username", OracleDbType.Varchar2).Value = usernameToDelete;
+
+							int accountResult = cmdAccount.ExecuteNonQuery();
+							if (accountResult <= 0)
+							{
+								transaction.Rollback();
+								MessageBox.Show("Không thể xóa tài khoản!");
+								return;
+							}
+						}
+
+						transaction.Commit();
+						MessageBox.Show("Xóa người dùng thành công!");
+
+						// Refresh lại danh sách
+						LoadUsers();
+					}
+					catch (Exception ex)
+					{
+						transaction.Rollback();
+						MessageBox.Show("Lỗi khi xóa người dùng:\n" + ex.Message);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi kết nối cơ sở dữ liệu:\n" + ex.Message);
+			}
 		}
 	}
 }
