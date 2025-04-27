@@ -62,7 +62,7 @@ namespace SchoolManagement
 					{
 						// 1. Thêm vào bảng TAIKHOAN trước
 						string queryAccount = "INSERT INTO SYS.TAIKHOAN (MATK, MATKHAU, CHUCVU) " +
-											"VALUES (:username, :password, :role)";
+					 "VALUES (:username, STANDARD_HASH(:password, 'MD5'), :role)";
 
 						using (OracleCommand cmdAccount = new OracleCommand(queryAccount, conn))
 						{
@@ -133,7 +133,8 @@ namespace SchoolManagement
 
 						// Cập nhật danh sách người dùng
 						UsersManager userManager = new UsersManager();
-						userManager.RefreshUserList();
+						this.Hide();
+						userManager.ShowDialog();
 						this.Close();
 					}
 					catch (Exception ex)
