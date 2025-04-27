@@ -456,7 +456,7 @@ namespace SchoolManagement
 			this.RoleDropdown.Items.AddRange(new object[] {
             "ADMIN",
             "SINH VIEN",
-            "GIAO VIEN"});
+            "NHAN VIEN"});
 			this.RoleDropdown.Location = new System.Drawing.Point(787, 269);
 			this.RoleDropdown.Name = "RoleDropdown";
 			this.RoleDropdown.Size = new System.Drawing.Size(285, 24);
@@ -653,8 +653,8 @@ namespace SchoolManagement
 			// 
 			this.GenderDropdown.FormattingEnabled = true;
 			this.GenderDropdown.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE"});
+            "Nam",
+            "Nu"});
 			this.GenderDropdown.Location = new System.Drawing.Point(786, 367);
 			this.GenderDropdown.Name = "GenderDropdown";
 			this.GenderDropdown.Size = new System.Drawing.Size(285, 24);

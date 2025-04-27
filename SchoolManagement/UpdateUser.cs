@@ -25,19 +25,108 @@ namespace SchoolManagement
                 return cp;
             }
         }
-		public UpdateUser()
+		public UpdateUser(string username, string role)
         {
             InitializeComponent();
+			// Hiển thị thông tin cơ bản
+			txtUsername.Text = username;
+			RoleDropdown.Text = role;
+
+			// Load các thông tin chi tiết khác từ database nếu cần
+			LoadInformation(username, role);
         }
 
-		private void btnCreateUser_Click(object sender, EventArgs e)
+		private void LoadInformation(string username, string role)
+		{
+			try
+			{
+				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+
+				using (OracleConnection conn = new OracleConnection(oradb))
+				{
+					conn.Open();
+					string query = "";
+					OracleCommand cmd;
+
+					// Xác định query dựa trên role của user
+					switch (role.ToUpper())
+					{
+						case "ADMIN":
+							query = @"SELECT t.MATK, t.MATKHAU, t.CHUCVU, 
+                                    a.HOTEN, a.PHAI, a.DT, a.DCHI, a.NGSINH
+                             FROM SYS.TAIKHOAN t
+                             JOIN SYS.QLDH_ADMIN a ON t.MATK = a.MAAD
+                             WHERE t.MATK = :username";
+							break;
+						case "NHAN VIEN":
+							query = @"SELECT t.MATK, t.MATKHAU, t.CHUCVU, 
+                                    n.HOTEN, n.PHAI, n.DT, n.DCHI, n.NGSINH
+                             FROM SYS.TAIKHOAN t
+                             JOIN SYS.QLDH_NHANVIEN n ON t.MATK = n.MANV
+                             WHERE t.MATK = :username";
+							break;
+						case "SINH VIEN":
+							query = @"SELECT t.MATK, t.MATKHAU, t.CHUCVU, 
+                                    s.HOTEN, s.PHAI, s.DT, s.DCHI, s.NGSINH
+                             FROM SYS.TAIKHOAN t
+                             JOIN SYS.QLDH_SINHVIEN s ON t.MATK = s.MASV
+                             WHERE t.MATK = :username";
+							break;
+						default:
+							throw new Exception("Vai trò người dùng không hợp lệ");
+					}
+
+					cmd = new OracleCommand(query, conn);
+					cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = username;
+
+					using (OracleDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader.Read())
+						{
+							// Hiển thị thông tin cơ bản
+							txtUsername.Text = reader["MATK"].ToString();
+							txtPassword.Text = reader["MATKHAU"].ToString();
+							RoleDropdown.Text = reader["CHUCVU"].ToString();
+							txtFullname.Text = reader["HOTEN"].ToString();
+
+							// Xử lý giới tính
+							string gender = reader["PHAI"].ToString();
+							if (gender == "Nam")
+								GenderDropdown.Text = "Nam";
+							else if (gender == "Nu")
+								GenderDropdown.Text= "Nu";
+
+							txtPhoneNum.Text = reader["DT"].ToString();
+							txtAddress.Text = reader["DCHI"].ToString();
+
+							// Xử lý ngày sinh
+							if (reader["NGSINH"] != DBNull.Value)
+							{
+								DateTime birthDate = Convert.ToDateTime(reader["NGSINH"]);
+								dtpDOB.Value = birthDate;
+							}
+						}
+						else
+						{
+							MessageBox.Show("Không tìm thấy thông tin người dùng");
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi tải thông tin người dùng:\n" + ex.Message);
+			}
+		}
+
+		private void btnUpdateUser_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				// Lấy thông tin từ các controls trên form
 				string username = txtUsername.Text.Trim();
 				string password = txtPassword.Text.Trim();
-				string role = RoleDropdown.SelectedItem?.ToString();
+				string role = RoleDropdown.SelectedItem?.ToString()?.Replace(" ", "");
 				string fullname = txtFullname.Text.Trim();
 				string gender = GenderDropdown.SelectedItem?.ToString();
 				string phoNum = txtPhoneNum.Text.Trim();
@@ -45,9 +134,9 @@ namespace SchoolManagement
 				string dob = dtpDOB.Value.ToString("dd-MMM-yyyy");
 
 				// Kiểm tra các trường bắt buộc
-				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
+				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(role))
 				{
-					MessageBox.Show("Vui lòng điền đầy đủ thông tin bắt buộc (Username, Password, Role)");
+					MessageBox.Show("Vui lòng điền đầy đủ thông tin bắt buộc (Username, Role)");
 					return;
 				}
 
@@ -56,51 +145,73 @@ namespace SchoolManagement
 				using (OracleConnection conn = new OracleConnection(oradb))
 				{
 					conn.Open();
-					OracleTransaction transaction = conn.BeginTransaction(); // Bắt đầu transaction
+					OracleTransaction transaction = conn.BeginTransaction();
 
 					try
 					{
-						// 1. Thêm vào bảng TAIKHOAN trước
-						string queryAccount = "INSERT INTO SYS.TAIKHOAN (MATK, MATKHAU, CHUCVU) " +
-											"VALUES (:username, :password, :role)";
+						// 1. Cập nhật bảng TAIKHOAN
+						string queryAccount = "UPDATE SYS.TAIKHOAN SET ";
+						bool hasPasswordUpdate = !string.IsNullOrEmpty(password);
+
+						if (hasPasswordUpdate)
+						{
+							queryAccount += "MATKHAU = :password, ";
+						}
+
+						queryAccount += "CHUCVU = :role WHERE MATK = :username";
 
 						using (OracleCommand cmdAccount = new OracleCommand(queryAccount, conn))
 						{
 							cmdAccount.Transaction = transaction;
 							cmdAccount.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-							cmdAccount.Parameters.Add("password", OracleDbType.Varchar2).Value = password;
 							cmdAccount.Parameters.Add("role", OracleDbType.Varchar2).Value = role;
+
+							if (hasPasswordUpdate)
+							{
+								cmdAccount.Parameters.Add("password", OracleDbType.Varchar2).Value = password;
+							}
 
 							int accountResult = cmdAccount.ExecuteNonQuery();
 							if (accountResult <= 0)
 							{
 								transaction.Rollback();
-								MessageBox.Show("Không thể thêm tài khoản");
+								MessageBox.Show("Không tìm thấy tài khoản để cập nhật");
 								return;
 							}
 						}
 
-						// 2. Thêm vào bảng tương ứng với role
+						// 2. Cập nhật bảng tương ứng với role
 						string roleSpecificQuery = "";
 						switch (role)
 						{
 							case "ADMIN":
-								roleSpecificQuery = "INSERT INTO SYS.QLDH_ADMIN (MAAD, HOTEN, PHAI, NGSINH, DCHI, DT) " +
-												 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum)";
+								roleSpecificQuery = @"UPDATE SYS.QLDH_ADMIN 
+                                           SET HOTEN = :fullname, 
+                                               PHAI = :gender, 
+                                               NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+                                               DCHI = :address, 
+                                               DT = :phoNum 
+                                           WHERE MAAD = :username";
 								break;
 
-							case "NHAN VIEN":
-								// Lưu ý: Bảng NHANVIEN có thêm các trường LUONG, PHUCAP, VAITRO, MADV
-								// Ở đây tôi giả định có thêm các control để nhập các thông tin này
-								roleSpecificQuery = "INSERT INTO SYS.QLDH_NHANVIEN (MANV, HOTEN, PHAI, NGSINH, DCHI, DT, LUONG, PHUCAP, VAITRO, MADV) " +
-												 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, 0, 0, 'NVCB', NULL)";
+							case "NHANVIEN":
+								roleSpecificQuery = @"UPDATE SYS.QLDH_NHANVIEN 
+                                            SET HOTEN = :fullname, 
+                                                PHAI = :gender, 
+                                                NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+                                                DCHI = :address, 
+                                                DT = :phoNum 
+                                            WHERE MANV = :username";
 								break;
 
-							case "SINH VIEN":
-								// Lưu ý: Bảng SINHVIEN có thêm các trường KHOA, TINHTRANG
-								// Ở đây tôi giả định có thêm các control để nhập các thông tin này
-								roleSpecificQuery = "INSERT INTO SYS.QLDH_SINHVIEN (MASV, HOTEN, PHAI, NGSINH, DCHI, DT, KHOA, TINHTRANG) " +
-												 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, NULL, 'Dang hoc')";
+							case "SINHVIEN":
+								roleSpecificQuery = @"UPDATE SYS.QLDH_SINHVIEN 
+                                            SET HOTEN = :fullname, 
+                                                PHAI = :gender, 
+                                                NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+                                                DCHI = :address, 
+                                                DT = :phoNum 
+                                            WHERE MASV = :username";
 								break;
 
 							default:
@@ -123,13 +234,13 @@ namespace SchoolManagement
 							if (roleResult <= 0)
 							{
 								transaction.Rollback();
-								MessageBox.Show("Không thể thêm thông tin chi tiết cho role");
+								MessageBox.Show("Không tìm thấy thông tin chi tiết để cập nhật");
 								return;
 							}
 						}
 
-						transaction.Commit(); // Commit transaction nếu cả 2 lệnh thành công
-						MessageBox.Show("Thêm người dùng thành công!");
+						transaction.Commit();
+						MessageBox.Show("Cập nhật người dùng thành công!");
 
 						// Cập nhật danh sách người dùng
 						UsersManager userManager = new UsersManager();
@@ -138,8 +249,8 @@ namespace SchoolManagement
 					}
 					catch (Exception ex)
 					{
-						transaction.Rollback(); // Rollback nếu có lỗi
-						MessageBox.Show("Lỗi khi thêm người dùng:\n" + ex.Message);
+						transaction.Rollback();
+						MessageBox.Show("Lỗi khi cập nhật người dùng:\n" + ex.Message);
 					}
 				}
 			}

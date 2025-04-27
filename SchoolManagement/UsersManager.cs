@@ -42,30 +42,86 @@ namespace SchoolManagement
 		{
 			try
 			{
-				string oradb = ConfigurationManager
-					.ConnectionStrings["SchoolDB"]
-					.ConnectionString;
+				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
 
 				using (OracleConnection conn = new OracleConnection(oradb))
 				{
 					conn.Open();
-
-					string query = "SELECT MATK, CHUCVU FROM SYS.TAIKHOAN";
+					string query = "SELECT MATK AS USERNAME, CHUCVU AS ROLE FROM SYS.TAIKHOAN";
 
 					OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
 					DataTable dt = new DataTable();
 					adapter.Fill(dt);
 
-					dgvUser.DataSource = dt;
+					// Tắt tất cả chế độ auto size trước
+					dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+					dgvUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
-					// Tùy chỉnh hiển thị nếu muốn
-					dgvUser.Columns["MATK"].HeaderText = "Username";
-					dgvUser.Columns["CHUCVU"].HeaderText = "Role";
+					// Xóa dữ liệu cũ
+					dgvUser.DataSource = null;
+					dgvUser.Columns.Clear();
+
+					// 1. Tạo cột checkbox với đầy đủ thuộc tính
+					DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn()
+					{
+						Name = "chk",
+						HeaderText = "",
+						Width = 40,
+						ReadOnly = false, // QUAN TRỌNG: Phải để false
+						FalseValue = false,
+						TrueValue = true,
+						IndeterminateValue = false
+					};
+					dgvUser.Columns.Add(chk);
+
+					// 2. Thêm cột dữ liệu
+					dgvUser.Columns.Add("Username", "Username");
+					dgvUser.Columns.Add("Role", "Role");
+
+					// 3. Đổ dữ liệu thủ công
+					foreach (DataRow row in dt.Rows)
+					{
+						int index = dgvUser.Rows.Add();
+						dgvUser.Rows[index].Cells["Username"].Value = row["USERNAME"];
+						dgvUser.Rows[index].Cells["Role"].Value = row["ROLE"];
+						dgvUser.Rows[index].Cells["chk"].Value = false; // Mặc định không chọn
+					}
+
+					// 4. Cấu hình quan trọng
+					dgvUser.RowHeadersVisible = false;
+					dgvUser.AllowUserToAddRows = false;
+					dgvUser.MultiSelect = false;
+					dgvUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+					// 5. Bật lại AutoSize nếu cần (SAU khi đã ẩn row headers)
+					dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+					// 6. Gán sự kiện CellClick (QUAN TRỌNG)
+					dgvUser.CellClick += DgvUser_CellClick;
 				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show("Lỗi khi tải dữ liệu người dùng:\n" + ex.Message);
+			}
+		}
+
+		// Xử lý sự kiện click checkbox
+		private void DgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex < 0 || e.ColumnIndex != 0) return; // Chỉ xử lý click vào cột checkbox
+
+			// Toggle trạng thái checkbox
+			bool currentValue = Convert.ToBoolean(dgvUser.Rows[e.RowIndex].Cells["chk"].Value ?? false);
+			dgvUser.Rows[e.RowIndex].Cells["chk"].Value = !currentValue;
+
+			// Bỏ chọn các dòng khác
+			foreach (DataGridViewRow row in dgvUser.Rows)
+			{
+				if (row.Index != e.RowIndex)
+				{
+					row.Cells["chk"].Value = false;
+				}
 			}
 		}
 
@@ -101,24 +157,132 @@ namespace SchoolManagement
 
 		private void pbEdit_Click(object sender, EventArgs e)
 		{
+			var selectedRow = dgvUser.Rows.Cast<DataGridViewRow>()
+				.FirstOrDefault(row => row.Cells["chk"].Value != null &&
+									 Convert.ToBoolean(row.Cells["chk"].Value));
 
-			if (!isSelected)
+			if (selectedRow != null)
 			{
-				MessageBox.Show("Please choose class to edit!");
-				return;
+				UpdateUser updateForm = new UpdateUser(
+					selectedRow.Cells["Username"].Value.ToString(),
+					selectedRow.Cells["Role"].Value.ToString());
+
+				this.Hide();
+				updateForm.ShowDialog();
+				this.Show();
+
+				// Refresh dữ liệu sau khi chỉnh sửa
+				LoadUsers();
 			}
-			action = 1;
-			pbAddUsers.Visible = false;
-			lbStudents.Visible = false;
-			pbEdit.Visible = false;
-			lbEdit.Visible = false;
-			pbDelete.Visible = false;
+			else
+			{
+				KryptonMessageBox.Show("Vui lòng chọn người dùng cần chỉnh sửa",
+									 "Thông báo",
+									 MessageBoxButtons.OK,
+									 MessageBoxIcon.Warning);
+			}
 		}
 
-		private void pbDelete_Click(object sender, EventArgs e)
+		private void btnDeleteUser_Click(object sender, EventArgs e)
 		{
+			//try
+			//{
+			//	// Lấy username và role từ các controls
+			//	string username = txtUsername.Text.Trim();
+			//	string role = RoleDropdown.SelectedItem?.ToString();
 
+			//	// Kiểm tra dữ liệu đầu vào
+			//	if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(role))
+			//	{
+			//		MessageBox.Show("Vui lòng chọn Username và Role để xóa.");
+			//		return;
+			//	}
+
+			//	string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+
+			//	using (OracleConnection conn = new OracleConnection(oradb))
+			//	{
+			//		conn.Open();
+			//		OracleTransaction transaction = conn.BeginTransaction(); // Bắt đầu transaction
+
+			//		try
+			//		{
+			//			// 1. Xóa dữ liệu từ bảng tương ứng với Role trước
+			//			string roleSpecificDeleteQuery = "";
+
+			//			switch (role)
+			//			{
+			//				case "ADMIN":
+			//					roleSpecificDeleteQuery = "DELETE FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+			//					break;
+
+			//				case "NHAN VIEN":
+			//					roleSpecificDeleteQuery = "DELETE FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
+			//					break;
+
+			//				case "SINH VIEN":
+			//					roleSpecificDeleteQuery = "DELETE FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
+			//					break;
+
+			//				default:
+			//					transaction.Rollback();
+			//					MessageBox.Show("Role không hợp lệ");
+			//					return;
+			//			}
+
+			//			using (OracleCommand cmdRoleDelete = new OracleCommand(roleSpecificDeleteQuery, conn))
+			//			{
+			//				cmdRoleDelete.Transaction = transaction;
+			//				cmdRoleDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+
+			//				int roleDeleteResult = cmdRoleDelete.ExecuteNonQuery();
+			//				if (roleDeleteResult <= 0)
+			//				{
+			//					transaction.Rollback();
+			//					MessageBox.Show("Không thể xóa thông tin chi tiết cho role");
+			//					return;
+			//				}
+			//			}
+
+			//			// 2. Xóa tài khoản trong bảng TAIKHOAN
+			//			string deleteAccountQuery = "DELETE FROM SYS.TAIKHOAN WHERE MATK = :username";
+
+			//			using (OracleCommand cmdAccountDelete = new OracleCommand(deleteAccountQuery, conn))
+			//			{
+			//				cmdAccountDelete.Transaction = transaction;
+			//				cmdAccountDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+
+			//				int accountDeleteResult = cmdAccountDelete.ExecuteNonQuery();
+			//				if (accountDeleteResult <= 0)
+			//				{
+			//					transaction.Rollback();
+			//					MessageBox.Show("Không thể xóa tài khoản");
+			//					return;
+			//				}
+			//			}
+
+			//			transaction.Commit(); // Commit transaction nếu mọi thứ thành công
+			//			MessageBox.Show("Xóa người dùng thành công!");
+
+			//			// Cập nhật danh sách người dùng
+			//			UsersManager userManager = new UsersManager();
+			//			this.Hide();
+			//			userManager.ShowDialog();
+			//			this.Close();
+			//		}
+			//		catch (Exception ex)
+			//		{
+			//			transaction.Rollback(); // Rollback nếu có lỗi
+			//			MessageBox.Show("Lỗi khi xóa người dùng:\n" + ex.Message);
+			//		}
+			//	}
+			//}
+			//catch (Exception ex)
+			//{
+			//	MessageBox.Show("Lỗi khi kết nối cơ sở dữ liệu:\n" + ex.Message);
+			//}
 		}
+
 
 		private void pbNext_Click(object sender, EventArgs e)
 		{
