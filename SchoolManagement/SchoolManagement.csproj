@@ -108,6 +108,7 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseSession.cs" />
     <Compile Include="UpdateRole.cs">
       <SubType>Form</SubType>
     </Compile>

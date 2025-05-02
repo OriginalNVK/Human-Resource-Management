@@ -16,22 +16,22 @@ namespace SchoolManagement
         [STAThread]
         static void Main()
         {
-			string connStr = ConfigurationManager
-				   .ConnectionStrings["SchoolDB"]
-				   .ConnectionString;
+			//string connStr = ConfigurationManager
+			//	   .ConnectionStrings["SchoolDB"]
+			//	   .ConnectionString;
 
-			using (var conn = new OracleConnection(connStr))
-			{
-				try
-				{
-					conn.Open();
-					MessageBox.Show("✔ Oracle connection successful!");
-				}
-				catch (OracleException ox)
-				{
-					MessageBox.Show($"Oracle error: {ox.Message}");
-				}
-			}
+			//using (var conn = new OracleConnection(connStr))
+			//{
+			//	try
+			//	{
+			//		conn.Open();
+			//		MessageBox.Show("✔ Oracle connection successful!");
+			//	}
+			//	catch (OracleException ox)
+			//	{
+			//		MessageBox.Show($"Oracle error: {ox.Message}");
+			//	}
+			//}
 
 
 			Application.EnableVisualStyles();

@@ -42,226 +42,214 @@ namespace SchoolManagement
 		{
 			try
 			{
-				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-				using (OracleConnection conn = new OracleConnection(oradb))
+				// Lấy connection đã được mở ở login
+				OracleConnection conn = DatabaseSession.Connection;
+				MessageBox.Show(conn.ToString());
+				if (conn == null || conn.State != ConnectionState.Open)
 				{
-					conn.Open();
-					string query = "";
-					OracleCommand cmd;
+					MessageBox.Show("Kết nối chưa khởi tạo hoặc chưa mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
 
-					// Xác định query dựa trên role của user
-					switch (role.ToUpper())
+				string query;
+				switch (role.ToUpper())
+				{
+					case "ADMIN":
+						query = @"
+            SELECT u.USERNAME,
+                   a.HOTEN, a.PHAI, a.DT, a.DCHI, a.NGSINH
+              FROM SYS.QLDH_ADMIN a
+              JOIN ALL_USERS u ON u.USERNAME = a.MAAD
+             WHERE u.USERNAME = :username";
+						break;
+
+					case "NHAN VIEN":
+						query = @"
+            SELECT u.USERNAME,
+                   n.HOTEN, n.PHAI, n.DT, n.DCHI, n.NGSINH
+              FROM SYS.QLDH_NHANVIEN n
+              JOIN ALL_USERS u ON u.USERNAME = n.MANV
+             WHERE u.USERNAME = :username";
+						break;
+
+					case "SINH VIEN":
+						query = @"
+            SELECT u.USERNAME,
+                   s.HOTEN, s.PHAI, s.DT, s.DCHI, s.NGSINH
+              FROM SYS.QLDH_SINHVIEN s
+              JOIN ALL_USERS u ON u.USERNAME = s.MASV
+             WHERE u.USERNAME = :username";
+						break;
+
+					default:
+						MessageBox.Show("Vai trò người dùng không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						return;
+				}
+
+				using (var cmd = new OracleCommand(query, conn))
+				{
+					cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username.ToUpper();
+
+					using (var reader = cmd.ExecuteReader())
 					{
-						case "ADMIN":
-							query = @"SELECT t.MATK, t.MATKHAU, t.CHUCVU, 
-                                    a.HOTEN, a.PHAI, a.DT, a.DCHI, a.NGSINH
-                             FROM SYS.TAIKHOAN t
-                             JOIN SYS.QLDH_ADMIN a ON t.MATK = a.MAAD
-                             WHERE t.MATK = :username";
-							break;
-						case "NHAN VIEN":
-							query = @"SELECT t.MATK, t.MATKHAU, t.CHUCVU, 
-                                    n.HOTEN, n.PHAI, n.DT, n.DCHI, n.NGSINH
-                             FROM SYS.TAIKHOAN t
-                             JOIN SYS.QLDH_NHANVIEN n ON t.MATK = n.MANV
-                             WHERE t.MATK = :username";
-							break;
-						case "SINH VIEN":
-							query = @"SELECT t.MATK, t.MATKHAU, t.CHUCVU, 
-                                    s.HOTEN, s.PHAI, s.DT, s.DCHI, s.NGSINH
-                             FROM SYS.TAIKHOAN t
-                             JOIN SYS.QLDH_SINHVIEN s ON t.MATK = s.MASV
-                             WHERE t.MATK = :username";
-							break;
-						default:
-							throw new Exception("Vai trò người dùng không hợp lệ");
-					}
-
-					cmd = new OracleCommand(query, conn);
-					cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = username;
-
-					using (OracleDataReader reader = cmd.ExecuteReader())
-					{
-						if (reader.Read())
+						if (!reader.Read())
 						{
-							// Hiển thị thông tin cơ bản
-							txtUsername.Text = reader["MATK"].ToString();
-							txtPassword.Text = reader["MATKHAU"].ToString();
-							RoleDropdown.Text = reader["CHUCVU"].ToString();
-							txtFullname.Text = reader["HOTEN"].ToString();
-
-							// Xử lý giới tính
-							string gender = reader["PHAI"].ToString();
-							if (gender == "Nam")
-								GenderDropdown.Text = "Nam";
-							else if (gender == "Nu")
-								GenderDropdown.Text= "Nu";
-
-							txtPhoneNum.Text = reader["DT"].ToString();
-							txtAddress.Text = reader["DCHI"].ToString();
-
-							// Xử lý ngày sinh
-							if (reader["NGSINH"] != DBNull.Value)
-							{
-								DateTime birthDate = Convert.ToDateTime(reader["NGSINH"]);
-								dtpDOB.Value = birthDate;
-							}
+							MessageBox.Show("Không tìm thấy thông tin người dùng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							return;
 						}
-						else
-						{
-							MessageBox.Show("Không tìm thấy thông tin người dùng");
-						}
+
+						// Username
+						txtUsername.Text = reader.GetString(reader.GetOrdinal("USERNAME"));
+
+						// Role truyền vào
+						RoleDropdown.Text = role;
+
+						// Các thông tin profile
+						txtFullname.Text = reader.GetString(reader.GetOrdinal("HOTEN"));
+						string gender = reader.GetString(reader.GetOrdinal("PHAI"));
+						GenderDropdown.Text = gender.Equals("Nam", StringComparison.OrdinalIgnoreCase) ? "Nam" : "Nu";
+
+						txtPhoneNum.Text = reader.GetString(reader.GetOrdinal("DT"));
+						txtAddress.Text = reader.GetString(reader.GetOrdinal("DCHI"));
+
+						if (!reader.IsDBNull(reader.GetOrdinal("NGSINH")))
+							dtpDOB.Value = reader.GetDateTime(reader.GetOrdinal("NGSINH"));
 					}
 				}
 			}
+			catch (OracleException oex)
+			{
+				MessageBox.Show($"Lỗi Oracle khi tải thông tin:\n{oex.Message}", "Lỗi Oracle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Lỗi khi tải thông tin người dùng:\n" + ex.Message);
+				MessageBox.Show($"Lỗi khi tải thông tin người dùng:\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+
 
 		private void btnUpdateUser_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				// Lấy thông tin từ các controls trên form
-				string username = txtUsername.Text.Trim();
+				string username = txtUsername.Text.Trim().ToUpper();
 				string password = txtPassword.Text.Trim();
-				string role = RoleDropdown.SelectedItem?.ToString()?.Replace(" ", "");
+				string role = dgvUser.Rows.Cast<DataGridViewRow>()
+								 .Where(r => Convert.ToBoolean(r.Cells["chk"].Value ?? false))
+								 .Select(r => r.Cells["Role"].Value.ToString())
+								 .FirstOrDefault();
+
 				string fullname = txtFullname.Text.Trim();
 				string gender = GenderDropdown.SelectedItem?.ToString();
 				string phoNum = txtPhoneNum.Text.Trim();
 				string address = txtAddress.Text.Trim();
 				string dob = dtpDOB.Value.ToString("dd-MMM-yyyy");
 
-				// Kiểm tra các trường bắt buộc
 				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(role))
 				{
-					MessageBox.Show("Vui lòng điền đầy đủ thông tin bắt buộc (Username, Role)");
+					MessageBox.Show("Vui lòng điền Username và chọn Role.");
 					return;
 				}
 
-				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-				using (OracleConnection conn = new OracleConnection(oradb))
+				// KHÔNG dùng using vì DatabaseSession.Connection là static/singleton
+				OracleConnection conn = DatabaseSession.Connection;
+				MessageBox.Show(conn.ToString());
+				if (conn == null || conn.State != ConnectionState.Open)
 				{
-					conn.Open();
-					OracleTransaction transaction = conn.BeginTransaction();
+					MessageBox.Show("Kết nối chưa khởi tạo hoặc chưa mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
 
-					try
+				OracleTransaction transaction = conn.BeginTransaction();
+
+				try
+				{
+					if (!string.IsNullOrEmpty(password))
 					{
-						// 1. Cập nhật bảng TAIKHOAN
-						string queryAccount = "UPDATE SYS.TAIKHOAN SET ";
-						bool hasPasswordUpdate = !string.IsNullOrEmpty(password);
-
-						if (hasPasswordUpdate)
+						string alterQuery = $"ALTER USER {username} IDENTIFIED BY \"{password}\"";
+						using (OracleCommand alterCmd = new OracleCommand(alterQuery, conn))
 						{
-							queryAccount += "MATKHAU = :password, ";
+							alterCmd.Transaction = transaction;
+							alterCmd.ExecuteNonQuery();
 						}
-
-						queryAccount += "CHUCVU = :role WHERE MATK = :username";
-
-						using (OracleCommand cmdAccount = new OracleCommand(queryAccount, conn))
-						{
-							cmdAccount.Transaction = transaction;
-							cmdAccount.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-							cmdAccount.Parameters.Add("role", OracleDbType.Varchar2).Value = role;
-
-							if (hasPasswordUpdate)
-							{
-								cmdAccount.Parameters.Add("password", OracleDbType.Varchar2).Value = password;
-							}
-
-							int accountResult = cmdAccount.ExecuteNonQuery();
-							if (accountResult <= 0)
-							{
-								transaction.Rollback();
-								MessageBox.Show("Không tìm thấy tài khoản để cập nhật");
-								return;
-							}
-						}
-
-						// 2. Cập nhật bảng tương ứng với role
-						string roleSpecificQuery = "";
-						switch (role)
-						{
-							case "ADMIN":
-								roleSpecificQuery = @"UPDATE SYS.QLDH_ADMIN 
-                                           SET HOTEN = :fullname, 
-                                               PHAI = :gender, 
-                                               NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-                                               DCHI = :address, 
-                                               DT = :phoNum 
-                                           WHERE MAAD = :username";
-								break;
-
-							case "NHANVIEN":
-								roleSpecificQuery = @"UPDATE SYS.QLDH_NHANVIEN 
-                                            SET HOTEN = :fullname, 
-                                                PHAI = :gender, 
-                                                NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-                                                DCHI = :address, 
-                                                DT = :phoNum 
-                                            WHERE MANV = :username";
-								break;
-
-							case "SINHVIEN":
-								roleSpecificQuery = @"UPDATE SYS.QLDH_SINHVIEN 
-                                            SET HOTEN = :fullname, 
-                                                PHAI = :gender, 
-                                                NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-                                                DCHI = :address, 
-                                                DT = :phoNum 
-                                            WHERE MASV = :username";
-								break;
-
-							default:
-								transaction.Rollback();
-								MessageBox.Show("Role không hợp lệ");
-								return;
-						}
-
-						using (OracleCommand cmdRole = new OracleCommand(roleSpecificQuery, conn))
-						{
-							cmdRole.Transaction = transaction;
-							cmdRole.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-							cmdRole.Parameters.Add("fullname", OracleDbType.Varchar2).Value = fullname;
-							cmdRole.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
-							cmdRole.Parameters.Add("dob", OracleDbType.Varchar2).Value = dob;
-							cmdRole.Parameters.Add("address", OracleDbType.Varchar2).Value = address;
-							cmdRole.Parameters.Add("phoNum", OracleDbType.Varchar2).Value = phoNum;
-
-							int roleResult = cmdRole.ExecuteNonQuery();
-							if (roleResult <= 0)
-							{
-								transaction.Rollback();
-								MessageBox.Show("Không tìm thấy thông tin chi tiết để cập nhật");
-								return;
-							}
-						}
-
-						transaction.Commit();
-						MessageBox.Show("Cập nhật người dùng thành công!");
-
-						// Cập nhật danh sách người dùng
-						UsersManager userManager = new UsersManager();
-						userManager.RefreshUserList();
-						this.Close();
 					}
-					catch (Exception ex)
+
+					string grantQuery = $"GRANT {role} TO {username}";
+					using (OracleCommand grantCmd = new OracleCommand(grantQuery, conn))
 					{
-						transaction.Rollback();
-						MessageBox.Show("Lỗi khi cập nhật người dùng:\n" + ex.Message);
+						grantCmd.Transaction = transaction;
+						grantCmd.ExecuteNonQuery();
 					}
+
+					string updateDetails = "";
+					switch (role.ToUpper())
+					{
+						case "ADMIN":
+							updateDetails = @"UPDATE SYS.QLDH_ADMIN 
+						SET HOTEN = :fullname, PHAI = :gender, 
+							NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+							DCHI = :address, DT = :phoNum 
+						WHERE MAAD = :username";
+							break;
+						case "NHAN VIEN":
+							updateDetails = @"UPDATE SYS.QLDH_NHANVIEN 
+						SET HOTEN = :fullname, PHAI = :gender, 
+							NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+							DCHI = :address, DT = :phoNum 
+						WHERE MANV = :username";
+							break;
+						case "SINH VIEN":
+							updateDetails = @"UPDATE SYS.QLDH_SINHVIEN 
+						SET HOTEN = :fullname, PHAI = :gender, 
+							NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+							DCHI = :address, DT = :phoNum 
+						WHERE MASV = :username";
+							break;
+						default:
+							transaction.Rollback();
+							MessageBox.Show("Role không hợp lệ.");
+							return;
+					}
+
+					using (OracleCommand updateCmd = new OracleCommand(updateDetails, conn))
+					{
+						updateCmd.Transaction = transaction;
+						updateCmd.Parameters.Add("fullname", OracleDbType.Varchar2).Value = fullname;
+						updateCmd.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
+						updateCmd.Parameters.Add("dob", OracleDbType.Varchar2).Value = dob;
+						updateCmd.Parameters.Add("address", OracleDbType.Varchar2).Value = address;
+						updateCmd.Parameters.Add("phoNum", OracleDbType.Varchar2).Value = phoNum;
+						updateCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+
+						int result = updateCmd.ExecuteNonQuery();
+						if (result <= 0)
+						{
+							transaction.Rollback();
+							MessageBox.Show("Không tìm thấy thông tin người dùng để cập nhật.");
+							return;
+						}
+					}
+
+					transaction.Commit();
+					MessageBox.Show("Cập nhật người dùng thành công!");
+					this.Close();
+				}
+				catch (Exception ex)
+				{
+					transaction.Rollback();
+					MessageBox.Show("Lỗi khi cập nhật người dùng:\n" + ex.Message);
 				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Lỗi khi kết nối cơ sở dữ liệu:\n" + ex.Message);
+				MessageBox.Show("Lỗi khi kết nối CSDL:\n" + ex.Message);
 			}
 		}
-        private void DgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+		private void DgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex != 0) return; // Chỉ xử lý click vào cột checkbox
 
@@ -279,72 +267,62 @@ namespace SchoolManagement
             }
         }
 
-        private void LoadAllRoles()
+		private void LoadAllRoles()
 		{
-            try
-            {
-                string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+			try
+			{
+				using (OracleConnection conn = DatabaseSession.Connection)
+				{
+					if (conn.State != ConnectionState.Open)
+						conn.Open();
 
-                using (OracleConnection conn = new OracleConnection(oradb))
-                {
-                    conn.Open();
-                    string query = "SELECT ROLE FROM DBA_ROLES WHERE ROLE LIKE 'NV_%' OR ROLE = 'SV' OR ROLE LIKE 'TEST_%'";
+					string query = "SELECT ROLE FROM DBA_ROLES WHERE ROLE LIKE 'NV_%' OR ROLE = 'SV' OR ROLE LIKE 'TEST_%' OR ROLE = 'ADMIN_ROLE'";
+					OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
+					DataTable dt = new DataTable();
+					adapter.Fill(dt);
 
-                    OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+					dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+					dgvUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
-                    // Tắt auto size trước
-                    dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                    dgvUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+					dgvUser.DataSource = null;
+					dgvUser.Columns.Clear();
 
-                    // Xóa dữ liệu cũ
-                    dgvUser.DataSource = null;
-                    dgvUser.Columns.Clear();
+					DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn()
+					{
+						Name = "chk",
+						HeaderText = "",
+						Width = 40,
+						ReadOnly = false,
+						FalseValue = false,
+						TrueValue = true,
+						IndeterminateValue = false
+					};
+					dgvUser.Columns.Add(chk);
 
-                    // 1. Tạo cột checkbox
-                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn()
-                    {
-                        Name = "chk",
-                        HeaderText = "",
-                        Width = 40,
-                        ReadOnly = false,
-                        FalseValue = false,
-                        TrueValue = true,
-                        IndeterminateValue = false
-                    };
-                    dgvUser.Columns.Add(chk);
+					dgvUser.Columns.Add("Role", "Role");
 
-                    // 2. Thêm cột Role
-                    dgvUser.Columns.Add("Role", "Role");
+					foreach (DataRow row in dt.Rows)
+					{
+						int index = dgvUser.Rows.Add();
+						dgvUser.Rows[index].Cells["Role"].Value = row["ROLE"];
+						dgvUser.Rows[index].Cells["chk"].Value = false;
+					}
 
-                    // 3. Đổ dữ liệu thủ công
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        int index = dgvUser.Rows.Add();
-                        dgvUser.Rows[index].Cells["Role"].Value = row["ROLE"];
-                        dgvUser.Rows[index].Cells["chk"].Value = false; // Mặc định không chọn
-                    }
+					dgvUser.RowHeadersVisible = false;
+					dgvUser.AllowUserToAddRows = false;
+					dgvUser.MultiSelect = false;
+					dgvUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+					dgvUser.EditMode = DataGridViewEditMode.EditOnEnter;
+					dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+					dgvUser.CellClick += DgvUser_CellClick;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
+			}
+		}
 
-                    // 4. Cấu hình thêm
-                    dgvUser.RowHeadersVisible = false;
-                    dgvUser.AllowUserToAddRows = false;
-                    dgvUser.MultiSelect = false;
-                    dgvUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                    dgvUser.EditMode = DataGridViewEditMode.EditOnEnter;
-
-                    // 5. Bật lại AutoSize nếu cần
-                    dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                    // 6. Gán sự kiện CellClick nếu cần
-                    dgvUser.CellClick += DgvUser_CellClick;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
-            }
-        }
 
 		private void lbUsers_Click(object sender, EventArgs e)
 		{

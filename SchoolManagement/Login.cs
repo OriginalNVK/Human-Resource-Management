@@ -31,95 +31,20 @@ namespace SchoolManagement
 				return;
 			}
 
-			// Try to authenticate with Oracle credentials
-			string connectionString = BuildConnectionString(txtUsername.Text, txtPassword.Text);
+			// Gọi InitializeSession để xác thực và thiết lập phiên làm việc
+			bool success = DatabaseSession.InitializeSession(txtUsername.Text, txtPassword.Text);
 
-			using (var conn = new OracleConnection(connectionString))
+			if (success)
 			{
-				try
-				{
-					conn.Open();
+				// Đăng nhập thành công, mở form tương ứng
+				string userType = DatabaseSession.UserType;
 
-					// Determine user type by checking which table contains their username
-					string userType = DetermineUserType(conn, txtUsername.Text);
-
-					if (userType != null)
-					{
-						ID = txtUsername.Text; // Store the username
-						TYPE_USER = userType;  // Store the user type
-
-						// Open appropriate form based on user type
-						OpenUserForm(userType);
-					}
-					else
-					{
-						error.Text = "Tài khoản không tồn tại hoặc không có quyền truy cập";
-					}
-				}
-				catch (OracleException ox)
-				{
-					// Oracle error 1017 is invalid username/password
-					if (ox.Number == 1017)
-					{
-						error.Text = "Sai tên đăng nhập hoặc mật khẩu";
-					}
-					else
-					{
-						MessageBox.Show($"Lỗi Oracle: {ox.Message}");
-					}
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show($"Lỗi: {ex.Message}");
-				}
+				OpenUserForm(userType);
 			}
-		}
-
-		private string BuildConnectionString(string username, string password)
-		{
-			// Get base connection string from config
-			string baseConnectionString = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-			// Create Oracle connection string builder
-			OracleConnectionStringBuilder builder = new OracleConnectionStringBuilder(baseConnectionString);
-
-			// Replace with user-provided credentials
-			builder.UserID = username;
-			builder.Password = password;
-
-			return builder.ToString();
-		}
-
-		private string DetermineUserType(OracleConnection conn, string username)
-		{
-			// Check if user is an admin
-			string checkAdmin = "SELECT 1 FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
-			using (var cmd = new OracleCommand(checkAdmin, conn))
+			else
 			{
-				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				object result = cmd.ExecuteScalar();
-				if (result != null) return "Admin";
+				error.Text = "Sai tên đăng nhập, mật khẩu hoặc tài khoản không có quyền truy cập";
 			}
-
-			// Check if user is an employee
-			string checkEmployee = "SELECT 1 FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
-			using (var cmd = new OracleCommand(checkEmployee, conn))
-			{
-				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				object result = cmd.ExecuteScalar();
-				if (result != null) return "NhanVien";
-			}
-
-			// Check if user is a student
-			string checkStudent = "SELECT 1 FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
-			using (var cmd = new OracleCommand(checkStudent, conn))
-			{
-				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				object result = cmd.ExecuteScalar();
-				if (result != null) return "SinhVien";
-			}
-
-			return null;
 		}
 
 		private void OpenUserForm(string userType)

@@ -45,112 +45,89 @@ namespace SchoolManagement
             LoadTotalClass();
             LoadTotalSubject();
         }
-        
-        private void LoadTotalStudent()
-        {
-            try
-            {
-                string oradb = ConfigurationManager
-			   .ConnectionStrings["SchoolDB"]
-			   .ConnectionString;
-                OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT COUNT(MASV) FROM SYS.QLDH_SINHVIEN";
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
 
-                dr.Read();
-                lbToTalStudent.Text = dr.GetString(0);
+		private void LoadTotalStudent()
+		{
+			try
+			{
+				OracleConnection conn = DatabaseSession.Connection;
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MASV) FROM SYS.QLDH_SINHVIEN", conn);
+				cmd.CommandType = CommandType.Text;
+				OracleDataReader dr = cmd.ExecuteReader();
 
-                conn.Dispose();
-            }
-            catch (Exception es)
-            {
-                MessageBox.Show(es.Message);
-            }
-        }
+				if (dr.Read())
+				{
+					lbToTalStudent.Text = dr.GetInt32(0).ToString();
+				}
+			}
+			catch (Exception es)
+			{
+				MessageBox.Show(es.Message);
+			}
+		}
 
-        private void LoadTotalTeacher()
-        {
-            try
-            {
-				string oradb = ConfigurationManager
-			   .ConnectionStrings["SchoolDB"]
-			   .ConnectionString;
-				OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT COUNT(MANV) FROM SYS.QLDH_NHANVIEN";
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
+		private void LoadTotalTeacher()
+		{
+			try
+			{
+				OracleConnection conn = DatabaseSession.Connection;
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MANV) FROM SYS.QLDH_NHANVIEN", conn);
+				cmd.CommandType = CommandType.Text;
+				OracleDataReader dr = cmd.ExecuteReader();
 
-                dr.Read();
-                lbTotalTeacher.Text = dr.GetString(0);
+				if (dr.Read())
+				{
+					lbTotalTeacher.Text = dr.GetInt32(0).ToString();
+				}
+			}
+			catch (Exception es)
+			{
+				MessageBox.Show(es.Message);
+			}
+		}
 
-                conn.Dispose();
-            }
-            catch (Exception es)
-            {
-                MessageBox.Show(es.Message);
-            }
-        }
+		private void LoadTotalClass()
+		{
+			try
+			{
+				OracleConnection conn = DatabaseSession.Connection;
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MAHP) FROM SYS.QLDH_HOCPHAN", conn);
+				cmd.CommandType = CommandType.Text;
+				OracleDataReader dr = cmd.ExecuteReader();
 
-        private void LoadTotalClass()
-        {
-            try
-            {
-				string oradb = ConfigurationManager
-			   .ConnectionStrings["SchoolDB"]
-			   .ConnectionString;
-				OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT COUNT(MAHP) FROM SYS.QLDH_HOCPHAN";
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
+				if (dr.Read())
+				{
+					lbTotalClass.Text = dr.GetInt32(0).ToString();
+				}
+			}
+			catch (Exception es)
+			{
+				MessageBox.Show(es.Message);
+			}
+		}
 
-                dr.Read();
-                lbTotalClass.Text = dr.GetString(0);
+		private void LoadTotalSubject()
+		{
+			try
+			{
+				OracleConnection conn = DatabaseSession.Connection;
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MADV) FROM SYS.QLDH_DONVI", conn);
+				cmd.CommandType = CommandType.Text;
+				OracleDataReader dr = cmd.ExecuteReader();
 
-                conn.Dispose();
-            }
-            catch (Exception es)
-            {
-                MessageBox.Show(es.Message);
-            }
-        }
+				if (dr.Read())
+				{
+					lbTotalSubject.Text = dr.GetInt32(0).ToString();
+				}
+			}
+			catch (Exception es)
+			{
+				MessageBox.Show(es.Message);
+			}
+		}
 
-        private void LoadTotalSubject()
-        {
-            try
-            {
-				string oradb = ConfigurationManager
-			   .ConnectionStrings["SchoolDB"]
-			   .ConnectionString;
-				OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT COUNT(MADV) FROM SYS.QLDH_DONVI";
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
 
-                dr.Read();
-                lbTotalSubject.Text = dr.GetString(0);
-
-                conn.Dispose();
-            }
-            catch (Exception es)
-            {
-                MessageBox.Show(es.Message);
-            }
-        }
-
-        private void pbProfile_Click(object sender, EventArgs e)
+		private void pbProfile_Click(object sender, EventArgs e)
         {
             AdminProfile myProfile = new AdminProfile();
             this.Hide();
