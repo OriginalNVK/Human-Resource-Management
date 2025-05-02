@@ -26,14 +26,6 @@ namespace SchoolManagement
 				{
 					conn.Open();
 					MessageBox.Show("✔ Oracle connection successful!");
-
-					//Test.run a quick query:
-					using (var cmd = conn.CreateCommand())
-					{
-						cmd.CommandText = "Select COUNT(*) from SYS.TAIKHOAN";
-						int count = Convert.ToInt32(cmd.ExecuteScalar());
-						MessageBox.Show($"Row count = {count}");
-					}
 				}
 				catch (OracleException ox)
 				{
