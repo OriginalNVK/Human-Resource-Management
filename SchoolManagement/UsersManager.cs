@@ -226,10 +226,7 @@ namespace SchoolManagement
 
 				this.Hide();
 				updateForm.ShowDialog();
-				this.Show();
-
-				// Refresh dữ liệu sau khi chỉnh sửa
-				LoadUsers();
+				this.Close();
 			}
 			else
 			{

@@ -28,6 +28,7 @@ namespace SchoolManagement
 		public AddUser()
         {
             InitializeComponent();
+			LoadAllRoles();
         }
 
 		private void btnCreateUser_Click(object sender, EventArgs e)
@@ -35,7 +36,7 @@ namespace SchoolManagement
 			try
 			{
 				// Lấy thông tin từ các controls trên form
-				string username = txtUsername.Text.Trim();
+				string username = txtUsername.Text.Trim().ToUpper();
 				string password = txtPassword.Text.Trim();
 				string role = RoleDropdown.SelectedItem?.ToString();
 				string fullname = txtFullname.Text.Trim();
@@ -44,111 +45,203 @@ namespace SchoolManagement
 				string address = txtAddress.Text.Trim();
 				string dob = dtpDOB.Value.ToString("dd-MMM-yyyy");
 
-				// Kiểm tra các trường bắt buộc
 				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
 				{
-					MessageBox.Show("Vui lòng điền đầy đủ thông tin bắt buộc (Username, Password, Role)");
+					MessageBox.Show("Vui lòng nhập đầy đủ Username, Password và Role.");
 					return;
 				}
 
-				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-				using (OracleConnection conn = new OracleConnection(oradb))
+				// Lấy danh sách role được chọn trong dgvUser
+				List<string> grantedRoles = new List<string>();
+				foreach (DataGridViewRow row in dgvUser.Rows)
 				{
+					bool isChecked = Convert.ToBoolean(row.Cells["chk"].Value ?? false);
+					if (isChecked)
+					{
+						string roleName = row.Cells["Role"].Value?.ToString();
+						if (!string.IsNullOrEmpty(roleName))
+							grantedRoles.Add(roleName);
+					}
+				}
+
+				if (grantedRoles.Count == 0)
+				{
+					MessageBox.Show("Vui lòng chọn ít nhất một quyền (role) cho người dùng.");
+					return;
+				}
+
+				// Dùng connection từ DatabaseSession, KHÔNG dùng `using`
+				var conn = DatabaseSession.Connection;
+				if (conn.State != ConnectionState.Open)
 					conn.Open();
-					OracleTransaction transaction = conn.BeginTransaction(); // Bắt đầu transaction
 
-					try
+				OracleTransaction transaction = conn.BeginTransaction();
+
+				try
+				{
+					string createUserQuery = $"CREATE USER {username} IDENTIFIED BY \"{password}\"";
+					using (OracleCommand cmdCreateUser = new OracleCommand(createUserQuery, conn))
 					{
-						// 1. Thêm vào bảng TAIKHOAN trước
-						string queryAccount = "INSERT INTO SYS.TAIKHOAN (MATK, MATKHAU, CHUCVU) " +
-					 "VALUES (:username, STANDARD_HASH(:password, 'MD5'), :role)";
-
-						using (OracleCommand cmdAccount = new OracleCommand(queryAccount, conn))
-						{
-							cmdAccount.Transaction = transaction;
-							cmdAccount.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-							cmdAccount.Parameters.Add("password", OracleDbType.Varchar2).Value = password;
-							cmdAccount.Parameters.Add("role", OracleDbType.Varchar2).Value = role;
-
-							int accountResult = cmdAccount.ExecuteNonQuery();
-							if (accountResult <= 0)
-							{
-								transaction.Rollback();
-								MessageBox.Show("Không thể thêm tài khoản");
-								return;
-							}
-						}
-
-						// 2. Thêm vào bảng tương ứng với role
-						string roleSpecificQuery = "";
-						switch (role)
-						{
-							case "ADMIN":
-								roleSpecificQuery = "INSERT INTO SYS.QLDH_ADMIN (MAAD, HOTEN, PHAI, NGSINH, DCHI, DT) " +
-												 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum)";
-								break;
-
-							case "NHAN VIEN":
-								// Lưu ý: Bảng NHANVIEN có thêm các trường LUONG, PHUCAP, VAITRO, MADV
-								// Ở đây tôi giả định có thêm các control để nhập các thông tin này
-								roleSpecificQuery = "INSERT INTO SYS.QLDH_NHANVIEN (MANV, HOTEN, PHAI, NGSINH, DCHI, DT, LUONG, PHUCAP, VAITRO, MADV) " +
-												 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, 0, 0, 'NVCB', NULL)";
-								break;
-
-							case "SINH VIEN":
-								// Lưu ý: Bảng SINHVIEN có thêm các trường KHOA, TINHTRANG
-								// Ở đây tôi giả định có thêm các control để nhập các thông tin này
-								roleSpecificQuery = "INSERT INTO SYS.QLDH_SINHVIEN (MASV, HOTEN, PHAI, NGSINH, DCHI, DT, KHOA, TINHTRANG) " +
-												 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, NULL, 'Dang hoc')";
-								break;
-
-							default:
-								transaction.Rollback();
-								MessageBox.Show("Role không hợp lệ");
-								return;
-						}
-
-						using (OracleCommand cmdRole = new OracleCommand(roleSpecificQuery, conn))
-						{
-							cmdRole.Transaction = transaction;
-							cmdRole.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-							cmdRole.Parameters.Add("fullname", OracleDbType.Varchar2).Value = fullname;
-							cmdRole.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
-							cmdRole.Parameters.Add("dob", OracleDbType.Varchar2).Value = dob;
-							cmdRole.Parameters.Add("address", OracleDbType.Varchar2).Value = address;
-							cmdRole.Parameters.Add("phoNum", OracleDbType.Varchar2).Value = phoNum;
-
-							int roleResult = cmdRole.ExecuteNonQuery();
-							if (roleResult <= 0)
-							{
-								transaction.Rollback();
-								MessageBox.Show("Không thể thêm thông tin chi tiết cho role");
-								return;
-							}
-						}
-
-						transaction.Commit(); // Commit transaction nếu cả 2 lệnh thành công
-						MessageBox.Show("Thêm người dùng thành công!");
-
-						// Cập nhật danh sách người dùng
-						UsersManager userManager = new UsersManager();
-						this.Hide();
-						userManager.ShowDialog();
-						this.Close();
+						cmdCreateUser.Transaction = transaction;
+						cmdCreateUser.ExecuteNonQuery();
 					}
-					catch (Exception ex)
+
+					string grantConnectQuery = $"GRANT CONNECT TO {username}";
+					using (OracleCommand cmdGrantConnect = new OracleCommand(grantConnectQuery, conn))
 					{
-						transaction.Rollback(); // Rollback nếu có lỗi
-						MessageBox.Show("Lỗi khi thêm người dùng:\n" + ex.Message);
+						cmdGrantConnect.Transaction = transaction;
+						cmdGrantConnect.ExecuteNonQuery();
 					}
+
+					foreach (string selectedRole in grantedRoles)
+					{
+						string grantRoleQuery = $"BEGIN EXECUTE IMMEDIATE 'GRANT {selectedRole} TO {username}'; END;";
+						using (OracleCommand cmdGrantRole = new OracleCommand(grantRoleQuery, conn))
+						{
+							cmdGrantRole.Transaction = transaction;
+							cmdGrantRole.ExecuteNonQuery();
+						}
+					}
+
+					string roleInsertQuery = "";
+					switch (role)
+					{
+						case "ADMIN":
+							roleInsertQuery = "INSERT INTO SYS.QLDH_ADMIN (MAAD, HOTEN, PHAI, NGSINH, DCHI, DT) " +
+											  "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum)";
+							break;
+						case "NHAN VIEN":
+							roleInsertQuery = "INSERT INTO SYS.QLDH_NHANVIEN (MANV, HOTEN, PHAI, NGSINH, DCHI, DT, LUONG, PHUCAP, VAITRO, MADV) " +
+											  "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, 0, 0, 'NVCB', NULL)";
+							break;
+						case "SINH VIEN":
+							roleInsertQuery = "INSERT INTO SYS.QLDH_SINHVIEN (MASV, HOTEN, PHAI, NGSINH, DCHI, DT, KHOA, TINHTRANG) " +
+											  "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, NULL, 'Dang hoc')";
+							break;
+						default:
+							transaction.Rollback();
+							MessageBox.Show("Role không hợp lệ.");
+							return;
+					}
+
+					using (OracleCommand cmdInsertDetail = new OracleCommand(roleInsertQuery, conn))
+					{
+						cmdInsertDetail.Transaction = transaction;
+						cmdInsertDetail.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+						cmdInsertDetail.Parameters.Add("fullname", OracleDbType.Varchar2).Value = fullname;
+						cmdInsertDetail.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
+						cmdInsertDetail.Parameters.Add("dob", OracleDbType.Varchar2).Value = dob;
+						cmdInsertDetail.Parameters.Add("address", OracleDbType.Varchar2).Value = address;
+						cmdInsertDetail.Parameters.Add("phoNum", OracleDbType.Varchar2).Value = phoNum;
+
+						int result = cmdInsertDetail.ExecuteNonQuery();
+						if (result <= 0)
+						{
+							transaction.Rollback();
+							MessageBox.Show("Không thể thêm thông tin chi tiết người dùng.");
+							return;
+						}
+					}
+
+					transaction.Commit();
+					MessageBox.Show("Tạo người dùng và phân quyền thành công!");
+
+					UsersManager userManager = new UsersManager();
+					this.Hide();
+					userManager.ShowDialog();
+					this.Close();
+				}
+				catch (Exception ex)
+				{
+					transaction.Rollback();
+					MessageBox.Show("Lỗi khi tạo người dùng:\n" + ex.Message);
 				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("Lỗi khi kết nối cơ sở dữ liệu:\n" + ex.Message);
+				MessageBox.Show("Lỗi kết nối cơ sở dữ liệu:\n" + ex.Message);
 			}
 		}
+
+
+
+		private void DgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex < 0 || e.ColumnIndex != 0) return; // Chỉ xử lý click vào cột checkbox
+
+			// Toggle trạng thái checkbox
+			bool currentValue = Convert.ToBoolean(dgvUser.Rows[e.RowIndex].Cells["chk"].Value ?? false);
+			dgvUser.Rows[e.RowIndex].Cells["chk"].Value = !currentValue;
+
+			// Bỏ chọn các dòng khác
+			foreach (DataGridViewRow row in dgvUser.Rows)
+			{
+				if (row.Index != e.RowIndex)
+				{
+					row.Cells["chk"].Value = false;
+				}
+			}
+		}
+
+		private void LoadAllRoles()
+		{
+			try
+			{
+				var conn = DatabaseSession.Connection;
+
+				if (conn.State != ConnectionState.Open)
+					conn.Open();
+
+				// Lấy danh sách các roles được định nghĩa
+				string query = "SELECT ROLE FROM DBA_ROLES WHERE ROLE LIKE 'NV_%' OR ROLE = 'SV' OR ROLE LIKE 'TEST_%' OR ROLE = 'ADMIN_ROLE'";
+				OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
+				DataTable allRolesTable = new DataTable();
+				adapter.Fill(allRolesTable);
+
+				// Setup DataGridView
+				dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+				dgvUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+				dgvUser.DataSource = null;
+				dgvUser.Columns.Clear();
+
+				DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn()
+				{
+					Name = "chk",
+					HeaderText = "",
+					Width = 40,
+					ReadOnly = false,
+					FalseValue = false,
+					TrueValue = true,
+					IndeterminateValue = false
+				};
+				dgvUser.Columns.Add(chk);
+				dgvUser.Columns.Add("Role", "Role");
+
+				// Thêm từng dòng (không đánh dấu role nào sẵn)
+				foreach (DataRow row in allRolesTable.Rows)
+				{
+					string roleName = row["ROLE"].ToString();
+					int index = dgvUser.Rows.Add();
+					dgvUser.Rows[index].Cells["Role"].Value = roleName;
+				}
+
+				// Cấu hình thêm cho DataGridView
+				dgvUser.RowHeadersVisible = false;
+				dgvUser.AllowUserToAddRows = false;
+				dgvUser.MultiSelect = false;
+				dgvUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+				dgvUser.EditMode = DataGridViewEditMode.EditOnEnter;
+				dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+				dgvUser.CellClick += DgvUser_CellClick;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
+			}
+		}
+
+
+
 
 		private void lbUsers_Click(object sender, EventArgs e)
 		{

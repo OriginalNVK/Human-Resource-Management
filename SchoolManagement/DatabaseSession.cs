@@ -1,10 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolManagement
 {
@@ -19,31 +15,45 @@ namespace SchoolManagement
 			try
 			{
 				string baseConnStr = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-				OracleConnectionStringBuilder builder = new OracleConnectionStringBuilder(baseConnStr)
+				var builder = new OracleConnectionStringBuilder(baseConnStr)
 				{
 					UserID = username,
 					Password = password
 				};
 
-				var conn = new OracleConnection(builder.ToString());
-				conn.Open();
-
-				string userType = DetermineUserType(conn, username);
-				if (userType == null)
+				// Mở kết nối ban đầu để kiểm tra loại user
+				using (var tempConn = new OracleConnection(builder.ToString()))
 				{
-					conn.Close();
-					return false; // Không xác định được loại người dùng
+					tempConn.Open();
+
+					string userType = DetermineUserType(tempConn, username);
+					if (userType == null)
+					{
+						return false; // Không xác định được loại người dùng
+					}
+
+					// Nếu là Admin, thêm quyền SYSDBA
+					if (userType == "Admin")
+					{
+						builder["DBA Privilege"] = "SYSDBA";
+					}
+
+					// Đóng kết nối tạm
+					tempConn.Close();
 				}
 
-				// Gán vào các biến static
-				Connection = conn;
+				// Tạo kết nối chính thức với cấu hình đã điều chỉnh
+				Connection = new OracleConnection(builder.ToString());
+				Connection.Open();
+
 				CurrentUser = username;
-				UserType = userType;
+				UserType = DetermineUserType(Connection, username); // Kiểm tra lại
 
 				return true;
 			}
-			catch
+			catch (Exception ex)
 			{
+				// Xử lý lỗi (có thể log lại ex.Message)
 				return false;
 			}
 		}
@@ -54,28 +64,36 @@ namespace SchoolManagement
 			using (var cmd = new OracleCommand(checkAdmin, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				object result = cmd.ExecuteScalar();
-				if (result != null) return "Admin";
+				if (cmd.ExecuteScalar() != null) return "Admin";
 			}
 
 			string checkEmployee = "SELECT 1 FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
 			using (var cmd = new OracleCommand(checkEmployee, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				object result = cmd.ExecuteScalar();
-				if (result != null) return "NhanVien";
+				if (cmd.ExecuteScalar() != null) return "NhanVien";
 			}
 
 			string checkStudent = "SELECT 1 FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
 			using (var cmd = new OracleCommand(checkStudent, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				object result = cmd.ExecuteScalar();
-				if (result != null) return "SinhVien";
+				if (cmd.ExecuteScalar() != null) return "SinhVien";
 			}
 
 			return null;
 		}
-	}
 
+		public static void CloseSession()
+		{
+			if (Connection != null && Connection.State == System.Data.ConnectionState.Open)
+			{
+				Connection.Close();
+				Connection.Dispose();
+				Connection = null;
+			}
+			CurrentUser = null;
+			UserType = null;
+		}
+	}
 }

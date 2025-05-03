@@ -39,7 +39,6 @@ namespace SchoolManagement
 			this.txtUsername = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label10 = new System.Windows.Forms.Label();
 			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-			this.label4 = new System.Windows.Forms.Label();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.lbHello = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@ namespace SchoolManagement
 			this.label14 = new System.Windows.Forms.Label();
 			this.GenderDropdown = new System.Windows.Forms.ComboBox();
 			this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+			this.dgvUser = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -78,6 +78,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -216,20 +217,6 @@ namespace SchoolManagement
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label4.Location = new System.Drawing.Point(703, 807);
-			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(184, 22);
-			this.label4.TabIndex = 206;
-			this.label4.Text = "Nocopy right: 2025";
 			// 
 			// Dashboard
 			// 
@@ -475,7 +462,7 @@ namespace SchoolManagement
 			// 
 			// btnCreateUser
 			// 
-			this.btnCreateUser.Location = new System.Drawing.Point(752, 559);
+			this.btnCreateUser.Location = new System.Drawing.Point(752, 724);
 			this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCreateUser.Name = "btnCreateUser";
 			this.btnCreateUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
@@ -667,11 +654,61 @@ namespace SchoolManagement
 			this.dtpDOB.Size = new System.Drawing.Size(283, 22);
 			this.dtpDOB.TabIndex = 222;
 			// 
+			// dgvUser
+			// 
+			this.dgvUser.AllowUserToAddRows = false;
+			this.dgvUser.AllowUserToDeleteRows = false;
+			this.dgvUser.AllowUserToOrderColumns = true;
+			this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+			this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvUser.ImeMode = System.Windows.Forms.ImeMode.On;
+			this.dgvUser.Location = new System.Drawing.Point(601, 540);
+			this.dgvUser.Margin = new System.Windows.Forms.Padding(4);
+			this.dgvUser.Name = "dgvUser";
+			this.dgvUser.ReadOnly = true;
+			this.dgvUser.RowHeadersWidth = 51;
+			this.dgvUser.Size = new System.Drawing.Size(472, 169);
+			this.dgvUser.StateCommon.Background.Color1 = System.Drawing.Color.White;
+			this.dgvUser.StateCommon.Background.Color2 = System.Drawing.Color.White;
+			this.dgvUser.StateCommon.Background.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+			this.dgvUser.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+			this.dgvUser.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+			this.dgvUser.StateCommon.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+			this.dgvUser.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.DataCell.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.dgvUser.StateCommon.DataCell.Border.Width = 1;
+			this.dgvUser.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dgvUser.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.dgvUser.StateCommon.HeaderColumn.Border.Width = 1;
+			this.dgvUser.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+			this.dgvUser.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
+			this.dgvUser.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dgvUser.StateCommon.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.HeaderRow.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+			this.dgvUser.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+			this.dgvUser.StateCommon.HeaderRow.Border.Width = 1;
+			this.dgvUser.StateSelected.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+			this.dgvUser.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+			this.dgvUser.TabIndex = 224;
+			// 
 			// AddUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1323, 853);
+			this.Controls.Add(this.dgvUser);
 			this.Controls.Add(this.dtpDOB);
 			this.Controls.Add(this.label14);
 			this.Controls.Add(this.GenderDropdown);
@@ -685,7 +722,6 @@ namespace SchoolManagement
 			this.Controls.Add(this.btnCreateUser);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.RoleDropdown);
-			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.pbLogout);
 			this.Controls.Add(this.lbRoles);
@@ -721,6 +757,7 @@ namespace SchoolManagement
 			this.panel2.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -733,7 +770,6 @@ namespace SchoolManagement
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtUsername;
         private System.Windows.Forms.Label label10;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label Dashboard;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label lbHello;
@@ -764,5 +800,6 @@ namespace SchoolManagement
 		private Label label14;
 		private ComboBox GenderDropdown;
 		private DateTimePicker dtpDOB;
+		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvUser;
 	}
 }
