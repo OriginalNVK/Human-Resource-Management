@@ -41,42 +41,41 @@ namespace SchoolManagement
 			LoadRoles();
         }
 
-		// Load all role
-		private void LoadRoles()
-		{
-			try
-			{
-				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+        // Load all role
+        private void LoadRoles()
+        {
+            try
+            {
+                string query = @"
+			SELECT granted_role AS ROLE,
+				   LISTAGG(grantee, ', ') WITHIN GROUP (ORDER BY grantee) AS USERS
+			FROM dba_role_privs
+			WHERE (granted_role LIKE 'NV_%' OR granted_role = 'SV' OR granted_role LIKE 'TEST_%')
+			  AND grantee IN (SELECT username FROM dba_users)
+			GROUP BY granted_role
+			ORDER BY granted_role";
 
-				using (OracleConnection conn = new OracleConnection(oradb))
-				{
-					conn.Open();
-					string query = @"SELECT granted_role AS ROLE,
-									 LISTAGG(grantee, ', ') WITHIN GROUP (ORDER BY grantee) AS USERS
-									 FROM dba_role_privs
-									 WHERE (granted_role LIKE 'NV_%' OR granted_role = 'SV' OR granted_role LIKE 'TEST_%')
-									 AND grantee IN (SELECT username FROM dba_users)
-									 GROUP BY granted_role
-									 ORDER BY granted_role";
+                using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+                {
+                    using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
 
-                    OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
-					DataTable dt = new DataTable();
-					adapter.Fill(dt);
+                        dgvUser.DataSource = dt;
+                        dgvUser.Columns["ROLE"].HeaderText = "Role";
+                        dgvUser.Columns["USERS"].HeaderText = "User(s)";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
+            }
+        }
 
-					dgvUser.DataSource = dt;
 
-					// Show information
-					dgvUser.Columns["ROLE"].HeaderText = "Role";
-					dgvUser.Columns["USERS"].HeaderText = "User";
-				}
-			}
-			catch (Exception ex) 
-			{
-				MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
-			}
-		}
-
-		private void lbUsers_Click(object sender, EventArgs e)
+        private void lbUsers_Click(object sender, EventArgs e)
 		{
 			UsersManager userManager = new UsersManager();
 			this.Hide();
