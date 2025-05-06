@@ -44,14 +44,9 @@ namespace SchoolManagement
 		// Load all role
 		private void LoadRoles()
 		{
-			try
-			{
-				string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-				using (OracleConnection conn = new OracleConnection(oradb))
-				{
-					conn.Open();
-					string query = @"SELECT granted_role AS ROLE,
+            try
+            {
+                string rolesQuery = @"SELECT granted_role AS ROLE,
 									 LISTAGG(grantee, ', ') WITHIN GROUP (ORDER BY grantee) AS USERS
 									 FROM dba_role_privs
 									 WHERE (granted_role LIKE 'NV_%' OR granted_role = 'SV' OR granted_role LIKE 'TEST_%')
@@ -59,24 +54,26 @@ namespace SchoolManagement
 									 GROUP BY granted_role
 									 ORDER BY granted_role";
 
-                    OracleDataAdapter adapter = new OracleDataAdapter(query, conn);
-					DataTable dt = new DataTable();
-					adapter.Fill(dt);
+                using (OracleCommand cmd =  new OracleCommand(rolesQuery, DatabaseSession.Connection))
+                using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
 
-					dgvUser.DataSource = dt;
+                    dgvUser.DataSource = dt;
 
-					// Show information
-					dgvUser.Columns["ROLE"].HeaderText = "Role";
-					dgvUser.Columns["USERS"].HeaderText = "User";
-				}
-			}
+                    // Show roles information
+                    dgvUser.Columns["ROLE"].HeaderText = "Role";
+                    dgvUser.Columns["USERS"].HeaderText = "User";
+                }
+            }
 			catch (Exception ex) 
 			{
-				MessageBox.Show("Lỗi khi hiển thị role:\n" + ex.Message);
+				MessageBox.Show("Error:\n" + ex.Message);
 			}
 		}
 
-		private void lbUsers_Click(object sender, EventArgs e)
+        private void lbUsers_Click(object sender, EventArgs e)
 		{
 			UsersManager userManager = new UsersManager();
 			this.Hide();
@@ -126,11 +123,7 @@ namespace SchoolManagement
 
 		private void pbAddRoles_Click(object sender, EventArgs e)
 		{
-            /*AddRole addRole = new AddRole();
-			this.Hide();
-			addRole.ShowDialog();
-			this.Close();*/
-            // Tạo form nhỏ
+            // Form for create new role
             Form prompt = new Form()
             {
                 Width = 300,
@@ -162,23 +155,15 @@ namespace SchoolManagement
 
                 if (!string.IsNullOrEmpty(roleName))
                 {
+                    string query = $"CREATE ROLE {roleName}";
                     try
                     {
-                        string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-                        using (OracleConnection conn = new OracleConnection(oradb))
+                        using (OracleCommand command = new OracleCommand(query, DatabaseSession.Connection))
                         {
-                            conn.Open();
-                            string query = $"CREATE ROLE {roleName}";
-
-                            using (OracleCommand cmd = new OracleCommand(query, conn))
-                            {
-                                cmd.ExecuteNonQuery();
-                            }
+                            command.ExecuteNonQuery();
                         }
-
                         MessageBox.Show("Role created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadRoles(); // Load lại danh sách
+                        LoadRoles(); // Load roles again
                     }
                     catch (Exception ex)
                     {
@@ -254,17 +239,11 @@ namespace SchoolManagement
 
                 if (result == DialogResult.Yes)
                 {
-                    string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
+                    string dropQuery = $"DROP ROLE {roleName}";
 
-                    using (OracleConnection conn = new OracleConnection(oradb))
+                    using (OracleCommand cmd = new OracleCommand(dropQuery, DatabaseSession.Connection))
                     {
-                        conn.Open();
-                        string sql = $"DROP ROLE {roleName}";
-
-                        using (OracleCommand cmd = new OracleCommand(sql, conn))
-                        {
-                            cmd.ExecuteNonQuery();
-                        }
+                        cmd.ExecuteNonQuery();
                     }
 
                     MessageBox.Show("Delete role successfully!", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -281,6 +260,44 @@ namespace SchoolManagement
         private void ReloadRolesList(object sender, EventArgs e)
         {
 			LoadRoles();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.Trim().ToUpper();
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                MessageBox.Show("Please enter a role name to search.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string query = "SELECT ROLE FROM DBA_ROLES WHERE ROLE LIKE :search";
+
+            try
+            {
+                using (OracleCommand command = new OracleCommand(query, DatabaseSession.Connection))
+                {
+                    command.Parameters.Add(new OracleParameter("search", $"%{searchText}%"));
+
+                    using (OracleDataAdapter adapter = new OracleDataAdapter(command))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        if (dt.Rows.Count == 0)
+                        {
+                            MessageBox.Show("No matching roles found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        dgvUser.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching roles:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

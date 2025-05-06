@@ -561,6 +561,7 @@ namespace SchoolManagement
             this.btnLogin.StateTracking.Border.Width = 1;
             this.btnLogin.TabIndex = 192;
             this.btnLogin.Values.Text = "Search";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtSearch
             // 

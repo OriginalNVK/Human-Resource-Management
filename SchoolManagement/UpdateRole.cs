@@ -62,68 +62,117 @@ namespace SchoolManagement
         {
             try
             {
-                string oradb = ConfigurationManager.ConnectionStrings["SchoolDB"].ConnectionString;
-
-                using (OracleConnection conn = new OracleConnection(oradb))
+                OracleConnection conn = DatabaseSession.Connection;
+                if (conn == null || conn.State != ConnectionState.Open)
                 {
-                    conn.Open();
+                    MessageBox.Show("Failed to connect with database!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    // Lấy danh sách các bảng
-                    string queryTables = "SELECT table_name FROM all_tables WHERE table_name LIKE 'QLDH_%' AND table_name != 'QLDH_ADMIN' ORDER BY table_name";
-                    OracleDataAdapter adapter = new OracleDataAdapter(queryTables, conn);
-                    DataTable dtTables = new DataTable();
+                // Lấy danh sách bảng
+                string queryTables = "SELECT table_name FROM all_tables WHERE table_name LIKE 'QLDH_%' AND table_name != 'QLDH_ADMIN' ORDER BY table_name";
+                OracleDataAdapter adapter = new OracleDataAdapter(queryTables, conn);
+                DataTable dtTables = new DataTable();
+                adapter.Fill(dtTables);
 
-                    adapter.Fill(dtTables);
+                // Thêm cột INSERT, DELETE, SELECT và UPDATE vào DataTable
+                dtTables.Columns.Add("INSERT", typeof(string));
+                dtTables.Columns.Add("DELETE", typeof(string));
+                dtTables.Columns.Add("SELECT_COLUMN", typeof(string)); // Thêm cột SELECT
+                dtTables.Columns.Add("UPDATE_COLUMN", typeof(string)); // Thêm cột UPDATE
 
-                    // Thêm các cột quyền vào DataTable
-                    dtTables.Columns.Add("SELECT", typeof(string));
-                    dtTables.Columns.Add("INSERT", typeof(string));
-                    dtTables.Columns.Add("UPDATE", typeof(string));
-                    dtTables.Columns.Add("DELETE", typeof(string));
+                // Gán DataSource cho DataGridView
+                dgvUser.DataSource = dtTables;
 
-                    foreach (DataRow row in dtTables.Rows)
+                // Ẩn các cột SELECT_COLUMN và UPDATE_COLUMN (chúng ta sẽ dùng ComboBox thay thế)
+                dgvUser.Columns["SELECT_COLUMN"].Visible = false;
+                dgvUser.Columns["UPDATE_COLUMN"].Visible = false;
+
+                // Tạo và cấu hình cột SELECT là ComboBox
+                DataGridViewComboBoxColumn selectColumn = new DataGridViewComboBoxColumn();
+                selectColumn.Name = "SELECT";
+                selectColumn.HeaderText = "SELECT";
+                selectColumn.DataPropertyName = "SELECT_COLUMN"; // Liên kết với cột ẩn
+                selectColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing; // Chỉ hiển thị khi click
+                selectColumn.FlatStyle = FlatStyle.Flat;
+                dgvUser.Columns.Add(selectColumn);
+
+                // Tạo và cấu hình cột UPDATE là ComboBox
+                DataGridViewComboBoxColumn updateColumn = new DataGridViewComboBoxColumn();
+                updateColumn.Name = "UPDATE";
+                updateColumn.HeaderText = "UPDATE";
+                updateColumn.DataPropertyName = "UPDATE_COLUMN"; // Liên kết với cột ẩn
+                updateColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing; // Chỉ hiển thị khi click
+                updateColumn.FlatStyle = FlatStyle.Flat;
+                dgvUser.Columns.Add(updateColumn);
+
+                // Điền dữ liệu dropdown cho từng dòng
+                foreach (DataGridViewRow row in dgvUser.Rows)
+                {
+                    if (row.IsNewRow) continue; // Bỏ qua dòng mới
+
+                    string tableName = row.Cells["TABLE_NAME"].Value?.ToString();
+                    if (string.IsNullOrEmpty(tableName)) continue;
+
+                    List<string> columns = GetColumnsFromTable(tableName);
+
+                    if (columns.Count > 0)
                     {
-                        row["SELECT"] = "x";
-                        row["INSERT"] = "x";
-                        row["UPDATE"] = "x";
-                        row["DELETE"] = "x";
+                        var selectCell = (DataGridViewComboBoxCell)row.Cells["SELECT"];
+                        selectCell.DataSource = new List<string>(columns);
+                        selectCell.Value = selectCell.Items.Count > 0 ? selectCell.Items[0] : null;
+
+                        var updateCell = (DataGridViewComboBoxCell)row.Cells["UPDATE"];
+                        updateCell.DataSource = new List<string>(columns);
+                        updateCell.Value = updateCell.Items.Count > 0 ? updateCell.Items[0] : null;
                     }
+                }
 
-                    // Check quyền đã được cấp
-                    foreach (DataRow row in dtTables.Rows)
+                // Đánh dấu quyền đã được cấp (INSERT/DELETE)
+                foreach (DataGridViewRow row in dgvUser.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    string tableName = row.Cells["TABLE_NAME"].Value?.ToString();
+                    if (string.IsNullOrEmpty(tableName)) continue;
+
+                    string queryPrivs = @"SELECT privilege FROM dba_tab_privs
+                  WHERE grantee = :roleName AND table_name = :tableName";
+
+                    using (OracleCommand cmd = new OracleCommand(queryPrivs, conn))
                     {
-                        string tableName = row["TABLE_NAME"].ToString();
+                        cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
+                        cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
 
-                        string queryPrivs = @"SELECT privilege
-                                     FROM dba_tab_privs
-                                     WHERE grantee = :roleName AND table_name = :tableName";
-
-                        using (OracleCommand cmd = new OracleCommand(queryPrivs, conn))
+                        using (OracleDataReader reader = cmd.ExecuteReader())
                         {
-                            cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
-                            cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
-
-                            using (OracleDataReader reader = cmd.ExecuteReader())
+                            while (reader.Read())
                             {
-                                while (reader.Read())
-                                {
-                                    string privilege = reader["PRIVILEGE"].ToString().ToUpper();
-                                    if (privilege == "SELECT") row["SELECT"] = "v";
-                                    if (privilege == "INSERT") row["INSERT"] = "v";
-                                    if (privilege == "UPDATE") row["UPDATE"] = "v";
-                                    if (privilege == "DELETE") row["DELETE"] = "v";
-                                }
+                                string privilege = reader["PRIVILEGE"].ToString().ToUpper();
+                                if (privilege == "INSERT") row.Cells["INSERT"].Value = "v";
+                                if (privilege == "DELETE") row.Cells["DELETE"].Value = "v";
                             }
                         }
                     }
-
-                    dgvUser.DataSource = null;
-                    dgvUser.DataSource = dtTables;
-
-                    // Tùy chỉnh hiển thị
-                    dgvUser.AutoGenerateColumns = true;
-                    dgvUser.AllowUserToAddRows = false;
                 }
+
+                // Xử lý sự kiện CellClick để kích hoạt dropdown
+                dgvUser.CellClick += (sender, e) =>
+                {
+                    if (e.RowIndex >= 0 && (e.ColumnIndex == dgvUser.Columns["SELECT"].Index ||
+                                           e.ColumnIndex == dgvUser.Columns["UPDATE"].Index))
+                    {
+                        dgvUser.BeginEdit(true);
+                        if (dgvUser.EditingControl is DataGridViewComboBoxEditingControl editingControl)
+                        {
+                            editingControl.DroppedDown = true;
+                        }
+                    }
+                };
+
+
+                dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvUser.AllowUserToAddRows = false;
             }
             catch (Exception ex)
             {
@@ -131,30 +180,77 @@ namespace SchoolManagement
             }
         }
 
+        // Get list of table columns
+        private List<string> GetColumnsFromTable(string tableName)
+        {
+            List<string> columns = new List<string>();
+            try
+            {
+                string query = @"SELECT column_name 
+                         FROM all_tab_columns 
+                         WHERE table_name = :tableName
+                         ORDER BY column_id";
+
+                using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+                {
+                    cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
+
+                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            columns.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách cột của bảng " + tableName + ":\n" + ex.Message);
+            }
+            return columns;
+        }
+
         private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                    return;
+
+                string columnName = dgvUser.Columns[e.ColumnIndex].Name;
+                if (columnName == "SELECT" || columnName == "UPDATE")
                 {
-                    DataGridViewColumn column = dgvUser.Columns[e.ColumnIndex];
-                    string columnName = column.Name;
+                    DataGridViewComboBoxCell cell = dgvUser.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
+                    if (cell == null) return;
 
-                    // Chỉ cho phép click vào các cột quyền
-                    if (columnName == "SELECT" || columnName == "INSERT" || columnName == "UPDATE" || columnName == "DELETE")
+                    string selectedColumn = cell.Value?.ToString();
+
+                    // Nếu đã chọn cột => thu hồi quyền
+                    if (!string.IsNullOrEmpty(selectedColumn))
                     {
-                        DataGridViewRow row = dgvUser.Rows[e.RowIndex];
-                        string currentValue = row.Cells[columnName].Value?.ToString();
+                        DialogResult result = MessageBox.Show($"Bạn có muốn thu hồi quyền {columnName} trên cột '{selectedColumn}'?",
+                            "Xác nhận thu hồi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        if (currentValue == "x")
+                        if (result == DialogResult.Yes)
                         {
-                            row.Cells[columnName].Value = "v";  // cấp quyền
-                        }
-                        else if (currentValue == "v")
-                        {
-                            row.Cells[columnName].Value = "x";  // thu hồi quyền
+                            cell.Value = null; // Thu hồi
+                                               // TODO: Gọi hàm revoke ở đây nếu cần thiết
                         }
                     }
+                    else
+                    {
+                        // Hiện dropdown mặc định của ComboBox (người dùng sẽ chọn)
+                        dgvUser.BeginEdit(true);
+                    }
+                }
+                else if (columnName == "INSERT" || columnName == "DELETE")
+                {
+                    // Toggle kiểu checkbox (v hoặc "")
+                    DataGridViewCell cell = dgvUser.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    string currentValue = cell.Value?.ToString();
+
+                    cell.Value = currentValue == "v" ? "" : "v";
                 }
             }
             catch (Exception ex)
