@@ -43,6 +43,7 @@ namespace SchoolManagement
             this.Load += UpdateRole_Load;
             this.dgvTables.CellClick += dgvTables_CellClick;
             this.dgvViews.CellClick += dvgViews_CellClick;
+            this.dgvProcs.CellClick += dvgProcs_CellClick;
 
         }
 
@@ -117,7 +118,25 @@ namespace SchoolManagement
                     row["UPDATE"] = "x";
                     row["DELETE"] = "x";
                 }
+                // ===== Lấy danh sách STORED PROCEDURES =====
+                string queryProcs = @"
+            SELECT object_name AS procedure_name
+            FROM all_objects 
+            WHERE object_type = 'PROCEDURE' AND object_name LIKE 'QLDH_%'
+            ORDER BY object_name";
 
+                DataTable dtProcs = new DataTable();
+                using (OracleDataAdapter adapter = new OracleDataAdapter(queryProcs, conn))
+                {
+                    adapter.Fill(dtProcs);
+                }
+
+                dtProcs.Columns.Add("EXECUTE", typeof(string));
+
+                foreach (DataRow row in dtProcs.Rows)
+                {
+                    row["EXECUTE"] = "x"; // Mặc định không có quyền
+                }
                 // ===== Kiểm tra quyền trên TABLES =====
                 string privilegeQuery = @"
 			SELECT privilege 
@@ -170,13 +189,36 @@ namespace SchoolManagement
                         }
                     }
                 }
-               
-                
+
+                // ===== Kiểm tra quyền EXECUTE trên STORED PROCEDURES =====
+                string procPrivilegeQuery = @"
+            SELECT privilege 
+            FROM dba_tab_privs 
+            WHERE grantee = :roleName AND table_name = :procName AND privilege = 'EXECUTE'";
+
+                foreach (DataRow row in dtProcs.Rows)
+                {
+                    string procName = row["PROCEDURE_NAME"].ToString();
+
+                    using (OracleCommand cmd = new OracleCommand(procPrivilegeQuery, conn))
+                    {
+                        cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
+                        cmd.Parameters.Add(":procName", OracleDbType.Varchar2).Value = procName.ToUpper();
+
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                row["EXECUTE"] = "v"; // Có quyền EXECUTE
+                            }
+                        }
+                    }
+                }
+
 
                 // ===== Hiển thị dữ liệu =====
                 dgvTables.DataSource = null;
                 dgvTables.DataSource = dtTables;
-
                 dgvTables.AutoGenerateColumns = true;
                 dgvTables.AllowUserToAddRows = false;
 
@@ -184,6 +226,18 @@ namespace SchoolManagement
                 dgvViews.DataSource = dtViews;
                 dgvViews.AutoGenerateColumns = true;
                 dgvViews.AllowUserToAddRows = false;
+
+                // Hiển thị Stored Procedures
+                dgvProcs.DataSource = null;
+                dgvProcs.DataSource = dtProcs;
+                if (dgvProcs.Columns["EXECUTE"] != null)
+                {
+                    dgvProcs.Columns["EXECUTE"].Width = 100; // Set a fixed width (e.g., 50 pixels)
+                                                            // Alternatively, you can use AutoSizeMode if preferred:
+                                                            // dgvProcs.Columns["EXECUTE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                }
+                dgvProcs.AutoGenerateColumns = true;
+                dgvProcs.AllowUserToAddRows = false;
             }
             catch (Exception ex)
             {
@@ -253,6 +307,39 @@ namespace SchoolManagement
                 MessageBox.Show("Error while toggling permission:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dvgProcs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    DataGridViewColumn column = dgvViews.Columns[e.ColumnIndex];
+                    string columnName = column.Name;
+                    // Chỉ cho phép click vào các cột quyền
+                    if (columnName == "EXECUTE" )
+                    {
+                        DataGridViewRow row = dgvViews.Rows[e.RowIndex];
+                        string currentValue = row.Cells[columnName].Value?.ToString();
+                        if (currentValue == "x")
+                        {
+                            row.Cells[columnName].Value = "v";  // cấp quyền
+                        }
+                        else if (currentValue == "v")
+                        {
+                            row.Cells[columnName].Value = "x";  // thu hồi quyền
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while toggling permission:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
 
         private void lbUsers_Click(object sender, EventArgs e)
 		{

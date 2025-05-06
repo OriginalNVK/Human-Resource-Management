@@ -1,4 +1,6 @@
 ﻿
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+
 namespace SchoolManagement
 {
 	partial class UpdateRole
@@ -49,6 +51,7 @@ namespace SchoolManagement
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgvTables = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.dgvViews = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dgvProcs = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Dashboard = new System.Windows.Forms.Label();
@@ -65,6 +68,7 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViews)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcs)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -340,7 +344,7 @@ namespace SchoolManagement
             this.dgvTables.Name = "dgvUser";
             this.dgvTables.ReadOnly = true;
             this.dgvTables.RowHeadersWidth = 51;
-            this.dgvTables.Size = new System.Drawing.Size(899, 307);
+            this.dgvTables.Size = new System.Drawing.Size(899, 150);
             this.dgvTables.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvTables.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvTables.StateCommon.Background.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
@@ -374,6 +378,7 @@ namespace SchoolManagement
             this.dgvTables.StateSelected.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
             this.dgvTables.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
             this.dgvTables.TabIndex = 190;
+            this.dgvTables.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             // 
             // dgvViews
             // 
@@ -392,7 +397,7 @@ namespace SchoolManagement
             this.dgvViews.Name = "dgvViews";
             this.dgvViews.ReadOnly = true;
             this.dgvViews.RowHeadersWidth = 51;
-            this.dgvViews.Size = new System.Drawing.Size(899, 200);
+            this.dgvViews.Size = new System.Drawing.Size(899, 150);
             this.dgvViews.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvViews.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvViews.StateCommon.Background.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
@@ -426,6 +431,59 @@ namespace SchoolManagement
             this.dgvViews.StateSelected.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
             this.dgvViews.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
             this.dgvViews.TabIndex = 237;
+            //
+            //dvgProcs
+            //
+            // Thiết lập các thuộc tính cơ bản
+            this.dgvProcs.AllowUserToAddRows = false;
+            this.dgvProcs.AllowUserToDeleteRows = false;
+            this.dgvProcs.AllowUserToOrderColumns = true;
+            this.dgvProcs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProcs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvProcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+           
+            this.dgvProcs.Location = new System.Drawing.Point(
+                dgvTables.Location.X,
+                dgvViews.Location.Y + dgvViews.Height + spacing
+            );
+            this.dgvProcs.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProcs.Name = "dgvProcs";
+            this.dgvProcs.ReadOnly = true;
+            this.dgvProcs.RowHeadersWidth = 51;
+            this.dgvProcs.Size = new System.Drawing.Size(899, 150);
+            this.dgvProcs.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvProcs.StateCommon.Background.Color2 = System.Drawing.Color.White;
+            this.dgvProcs.StateCommon.Background.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.dgvProcs.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvProcs.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.dgvProcs.StateCommon.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.dgvProcs.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.DataCell.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgvProcs.StateCommon.DataCell.Border.Width = 1;
+            this.dgvProcs.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProcs.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgvProcs.StateCommon.HeaderColumn.Border.Width = 1;
+            this.dgvProcs.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.dgvProcs.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
+            this.dgvProcs.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProcs.StateCommon.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.HeaderRow.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvProcs.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom)
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.dgvProcs.StateCommon.HeaderRow.Border.Width = 1;
+            this.dgvProcs.StateSelected.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.dgvProcs.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.dgvProcs.TabIndex = 237;
             // 
             // panel2
             // 
@@ -472,7 +530,7 @@ namespace SchoolManagement
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(752, dgvViews.Location.Y + dgvViews.Height+20);
+            this.btnSave.Location = new System.Drawing.Point(752, dgvProcs.Location.Y + dgvProcs.Height+20);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
@@ -586,6 +644,7 @@ namespace SchoolManagement
             this.Controls.Add(this.lbStudents);
             this.Controls.Add(this.dgvTables);
             this.Controls.Add(this.dgvViews);
+            this.Controls.Add(this.dgvProcs);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -599,6 +658,8 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViews)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcs)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -627,6 +688,7 @@ namespace SchoolManagement
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvTables;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvViews;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvProcs;
         private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label lbStudents;
