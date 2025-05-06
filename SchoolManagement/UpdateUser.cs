@@ -27,6 +27,8 @@ namespace SchoolManagement
 			}
 		}
 		private string _mainRole;
+
+		private ComponentFactory.Krypton.Toolkit.KryptonButton btnRevokeAllPrivileges;
 		public UpdateUser(string username, string role)
 		{
 			InitializeComponent();
@@ -131,12 +133,14 @@ namespace SchoolManagement
 		{
 			try
 			{
+				// Lấy thông tin từ các trường nhập liệu
 				string username = txtUsername.Text.Trim().ToUpper();
 				string password = txtPassword.Text.Trim();
+				// Lấy vai trò được chọn từ DataGridView
 				string role = dgvUser.Rows.Cast<DataGridViewRow>()
-								 .Where(r => Convert.ToBoolean(r.Cells["chk"].Value ?? false))
-								 .Select(r => r.Cells["Role"].Value.ToString())
-								 .FirstOrDefault();
+									.Where(r => Convert.ToBoolean(r.Cells["chk"].Value ?? false))
+									.Select(r => r.Cells["Role"].Value.ToString())
+									.FirstOrDefault();
 
 				string fullname = txtFullname.Text.Trim();
 				string gender = GenderDropdown.SelectedItem?.ToString();
@@ -144,13 +148,14 @@ namespace SchoolManagement
 				string address = txtAddress.Text.Trim();
 				string dob = dtpDOB.Value.ToString("dd-MMM-yyyy");
 
+				// Kiểm tra dữ liệu đầu vào
 				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(role))
 				{
 					MessageBox.Show("Vui lòng điền Username và chọn Role.");
 					return;
 				}
 
-				// KHÔNG dùng using vì DatabaseSession.Connection là static/singleton
+				// Lấy kết nối database (giữ nguyên logic cũ)
 				OracleConnection conn = DatabaseSession.Connection;
 				MessageBox.Show(conn.ToString());
 				if (conn == null || conn.State != ConnectionState.Open)
@@ -159,10 +164,12 @@ namespace SchoolManagement
 					return;
 				}
 
+				// Bắt đầu transaction để đảm bảo tính toàn vẹn dữ liệu
 				OracleTransaction transaction = conn.BeginTransaction();
 
 				try
 				{
+					// Cập nhật mật khẩu nếu người dùng nhập mật khẩu mới (giữ nguyên logic cũ)
 					if (!string.IsNullOrEmpty(password))
 					{
 						string alterQuery = $"ALTER USER {username} IDENTIFIED BY \"{password}\"";
@@ -173,11 +180,42 @@ namespace SchoolManagement
 						}
 					}
 
-					// Kiểm tra user đã có role hay chưa
+					// Lấy danh sách vai trò hiện tại của người dùng
+					string grantedRolesQuery = "SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS WHERE GRANTEE = :username";
+					List<string> grantedRoles = new List<string>();
+					using (OracleCommand grantedCmd = new OracleCommand(grantedRolesQuery, conn))
+					{
+						grantedCmd.Transaction = transaction;
+						grantedCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+						using (OracleDataReader reader = grantedCmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								grantedRoles.Add(reader.GetString(0));
+							}
+						}
+					}
+
+					// Thu hồi các vai trò đã cấp nhưng bị bỏ chọn
+					foreach (string grantedRole in grantedRoles)
+					{
+						if (grantedRole != role && !dgvUser.Rows.Cast<DataGridViewRow>()
+							.Any(r => r.Cells["Role"].Value.ToString() == grantedRole && Convert.ToBoolean(r.Cells["chk"].Value ?? false)))
+						{
+							string revokeQuery = $"BEGIN EXECUTE IMMEDIATE 'REVOKE {grantedRole} FROM {username}'; END;";
+							using (OracleCommand revokeCmd = new OracleCommand(revokeQuery, conn))
+							{
+								revokeCmd.Transaction = transaction;
+								revokeCmd.ExecuteNonQuery();
+							}
+						}
+					}
+
+					// Kiểm tra user đã có role hay chưa (giữ nguyên logic cũ)
 					string checkRoleQuery = @"
-					SELECT COUNT(*) 
-					FROM DBA_ROLE_PRIVS 
-					WHERE GRANTEE = :username AND GRANTED_ROLE = :role";
+						SELECT COUNT(*) 
+						FROM DBA_ROLE_PRIVS 
+						WHERE GRANTEE = :username AND GRANTED_ROLE = :role";
 
 					using (OracleCommand checkCmd = new OracleCommand(checkRoleQuery, conn))
 					{
@@ -199,37 +237,38 @@ namespace SchoolManagement
 						}
 					}
 
-
+					// Cập nhật thông tin chi tiết của người dùng dựa trên vai trò (giữ nguyên logic cũ)
 					string updateDetails = "";
 					switch (_mainRole.ToUpper())
 					{
 						case "ADMIN":
 							updateDetails = @"UPDATE SYS.QLDH_ADMIN 
-						SET HOTEN = :fullname, PHAI = :gender, 
-							NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-							DCHI = :address, DT = :phoNum 
-						WHERE MAAD = :username";
+										SET HOTEN = :fullname, PHAI = :gender, 
+											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+											DCHI = :address, DT = :phoNum 
+										WHERE MAAD = :username";
 							break;
 						case "NHAN VIEN":
 							updateDetails = @"UPDATE SYS.QLDH_NHANVIEN 
-						SET HOTEN = :fullname, PHAI = :gender, 
-							NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-							DCHI = :address, DT = :phoNum 
-						WHERE MANV = :username";
+										SET HOTEN = :fullname, PHAI = :gender, 
+											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+											DCHI = :address, DT = :phoNum 
+										WHERE MANV = :username";
 							break;
 						case "SINH VIEN":
 							updateDetails = @"UPDATE SYS.QLDH_SINHVIEN 
-						SET HOTEN = :fullname, PHAI = :gender, 
-							NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-							DCHI = :address, DT = :phoNum 
-						WHERE MASV = :username";
+										SET HOTEN = :fullname, PHAI = :gender, 
+											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
+											DCHI = :address, DT = :phoNum 
+										WHERE MASV = :username";
 							break;
 						default:
 							transaction.Rollback();
-							MessageBox.Show("Role không hợp lệ.");
+							MessageBox.Show("Vai trò không hợp lệ.");
 							return;
 					}
 
+					// Thực thi câu lệnh cập nhật thông tin người dùng (giữ nguyên logic cũ)
 					using (OracleCommand updateCmd = new OracleCommand(updateDetails, conn))
 					{
 						updateCmd.Transaction = transaction;
@@ -249,12 +288,14 @@ namespace SchoolManagement
 						}
 					}
 
+					// Commit transaction nếu mọi thứ thành công
 					transaction.Commit();
 					MessageBox.Show("Cập nhật người dùng thành công!");
 					this.Close();
 				}
 				catch (Exception ex)
 				{
+					// Rollback transaction nếu có lỗi
 					transaction.Rollback();
 					MessageBox.Show("Lỗi khi cập nhật người dùng:\n" + ex.Message);
 				}
@@ -263,13 +304,158 @@ namespace SchoolManagement
 			{
 				MessageBox.Show("Lỗi khi kết nối CSDL:\n" + ex.Message);
 			}
+
+			// Chuyển về form UsersManager (giữ nguyên logic cũ)
 			UsersManager userManager = new UsersManager();
 			this.Hide();
 			userManager.ShowDialog();
 			this.Close();
 		}
 
+		// Phương thức mới: Thu hồi toàn bộ quyền được cấp trực tiếp cho user
+		private void btnRevokeAllPrivileges_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				// Lấy username từ trường nhập liệu
+				string username = txtUsername.Text.Trim().ToUpper();
 
+				// Kiểm tra username hợp lệ
+				if (string.IsNullOrEmpty(username))
+				{
+					MessageBox.Show("Please Enter Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return;
+				}
+
+				// Lấy kết nối database
+				OracleConnection conn = DatabaseSession.Connection;
+				if (conn == null || conn.State != ConnectionState.Open)
+				{
+					MessageBox.Show("Connecton Error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+
+				// Xác nhận hành động từ người dùng
+				DialogResult confirmResult = MessageBox.Show(
+					$"Are you sure about revoking all the privileges of {username}?\nThis can not be undone.",
+					"Confirm action",
+					MessageBoxButtons.YesNo,
+					MessageBoxIcon.Warning);
+
+				if (confirmResult != DialogResult.Yes)
+				{
+					return;
+				}
+
+				// Bắt đầu transaction để đảm bảo tính toàn vẹn
+				OracleTransaction transaction = conn.BeginTransaction();
+
+				try
+				{
+					// 1. Thu hồi các vai trò (roles) được cấp trực tiếp
+					string rolesQuery = "SELECT GRANTED_ROLE FROM DBA_ROLE_PRIVS WHERE GRANTEE = :username";
+					List<string> roles = new List<string>();
+					using (OracleCommand rolesCmd = new OracleCommand(rolesQuery, conn))
+					{
+						rolesCmd.Transaction = transaction;
+						rolesCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+						using (OracleDataReader reader = rolesCmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								roles.Add(reader.GetString(0));
+							}
+						}
+					}
+
+					foreach (string role in roles)
+					{
+						string revokeRoleQuery = $"BEGIN EXECUTE IMMEDIATE 'REVOKE {role} FROM {username}'; END;";
+						using (OracleCommand revokeCmd = new OracleCommand(revokeRoleQuery, conn))
+						{
+							revokeCmd.Transaction = transaction;
+							revokeCmd.ExecuteNonQuery();
+						}
+					}
+
+					// 2. Thu hồi các quyền hệ thống (system privileges)
+					string sysPrivsQuery = "SELECT PRIVILEGE FROM DBA_SYS_PRIVS WHERE GRANTEE = :username";
+					List<string> sysPrivs = new List<string>();
+					using (OracleCommand sysPrivsCmd = new OracleCommand(sysPrivsQuery, conn))
+					{
+						sysPrivsCmd.Transaction = transaction;
+						sysPrivsCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+						using (OracleDataReader reader = sysPrivsCmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								sysPrivs.Add(reader.GetString(0));
+							}
+						}
+					}
+
+					foreach (string priv in sysPrivs)
+					{
+						string revokeSysPrivQuery = $"BEGIN EXECUTE IMMEDIATE 'REVOKE {priv} FROM {username}'; END;";
+						using (OracleCommand revokeCmd = new OracleCommand(revokeSysPrivQuery, conn))
+						{
+							revokeCmd.Transaction = transaction;
+							revokeCmd.ExecuteNonQuery();
+						}
+					}
+
+					// 3. Thu hồi các quyền đối tượng (object privileges)
+					string tabPrivsQuery = @"
+						SELECT PRIVILEGE, OWNER, TABLE_NAME 
+						FROM DBA_TAB_PRIVS 
+						WHERE GRANTEE = :username";
+					List<(string Privilege, string Owner, string TableName)> tabPrivs = new List<(string, string, string)>();
+					using (OracleCommand tabPrivsCmd = new OracleCommand(tabPrivsQuery, conn))
+					{
+						tabPrivsCmd.Transaction = transaction;
+						tabPrivsCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+						using (OracleDataReader reader = tabPrivsCmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								tabPrivs.Add((
+									reader.GetString(0), // PRIVILEGE
+									reader.GetString(1), // OWNER
+									reader.GetString(2)  // TABLE_NAME
+								));
+							}
+						}
+					}
+
+					foreach (var priv in tabPrivs)
+					{
+						string revokeTabPrivQuery = $"BEGIN EXECUTE IMMEDIATE 'REVOKE {priv.Privilege} ON {priv.Owner}.{priv.TableName} FROM {username}'; END;";
+						using (OracleCommand revokeCmd = new OracleCommand(revokeTabPrivQuery, conn))
+						{
+							revokeCmd.Transaction = transaction;
+							revokeCmd.ExecuteNonQuery();
+						}
+					}
+
+					// Commit transaction
+					transaction.Commit();
+					MessageBox.Show($"All privileges of {username} revoked successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+					// Cập nhật lại DataGridView để phản ánh thay đổi
+					LoadAllRoles(username);
+				}
+				catch (Exception ex)
+				{
+					// Rollback transaction nếu có lỗi
+					transaction.Rollback();
+					MessageBox.Show($"Error on revoking:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error on connecting to DB:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
 		private void DgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
 		{

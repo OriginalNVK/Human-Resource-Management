@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\updateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\human-resource-management\\schoolmanagement\\updateuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updateuser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\databasesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:databasesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UpdateUser.Designer.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\UpdateUser.Designer.cs",
+              "RelativeDocumentMoniker": "UpdateUser.Designer.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\UpdateUser.Designer.cs",
+              "RelativeToolTip": "UpdateUser.Designer.cs",
+              "ViewState": "AgIAADABAAAAAAAAAAAQwD4BAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T13:38:40.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UpdateUser.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\UpdateUser.cs",
+              "RelativeDocumentMoniker": "UpdateUser.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\UpdateUser.cs",
+              "RelativeToolTip": "UpdateUser.cs",
+              "ViewState": "AgIAADUBAAAAAAAAAAAAAEABAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T13:02:54.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatabaseSession.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\DatabaseSession.cs",
+              "RelativeDocumentMoniker": "DatabaseSession.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\project\\Human-Resource-Management\\SchoolManagement\\DatabaseSession.cs",
+              "RelativeToolTip": "DatabaseSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T09:32:10.129Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
