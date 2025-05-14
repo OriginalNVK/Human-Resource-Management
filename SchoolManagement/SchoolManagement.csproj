@@ -108,6 +108,12 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMenu.Designer.cs">
+      <DependentUpon>AdminMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseSession.cs" />
     <Compile Include="UpdateRole.cs">
       <SubType>Form</SubType>
@@ -115,11 +121,11 @@
     <Compile Include="UpdateRole.Designer.cs">
       <DependentUpon>UpdateRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminMenu.cs">
+    <Compile Include="PersonnelMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMenu.Designer.cs">
-      <DependentUpon>AdminMenu.cs</DependentUpon>
+    <Compile Include="PersonnelMenu.Designer.cs">
+      <DependentUpon>PersonnelMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="AddRole.cs">
       <SubType>Form</SubType>
@@ -198,11 +204,14 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminMenu.resx">
+      <DependentUpon>AdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateRole.resx">
       <DependentUpon>UpdateRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminMenu.resx">
-      <DependentUpon>AdminMenu.cs</DependentUpon>
+    <EmbeddedResource Include="PersonnelMenu.resx">
+      <DependentUpon>PersonnelMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddRole.resx">
       <DependentUpon>AddRole.cs</DependentUpon>

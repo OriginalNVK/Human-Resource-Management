@@ -333,3 +333,4 @@ D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolMa
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.GenerateResource.cache
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
