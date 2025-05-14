@@ -57,7 +57,7 @@ namespace SchoolManagement
 					formToOpen = new AdminMenu();
 					break;
 				case "NhanVien":
-					formToOpen = new TeacherManager(); // Or create a new EmployeeManager form
+					formToOpen = new PersonnelMenu(); // Or create a new EmployeeManager form
 					break;
 				case "SinhVien":
 					formToOpen = new StudentMenu();
