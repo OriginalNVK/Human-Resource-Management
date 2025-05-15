@@ -60,7 +60,7 @@ namespace SchoolManagement
 
 		private static string DetermineUserType(OracleConnection conn, string username)
 		{
-			string checkAdmin = "SELECT 1 FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+			string checkAdmin = "SELECT 1 FROM SYS.QLDH_ADMIN WHERE MAAD = :username   ";
 			using (var cmd = new OracleCommand(checkAdmin, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;

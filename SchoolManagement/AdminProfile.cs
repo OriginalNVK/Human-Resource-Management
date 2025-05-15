@@ -33,7 +33,7 @@ namespace SchoolManagement
 
         private void LoadTextBox()
         {
-            try
+            /*try
             {
 				string oradb = ConfigurationManager
 			   .ConnectionStrings["SchoolDB"]
@@ -52,6 +52,28 @@ namespace SchoolManagement
                 txtPassword.Text = dr.GetString(2);
 
                 conn.Dispose();
+            }*/
+
+            try
+            {
+                string query = "SELECT USERNAME, USER_ID FROM dba_users WHERE username = 'ADMIN01'";
+                using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+                using (OracleDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read()) // <-- Quan trọng: phải gọi Read() trước khi truy cập dữ liệu
+                    {
+                        string username = reader.GetString(1);
+                        string accountStatus = reader.GetString(0);
+
+                        txtHoTen.Text = accountStatus;
+                        txtID.Text = username;
+                        txtPassword.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy người dùng ADMIN01.");
+                    }
+                }
             }
             catch (Exception es)
             {
