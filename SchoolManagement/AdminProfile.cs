@@ -60,7 +60,7 @@ namespace SchoolManagement
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
                 using (OracleDataReader reader = cmd.ExecuteReader())
                 {
-                    if (reader.Read()) // <-- Quan trọng: phải gọi Read() trước khi truy cập dữ liệu
+                    if (reader.Read())
                     {
                         string username = reader.GetString(1);
                         string accountStatus = reader.GetString(0);

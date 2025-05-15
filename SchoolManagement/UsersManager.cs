@@ -376,8 +376,42 @@ namespace SchoolManagement
 				if (dlg != DialogResult.Yes)
 					return;
 
-				// Thực thi DROP USER … CASCADE
-				string sql = $"DROP USER \"{usernameToDelete.ToUpper()}\" CASCADE";
+				string userType = DatabaseSession.DetermineUserType(conn, usernameToDelete.ToUpper());
+
+				if (userType == null)
+				{
+					Console.WriteLine($"Không xác định được loại người dùng cho: {usernameToDelete}");
+				}
+				else
+				{
+					// Xoá dữ liệu ứng với loại người dùng
+					string deleteQuery = "";
+					switch (userType)
+					{
+						case "NhanVien":
+							deleteQuery = "DELETE FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
+							break;
+						case "Admin":
+							deleteQuery = "DELETE FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+							break;
+						case "SinhVien":
+							deleteQuery = "DELETE FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
+							break;
+					}
+
+					if (!string.IsNullOrEmpty(deleteQuery))
+					{
+						using (var cmdDelete = new OracleCommand(deleteQuery, conn))
+						{
+							cmdDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = usernameToDelete.ToUpper();
+							cmdDelete.ExecuteNonQuery();
+							Console.WriteLine($"Đã xoá dữ liệu {userType} cho user: {usernameToDelete}");
+						}
+					}
+				}
+
+					// Thực thi DROP USER … CASCADE
+					string sql = $"DROP USER \"{usernameToDelete.ToUpper()}\" CASCADE";
 				using (var cmd = new OracleCommand(sql, conn))
 				{
 					cmd.ExecuteNonQuery();

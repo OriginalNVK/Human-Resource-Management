@@ -93,6 +93,13 @@ namespace SchoolManagement
 						cmdGrantConnect.ExecuteNonQuery();
 					}
 
+					string grantLoginRoleQuery = $"GRANT LOGIN_ROLE TO {username}";
+					using (OracleCommand cmdGrantLoginRole = new OracleCommand(grantLoginRoleQuery, conn))
+					{
+						cmdGrantLoginRole.Transaction = transaction;
+						cmdGrantLoginRole.ExecuteNonQuery();
+					}
+
 					foreach (string selectedRole in grantedRoles)
 					{
 						string grantRoleQuery = $"BEGIN EXECUTE IMMEDIATE 'GRANT {selectedRole} TO {username}'; END;";
