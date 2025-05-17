@@ -16,6 +16,8 @@ namespace SchoolManagement
 	public partial class PersonnelMenu : KryptonForm
 	{
 		private string _username;
+		private string _originalPhoneNumber;    // lưu số điện thoại ban đầu
+		private string _changePassword = null;  // gán nếu người dùng muốn thay đổi mật khẩu
 
 		public PersonnelMenu(string username)
 		{
@@ -26,13 +28,14 @@ namespace SchoolManagement
 
 		private void LoadPersonnelInfo()
 		{
+			txtPhone.ReadOnly = false;
 			try
 			{
 				string query = @"
-            SELECT HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DCHI, DT, VAITRO, TENDV 
-            FROM SYS.QLDH_NHANVIEN NV 
-            JOIN SYS.QLDH_DONVI DV ON NV.MADV = DV.MADV 
-            WHERE MANV = ':username'";
+            SELECT HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DCHI, DT, VAITRO, TENDV
+            FROM SYS.QLDH_NHANVIEN NV
+			JOIN SYS.QLDH_DONVI DV ON NV.MADV = DV.MADV
+            WHERE MANV = :username";
 
 				using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
 				{
@@ -56,9 +59,10 @@ namespace SchoolManagement
 
 							txtAddress.Text = reader.GetString(5);     // DCHI
 							txtPhone.Text = reader.GetString(6);       // DT
+							_originalPhoneNumber = txtPhone.Text;
 							txtRoleName.Text = reader.GetString(7);    // VAITRO
 							txtDepartment.Text = reader.GetString(8);  // TENDV
-							//txtID.Text = _username;                    // MANV
+							txtHello.Text = $"Hello, {reader.GetString(0)}";
 						}
 						else
 						{
@@ -73,62 +77,99 @@ namespace SchoolManagement
 			}
 		}
 
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				// Lấy số điện thoại hiện tại trong textbox
+				string currentPhone = txtPhone.Text.Trim();
+				bool isPhoneChanged = currentPhone != _originalPhoneNumber;
+				_changePassword = txtNewPassword.Text.Trim();
+
+				using (OracleCommand cmd = new OracleCommand())
+				{
+					cmd.Connection = DatabaseSession.Connection;
+
+					if (isPhoneChanged)
+					{
+						cmd.CommandText = "UPDATE SYS.QLDH_NHANVIEN SET DT = :newPhone WHERE MANV = :username";
+						cmd.Parameters.Add(new OracleParameter("newPhone", currentPhone));
+						cmd.Parameters.Add(new OracleParameter("username", _username));
+						cmd.ExecuteNonQuery();
+						MessageBox.Show("Cập nhật số điện thoại thành công!");
+					}
+
+					if (!string.IsNullOrEmpty(_changePassword))
+					{
+						cmd.Parameters.Clear(); // reset tham số
+						cmd.CommandText = "ALTER USER " + _username + " IDENTIFIED BY \"" + _changePassword + "\"";
+						cmd.ExecuteNonQuery();
+						MessageBox.Show("Cập nhật mật khẩu thành công!");
+					}
+
+					if (!isPhoneChanged && string.IsNullOrEmpty(_changePassword))
+					{
+						MessageBox.Show("Không có thay đổi nào để lưu.");
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi cập nhật: " + ex.Message);
+			}
+		}
+
 		private void pbLogout_Click(object sender, EventArgs e)
-{
-	LogOut();
-}
+		{
+			LogOut();
+		}
 
-private void LogOut()
-{
-	Login login = new Login();
-	this.Hide();
-	login.ShowDialog();
-	this.Close();
-}
+		private void LogOut()
+		{
+			Login login = new Login();
+			this.Hide();
+			login.ShowDialog();
+			this.Close();
+		}
 
-private void pbProfile_Click(object sender, EventArgs e)
-{
-	AdminProfile myProfile = new AdminProfile();
-	this.Hide();
-	myProfile.ShowDialog();
-	this.Close();
-}
+		private void pbProfile_Click(object sender, EventArgs e)
+		{
+			AdminProfile myProfile = new AdminProfile();
+			this.Hide();
+			myProfile.ShowDialog();
+			this.Close();
+		}
 
-private void pbStudents_Click(object sender, EventArgs e)
-{
-	StudentManager student = new StudentManager();
-	this.Hide();
-	student.ShowDialog();
-	this.Close();
-}
+		private void pbStudents_Click(object sender, EventArgs e)
+		{
+			StudentManager student = new StudentManager();
+			this.Hide();
+			student.ShowDialog();
+			this.Close();
+		}
 
-private void pbPersonnel_Click(object sender, EventArgs e)
-{
-	PersonnelManager personnelManager = new PersonnelManager();
-	this.Hide();
-	personnelManager.ShowDialog();
-	this.Close();
-}
+		private void pbPersonnel_Click(object sender, EventArgs e)
+		{
+			PersonnelManager personnelManager = new PersonnelManager();
+			this.Hide();
+			personnelManager.ShowDialog();
+			this.Close();
+		}
 
-private void pbRole_Click(object sender, EventArgs e)
-{
-	RoleManager roleManager = new RoleManager();
-	this.Hide();
-	roleManager.ShowDialog();
-	this.Close();
-}
+		private void pbRole_Click(object sender, EventArgs e)
+		{
+			RoleManager roleManager = new RoleManager();
+			this.Hide();
+			roleManager.ShowDialog();
+			this.Close();
+		}
 
-private void pbUsers_Click(object sender, EventArgs e)
-{
-	UsersManager userManager = new UsersManager();
-	this.Hide();
-	userManager.ShowDialog();
-	this.Close();
-}
-
-private void txtHoTen_TextChanged(object sender, EventArgs e)
-{
-
-}
-    }
+		private void pbUsers_Click(object sender, EventArgs e)
+		{
+			UsersManager userManager = new UsersManager();
+			this.Hide();
+			userManager.ShowDialog();
+			this.Close();
+		}
+	}
 }
