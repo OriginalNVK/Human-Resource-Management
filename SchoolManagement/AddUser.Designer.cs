@@ -70,6 +70,8 @@ namespace SchoolManagement
 			this.GenderDropdown = new System.Windows.Forms.ComboBox();
 			this.dtpDOB = new System.Windows.Forms.DateTimePicker();
 			this.dgvUser = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+			this.label4 = new System.Windows.Forms.Label();
+			this.comboDepartment = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -462,7 +464,7 @@ namespace SchoolManagement
 			// 
 			// btnCreateUser
 			// 
-			this.btnCreateUser.Location = new System.Drawing.Point(752, 724);
+			this.btnCreateUser.Location = new System.Drawing.Point(752, 776);
 			this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCreateUser.Name = "btnCreateUser";
 			this.btnCreateUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
@@ -663,7 +665,7 @@ namespace SchoolManagement
 			this.dgvUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
 			this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvUser.ImeMode = System.Windows.Forms.ImeMode.On;
-			this.dgvUser.Location = new System.Drawing.Point(601, 540);
+			this.dgvUser.Location = new System.Drawing.Point(601, 598);
 			this.dgvUser.Margin = new System.Windows.Forms.Padding(4);
 			this.dgvUser.Name = "dgvUser";
 			this.dgvUser.ReadOnly = true;
@@ -703,11 +705,38 @@ namespace SchoolManagement
 			this.dgvUser.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
 			this.dgvUser.TabIndex = 224;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(595, 555);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(134, 22);
+			this.label4.TabIndex = 225;
+			this.label4.Text = "DEPARTMENT:";
+			// 
+			// comboDepartment
+			// 
+			this.comboDepartment.FormattingEnabled = true;
+			this.comboDepartment.Items.AddRange(new object[] {
+            "Khoa Công nghệ thông tin",
+            "Khoa Kinh tế",
+            "Khoa Ngoại ngữ",
+            "Phòng Khảo Thí",
+            "Phòng Đào tạo"});
+			this.comboDepartment.Location = new System.Drawing.Point(786, 553);
+			this.comboDepartment.Name = "comboDepartment";
+			this.comboDepartment.Size = new System.Drawing.Size(285, 24);
+			this.comboDepartment.TabIndex = 226;
+			// 
 			// AddUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1323, 853);
+			this.Controls.Add(this.comboDepartment);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.dgvUser);
 			this.Controls.Add(this.dtpDOB);
 			this.Controls.Add(this.label14);
@@ -801,5 +830,7 @@ namespace SchoolManagement
 		private ComboBox GenderDropdown;
 		private DateTimePicker dtpDOB;
 		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvUser;
+		private Label label4;
+		private ComboBox comboDepartment;
 	}
 }

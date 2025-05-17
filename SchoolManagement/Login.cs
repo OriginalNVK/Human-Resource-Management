@@ -50,18 +50,18 @@ namespace SchoolManagement
         {
             Form formToOpen = null;
 
-            switch (userType)
-            {
-                case "Admin":
-                    formToOpen = new AdminMenu();
-                    break;
-                case "NhanVien":
-                    formToOpen = new PersonnelMenu();
-                    break;
-                case "SinhVien":
-                    formToOpen = new StudentMenu(); // Pass the Text property of KryptonTextBox
-                    break;
-            }
+			switch (userType)
+			{
+				case "Admin":
+					formToOpen = new AdminMenu();
+					break;
+				case "NhanVien":
+					formToOpen = new PersonnelMenu(txtUsername.Text); // Or create a new EmployeeManager form
+					break;
+				case "SinhVien":
+					formToOpen = new StudentMenu();
+					break;
+			}
 
             if (formToOpen != null)
             {
