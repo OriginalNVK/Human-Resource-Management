@@ -334,6 +334,7 @@ D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolMa
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
+<<<<<<< HEAD
 D:\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.exe.config
 D:\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.exe
 D:\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.pdb
@@ -389,3 +390,6 @@ D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.
 D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
 D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.exe
 D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
+=======
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
+>>>>>>> 116ff9fbc596abe355a2617dc93171729ca6c077

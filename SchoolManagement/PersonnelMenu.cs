@@ -22,7 +22,38 @@ namespace SchoolManagement
 
         private void AdminMenu_Load(object sender, EventArgs e)
         {
-  
+            try
+            {
+                string infoQuery = "SELECT * FROM SYS.QLDH_NHANVIEN WHERE HOTEN = 'NEW'";
+                using (OracleCommand cmd =  new OracleCommand(infoQuery, DatabaseSession.Connection))
+                using (OracleDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string username = reader.GetString(0);
+                        string fullname = reader.GetString(1);
+                        string gender = reader.GetString(2);
+                        string dob = reader.GetString(3);
+                        string salary = reader.GetString(4);
+                        string bonus = reader.GetString(5);
+                        string address = reader.GetString(6);
+                        string phone = reader.GetString(7);
+                        string role = reader.GetString(8);
+
+                        txtHoTen.Text = fullname;
+                        txtRoleName.Text = role;
+                        txtID.Text = username;
+                        txtBirth.Text = dob;
+                        txtAddress.Text = address;
+                        txtGender.Text = gender;
+                        txtPhone.Text = phone;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n" + ex.Message);
+            }
         } 
 
         private void pbLogout_Click(object sender, EventArgs e)
@@ -77,5 +108,10 @@ namespace SchoolManagement
 			userManager.ShowDialog();
             this.Close();
         }
-	}
+
+        private void txtHoTen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
