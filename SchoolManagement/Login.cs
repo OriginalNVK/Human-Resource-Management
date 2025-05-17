@@ -33,13 +33,12 @@ namespace SchoolManagement
 
 			// Gọi InitializeSession để xác thực và thiết lập phiên làm việc
 			bool success = DatabaseSession.InitializeSession(txtUsername.Text, txtPassword.Text);
-
-			if (success)
+			
+            if (success)
 			{
 				// Đăng nhập thành công, mở form tương ứng
 				string userType = DatabaseSession.UserType;
-
-				OpenUserForm(userType);
+                OpenUserForm(userType);
 			}
 			else
 			{
@@ -47,29 +46,29 @@ namespace SchoolManagement
 			}
 		}
 
-		private void OpenUserForm(string userType)
-		{
-			Form formToOpen = null;
+        private void OpenUserForm(string userType)
+        {
+            Form formToOpen = null;
 
-			switch (userType)
-			{
-				case "Admin":
-					formToOpen = new AdminMenu();
-					break;
-				case "NhanVien":
-					formToOpen = new PersonnelMenu(); // Or create a new EmployeeManager form
-					break;
-				case "SinhVien":
-					formToOpen = new StudentMenu();
-					break;
-			}
+            switch (userType)
+            {
+                case "Admin":
+                    formToOpen = new AdminMenu();
+                    break;
+                case "NhanVien":
+                    formToOpen = new PersonnelMenu();
+                    break;
+                case "SinhVien":
+                    formToOpen = new StudentMenu(); // Pass the Text property of KryptonTextBox
+                    break;
+            }
 
-			if (formToOpen != null)
-			{
-				this.Hide();
-				formToOpen.ShowDialog();
-				this.Close();
-			}
-		}
+            if (formToOpen != null)
+            {
+                this.Hide();
+                formToOpen.ShowDialog();
+                this.Close();
+            }
+        }
 	}
 }
