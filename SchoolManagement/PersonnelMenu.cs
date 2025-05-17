@@ -13,105 +13,122 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SchoolManagement
 {
-    public partial class PersonnelMenu : KryptonForm
-    {
-        public PersonnelMenu()
-        {
-            InitializeComponent();
-        }
+	public partial class PersonnelMenu : KryptonForm
+	{
+		private string _username;
 
-        private void AdminMenu_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                string infoQuery = "SELECT * FROM SYS.QLDH_NHANVIEN WHERE HOTEN = 'NEW'";
-                using (OracleCommand cmd =  new OracleCommand(infoQuery, DatabaseSession.Connection))
-                using (OracleDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        string username = reader.GetString(0);
-                        string fullname = reader.GetString(1);
-                        string gender = reader.GetString(2);
-                        string dob = reader.GetString(3);
-                        string salary = reader.GetString(4);
-                        string bonus = reader.GetString(5);
-                        string address = reader.GetString(6);
-                        string phone = reader.GetString(7);
-                        string role = reader.GetString(8);
+		public PersonnelMenu(string username)
+		{
+			InitializeComponent();
+			_username = username;
+			LoadPersonnelInfo();
+		}
 
-                        txtHoTen.Text = fullname;
-                        txtRoleName.Text = role;
-                        txtID.Text = username;
-                        txtBirth.Text = dob;
-                        txtAddress.Text = address;
-                        txtGender.Text = gender;
-                        txtPhone.Text = phone;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:\n" + ex.Message);
-            }
-        } 
+		private void LoadPersonnelInfo()
+		{
+			try
+			{
+				string query = @"
+            SELECT HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DCHI, DT, VAITRO, TENDV 
+            FROM SYS.QLDH_NHANVIEN NV 
+            JOIN SYS.QLDH_DONVI DV ON NV.MADV = DV.MADV 
+            WHERE MANV = ':username'";
 
-        private void pbLogout_Click(object sender, EventArgs e)
-        {
-            LogOut();
-        }
+				using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+				{
+					cmd.Parameters.Add(new OracleParameter("username", _username));
 
-        private void LogOut()
-        {
-            Login login = new Login();
-            this.Hide();
-            login.ShowDialog();
-            this.Close();
-        }
+					using (OracleDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader.Read())
+						{
+							txtHoTen.Text = reader.GetString(0);       // HOTEN
+							txtGender.Text = reader.GetString(1);      // PHAI
 
-		private void pbProfile_Click(object sender, EventArgs e)
-        {
-            AdminProfile myProfile = new AdminProfile();
-            this.Hide();
-            myProfile.ShowDialog();
-            this.Close();
-        }
+							DateTime dob = reader.GetDateTime(2);      // NGSINH
+							txtBirth.Text = dob.ToString("dd/MM/yyyy");
 
-        private void pbStudents_Click(object sender, EventArgs e)
-        {
-            StudentManager student = new StudentManager(); 
-            this.Hide();
-            student.ShowDialog(); 
-            this.Close();
-        }
+							decimal salary = reader.GetDecimal(3);     // LUONG
+							txtSalary.Text = salary.ToString("N0");
 
-        private void pbPersonnel_Click(object sender, EventArgs e)
-        {
-            PersonnelManager personnelManager = new PersonnelManager();
-            this.Hide();
-            personnelManager.ShowDialog();
-            this.Close();
-        }
+							decimal bonus = reader.GetDecimal(4);      // PHUCAP
+							txtBonus.Text = bonus.ToString("N0");
 
-        private void pbRole_Click(object sender, EventArgs e)
-        {
-            RoleManager roleManager = new RoleManager();
-            this.Hide();
-			roleManager.ShowDialog();
-            this.Close();
-        }
+							txtAddress.Text = reader.GetString(5);     // DCHI
+							txtPhone.Text = reader.GetString(6);       // DT
+							txtRoleName.Text = reader.GetString(7);    // VAITRO
+							txtDepartment.Text = reader.GetString(8);  // TENDV
+							//txtID.Text = _username;                    // MANV
+						}
+						else
+						{
+							MessageBox.Show("Không tìm thấy nhân viên!");
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi truy vấn: " + ex.Message);
+			}
+		}
 
-        private void pbUsers_Click(object sender, EventArgs e)
-        {
-            UsersManager userManager = new UsersManager();
-            this.Hide();
-			userManager.ShowDialog();
-            this.Close();
-        }
+		private void pbLogout_Click(object sender, EventArgs e)
+{
+	LogOut();
+}
 
-        private void txtHoTen_TextChanged(object sender, EventArgs e)
-        {
+private void LogOut()
+{
+	Login login = new Login();
+	this.Hide();
+	login.ShowDialog();
+	this.Close();
+}
 
-        }
+private void pbProfile_Click(object sender, EventArgs e)
+{
+	AdminProfile myProfile = new AdminProfile();
+	this.Hide();
+	myProfile.ShowDialog();
+	this.Close();
+}
+
+private void pbStudents_Click(object sender, EventArgs e)
+{
+	StudentManager student = new StudentManager();
+	this.Hide();
+	student.ShowDialog();
+	this.Close();
+}
+
+private void pbPersonnel_Click(object sender, EventArgs e)
+{
+	PersonnelManager personnelManager = new PersonnelManager();
+	this.Hide();
+	personnelManager.ShowDialog();
+	this.Close();
+}
+
+private void pbRole_Click(object sender, EventArgs e)
+{
+	RoleManager roleManager = new RoleManager();
+	this.Hide();
+	roleManager.ShowDialog();
+	this.Close();
+}
+
+private void pbUsers_Click(object sender, EventArgs e)
+{
+	UsersManager userManager = new UsersManager();
+	this.Hide();
+	userManager.ShowDialog();
+	this.Close();
+}
+
+private void txtHoTen_TextChanged(object sender, EventArgs e)
+{
+
+}
     }
 }
