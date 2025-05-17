@@ -1,3 +1,6 @@
+ALTER SESSION SET CONTAINER= PDBQLDH; 
+ALTER SESSION SET CURRENT_SCHEMA = pdb_admin;
+
 CREATE ROLE NV_NVCB;        -- Nhân viên cơ bản
 CREATE ROLE NV_GV;          -- Giảng viên
 CREATE ROLE NV_PDT;         -- Nhân viên Phòng Đào tạo
@@ -117,10 +120,11 @@ EXCEPTION
 END;
 /
 
-GRANT EXECUTE ON GRANT_PRIVS_TO_ROLE TO pdb_admin;
-GRANT EXECUTE ON REVOKE_PRIVS_FROM_ROLE TO pdb_admin;
-GRANT EXECUTE ON GRANT_PRIV_TO_USER TO pdb_admin;
-GRANT EXECUTE ON REVOKE_PRIVS_FROM_USER TO pdb_admin;
+-- VÌ ĐÃ GÁN QUYỀN DBA
+--GRANT EXECUTE ON GRANT_PRIVS_TO_ROLE TO pdb_admin;
+--GRANT EXECUTE ON REVOKE_PRIVS_FROM_ROLE TO pdb_admin;
+--GRANT EXECUTE ON GRANT_PRIV_TO_USER TO pdb_admin;
+--GRANT EXECUTE ON REVOKE_PRIVS_FROM_USER TO pdb_admin;
 
 --------------------------------------------------------------------------------
 /*-- Test procedure
@@ -195,7 +199,7 @@ SELECT * FROM DBA_TAB_PRIVS WHERE GRANTEE IN ('TEST_USER_01', 'TEST_USER_02', 'T
 --thoại có thay đổi). Tất cả nhân viên thuộc các vai trò còn lại đều có quyền của vai trò “NVCB”.
 
 CREATE OR REPLACE VIEW QLDH_VIEW_EMP_INFO AS
-SELECT * FROM pdb_admin.QLDH_NHANVIEN 
+SELECT * FROM QLDH_NHANVIEN 
 WHERE MANV = SYS_CONTEXT('USERENV','SESSION_USER');
 
 

@@ -1,3 +1,6 @@
+ALTER SESSION SET CONTAINER= PDBQLDH; 
+ALTER SESSION SET CURRENT_SCHEMA = pdb_admin;
+
 --Câu 3: Em hãy ép thỏa các chính sách bảo mật trên quan hệ SINHVIEN dùng cơ chế VPD
 --theo mô tả bên dưới và cài đặt giao diện cho những người dùng liên quan:
 
@@ -94,43 +97,43 @@ BEGIN
 END;
 /
 
--- Tạo vai trò nếu chưa tồn tại
-BEGIN
-    EXECUTE IMMEDIATE 'CREATE ROLE SV';
-EXCEPTION
-    WHEN OTHERS THEN
-        IF SQLCODE = -01921 THEN NULL; -- Vai trò đã tồn tại
-        ELSE RAISE;
-        END IF;
-END;
-/
-BEGIN
-    EXECUTE IMMEDIATE 'CREATE ROLE NV_CTSV';
-EXCEPTION
-    WHEN OTHERS THEN
-        IF SQLCODE = -01921 THEN NULL;
-        ELSE RAISE;
-        END IF;
-END;
-/
-BEGIN
-    EXECUTE IMMEDIATE 'CREATE ROLE NV_PDT';
-EXCEPTION
-    WHEN OTHERS THEN
-        IF SQLCODE = -01921 THEN NULL;
-        ELSE RAISE;
-        END IF;
-END;
-/
-BEGIN
-    EXECUTE IMMEDIATE 'CREATE ROLE NV_GV';
-EXCEPTION
-    WHEN OTHERS THEN
-        IF SQLCODE = -01921 THEN NULL;
-        ELSE RAISE;
-        END IF;
-END;
-/
+---- Tạo vai trò nếu chưa tồn tại
+--BEGIN
+--    EXECUTE IMMEDIATE 'CREATE ROLE SV';
+--EXCEPTION
+--    WHEN OTHERS THEN
+--        IF SQLCODE = -01921 THEN NULL; -- Vai trò đã tồn tại
+--        ELSE RAISE;
+--        END IF;
+--END;
+--/
+--BEGIN
+--    EXECUTE IMMEDIATE 'CREATE ROLE NV_CTSV';
+--EXCEPTION
+--    WHEN OTHERS THEN
+--        IF SQLCODE = -01921 THEN NULL;
+--        ELSE RAISE;
+--        END IF;
+--END;
+--/
+--BEGIN
+--    EXECUTE IMMEDIATE 'CREATE ROLE NV_PDT';
+--EXCEPTION
+--    WHEN OTHERS THEN
+--        IF SQLCODE = -01921 THEN NULL;
+--        ELSE RAISE;
+--        END IF;
+--END;
+--/
+--BEGIN
+--    EXECUTE IMMEDIATE 'CREATE ROLE NV_GV';
+--EXCEPTION
+--    WHEN OTHERS THEN
+--        IF SQLCODE = -01921 THEN NULL;
+--        ELSE RAISE;
+--        END IF;
+--END;
+--/
 
 -- Cấp quyền cho vai trò
 GRANT SELECT, UPDATE (DCHI, DT) ON PDB_ADMIN.QLDH_SINHVIEN TO SV;

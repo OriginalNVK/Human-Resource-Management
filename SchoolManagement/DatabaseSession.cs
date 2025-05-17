@@ -32,12 +32,6 @@ namespace SchoolManagement
 						return false; // Không xác định được loại người dùng
 					}
 
-					// Nếu là Admin, thêm quyền SYSDBA
-					if (userType == "Admin")
-					{
-						builder["DBA Privilege"] = "SYSDBA";
-					}
-
 					// Đóng kết nối tạm
 					tempConn.Close();
 				}
@@ -60,21 +54,21 @@ namespace SchoolManagement
 
 		public static string DetermineUserType(OracleConnection conn, string username)
 		{
-			string checkEmployee = "SELECT 1 FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
+			string checkEmployee = "SELECT 1 FROM pdb_admin.QLDH_NHANVIEN WHERE MANV = :username";
 			using (var cmd = new OracleCommand(checkEmployee, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 				if (cmd.ExecuteScalar() != null) return "NhanVien";
 			}
 
-			string checkAdmin = "SELECT 1 FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+			string checkAdmin = "SELECT 1 FROM pdb_admin.QLDH_ADMIN WHERE MAAD = :username";
 			using (var cmd = new OracleCommand(checkAdmin, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 				if (cmd.ExecuteScalar() != null) return "Admin";
 			}
 
-			string checkStudent = "SELECT 1 FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
+			string checkStudent = "SELECT 1 FROM pdb_admin.QLDH_SINHVIEN WHERE MASV = :username";
 			using (var cmd = new OracleCommand(checkStudent, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
