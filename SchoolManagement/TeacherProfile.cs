@@ -34,7 +34,7 @@ namespace SchoolManagement
         {
             try
             {
-                string oradb = "Data Source=localhost:1521 / ORCL21;User Id=SYSTEM;Password=123;";
+                string oradb = "Data Source=localhost:1521 / ORCL21;User Id=PDB_ADMINTEM;Password=123;";
                 OracleConnection conn = new OracleConnection(oradb);  // C#
                 conn.Open();
                 OracleCommand cmd = new OracleCommand();

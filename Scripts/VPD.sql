@@ -55,6 +55,14 @@ BEGIN
 END;
 /
 
+BEGIN
+    DBMS_RLS.DROP_POLICY(
+        object_schema => 'PDB_ADMIN',
+        object_name   => 'QLDH_SINHVIEN',
+        policy_name   => 'student_policy'
+    );
+END;
+
 -- Áp dụng chính sách VPD mới
 BEGIN
     DBMS_RLS.ADD_POLICY(

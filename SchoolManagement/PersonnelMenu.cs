@@ -33,8 +33,8 @@ namespace SchoolManagement
 			{
 				string query = @"
             SELECT HOTEN, PHAI, NGSINH, LUONG, PHUCAP, DCHI, DT, VAITRO, TENDV
-            FROM SYS.QLDH_NHANVIEN NV
-			JOIN SYS.QLDH_DONVI DV ON NV.MADV = DV.MADV
+            FROM PDB_ADMIN.QLDH_NHANVIEN NV
+			JOIN PDB_ADMIN.QLDH_DONVI DV ON NV.MADV = DV.MADV
             WHERE MANV = :username";
 
 				using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
@@ -92,7 +92,7 @@ namespace SchoolManagement
 
 					if (isPhoneChanged)
 					{
-						cmd.CommandText = "UPDATE SYS.QLDH_NHANVIEN SET DT = :newPhone WHERE MANV = :username";
+						cmd.CommandText = "UPDATE PDB_ADMIN.QLDH_NHANVIEN SET DT = :newPhone WHERE MANV = :username";
 						cmd.Parameters.Add(new OracleParameter("newPhone", currentPhone));
 						cmd.Parameters.Add(new OracleParameter("username", _username));
 						cmd.ExecuteNonQuery();

@@ -67,43 +67,6 @@ namespace SchoolManagement
 					return;
 				}
 
-				// Ánh xạ từ grantedRoles -> Vai trò Nhân viên
-				string vaiTroNhanVien = null;
-
-				switch (selectedGrantedRole)
-				{
-					case "NV_NVCB":
-						vaiTroNhanVien = "NVCB";
-						break;
-					case "NV_GV":
-						vaiTroNhanVien = "GV";
-						break;
-					case "NV_PDT":
-						vaiTroNhanVien = "NV PĐT";
-						break;
-					case "NV_PKT":
-						vaiTroNhanVien = "NV PKT";
-						break;
-					case "NV_TCHC":
-						vaiTroNhanVien = "NV TCHC";
-						break;
-					case "NV_CTSV":
-						vaiTroNhanVien = "NV CTSV";
-						break;
-					case "NV_TRGDV":
-						vaiTroNhanVien = "TRGĐV";
-						break;
-					default:
-						MessageBox.Show("Vai trò nhân viên không hợp lệ.");
-						return;
-				}
-
-				if (vaiTroNhanVien == null)
-				{
-					MessageBox.Show("Vai trò không hợp lệ.");
-					return;
-				}
-
 				var conn = DatabaseSession.Connection;
 				if (conn.State != ConnectionState.Open)
 					conn.Open();
@@ -145,7 +108,7 @@ namespace SchoolManagement
 
 					// Lấy MADV từ tên đơn vị
 					string queSeDepID = null;
-					using (OracleCommand cmdGetMADV = new OracleCommand("SELECT MADV FROM SYS.QLDH_DONVI WHERE TENDV = :dep", conn))
+					using (OracleCommand cmdGetMADV = new OracleCommand("SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE TENDV = :dep", conn))
 					{
 						cmdGetMADV.Transaction = transaction;
 						cmdGetMADV.Parameters.Add("dep", OracleDbType.Varchar2).Value = department;
@@ -162,28 +125,93 @@ namespace SchoolManagement
 						}
 					}
 
-					// Tạo câu lệnh insert
-					string roleInsertQuery = "INSERT INTO SYS.QLDH_NHANVIEN (MANV, HOTEN, PHAI, NGSINH, DCHI, DT, LUONG, PHUCAP, VAITRO, MADV) " +
+					if (selectedGrantedRole == "SV")
+					{
+						// Tạo câu lệnh insert vào bảng SINHVIEN
+						string insertSinhVienQuery = "INSERT INTO PDB_ADMIN.QLDH_SINHVIEN (MASV, HOTEN, PHAI, NGSINH, DCHI, DT, TINHTRANG, KHOA) " +
+													 "VALUES (:masv, :hoten, :phai, TO_DATE(:ngsinh, 'DD-MON-YYYY'), :dchi, :dt, 'Dang hoc', :madv)";
+
+						using (OracleCommand cmdInsertSV = new OracleCommand(insertSinhVienQuery, conn))
+						{
+							cmdInsertSV.Transaction = transaction;
+							cmdInsertSV.Parameters.Add("masv", OracleDbType.Varchar2).Value = username;
+							cmdInsertSV.Parameters.Add("hoten", OracleDbType.Varchar2).Value = fullname;
+							cmdInsertSV.Parameters.Add("phai", OracleDbType.Varchar2).Value = gender;
+							cmdInsertSV.Parameters.Add("ngsinh", OracleDbType.Varchar2).Value = dob;
+							cmdInsertSV.Parameters.Add("dchi", OracleDbType.Varchar2).Value = address;
+							cmdInsertSV.Parameters.Add("dt", OracleDbType.Varchar2).Value = phoNum;
+							cmdInsertSV.Parameters.Add("madv", OracleDbType.Varchar2).Value = queSeDepID;
+
+							int resultSV = cmdInsertSV.ExecuteNonQuery();
+							if (resultSV <= 0)
+							{
+								transaction.Rollback();
+								MessageBox.Show("Không thể thêm thông tin chi tiết sinh viên.");
+								return;
+							}
+						}
+					}
+					else
+					{
+						// Ánh xạ từ grantedRoles -> Vai trò Nhân viên
+						string vaiTroNhanVien = null;
+
+						switch (selectedGrantedRole)
+						{
+							case "NV_NVCB":
+								vaiTroNhanVien = "NVCB";
+								break;
+							case "NV_GV":
+								vaiTroNhanVien = "GV";
+								break;
+							case "NV_PDT":
+								vaiTroNhanVien = "NV PĐT";
+								break;
+							case "NV_PKT":
+								vaiTroNhanVien = "NV PKT";
+								break;
+							case "NV_TCHC":
+								vaiTroNhanVien = "NV TCHC";
+								break;
+							case "NV_CTSV":
+								vaiTroNhanVien = "NV CTSV";
+								break;
+							case "NV_TRGDV":
+								vaiTroNhanVien = "TRGĐV";
+								break;
+							default:
+								MessageBox.Show("Vai trò nhân viên không hợp lệ.");
+								return;
+						}
+
+						if (vaiTroNhanVien == null)
+						{
+							MessageBox.Show("Vai trò không hợp lệ.");
+							return;
+						}
+
+						string roleInsertQuery = "INSERT INTO PDB_ADMIN.QLDH_NHANVIEN (MANV, HOTEN, PHAI, NGSINH, DCHI, DT, LUONG, PHUCAP, VAITRO, MADV) " +
 											 "VALUES (:username, :fullname, :gender, TO_DATE(:dob, 'DD-MON-YYYY'), :address, :phoNum, 0, 0, :vaiTro, :madv)";
 
-					using (OracleCommand cmdInsert = new OracleCommand(roleInsertQuery, conn))
-					{
-						cmdInsert.Transaction = transaction;
-						cmdInsert.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-						cmdInsert.Parameters.Add("fullname", OracleDbType.Varchar2).Value = fullname;
-						cmdInsert.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
-						cmdInsert.Parameters.Add("dob", OracleDbType.Varchar2).Value = dob;
-						cmdInsert.Parameters.Add("address", OracleDbType.Varchar2).Value = address;
-						cmdInsert.Parameters.Add("phoNum", OracleDbType.Varchar2).Value = phoNum;
-						cmdInsert.Parameters.Add("vaiTro", OracleDbType.Varchar2).Value = vaiTroNhanVien;
-						cmdInsert.Parameters.Add("madv", OracleDbType.Varchar2).Value = queSeDepID;
-
-						int result = cmdInsert.ExecuteNonQuery();
-						if (result <= 0)
+						using (OracleCommand cmdInsert = new OracleCommand(roleInsertQuery, conn))
 						{
-							transaction.Rollback();
-							MessageBox.Show("Không thể thêm thông tin chi tiết nhân viên.");
-							return;
+							cmdInsert.Transaction = transaction;
+							cmdInsert.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+							cmdInsert.Parameters.Add("fullname", OracleDbType.Varchar2).Value = fullname;
+							cmdInsert.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
+							cmdInsert.Parameters.Add("dob", OracleDbType.Varchar2).Value = dob;
+							cmdInsert.Parameters.Add("address", OracleDbType.Varchar2).Value = address;
+							cmdInsert.Parameters.Add("phoNum", OracleDbType.Varchar2).Value = phoNum;
+							cmdInsert.Parameters.Add("vaiTro", OracleDbType.Varchar2).Value = vaiTroNhanVien;
+							cmdInsert.Parameters.Add("madv", OracleDbType.Varchar2).Value = queSeDepID;
+
+							int result = cmdInsert.ExecuteNonQuery();
+							if (result <= 0)
+							{
+								transaction.Rollback();
+								MessageBox.Show("Không thể thêm thông tin chi tiết nhân viên.");
+								return;
+							}
 						}
 					}
 
@@ -206,9 +234,6 @@ namespace SchoolManagement
 				MessageBox.Show("Lỗi kết nối hoặc xử lý: " + ex.Message);
 			}
 		}
-
-
-
 
 		private void DgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
