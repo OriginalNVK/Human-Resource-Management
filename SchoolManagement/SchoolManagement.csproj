@@ -115,6 +115,18 @@
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseSession.cs" />
+    <Compile Include="RegisteredSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisteredSubject.Designer.cs">
+      <DependentUpon>RegisteredSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectRegister.Designer.cs">
+      <DependentUpon>SubjectRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisteredSubject.resx">
+      <DependentUpon>RegisteredSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectRegister.resx">
+      <DependentUpon>SubjectRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateRole.resx">
       <DependentUpon>UpdateRole.cs</DependentUpon>

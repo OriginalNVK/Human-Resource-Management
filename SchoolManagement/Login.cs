@@ -20,7 +20,6 @@ namespace SchoolManagement
 		public Login()
 		{
 			InitializeComponent();
-
 		}
 
 		private void btnLogin_Click(object sender, EventArgs e)
@@ -30,6 +29,8 @@ namespace SchoolManagement
 				error.Text = "Vui lòng nhập tên đăng nhập và mật khẩu";
 				return;
 			}
+
+			ID = txtUsername.Text;
 
 			// Gọi InitializeSession để xác thực và thiết lập phiên làm việc
 			bool success = DatabaseSession.InitializeSession(txtUsername.Text, txtPassword.Text);

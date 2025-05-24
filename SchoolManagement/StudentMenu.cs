@@ -80,5 +80,21 @@ namespace SchoolManagement
             StudentProfile student = new StudentProfile(); // Fixed typo in 'password'
             student.ShowDialog();
         }
-    }
+
+		private void pbCalendar_Click(object sender, EventArgs e)
+		{
+            SubjectRegister subjectRegister = new SubjectRegister();
+            this.Hide();
+            subjectRegister.ShowDialog();
+            this.Close();
+		}
+
+		private void pbClasses_Click(object sender, EventArgs e)
+		{
+            RegisteredSubject registeredSubject = new RegisteredSubject();
+            this.Hide();
+            registeredSubject.ShowDialog();
+            this.Close();
+		}
+	}
 }

@@ -393,3 +393,5 @@ D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
 =======
 D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
 >>>>>>> 116ff9fbc596abe355a2617dc93171729ca6c077
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectRegister.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RegisteredSubject.resources
