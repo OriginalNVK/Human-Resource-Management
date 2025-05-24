@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Oracle.ManagedDataAccess.Client;
 
+
 namespace SchoolManagement
 {
     public partial class UpdateRole : KryptonForm
@@ -222,8 +223,8 @@ namespace SchoolManagement
 			SELECT privilege 
 			FROM dba_tab_privs 
 			WHERE grantee = :roleName AND table_name = :tableName";
-                
-                foreach(DataRow row in dtViews.Rows)
+
+                foreach (DataRow row in dtViews.Rows)
                 {
                     string viewName = row["VIEW_NAME"].ToString();
                     using (OracleCommand cmd = new OracleCommand(privilegeQuery, conn))
@@ -440,52 +441,52 @@ namespace SchoolManagement
         }
 
         private void lbUsers_Click(object sender, EventArgs e)
-		{
-			UsersManager userManager = new UsersManager();
-			this.Hide();
-			userManager.ShowDialog();
-			this.Close();
-		}
+        {
+            UsersManager userManager = new UsersManager();
+            this.Hide();
+            userManager.ShowDialog();
+            this.Close();
+        }
 
-		private void lbRoles_Click(object sender, EventArgs e)
-		{
-			RoleManager roleManager = new RoleManager();
-			this.Hide();
-			roleManager.ShowDialog();
-			this.Close();
-		}
+        private void lbRoles_Click(object sender, EventArgs e)
+        {
+            RoleManager roleManager = new RoleManager();
+            this.Hide();
+            roleManager.ShowDialog();
+            this.Close();
+        }
 
-		private void label9_Click(object sender, EventArgs e)
-		{
-			StudentManager student = new StudentManager();
-			this.Hide();
-			student.ShowDialog();
-			this.Close();
-		}
+        private void label9_Click(object sender, EventArgs e)
+        {
+            StudentManager student = new StudentManager();
+            this.Hide();
+            student.ShowDialog();
+            this.Close();
+        }
 
-		private void lbPersonnel_Click(object sender, EventArgs e)
-		{
-			PersonnelManager personnelManager = new PersonnelManager();
-			this.Hide();
-			personnelManager.ShowDialog();
-			this.Close();
-		}
+        private void lbPersonnel_Click(object sender, EventArgs e)
+        {
+            PersonnelManager personnelManager = new PersonnelManager();
+            this.Hide();
+            personnelManager.ShowDialog();
+            this.Close();
+        }
 
-		private void lbProfile_Click(object sender, EventArgs e)
-		{
-			AdminProfile myProfile = new AdminProfile();
-			this.Hide();
-			myProfile.ShowDialog();
-			this.Close();
-		}
+        private void lbProfile_Click(object sender, EventArgs e)
+        {
+            AdminProfile myProfile = new AdminProfile();
+            this.Hide();
+            myProfile.ShowDialog();
+            this.Close();
+        }
 
-		private void label4_Click(object sender, EventArgs e)
-		{
-			Login login = new Login();
-			this.Hide();
-			login.ShowDialog();
-			this.Close();
-		}
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
