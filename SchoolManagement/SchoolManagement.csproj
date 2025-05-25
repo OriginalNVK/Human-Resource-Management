@@ -114,6 +114,12 @@
     <Compile Include="ClassList.Designer.cs">
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonnelRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonnelRegister.Designer.cs">
+      <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </Compile>
     <EmbeddedResource Include="ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonnelRegister.resx">
+      <DependentUpon>PersonnelRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateSubject.resx">
       <DependentUpon>UpdateSubject.cs</DependentUpon>
