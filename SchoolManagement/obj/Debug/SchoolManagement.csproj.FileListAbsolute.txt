@@ -452,3 +452,4 @@ D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Mana
 D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
 D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.exe
 D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
+D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateStudent.resources
