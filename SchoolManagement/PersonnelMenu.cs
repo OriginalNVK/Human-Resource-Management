@@ -144,9 +144,9 @@ namespace SchoolManagement
 
 		private void pbStudents_Click(object sender, EventArgs e)
 		{
-			StudentManager student = new StudentManager();
+			StudentManager studentManager = new StudentManager();
 			this.Hide();
-			student.ShowDialog();
+			studentManager.ShowDialog();
 			this.Close();
 		}
 
@@ -158,12 +158,12 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-		private void pbRole_Click(object sender, EventArgs e)
+		private void pbClass_Click(object sender, EventArgs e)
 		{
-			RoleManager roleManager = new RoleManager();
-			this.Hide();
-			roleManager.ShowDialog();
-			this.Close();
+			//ClassList classList = new ClassList();
+			//this.Hide();
+			//classList.ShowDialog();
+			//this.Close();
 		}
 
 		private void pbUsers_Click(object sender, EventArgs e)
