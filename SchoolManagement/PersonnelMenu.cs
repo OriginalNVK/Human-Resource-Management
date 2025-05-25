@@ -181,5 +181,13 @@ namespace SchoolManagement
 			subjectManager.ShowDialog();
 			this.Close();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            PersonnelRegister personnelRegister = new PersonnelRegister();
+            this.Hide();
+            personnelRegister.ShowDialog();
+            this.Close();
+        }
     }
 }

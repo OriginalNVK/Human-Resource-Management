@@ -108,6 +108,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PersonnelRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonnelRegister.Designer.cs">
+      <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     <Compile Include="TeacherProfile.Designer.cs">
       <DependentUpon>TeacherProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PersonnelRegister.resx">
+      <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateSubject.resx">
       <DependentUpon>UpdateSubject.cs</DependentUpon>
     </EmbeddedResource>
