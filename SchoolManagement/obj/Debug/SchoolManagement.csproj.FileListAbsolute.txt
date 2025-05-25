@@ -409,3 +409,4 @@ D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\bin\Debug\BouncyCastle.Crypto.dll
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\bin\Debug\itextsharp.dll
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\bin\Debug\itextsharp.xml
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ClassList.resources

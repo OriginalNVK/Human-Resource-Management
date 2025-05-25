@@ -160,10 +160,10 @@ namespace SchoolManagement
 
 		private void pbClass_Click(object sender, EventArgs e)
 		{
-			//ClassList classList = new ClassList();
-			//this.Hide();
-			//classList.ShowDialog();
-			//this.Close();
+			ClassList classList = new ClassList();
+			this.Hide();
+			classList.ShowDialog();
+			this.Close();
 		}
 
 		private void pbUsers_Click(object sender, EventArgs e)
