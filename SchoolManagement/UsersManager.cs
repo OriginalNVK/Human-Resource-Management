@@ -74,7 +74,7 @@ namespace SchoolManagement
 						string role = "";
 
 						// ADMIN
-						using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM SYS.QLDH_ADMIN WHERE MAAD = :username", DatabaseSession.Connection))
+						using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM PDB_ADMIN.QLDH_ADMIN WHERE MAAD = :username", DatabaseSession.Connection))
 						{
 							roleCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 							var result = roleCmd.ExecuteScalar();
@@ -87,7 +87,7 @@ namespace SchoolManagement
 						// NHAN VIEN
 						if (role == "")
 						{
-							using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM SYS.QLDH_NHANVIEN WHERE MANV = :username", DatabaseSession.Connection))
+							using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM PDB_ADMIN.QLDH_NHANVIEN WHERE MANV = :username", DatabaseSession.Connection))
 							{
 								roleCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 								var result = roleCmd.ExecuteScalar();
@@ -101,7 +101,7 @@ namespace SchoolManagement
 						// SINH VIEN
 						if (role == "")
 						{
-							using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM SYS.QLDH_SINHVIEN WHERE MASV = :username", DatabaseSession.Connection))
+							using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM PDB_ADMIN.QLDH_SINHVIEN WHERE MASV = :username", DatabaseSession.Connection))
 							{
 								roleCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 								var result = roleCmd.ExecuteScalar();
@@ -389,13 +389,13 @@ namespace SchoolManagement
 					switch (userType)
 					{
 						case "NhanVien":
-							deleteQuery = "DELETE FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
+							deleteQuery = "DELETE FROM PDB_ADMIN.QLDH_NHANVIEN WHERE MANV = :username";
 							break;
 						case "Admin":
-							deleteQuery = "DELETE FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+							deleteQuery = "DELETE FROM PDB_ADMIN.QLDH_ADMIN WHERE MAAD = :username";
 							break;
 						case "SinhVien":
-							deleteQuery = "DELETE FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
+							deleteQuery = "DELETE FROM PDB_ADMIN.QLDH_SINHVIEN WHERE MASV = :username";
 							break;
 					}
 

@@ -56,8 +56,6 @@ namespace SchoolManagement
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.RoleDropdown = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
 			this.btnCreateUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.txtFullname = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -70,6 +68,8 @@ namespace SchoolManagement
 			this.GenderDropdown = new System.Windows.Forms.ComboBox();
 			this.dtpDOB = new System.Windows.Forms.DateTimePicker();
 			this.dgvUser = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+			this.label4 = new System.Windows.Forms.Label();
+			this.comboDepartment = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -437,32 +437,9 @@ namespace SchoolManagement
 			this.panel1.Size = new System.Drawing.Size(1323, 100);
 			this.panel1.TabIndex = 204;
 			// 
-			// RoleDropdown
-			// 
-			this.RoleDropdown.FormattingEnabled = true;
-			this.RoleDropdown.Items.AddRange(new object[] {
-            "ADMIN",
-            "SINH VIEN",
-            "NHAN VIEN"});
-			this.RoleDropdown.Location = new System.Drawing.Point(787, 269);
-			this.RoleDropdown.Name = "RoleDropdown";
-			this.RoleDropdown.Size = new System.Drawing.Size(285, 24);
-			this.RoleDropdown.TabIndex = 207;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(595, 271);
-			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(63, 22);
-			this.label3.TabIndex = 208;
-			this.label3.Text = "ROLE:";
-			// 
 			// btnCreateUser
 			// 
-			this.btnCreateUser.Location = new System.Drawing.Point(752, 724);
+			this.btnCreateUser.Location = new System.Drawing.Point(752, 760);
 			this.btnCreateUser.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCreateUser.Name = "btnCreateUser";
 			this.btnCreateUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
@@ -523,7 +500,7 @@ namespace SchoolManagement
 			// 
 			// txtFullname
 			// 
-			this.txtFullname.Location = new System.Drawing.Point(786, 310);
+			this.txtFullname.Location = new System.Drawing.Point(786, 269);
 			this.txtFullname.Margin = new System.Windows.Forms.Padding(4);
 			this.txtFullname.Name = "txtFullname";
 			this.txtFullname.Size = new System.Drawing.Size(285, 37);
@@ -545,7 +522,7 @@ namespace SchoolManagement
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(595, 320);
+			this.label7.Location = new System.Drawing.Point(595, 279);
 			this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(110, 22);
@@ -554,7 +531,7 @@ namespace SchoolManagement
 			// 
 			// txtPhoneNum
 			// 
-			this.txtPhoneNum.Location = new System.Drawing.Point(788, 408);
+			this.txtPhoneNum.Location = new System.Drawing.Point(788, 367);
 			this.txtPhoneNum.Margin = new System.Windows.Forms.Padding(4);
 			this.txtPhoneNum.Name = "txtPhoneNum";
 			this.txtPhoneNum.Size = new System.Drawing.Size(285, 37);
@@ -576,7 +553,7 @@ namespace SchoolManagement
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label11.Location = new System.Drawing.Point(597, 418);
+			this.label11.Location = new System.Drawing.Point(597, 377);
 			this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(161, 22);
@@ -585,7 +562,7 @@ namespace SchoolManagement
 			// 
 			// txtAddress
 			// 
-			this.txtAddress.Location = new System.Drawing.Point(787, 453);
+			this.txtAddress.Location = new System.Drawing.Point(787, 412);
 			this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
 			this.txtAddress.Name = "txtAddress";
 			this.txtAddress.Size = new System.Drawing.Size(285, 37);
@@ -607,7 +584,7 @@ namespace SchoolManagement
 			// 
 			this.label12.AutoSize = true;
 			this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(596, 463);
+			this.label12.Location = new System.Drawing.Point(596, 422);
 			this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(98, 22);
@@ -618,7 +595,7 @@ namespace SchoolManagement
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(596, 508);
+			this.label13.Location = new System.Drawing.Point(596, 467);
 			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(147, 22);
@@ -629,7 +606,7 @@ namespace SchoolManagement
 			// 
 			this.label14.AutoSize = true;
 			this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label14.Location = new System.Drawing.Point(594, 369);
+			this.label14.Location = new System.Drawing.Point(594, 328);
 			this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(92, 22);
@@ -642,14 +619,14 @@ namespace SchoolManagement
 			this.GenderDropdown.Items.AddRange(new object[] {
             "Nam",
             "Nu"});
-			this.GenderDropdown.Location = new System.Drawing.Point(786, 367);
+			this.GenderDropdown.Location = new System.Drawing.Point(786, 326);
 			this.GenderDropdown.Name = "GenderDropdown";
 			this.GenderDropdown.Size = new System.Drawing.Size(285, 24);
 			this.GenderDropdown.TabIndex = 220;
 			// 
 			// dtpDOB
 			// 
-			this.dtpDOB.Location = new System.Drawing.Point(788, 505);
+			this.dtpDOB.Location = new System.Drawing.Point(788, 464);
 			this.dtpDOB.Name = "dtpDOB";
 			this.dtpDOB.Size = new System.Drawing.Size(283, 22);
 			this.dtpDOB.TabIndex = 222;
@@ -663,7 +640,7 @@ namespace SchoolManagement
 			this.dgvUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
 			this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvUser.ImeMode = System.Windows.Forms.ImeMode.On;
-			this.dgvUser.Location = new System.Drawing.Point(601, 540);
+			this.dgvUser.Location = new System.Drawing.Point(601, 557);
 			this.dgvUser.Margin = new System.Windows.Forms.Padding(4);
 			this.dgvUser.Name = "dgvUser";
 			this.dgvUser.ReadOnly = true;
@@ -703,11 +680,38 @@ namespace SchoolManagement
 			this.dgvUser.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
 			this.dgvUser.TabIndex = 224;
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(595, 514);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(134, 22);
+			this.label4.TabIndex = 225;
+			this.label4.Text = "DEPARTMENT:";
+			// 
+			// comboDepartment
+			// 
+			this.comboDepartment.FormattingEnabled = true;
+			this.comboDepartment.Items.AddRange(new object[] {
+            "Khoa Công nghệ thông tin",
+            "Khoa Kinh tế",
+            "Khoa Ngoại ngữ",
+            "Phòng Khảo Thí",
+            "Phòng Đào tạo"});
+			this.comboDepartment.Location = new System.Drawing.Point(786, 512);
+			this.comboDepartment.Name = "comboDepartment";
+			this.comboDepartment.Size = new System.Drawing.Size(285, 24);
+			this.comboDepartment.TabIndex = 226;
+			// 
 			// AddUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1323, 853);
+			this.Controls.Add(this.comboDepartment);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.dgvUser);
 			this.Controls.Add(this.dtpDOB);
 			this.Controls.Add(this.label14);
@@ -720,8 +724,6 @@ namespace SchoolManagement
 			this.Controls.Add(this.txtFullname);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.btnCreateUser);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.RoleDropdown);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.pbLogout);
 			this.Controls.Add(this.lbRoles);
@@ -787,8 +789,6 @@ namespace SchoolManagement
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.ComboBox RoleDropdown;
-		private System.Windows.Forms.Label label3;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton btnCreateUser;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtFullname;
 		private Label label7;
@@ -801,5 +801,7 @@ namespace SchoolManagement
 		private ComboBox GenderDropdown;
 		private DateTimePicker dtpDOB;
 		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvUser;
+		private Label label4;
+		private ComboBox comboDepartment;
 	}
 }

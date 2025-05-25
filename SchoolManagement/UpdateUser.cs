@@ -61,7 +61,7 @@ namespace SchoolManagement
 						query = @"
             SELECT u.USERNAME,
                    a.HOTEN, a.PHAI, a.DT, a.DCHI, a.NGSINH
-              FROM SYS.QLDH_ADMIN a
+              FROM PDB_ADMIN.QLDH_ADMIN a
               JOIN ALL_USERS u ON u.USERNAME = a.MAAD
              WHERE u.USERNAME = :username";
 						break;
@@ -70,7 +70,7 @@ namespace SchoolManagement
 						query = @"
             SELECT u.USERNAME,
                    n.HOTEN, n.PHAI, n.DT, n.DCHI, n.NGSINH
-              FROM SYS.QLDH_NHANVIEN n
+              FROM PDB_ADMIN.QLDH_NHANVIEN n
               JOIN ALL_USERS u ON u.USERNAME = n.MANV
              WHERE u.USERNAME = :username";
 						break;
@@ -79,7 +79,7 @@ namespace SchoolManagement
 						query = @"
             SELECT u.USERNAME,
                    s.HOTEN, s.PHAI, s.DT, s.DCHI, s.NGSINH
-              FROM SYS.QLDH_SINHVIEN s
+              FROM PDB_ADMIN.QLDH_SINHVIEN s
               JOIN ALL_USERS u ON u.USERNAME = s.MASV
              WHERE u.USERNAME = :username";
 						break;
@@ -242,21 +242,21 @@ namespace SchoolManagement
 					switch (_mainRole.ToUpper())
 					{
 						case "ADMIN":
-							updateDetails = @"UPDATE SYS.QLDH_ADMIN 
+							updateDetails = @"UPDATE PDB_ADMIN.QLDH_ADMIN 
 										SET HOTEN = :fullname, PHAI = :gender, 
 											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
 											DCHI = :address, DT = :phoNum 
 										WHERE MAAD = :username";
 							break;
 						case "NHAN VIEN":
-							updateDetails = @"UPDATE SYS.QLDH_NHANVIEN 
+							updateDetails = @"UPDATE PDB_ADMIN.QLDH_NHANVIEN 
 										SET HOTEN = :fullname, PHAI = :gender, 
 											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
 											DCHI = :address, DT = :phoNum 
 										WHERE MANV = :username";
 							break;
 						case "SINH VIEN":
-							updateDetails = @"UPDATE SYS.QLDH_SINHVIEN 
+							updateDetails = @"UPDATE PDB_ADMIN.QLDH_SINHVIEN 
 										SET HOTEN = :fullname, PHAI = :gender, 
 											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
 											DCHI = :address, DT = :phoNum 

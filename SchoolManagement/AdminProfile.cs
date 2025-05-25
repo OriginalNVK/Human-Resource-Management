@@ -42,7 +42,7 @@ namespace SchoolManagement
                 conn.Open();
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM SYS.TAIKHOAN WHERE MATK='" + Login.ID + "'";
+                cmd.CommandText = "SELECT * FROM pdb_adminTAIKHOAN WHERE MATK='" + Login.ID + "'";
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
 

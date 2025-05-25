@@ -516,11 +516,11 @@ namespace SchoolManagement
 
                             if (cellValue == "v")
                             {
-                                cmd.CommandText = $"BEGIN SYS.GRANT_PRIVS_TO_ROLE(:roleName, :tableName, :privilege); END;";
+                                cmd.CommandText = $"BEGIN PDB_ADMIN.GRANT_PRIVS_TO_ROLE(:roleName, :tableName, :privilege); END;";
                             }
                             else if (cellValue == "x")
                             {
-                                cmd.CommandText = $"BEGIN SYS.REVOKE_PRIVS_FROM_ROLE(:roleName, :tableName, :privilege); END;";
+                                cmd.CommandText = $"BEGIN PDB_ADMIN.REVOKE_PRIVS_FROM_ROLE(:roleName, :tableName, :privilege); END;";
                             }
                             else
                             {
@@ -549,11 +549,11 @@ namespace SchoolManagement
 
                             if (cellValue == "v")
                             {
-                                cmd.CommandText = $"BEGIN SYS.GRANT_PRIVS_TO_ROLE(:roleName, :viewName, :privilege); END;";
+                                cmd.CommandText = $"BEGIN PDB_ADMIN.GRANT_PRIVS_TO_ROLE(:roleName, :viewName, :privilege); END;";
                             }
                             else if (cellValue == "x")
                             {
-                                cmd.CommandText = $"BEGIN SYS.REVOKE_PRIVS_FROM_ROLE(:roleName, :viewName, :privilege); END;";
+                                cmd.CommandText = $"BEGIN PDB_ADMIN.REVOKE_PRIVS_FROM_ROLE(:roleName, :viewName, :privilege); END;";
                             }
                             else
                             {
@@ -575,11 +575,11 @@ namespace SchoolManagement
                         string cellValue = row.Cells["EXECUTE"].Value?.ToString();
                         if (cellValue == "v")
                         {
-                            cmd.CommandText = $"BEGIN SYS.GRANT_PRIVS_TO_ROLE(:roleName, :procName, 'EXECUTE'); END;";
+                            cmd.CommandText = $"BEGIN PDB_ADMIN.GRANT_PRIVS_TO_ROLE(:roleName, :procName, 'EXECUTE'); END;";
                         }
                         else if (cellValue == "x")
                         {
-                            cmd.CommandText = $"BEGIN SYS.REVOKE_PRIVS_FROM_ROLE(:roleName, :procName, 'EXECUTE'); END;";
+                            cmd.CommandText = $"BEGIN PDB_ADMIN.REVOKE_PRIVS_FROM_ROLE(:roleName, :procName, 'EXECUTE'); END;";
                         }
                         else
                         {

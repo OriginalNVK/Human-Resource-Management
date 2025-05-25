@@ -334,4 +334,66 @@ D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolMa
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
 D:\lilsadfoqs\studypath\nam3ki2\secis\project\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
+<<<<<<< HEAD
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.exe.config
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.exe
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.pdb
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Buffers.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Formats.Asn1.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Memory.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Json.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.ValueTuple.dll
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Buffers.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Formats.Asn1.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Memory.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Json.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Human-Resource-Management\SchoolManagement\bin\Debug\System.ValueTuple.xml
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.ResolveComReference.cache
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddUser.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AdminMenu.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateRole.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddRole.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentManager.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UsersManager.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RoleManager.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateUser.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Login.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AdminProfile.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Properties.Resources.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherManager.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentMenu.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentProfile.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelManager.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherProfile.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.GenerateResource.cache
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.exe
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
+=======
 D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
+>>>>>>> 116ff9fbc596abe355a2617dc93171729ca6c077
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectManagement.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddSubject.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.facilityList.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateSubject.resources

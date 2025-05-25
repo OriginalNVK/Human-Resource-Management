@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace SchoolManagement
 {
@@ -24,18 +25,15 @@ namespace SchoolManagement
 				// Mở kết nối ban đầu để kiểm tra loại user
 				using (var tempConn = new OracleConnection(builder.ToString()))
 				{
-					tempConn.Open();
-
-					string userType = DetermineUserType(tempConn, username);
-					if (userType == null)
+					
+                    tempConn.Open();
+					
+                    string userType = DetermineUserType(tempConn, username);
+					
+					
+                    if (userType == null)
 					{
 						return false; // Không xác định được loại người dùng
-					}
-
-					// Nếu là Admin, thêm quyền SYSDBA
-					if (userType == "Admin")
-					{
-						builder["DBA Privilege"] = "SYSDBA";
 					}
 
 					// Đóng kết nối tạm
@@ -48,6 +46,7 @@ namespace SchoolManagement
 
 				CurrentUser = username;
 				UserType = DetermineUserType(Connection, username); // Kiểm tra lại
+				
 
 				return true;
 			}
@@ -60,21 +59,21 @@ namespace SchoolManagement
 
 		public static string DetermineUserType(OracleConnection conn, string username)
 		{
-			string checkEmployee = "SELECT 1 FROM SYS.QLDH_NHANVIEN WHERE MANV = :username";
-			using (var cmd = new OracleCommand(checkEmployee, conn))
+            string checkEmployee = "SELECT 1 FROM pdb_admin.QLDH_NHANVIEN WHERE MANV = :username";
+            using (var cmd = new OracleCommand(checkEmployee, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 				if (cmd.ExecuteScalar() != null) return "NhanVien";
 			}
 
-			string checkAdmin = "SELECT 1 FROM SYS.QLDH_ADMIN WHERE MAAD = :username";
+            string checkAdmin = "SELECT 1 FROM pdb_admin.QLDH_ADMIN WHERE MAAD = :username";
 			using (var cmd = new OracleCommand(checkAdmin, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 				if (cmd.ExecuteScalar() != null) return "Admin";
 			}
 
-			string checkStudent = "SELECT 1 FROM SYS.QLDH_SINHVIEN WHERE MASV = :username";
+			string checkStudent = "SELECT 1 FROM pdb_admin.QLDH_SINHVIEN WHERE MASV = :username";
 			using (var cmd = new OracleCommand(checkStudent, conn))
 			{
 				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;

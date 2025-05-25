@@ -51,7 +51,7 @@ namespace SchoolManagement
 			try
 			{
 				OracleConnection conn = DatabaseSession.Connection;
-				OracleCommand cmd = new OracleCommand("SELECT COUNT(MASV) FROM SYS.QLDH_SINHVIEN", conn);
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MASV) FROM pdb_admin.QLDH_SINHVIEN", conn);
 				cmd.CommandType = CommandType.Text;
 				OracleDataReader dr = cmd.ExecuteReader();
 
@@ -71,7 +71,7 @@ namespace SchoolManagement
 			try
 			{
 				OracleConnection conn = DatabaseSession.Connection;
-				OracleCommand cmd = new OracleCommand("SELECT COUNT(MANV) FROM SYS.QLDH_NHANVIEN", conn);
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MANV) FROM pdb_admin.QLDH_NHANVIEN", conn);
 				cmd.CommandType = CommandType.Text;
 				OracleDataReader dr = cmd.ExecuteReader();
 
@@ -91,7 +91,7 @@ namespace SchoolManagement
 			try
 			{
 				OracleConnection conn = DatabaseSession.Connection;
-				OracleCommand cmd = new OracleCommand("SELECT COUNT(MAHP) FROM SYS.QLDH_HOCPHAN", conn);
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MAHP) FROM pdb_admin.QLDH_HOCPHAN", conn);
 				cmd.CommandType = CommandType.Text;
 				OracleDataReader dr = cmd.ExecuteReader();
 
@@ -111,7 +111,7 @@ namespace SchoolManagement
 			try
 			{
 				OracleConnection conn = DatabaseSession.Connection;
-				OracleCommand cmd = new OracleCommand("SELECT COUNT(MADV) FROM SYS.QLDH_DONVI", conn);
+				OracleCommand cmd = new OracleCommand("SELECT COUNT(MADV) FROM pdb_admin.QLDH_DONVI", conn);
 				cmd.CommandType = CommandType.Text;
 				OracleDataReader dr = cmd.ExecuteReader();
 
