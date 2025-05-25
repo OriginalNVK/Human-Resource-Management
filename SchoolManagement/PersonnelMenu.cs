@@ -18,6 +18,7 @@ namespace SchoolManagement
 		private string _username;
 		private string _originalPhoneNumber;    // lưu số điện thoại ban đầu
 		private string _changePassword = null;  // gán nếu người dùng muốn thay đổi mật khẩu
+		public static string _role = null;
 
 		public PersonnelMenu(string username)
 		{
@@ -63,6 +64,7 @@ namespace SchoolManagement
 							txtRoleName.Text = reader.GetString(7);    // VAITRO
 							txtDepartment.Text = reader.GetString(8);  // TENDV
 							txtHello.Text = $"Hello, {reader.GetString(0)}";
+							_role = reader.GetString(7);
 						}
 						else
 						{
