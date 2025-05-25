@@ -130,8 +130,20 @@
     <Compile Include="SubjectManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubjectManagement.Designer.cs">
-      <DependentUpon>SubjectManagement.cs</DependentUpon>
+	  <Compile Include="SubjectManagement.Designer.cs">
+		  <DependentUpon>SubjectManagement.cs</DependentUpon>
+	  </Compile>
+    <Compile Include="RegisteredSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisteredSubject.Designer.cs">
+      <DependentUpon>RegisteredSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectRegister.Designer.cs">
+      <DependentUpon>SubjectRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateRole.cs">
       <SubType>Form</SubType>
@@ -231,8 +243,14 @@
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubjectManagement.resx">
-      <DependentUpon>SubjectManagement.cs</DependentUpon>
+	  <EmbeddedResource Include="SubjectManagement.resx">
+		  <DependentUpon>SubjectManagement.cs</DependentUpon>
+	  </EmbeddedResource>
+    <EmbeddedResource Include="RegisteredSubject.resx">
+      <DependentUpon>RegisteredSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectRegister.resx">
+      <DependentUpon>SubjectRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateRole.resx">
       <DependentUpon>UpdateRole.cs</DependentUpon>

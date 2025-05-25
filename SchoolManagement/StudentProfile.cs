@@ -33,45 +33,51 @@ namespace SchoolManagement
         }
         private void LoadTextBox()
         {
-            try
-            {
-                OracleConnection conn = DatabaseSession.Connection;
-                if (conn == null || conn.State != ConnectionState.Open)
-                {
-                    MessageBox.Show("Failed to connect with database!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                string sql = "SELECT * FROM PDB_ADMIN.QLDH_SINHVIEN";
-                OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = Login.ID;
-                OracleDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    dr.Read();
-                    txtID.Text = dr.GetString(0);
-                    txtHoTen.Text = dr.GetString(1);
-                    txtPhai.Text = dr.GetString(2);
-                    txtNgSinh.Text = dr.GetDateTime(3).ToString("dd/MM/yyyy");
-                    txtDiaChi.Text = dr.GetString(4);
-                    txtDT.Text = dr.GetString(5);
-                    txtKhoa.Text = dr.GetString(6);
-                    txtTinhTrang.Text = dr.GetString(7);
+			try
+			{
+				OracleConnection conn = DatabaseSession.Connection;
+				if (conn == null || conn.State != ConnectionState.Open)
+				{
+					MessageBox.Show("Failed to connect with database!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
 
-                }
-                else
-                {
-                    MessageBox.Show("No data found for the given student ID.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                dr.Close();
-            }
-            catch (Exception es)
-            {
-                MessageBox.Show(es.Message);
-            }
-        }
+				string sql = @"SELECT MASV, HOTEN, PHAI, NGSINH, DCHI, DT, TINHTRANG, TENDV
+                   FROM PDB_ADMIN.QLDH_SINHVIEN SV
+                   JOIN PDB_ADMIN.QLDH_DONVI DV ON SV.KHOA = DV.MADV
+                   WHERE SV.MASV = :username";
+
+				OracleCommand cmd = new OracleCommand(sql, conn);
+				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = Login.ID;
+
+				OracleDataReader dr = cmd.ExecuteReader();
+				if (dr.HasRows)
+				{
+					dr.Read();
+					txtID.Text = dr.GetString(0);                                // MASV
+					txtHoTen.Text = dr.GetString(1);                             // HOTEN
+					txtPhai.Text = dr.GetString(2);                              // PHAI
+					txtNgSinh.Text = dr.GetDateTime(3).ToString("dd/MM/yyyy");  // NGSINH
+					txtDiaChi.Text = dr.GetString(4);                            // DCHI
+					txtDT.Text = dr.GetString(5);                                // DT
+					txtTinhTrang.Text = dr.GetString(6);                         // TINHTRANG
+					txtKhoa.Text = dr.GetString(7);                              // TENDV
+				}
+				else
+				{
+					MessageBox.Show("No data found for the given student ID.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+
+				dr.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
 
-        private void btnSave_Click(object sender, EventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
