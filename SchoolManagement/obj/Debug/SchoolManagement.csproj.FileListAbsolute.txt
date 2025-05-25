@@ -393,63 +393,12 @@ D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
 =======
 D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
 >>>>>>> 116ff9fbc596abe355a2617dc93171729ca6c077
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectManagement.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddSubject.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.facilityList.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateSubject.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectRegister.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RegisteredSubject.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.exe.config
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.exe
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\SchoolManagement.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\Oracle.ManagedDataAccess.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Buffers.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Diagnostics.DiagnosticSource.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Formats.Asn1.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Memory.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Json.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.ValueTuple.dll
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Docking.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Buffers.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Formats.Asn1.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Memory.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Numerics.Vectors.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Encodings.Web.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Text.Json.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\bin\Debug\System.ValueTuple.xml
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.AssemblyReference.cache
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.ResolveComReference.cache
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddUser.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AdminMenu.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RegisteredSubject.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectRegister.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateRole.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelMenu.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddRole.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentManager.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UsersManager.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RoleManager.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateUser.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Login.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AdminProfile.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Properties.Resources.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherManager.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentMenu.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentProfile.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.PersonnelManager.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.TeacherProfile.resources
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.GenerateResource.cache
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CoreCompileInputs.cache
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolMa.86B6095E.Up2Date
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.exe
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
-D:\lilsadfoqs\studypath\nam3ki2\secis\ATBM-atbmcq-05-Phanhe1\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateStudent.resources
+>>>>>>> 78e3c6590bf558cc4d0fbe393250d5216db4c6be
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RegisteredSubject.resources
+D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.SubjectRegister.resources

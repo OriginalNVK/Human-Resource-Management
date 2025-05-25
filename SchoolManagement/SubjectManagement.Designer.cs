@@ -1,43 +1,43 @@
 ﻿using System.ComponentModel;
 namespace SchoolManagement
 {
-	partial class PersonnelMenu
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private IContainer components = null;
+    partial class SubjectManagement
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonnelMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectManagement));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.lbStudents = new System.Windows.Forms.Label();
             this.lbTeachers = new System.Windows.Forms.Label();
             this.lbClasses = new System.Windows.Forms.Label();
             this.lbProfile = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.logoutBtn = new System.Windows.Forms.Label();
             this.pbLogout = new System.Windows.Forms.PictureBox();
             this.pbSection = new System.Windows.Forms.PictureBox();
             this.pbProfile = new System.Windows.Forms.PictureBox();
@@ -55,25 +55,17 @@ namespace SchoolManagement
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtHello = new System.Windows.Forms.Label();
-            this.txtRoleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNewPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbSalary = new System.Windows.Forms.Label();
-            this.txtPhone = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbGender = new System.Windows.Forms.Label();
-            this.txtGender = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbAddress = new System.Windows.Forms.Label();
-            this.txtAddress = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lbBirth = new System.Windows.Forms.Label();
-            this.lbClass = new System.Windows.Forms.Label();
-            this.txtDepartment = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lb01 = new System.Windows.Forms.Label();
-            this.txtSalary = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtBirth = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.txtHoTen = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lb02 = new System.Windows.Forms.Label();
-            this.txtBonus = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lbDelete = new System.Windows.Forms.Label();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
+            this.lbEdit = new System.Windows.Forms.Label();
+            this.pbEdit = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pbAddSubject = new System.Windows.Forms.PictureBox();
+            this.pbReload = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.dgvSubject = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -85,6 +77,11 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAddSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -157,13 +154,12 @@ namespace SchoolManagement
             this.lbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStudents.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStudents.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbStudents.Location = new System.Drawing.Point(76, 275);
+            this.lbStudents.Location = new System.Drawing.Point(76, 274);
             this.lbStudents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbStudents.Name = "lbStudents";
             this.lbStudents.Size = new System.Drawing.Size(199, 22);
             this.lbStudents.TabIndex = 4;
             this.lbStudents.Text = "STUDENTS MANAGER";
-            this.lbStudents.Click += new System.EventHandler(this.pbStudents_Click);
             // 
             // lbTeachers
             // 
@@ -178,7 +174,6 @@ namespace SchoolManagement
             this.lbTeachers.Size = new System.Drawing.Size(221, 22);
             this.lbTeachers.TabIndex = 6;
             this.lbTeachers.Text = "PERSONNEL MANAGER";
-            this.lbTeachers.Click += new System.EventHandler(this.pbPersonnel_Click);
             // 
             // lbClasses
             // 
@@ -187,7 +182,7 @@ namespace SchoolManagement
             this.lbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbClasses.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbClasses.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbClasses.Location = new System.Drawing.Point(68, 147);
+            this.lbClasses.Location = new System.Drawing.Point(68, 146);
             this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClasses.Name = "lbClasses";
             this.lbClasses.Size = new System.Drawing.Size(226, 22);
@@ -202,13 +197,12 @@ namespace SchoolManagement
             this.lbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbProfile.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbProfile.Location = new System.Drawing.Point(76, 413);
+            this.lbProfile.Location = new System.Drawing.Point(76, 414);
             this.lbProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbProfile.Name = "lbProfile";
             this.lbProfile.Size = new System.Drawing.Size(116, 22);
             this.lbProfile.TabIndex = 12;
             this.lbProfile.Text = "MY PROFILE";
-            this.lbProfile.Click += new System.EventHandler(this.pbProfile_Click);
             // 
             // label2
             // 
@@ -223,82 +217,77 @@ namespace SchoolManagement
             this.label2.Size = new System.Drawing.Size(103, 22);
             this.label2.TabIndex = 18;
             this.label2.Text = "CLASS LIST";
-            this.label2.Click += new System.EventHandler(this.pbRole_Click);
             // 
-            // label3
+            // logoutBtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(76, 705);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 22);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "LOGOUT";
-            this.label3.Click += new System.EventHandler(this.pbLogout_Click);
+            this.logoutBtn.AutoSize = true;
+            this.logoutBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.logoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.logoutBtn.Location = new System.Drawing.Point(76, 705);
+            this.logoutBtn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(90, 22);
+            this.logoutBtn.TabIndex = 20;
+            this.logoutBtn.Text = "LOGOUT";
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
             // 
             // pbLogout
             // 
             this.pbLogout.BackColor = System.Drawing.Color.White;
             this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
-            this.pbLogout.Location = new System.Drawing.Point(18, 692);
-            this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogout.Location = new System.Drawing.Point(19, 692);
+            this.pbLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbLogout.Name = "pbLogout";
             this.pbLogout.Size = new System.Drawing.Size(39, 54);
             this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogout.TabIndex = 19;
             this.pbLogout.TabStop = false;
-            this.pbLogout.Click += new System.EventHandler(this.pbLogout_Click);
             // 
             // pbSection
             // 
             this.pbSection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSection.Image = ((System.Drawing.Image)(resources.GetObject("pbSection.Image")));
-            this.pbSection.Location = new System.Drawing.Point(18, 198);
-            this.pbSection.Margin = new System.Windows.Forms.Padding(4);
+            this.pbSection.Location = new System.Drawing.Point(19, 198);
+            this.pbSection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbSection.Name = "pbSection";
-            this.pbSection.Size = new System.Drawing.Size(39, 51);
+            this.pbSection.Size = new System.Drawing.Size(39, 50);
             this.pbSection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSection.TabIndex = 17;
             this.pbSection.TabStop = false;
-            this.pbSection.Click += new System.EventHandler(this.pbRole_Click);
             // 
             // pbProfile
             // 
             this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
-            this.pbProfile.Location = new System.Drawing.Point(18, 393);
-            this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.pbProfile.Location = new System.Drawing.Point(19, 393);
+            this.pbProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbProfile.Name = "pbProfile";
             this.pbProfile.Size = new System.Drawing.Size(39, 54);
             this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbProfile.TabIndex = 11;
             this.pbProfile.TabStop = false;
-            this.pbProfile.Click += new System.EventHandler(this.pbProfile_Click);
             // 
             // pbClasses
             // 
             this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
-            this.pbClasses.Location = new System.Drawing.Point(18, 135);
-            this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
+            this.pbClasses.Location = new System.Drawing.Point(19, 135);
+            this.pbClasses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbClasses.Name = "pbClasses";
             this.pbClasses.Size = new System.Drawing.Size(39, 44);
             this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbClasses.TabIndex = 7;
             this.pbClasses.TabStop = false;
-            this.pbClasses.Click += new System.EventHandler(this.pbUsers_Click);
             // 
             // pbTeachers
             // 
             this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
-            this.pbTeachers.Location = new System.Drawing.Point(18, 322);
-            this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
+            this.pbTeachers.Location = new System.Drawing.Point(19, 322);
+            this.pbTeachers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbTeachers.Name = "pbTeachers";
             this.pbTeachers.Size = new System.Drawing.Size(39, 54);
             this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -309,14 +298,13 @@ namespace SchoolManagement
             // 
             this.pbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbStudents.Image = ((System.Drawing.Image)(resources.GetObject("pbStudents.Image")));
-            this.pbStudents.Location = new System.Drawing.Point(18, 257);
-            this.pbStudents.Margin = new System.Windows.Forms.Padding(4);
+            this.pbStudents.Location = new System.Drawing.Point(19, 257);
+            this.pbStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbStudents.Name = "pbStudents";
             this.pbStudents.Size = new System.Drawing.Size(39, 50);
             this.pbStudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbStudents.TabIndex = 0;
             this.pbStudents.TabStop = false;
-            this.pbStudents.Click += new System.EventHandler(this.pbStudents_Click);
             // 
             // Dashboard
             // 
@@ -326,9 +314,9 @@ namespace SchoolManagement
             this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
             this.Dashboard.Location = new System.Drawing.Point(367, 37);
             this.Dashboard.Name = "Dashboard";
-            this.Dashboard.Size = new System.Drawing.Size(92, 32);
+            this.Dashboard.Size = new System.Drawing.Size(111, 32);
             this.Dashboard.TabIndex = 37;
-            this.Dashboard.Text = "Profile";
+            this.Dashboard.Text = "Subject";
             // 
             // panel2
             // 
@@ -340,11 +328,12 @@ namespace SchoolManagement
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.pbDetail);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.logoutBtn);
             this.panel2.Controls.Add(this.pbLogout);
             this.panel2.Location = new System.Drawing.Point(0, -25);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(308, 867);
+            this.panel2.Size = new System.Drawing.Size(320, 866);
             this.panel2.TabIndex = 190;
             // 
             // label8
@@ -366,10 +355,10 @@ namespace SchoolManagement
             this.pbGrade.BackColor = System.Drawing.Color.White;
             this.pbGrade.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbGrade.Image = ((System.Drawing.Image)(resources.GetObject("pbGrade.Image")));
-            this.pbGrade.Location = new System.Drawing.Point(18, 565);
-            this.pbGrade.Margin = new System.Windows.Forms.Padding(4);
+            this.pbGrade.Location = new System.Drawing.Point(19, 565);
+            this.pbGrade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbGrade.Name = "pbGrade";
-            this.pbGrade.Size = new System.Drawing.Size(43, 45);
+            this.pbGrade.Size = new System.Drawing.Size(43, 46);
             this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGrade.TabIndex = 194;
             this.pbGrade.TabStop = false;
@@ -381,7 +370,7 @@ namespace SchoolManagement
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(76, 504);
+            this.label7.Location = new System.Drawing.Point(76, 505);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 22);
@@ -393,8 +382,8 @@ namespace SchoolManagement
             this.pbCalendar.BackColor = System.Drawing.Color.White;
             this.pbCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbCalendar.Image = ((System.Drawing.Image)(resources.GetObject("pbCalendar.Image")));
-            this.pbCalendar.Location = new System.Drawing.Point(18, 496);
-            this.pbCalendar.Margin = new System.Windows.Forms.Padding(4);
+            this.pbCalendar.Location = new System.Drawing.Point(19, 496);
+            this.pbCalendar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCalendar.Name = "pbCalendar";
             this.pbCalendar.Size = new System.Drawing.Size(43, 47);
             this.pbCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -420,8 +409,8 @@ namespace SchoolManagement
             this.pbDetail.BackColor = System.Drawing.Color.White;
             this.pbDetail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbDetail.Image = ((System.Drawing.Image)(resources.GetObject("pbDetail.Image")));
-            this.pbDetail.Location = new System.Drawing.Point(18, 625);
-            this.pbDetail.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDetail.Location = new System.Drawing.Point(19, 625);
+            this.pbDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbDetail.Name = "pbDetail";
             this.pbDetail.Size = new System.Drawing.Size(43, 49);
             this.pbDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -447,6 +436,7 @@ namespace SchoolManagement
             this.panel1.Controls.Add(this.txtHello);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1325, 100);
             this.panel1.TabIndex = 189;
@@ -456,44 +446,17 @@ namespace SchoolManagement
             this.txtHello.AutoSize = true;
             this.txtHello.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHello.ForeColor = System.Drawing.SystemColors.Control;
-            this.txtHello.Location = new System.Drawing.Point(1074, 35);
+            this.txtHello.Location = new System.Drawing.Point(1075, 34);
             this.txtHello.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtHello.Name = "txtHello";
             this.txtHello.Size = new System.Drawing.Size(63, 22);
             this.txtHello.TabIndex = 185;
             this.txtHello.Text = "Hello, ";
             // 
-            // txtRoleName
-            // 
-            this.txtRoleName.Enabled = false;
-            this.txtRoleName.Location = new System.Drawing.Point(560, 174);
-            this.txtRoleName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRoleName.Name = "txtRoleName";
-            this.txtRoleName.Size = new System.Drawing.Size(527, 39);
-            this.txtRoleName.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtRoleName.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtRoleName.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtRoleName.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtRoleName.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtRoleName.StateCommon.Border.Rounding = 20;
-            this.txtRoleName.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtRoleName.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoleName.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtRoleName.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtRoleName.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtRoleName.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtRoleName.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtRoleName.TabIndex = 207;
-            this.txtRoleName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(732, 727);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
             this.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -551,321 +514,239 @@ namespace SchoolManagement
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // label6
+            // lbDelete
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(520, 664);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(182, 22);
-            this.label6.TabIndex = 205;
-            this.label6.Text = "Change Password:";
+            this.lbDelete.AutoSize = true;
+            this.lbDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbDelete.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.lbDelete.Location = new System.Drawing.Point(1139, 226);
+            this.lbDelete.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDelete.Name = "lbDelete";
+            this.lbDelete.Size = new System.Drawing.Size(113, 19);
+            this.lbDelete.TabIndex = 218;
+            this.lbDelete.Text = "DELETE SUBJECT";
             // 
-            // txtNewPassword
+            // pbDelete
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(746, 657);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.PasswordChar = '●';
-            this.txtNewPassword.Size = new System.Drawing.Size(341, 39);
-            this.txtNewPassword.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtNewPassword.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.txtNewPassword.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.txtNewPassword.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.pbDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
+            this.pbDelete.Location = new System.Drawing.Point(1169, 177);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(44, 46);
+            this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDelete.TabIndex = 217;
+            this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            // 
+            // lbEdit
+            // 
+            this.lbEdit.AutoSize = true;
+            this.lbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbEdit.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.lbEdit.Location = new System.Drawing.Point(1012, 228);
+            this.lbEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbEdit.Name = "lbEdit";
+            this.lbEdit.Size = new System.Drawing.Size(94, 19);
+            this.lbEdit.TabIndex = 216;
+            this.lbEdit.Text = "EDIT SUBJECT";
+            // 
+            // pbEdit
+            // 
+            this.pbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
+            this.pbEdit.Location = new System.Drawing.Point(1028, 177);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEdit.Name = "pbEdit";
+            this.pbEdit.Size = new System.Drawing.Size(59, 46);
+            this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEdit.TabIndex = 215;
+            this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.label4.Location = new System.Drawing.Point(373, 226);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 19);
+            this.label4.TabIndex = 214;
+            this.label4.Text = "NEW SUBJECT";
+            // 
+            // pbAddSubject
+            // 
+            this.pbAddSubject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbAddSubject.Image = ((System.Drawing.Image)(resources.GetObject("pbAddSubject.Image")));
+            this.pbAddSubject.Location = new System.Drawing.Point(397, 177);
+            this.pbAddSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAddSubject.Name = "pbAddSubject";
+            this.pbAddSubject.Size = new System.Drawing.Size(55, 46);
+            this.pbAddSubject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAddSubject.TabIndex = 213;
+            this.pbAddSubject.TabStop = false;
+            this.pbAddSubject.Click += new System.EventHandler(this.pbAddSubject_Click);
+            // 
+            // pbReload
+            // 
+            this.pbReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbReload.Image = ((System.Drawing.Image)(resources.GetObject("pbReload.Image")));
+            this.pbReload.Location = new System.Drawing.Point(1211, 114);
+            this.pbReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbReload.Name = "pbReload";
+            this.pbReload.Size = new System.Drawing.Size(52, 41);
+            this.pbReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbReload.TabIndex = 210;
+            this.pbReload.TabStop = false;
+            this.pbReload.Click += new System.EventHandler(this.pbReload_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(1075, 114);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.OverrideDefault.Back.ColorAngle = 62F;
+            this.btnLogin.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.OverrideDefault.Border.ColorAngle = 62F;
+            this.btnLogin.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtNewPassword.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtNewPassword.StateCommon.Border.Rounding = 20;
-            this.txtNewPassword.StateCommon.Border.Width = 1;
-            this.txtNewPassword.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtNewPassword.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewPassword.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtNewPassword.TabIndex = 204;
-            this.txtNewPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lbSalary
-            // 
-            this.lbSalary.AutoSize = true;
-            this.lbSalary.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSalary.Location = new System.Drawing.Point(584, 609);
-            this.lbSalary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbSalary.Name = "lbSalary";
-            this.lbSalary.Size = new System.Drawing.Size(74, 22);
-            this.lbSalary.TabIndex = 203;
-            this.lbSalary.Text = "Phone:";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(746, 591);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(341, 39);
-            this.txtPhone.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtPhone.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtPhone.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtPhone.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnLogin.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnLogin.OverrideDefault.Border.Rounding = 20;
+            this.btnLogin.OverrideDefault.Border.Width = 1;
+            this.btnLogin.Size = new System.Drawing.Size(128, 41);
+            this.btnLogin.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateCommon.Back.ColorAngle = 62F;
+            this.btnLogin.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateCommon.Border.ColorAngle = 62F;
+            this.btnLogin.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtPhone.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtPhone.StateCommon.Border.Rounding = 20;
-            this.txtPhone.StateCommon.Border.Width = 1;
-            this.txtPhone.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtPhone.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtPhone.TabIndex = 202;
-            this.txtPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lbGender
-            // 
-            this.lbGender.AutoSize = true;
-            this.lbGender.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGender.Location = new System.Drawing.Point(584, 547);
-            this.lbGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbGender.Name = "lbGender";
-            this.lbGender.Size = new System.Drawing.Size(87, 22);
-            this.lbGender.TabIndex = 201;
-            this.lbGender.Text = "Gender:";
-            // 
-            // txtGender
-            // 
-            this.txtGender.Enabled = false;
-            this.txtGender.Location = new System.Drawing.Point(746, 530);
-            this.txtGender.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(341, 39);
-            this.txtGender.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtGender.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtGender.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtGender.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnLogin.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnLogin.StateCommon.Border.Rounding = 20;
+            this.btnLogin.StateCommon.Border.Width = 1;
+            this.btnLogin.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.btnLogin.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black;
+            this.btnLogin.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.StatePressed.Back.ColorAngle = 62F;
+            this.btnLogin.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.StatePressed.Border.ColorAngle = 62F;
+            this.btnLogin.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtGender.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtGender.StateCommon.Border.Rounding = 20;
-            this.txtGender.StateCommon.Border.Width = 1;
-            this.txtGender.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtGender.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGender.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtGender.TabIndex = 200;
-            this.txtGender.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lbAddress
-            // 
-            this.lbAddress.AutoSize = true;
-            this.lbAddress.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAddress.Location = new System.Drawing.Point(584, 486);
-            this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(83, 22);
-            this.lbAddress.TabIndex = 199;
-            this.lbAddress.Text = "Address";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Enabled = false;
-            this.txtAddress.Location = new System.Drawing.Point(746, 468);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(341, 39);
-            this.txtAddress.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtAddress.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtAddress.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtAddress.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btnLogin.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnLogin.StatePressed.Border.Rounding = 20;
+            this.btnLogin.StatePressed.Border.Width = 1;
+            this.btnLogin.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateTracking.Back.ColorAngle = 62F;
+            this.btnLogin.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
+            this.btnLogin.StateTracking.Border.ColorAngle = 62F;
+            this.btnLogin.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtAddress.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtAddress.StateCommon.Border.Rounding = 20;
-            this.txtAddress.StateCommon.Border.Width = 1;
-            this.txtAddress.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtAddress.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtAddress.TabIndex = 198;
-            this.txtAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnLogin.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnLogin.StateTracking.Border.Rounding = 20;
+            this.btnLogin.StateTracking.Border.Width = 1;
+            this.btnLogin.TabIndex = 209;
+            this.btnLogin.Values.Text = "Search";
             // 
-            // lbBirth
+            // txtSearch
             // 
-            this.lbBirth.AutoSize = true;
-            this.lbBirth.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBirth.Location = new System.Drawing.Point(584, 423);
-            this.lbBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbBirth.Name = "lbBirth";
-            this.lbBirth.Size = new System.Drawing.Size(54, 22);
-            this.lbBirth.TabIndex = 197;
-            this.lbBirth.Text = "Birth:";
-            // 
-            // lbClass
-            // 
-            this.lbClass.AutoSize = true;
-            this.lbClass.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClass.Location = new System.Drawing.Point(584, 360);
-            this.lbClass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbClass.Name = "lbClass";
-            this.lbClass.Size = new System.Drawing.Size(128, 22);
-            this.lbClass.TabIndex = 195;
-            this.lbClass.Text = "Department:";
-            // 
-            // txtDepartment
-            // 
-            this.txtDepartment.Enabled = false;
-            this.txtDepartment.Location = new System.Drawing.Point(746, 343);
-            this.txtDepartment.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(341, 39);
-            this.txtDepartment.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtDepartment.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtDepartment.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtDepartment.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.txtSearch.Location = new System.Drawing.Point(637, 114);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(409, 37);
+            this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtSearch.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.txtSearch.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.txtSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtDepartment.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtDepartment.StateCommon.Border.Rounding = 20;
-            this.txtDepartment.StateCommon.Border.Width = 1;
-            this.txtDepartment.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtDepartment.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartment.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtDepartment.TabIndex = 194;
-            this.txtDepartment.Text = "CNTT";
-            this.txtDepartment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSearch.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtSearch.StateCommon.Border.Rounding = 20;
+            this.txtSearch.StateCommon.Border.Width = 1;
+            this.txtSearch.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtSearch.TabIndex = 208;
             // 
-            // lb01
+            // dgvSubject
             // 
-            this.lb01.AutoSize = true;
-            this.lb01.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb01.Location = new System.Drawing.Point(584, 245);
-            this.lb01.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb01.Name = "lb01";
-            this.lb01.Size = new System.Drawing.Size(75, 22);
-            this.lb01.TabIndex = 193;
-            this.lb01.Text = "Salary: ";
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Enabled = false;
-            this.txtSalary.Location = new System.Drawing.Point(746, 228);
-            this.txtSalary.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(341, 39);
-            this.txtSalary.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSalary.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtSalary.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtSalary.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.dgvSubject.AllowUserToAddRows = false;
+            this.dgvSubject.AllowUserToDeleteRows = false;
+            this.dgvSubject.AllowUserToOrderColumns = true;
+            this.dgvSubject.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSubject.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvSubject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubject.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dgvSubject.Location = new System.Drawing.Point(341, 250);
+            this.dgvSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSubject.Name = "dgvSubject";
+            this.dgvSubject.ReadOnly = true;
+            this.dgvSubject.RowHeadersWidth = 51;
+            this.dgvSubject.Size = new System.Drawing.Size(971, 452);
+            this.dgvSubject.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dgvSubject.StateCommon.Background.Color2 = System.Drawing.Color.White;
+            this.dgvSubject.StateCommon.Background.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.dgvSubject.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dgvSubject.StateCommon.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.dgvSubject.StateCommon.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.dgvSubject.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.DataCell.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSalary.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSalary.StateCommon.Border.Rounding = 20;
-            this.txtSalary.StateCommon.Border.Width = 1;
-            this.txtSalary.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtSalary.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalary.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtSalary.TabIndex = 192;
-            this.txtSalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtBirth
-            // 
-            this.txtBirth.Enabled = false;
-            this.txtBirth.Location = new System.Drawing.Point(746, 406);
-            this.txtBirth.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBirth.Name = "txtBirth";
-            this.txtBirth.Size = new System.Drawing.Size(341, 39);
-            this.txtBirth.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtBirth.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtBirth.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtBirth.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.dgvSubject.StateCommon.DataCell.Border.Width = 1;
+            this.dgvSubject.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubject.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.HeaderColumn.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.HeaderColumn.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtBirth.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtBirth.StateCommon.Border.Rounding = 20;
-            this.txtBirth.StateCommon.Border.Width = 1;
-            this.txtBirth.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtBirth.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBirth.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtBirth.TabIndex = 196;
-            this.txtBirth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtHoTen
-            // 
-            this.txtHoTen.Enabled = false;
-            this.txtHoTen.Location = new System.Drawing.Point(560, 120);
-            this.txtHoTen.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(527, 56);
-            this.txtHoTen.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtHoTen.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtHoTen.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtHoTen.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.dgvSubject.StateCommon.HeaderColumn.Border.Width = 1;
+            this.dgvSubject.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.dgvSubject.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
+            this.dgvSubject.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvSubject.StateCommon.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.HeaderRow.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.dgvSubject.StateCommon.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtHoTen.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtHoTen.StateCommon.Border.Rounding = 20;
-            this.txtHoTen.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtHoTen.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTen.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtHoTen.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtHoTen.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtHoTen.StateDisabled.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtHoTen.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtHoTen.TabIndex = 191;
-            this.txtHoTen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dgvSubject.StateCommon.HeaderRow.Border.Width = 1;
+            this.dgvSubject.StateSelected.DataCell.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.dgvSubject.StateSelected.DataCell.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.dgvSubject.TabIndex = 207;
             // 
-            // lb02
-            // 
-            this.lb02.AutoSize = true;
-            this.lb02.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb02.Location = new System.Drawing.Point(584, 295);
-            this.lb02.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb02.Name = "lb02";
-            this.lb02.Size = new System.Drawing.Size(74, 22);
-            this.lb02.TabIndex = 209;
-            this.lb02.Text = "Bonus: ";
-            // 
-            // txtBonus
-            // 
-            this.txtBonus.Enabled = false;
-            this.txtBonus.Location = new System.Drawing.Point(746, 284);
-            this.txtBonus.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBonus.Name = "txtBonus";
-            this.txtBonus.Size = new System.Drawing.Size(341, 39);
-            this.txtBonus.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtBonus.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtBonus.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.txtBonus.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtBonus.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtBonus.StateCommon.Border.Rounding = 20;
-            this.txtBonus.StateCommon.Border.Width = 1;
-            this.txtBonus.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtBonus.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBonus.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtBonus.TabIndex = 208;
-            this.txtBonus.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PersonnelMenu
+            // SubjectManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1325, 815);
-            this.Controls.Add(this.lb02);
-            this.Controls.Add(this.txtBonus);
-            this.Controls.Add(this.txtRoleName);
+            this.Controls.Add(this.lbDelete);
+            this.Controls.Add(this.pbDelete);
+            this.Controls.Add(this.lbEdit);
+            this.Controls.Add(this.pbEdit);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pbAddSubject);
+            this.Controls.Add(this.pbReload);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.dgvSubject);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtNewPassword);
-            this.Controls.Add(this.lbSalary);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.lbGender);
-            this.Controls.Add(this.txtGender);
-            this.Controls.Add(this.lbAddress);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.lbBirth);
-            this.Controls.Add(this.lbClass);
-            this.Controls.Add(this.txtDepartment);
-            this.Controls.Add(this.lb01);
-            this.Controls.Add(this.txtSalary);
-            this.Controls.Add(this.txtBirth);
-            this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.Dashboard);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pbSection);
@@ -879,8 +760,8 @@ namespace SchoolManagement
             this.Controls.Add(this.pbStudents);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PersonnelMenu";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "SubjectManagement";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -898,55 +779,52 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbDetail)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAddSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-		private System.Windows.Forms.PictureBox pbStudents;
-		private System.Windows.Forms.Label lbStudents;
-		private System.Windows.Forms.Label lbTeachers;
-		private System.Windows.Forms.PictureBox pbTeachers;
-		private System.Windows.Forms.Label lbClasses;
-		private System.Windows.Forms.PictureBox pbClasses;
-		private System.Windows.Forms.Label lbProfile;
-		private System.Windows.Forms.PictureBox pbProfile;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.PictureBox pbSection;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.PictureBox pbLogout;
-		private System.Windows.Forms.Label Dashboard;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Label txtHello;
-		private System.Windows.Forms.PictureBox pbDetail;
-		private System.Windows.Forms.Label label5;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtRoleName;
-		private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
-		private System.Windows.Forms.Label label6;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtNewPassword;
-		private System.Windows.Forms.Label lbSalary;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPhone;
-		private System.Windows.Forms.Label lbGender;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtGender;
-		private System.Windows.Forms.Label lbAddress;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtAddress;
-		private System.Windows.Forms.Label lbBirth;
-		private System.Windows.Forms.Label lbClass;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtDepartment;
-		private System.Windows.Forms.Label lb01;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSalary;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBirth;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtHoTen;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.PictureBox pbGrade;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.PictureBox pbCalendar;
-		private System.Windows.Forms.Label lb02;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtBonus;
-	}
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
+        private System.Windows.Forms.PictureBox pbStudents;
+        private System.Windows.Forms.Label lbStudents;
+        private System.Windows.Forms.Label lbTeachers;
+        private System.Windows.Forms.PictureBox pbTeachers;
+        private System.Windows.Forms.Label lbClasses;
+        private System.Windows.Forms.PictureBox pbClasses;
+        private System.Windows.Forms.Label lbProfile;
+        private System.Windows.Forms.PictureBox pbProfile;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pbSection;
+        private System.Windows.Forms.Label logoutBtn;
+        private System.Windows.Forms.PictureBox pbLogout;
+        private System.Windows.Forms.Label Dashboard;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label txtHello;
+        private System.Windows.Forms.PictureBox pbDetail;
+        private System.Windows.Forms.Label label5;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pbGrade;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pbCalendar;
+        private System.Windows.Forms.Label lbDelete;
+        private System.Windows.Forms.PictureBox pbDelete;
+        private System.Windows.Forms.Label lbEdit;
+        private System.Windows.Forms.PictureBox pbEdit;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pbAddSubject;
+        private System.Windows.Forms.PictureBox pbReload;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogin;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvSubject;
+    }
 }

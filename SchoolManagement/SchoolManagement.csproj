@@ -102,6 +102,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UpdateSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateSubject.Designer.cs">
+      <DependentUpon>UpdateSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSubject.Designer.cs">
+      <DependentUpon>AddSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,12 @@
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseSession.cs" />
+    <Compile Include="SubjectManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+	  <Compile Include="SubjectManagement.Designer.cs">
+		  <DependentUpon>SubjectManagement.cs</DependentUpon>
+	  </Compile>
     <Compile Include="RegisteredSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,12 +237,21 @@
     <Compile Include="TeacherProfile.Designer.cs">
       <DependentUpon>TeacherProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateSubject.resx">
+      <DependentUpon>UpdateSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSubject.resx">
+      <DependentUpon>AddSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
+	  <EmbeddedResource Include="SubjectManagement.resx">
+		  <DependentUpon>SubjectManagement.cs</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Include="RegisteredSubject.resx">
       <DependentUpon>RegisteredSubject.cs</DependentUpon>
     </EmbeddedResource>

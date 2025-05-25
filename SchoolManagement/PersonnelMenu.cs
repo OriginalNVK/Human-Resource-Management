@@ -171,5 +171,13 @@ namespace SchoolManagement
 			userManager.ShowDialog();
 			this.Close();
 		}
-	}
+
+        private void pbSubject_Click(object sender, EventArgs e)
+        {
+			SubjectManagement subjectManager = new SubjectManagement();
+			this.Hide();
+			subjectManager.ShowDialog();
+			this.Close();
+        }
+    }
 }
