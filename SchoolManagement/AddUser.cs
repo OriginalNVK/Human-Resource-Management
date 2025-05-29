@@ -36,7 +36,11 @@ namespace SchoolManagement
         {
             try
             {
-                string departmentQuery = @"SELECT MADV, TENDV, COSO FROM pdb_admin.QLDH_DONVI";
+                // Lấy danh sách các đơn vị theo tên duy nhất, lấy MADV nhỏ nhất cho mỗi tên đơn vị
+                string departmentQuery = @"SELECT MIN(MADV) AS MADV, TENDV
+										   FROM pdb_admin.QLDH_DONVI
+										   GROUP BY TENDV
+										   ORDER BY TENDV";
 
                 using (OracleCommand cmd = new OracleCommand(departmentQuery, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
@@ -44,19 +48,10 @@ namespace SchoolManagement
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
-                    // Thêm cột hiển thị đầy đủ: "Tên khoa - Cơ sở"
-                    dt.Columns.Add("TENDAYDU", typeof(string));
-                    foreach (DataRow row in dt.Rows)
-                    {
-						if (row["COSO"] !=  null) {
-                            row["TENDAYDU"] = $"{row["TENDV"]} - {row["COSO"]}";
-                        }
-                        else row["TENDAYDU"] = $"{row["TENDV"]}";
-                    }
-
+                    // Không cần thêm cột hiển thị đầy đủ nữa, chỉ hiển thị TENDV
                     comboDepartment.DataSource = dt;
-                    comboDepartment.DisplayMember = "TENDAYDU"; // Hiển thị tên đầy đủ
-                    comboDepartment.ValueMember = "MADV";       // Lưu MADV khi cần
+                    comboDepartment.DisplayMember = "TENDV"; // Hiển thị tên khoa (đơn vị) duy nhất
+                    comboDepartment.ValueMember = "MADV";   // Lưu MADV (lấy MADV đầu tiên của đơn vị đó)
                 }
             }
             catch (Exception ex)
@@ -143,7 +138,7 @@ namespace SchoolManagement
 
 					// Lấy MADV từ tên đơn vị
 					string queSeDepID = null;
-					using (OracleCommand cmdGetMADV = new OracleCommand("SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE TENDV = :dep", conn))
+					using (OracleCommand cmdGetMADV = new OracleCommand("SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE MADV = :dep", conn))
 					{
 						cmdGetMADV.Transaction = transaction;
 						cmdGetMADV.Parameters.Add("dep", OracleDbType.Varchar2).Value = department;
