@@ -29,9 +29,43 @@ namespace SchoolManagement
         {
             InitializeComponent();
 			LoadAllRoles();
+			getAllDepartment();
         }
 
-		private void btnCreateUser_Click(object sender, EventArgs e)
+        private void getAllDepartment()
+        {
+            try
+            {
+                string departmentQuery = @"SELECT MADV, TENDV, COSO FROM pdb_admin.QLDH_DONVI";
+
+                using (OracleCommand cmd = new OracleCommand(departmentQuery, DatabaseSession.Connection))
+                using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    // Thêm cột hiển thị đầy đủ: "Tên khoa - Cơ sở"
+                    dt.Columns.Add("TENDAYDU", typeof(string));
+                    foreach (DataRow row in dt.Rows)
+                    {
+						if (row["COSO"] !=  null) {
+                            row["TENDAYDU"] = $"{row["TENDV"]} - {row["COSO"]}";
+                        }
+                        else row["TENDAYDU"] = $"{row["TENDV"]}";
+                    }
+
+                    comboDepartment.DataSource = dt;
+                    comboDepartment.DisplayMember = "TENDAYDU"; // Hiển thị tên đầy đủ
+                    comboDepartment.ValueMember = "MADV";       // Lưu MADV khi cần
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: \n" + ex.Message);
+            }
+        }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -44,7 +78,8 @@ namespace SchoolManagement
 				string phoNum = txtPhoneNum.Text.Trim();
 				string address = txtAddress.Text.Trim();
 				string dob = dtpDOB.Value.ToString("dd-MMM-yyyy");
-				string department = comboDepartment.SelectedItem?.ToString();
+				string department = comboDepartment.SelectedValue.ToString();
+				string location = locationList.SelectedItem?.ToString();
 
 				// Duyệt và lấy đúng 1 role từ DataGridView
 				foreach (DataGridViewRow row in dgvUser.Rows)
@@ -310,9 +345,6 @@ namespace SchoolManagement
 			}
 		}
 
-
-
-
 		private void lbUsers_Click(object sender, EventArgs e)
 		{
 			UsersManager userManager = new UsersManager();
@@ -360,5 +392,5 @@ namespace SchoolManagement
 			login.ShowDialog();
 			this.Close();
 		}
-	}
+    }
 }

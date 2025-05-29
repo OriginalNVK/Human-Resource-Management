@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Docking">
       <HintPath>..\..\..\..\Download\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
@@ -49,6 +52,9 @@
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace">
       <HintPath>..\..\..\..\Download\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -102,6 +108,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassList.Designer.cs">
+      <DependentUpon>ClassList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonnelRegister.Designer.cs">
+      <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSchedule.Designer.cs">
+      <DependentUpon>ViewSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSubject.Designer.cs">
+      <DependentUpon>ViewSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,9 +160,9 @@
     <Compile Include="SubjectManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="SubjectManagement.Designer.cs">
-		  <DependentUpon>SubjectManagement.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="SubjectManagement.Designer.cs">
+      <DependentUpon>SubjectManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisteredSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +226,12 @@
     <Compile Include="AdminProfile.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UpdateStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateStudent.Designer.cs">
+      <DependentUpon>UpdateStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminProfile.Designer.cs">
       <DependentUpon>AdminProfile.cs</DependentUpon>
     </Compile>
@@ -231,6 +267,18 @@
     <Compile Include="TeacherProfile.Designer.cs">
       <DependentUpon>TeacherProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ClassList.resx">
+      <DependentUpon>ClassList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonnelRegister.resx">
+      <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSchedule.resx">
+      <DependentUpon>ViewSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSubject.resx">
+      <DependentUpon>ViewSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateSubject.resx">
       <DependentUpon>UpdateSubject.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,9 +291,9 @@
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="SubjectManagement.resx">
-		  <DependentUpon>SubjectManagement.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="SubjectManagement.resx">
+      <DependentUpon>SubjectManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisteredSubject.resx">
       <DependentUpon>RegisteredSubject.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStudent.resx">
+      <DependentUpon>UpdateStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminProfile.resx">
       <DependentUpon>AdminProfile.cs</DependentUpon>

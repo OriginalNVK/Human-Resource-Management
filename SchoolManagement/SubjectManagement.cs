@@ -154,11 +154,6 @@ namespace SchoolManagement
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pbReload_Click(object sender, EventArgs e)
         {
             LoadSubject();
@@ -178,6 +173,27 @@ namespace SchoolManagement
             this.Hide();
             addSubject.ShowDialog();
             this.Close();
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvSubject.CurrentRow == null || dgvSubject.CurrentRow.Cells["MAMH"].Value == null)
+                {
+                    MessageBox.Show("Please choose a Subject first!", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string courseCode = dgvSubject.CurrentRow.Cells["MAHP"].Value.ToString();
+                ViewSubject subjectDetail = new ViewSubject(courseCode);
+                this.Hide();
+                subjectDetail.ShowDialog();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n" + ex.Message);
+            }
         }
     }
 }

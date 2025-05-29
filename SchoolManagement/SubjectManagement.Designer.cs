@@ -239,7 +239,7 @@ namespace SchoolManagement
             this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
             this.pbLogout.Location = new System.Drawing.Point(19, 692);
-            this.pbLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogout.Name = "pbLogout";
             this.pbLogout.Size = new System.Drawing.Size(39, 54);
             this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -251,7 +251,7 @@ namespace SchoolManagement
             this.pbSection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSection.Image = ((System.Drawing.Image)(resources.GetObject("pbSection.Image")));
             this.pbSection.Location = new System.Drawing.Point(19, 198);
-            this.pbSection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbSection.Margin = new System.Windows.Forms.Padding(4);
             this.pbSection.Name = "pbSection";
             this.pbSection.Size = new System.Drawing.Size(39, 50);
             this.pbSection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -263,7 +263,7 @@ namespace SchoolManagement
             this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
             this.pbProfile.Location = new System.Drawing.Point(19, 393);
-            this.pbProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
             this.pbProfile.Name = "pbProfile";
             this.pbProfile.Size = new System.Drawing.Size(39, 54);
             this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -275,7 +275,7 @@ namespace SchoolManagement
             this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
             this.pbClasses.Location = new System.Drawing.Point(19, 135);
-            this.pbClasses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
             this.pbClasses.Name = "pbClasses";
             this.pbClasses.Size = new System.Drawing.Size(39, 44);
             this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -287,7 +287,7 @@ namespace SchoolManagement
             this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
             this.pbTeachers.Location = new System.Drawing.Point(19, 322);
-            this.pbTeachers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
             this.pbTeachers.Name = "pbTeachers";
             this.pbTeachers.Size = new System.Drawing.Size(39, 54);
             this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -299,7 +299,7 @@ namespace SchoolManagement
             this.pbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbStudents.Image = ((System.Drawing.Image)(resources.GetObject("pbStudents.Image")));
             this.pbStudents.Location = new System.Drawing.Point(19, 257);
-            this.pbStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbStudents.Margin = new System.Windows.Forms.Padding(4);
             this.pbStudents.Name = "pbStudents";
             this.pbStudents.Size = new System.Drawing.Size(39, 50);
             this.pbStudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -356,7 +356,7 @@ namespace SchoolManagement
             this.pbGrade.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbGrade.Image = ((System.Drawing.Image)(resources.GetObject("pbGrade.Image")));
             this.pbGrade.Location = new System.Drawing.Point(19, 565);
-            this.pbGrade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbGrade.Margin = new System.Windows.Forms.Padding(4);
             this.pbGrade.Name = "pbGrade";
             this.pbGrade.Size = new System.Drawing.Size(43, 46);
             this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -383,7 +383,7 @@ namespace SchoolManagement
             this.pbCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbCalendar.Image = ((System.Drawing.Image)(resources.GetObject("pbCalendar.Image")));
             this.pbCalendar.Location = new System.Drawing.Point(19, 496);
-            this.pbCalendar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCalendar.Margin = new System.Windows.Forms.Padding(4);
             this.pbCalendar.Name = "pbCalendar";
             this.pbCalendar.Size = new System.Drawing.Size(43, 47);
             this.pbCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -410,7 +410,7 @@ namespace SchoolManagement
             this.pbDetail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbDetail.Image = ((System.Drawing.Image)(resources.GetObject("pbDetail.Image")));
             this.pbDetail.Location = new System.Drawing.Point(19, 625);
-            this.pbDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDetail.Margin = new System.Windows.Forms.Padding(4);
             this.pbDetail.Name = "pbDetail";
             this.pbDetail.Size = new System.Drawing.Size(43, 49);
             this.pbDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -456,7 +456,7 @@ namespace SchoolManagement
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(732, 727);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
             this.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -511,8 +511,8 @@ namespace SchoolManagement
             this.btnSave.StateTracking.Border.Rounding = 20;
             this.btnSave.StateTracking.Border.Width = 1;
             this.btnSave.TabIndex = 206;
-            this.btnSave.Values.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Values.Text = "VIEW";
+            this.btnSave.Click += new System.EventHandler(this.btnView_Click);
             // 
             // lbDelete
             // 
@@ -531,7 +531,7 @@ namespace SchoolManagement
             this.pbDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
             this.pbDelete.Location = new System.Drawing.Point(1169, 177);
-            this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(44, 46);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -556,7 +556,7 @@ namespace SchoolManagement
             this.pbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
             this.pbEdit.Location = new System.Drawing.Point(1028, 177);
-            this.pbEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(59, 46);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -581,7 +581,7 @@ namespace SchoolManagement
             this.pbAddSubject.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbAddSubject.Image = ((System.Drawing.Image)(resources.GetObject("pbAddSubject.Image")));
             this.pbAddSubject.Location = new System.Drawing.Point(397, 177);
-            this.pbAddSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAddSubject.Margin = new System.Windows.Forms.Padding(4);
             this.pbAddSubject.Name = "pbAddSubject";
             this.pbAddSubject.Size = new System.Drawing.Size(55, 46);
             this.pbAddSubject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -594,7 +594,7 @@ namespace SchoolManagement
             this.pbReload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbReload.Image = ((System.Drawing.Image)(resources.GetObject("pbReload.Image")));
             this.pbReload.Location = new System.Drawing.Point(1211, 114);
-            this.pbReload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbReload.Margin = new System.Windows.Forms.Padding(4);
             this.pbReload.Name = "pbReload";
             this.pbReload.Size = new System.Drawing.Size(52, 41);
             this.pbReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -605,7 +605,7 @@ namespace SchoolManagement
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(1075, 114);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
             this.btnLogin.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -665,7 +665,7 @@ namespace SchoolManagement
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(637, 114);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(409, 37);
             this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -692,7 +692,7 @@ namespace SchoolManagement
             this.dgvSubject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubject.ImeMode = System.Windows.Forms.ImeMode.On;
             this.dgvSubject.Location = new System.Drawing.Point(341, 250);
-            this.dgvSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSubject.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSubject.Name = "dgvSubject";
             this.dgvSubject.ReadOnly = true;
             this.dgvSubject.RowHeadersWidth = 51;
@@ -760,7 +760,7 @@ namespace SchoolManagement
             this.Controls.Add(this.pbStudents);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SubjectManagement";
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;

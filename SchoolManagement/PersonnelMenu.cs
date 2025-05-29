@@ -18,6 +18,7 @@ namespace SchoolManagement
 		private string _username;
 		private string _originalPhoneNumber;    // lưu số điện thoại ban đầu
 		private string _changePassword = null;  // gán nếu người dùng muốn thay đổi mật khẩu
+		public static string _role = null;
 
 		public PersonnelMenu(string username)
 		{
@@ -63,6 +64,7 @@ namespace SchoolManagement
 							txtRoleName.Text = reader.GetString(7);    // VAITRO
 							txtDepartment.Text = reader.GetString(8);  // TENDV
 							txtHello.Text = $"Hello, {reader.GetString(0)}";
+							_role = reader.GetString(7);
 						}
 						else
 						{
@@ -142,9 +144,9 @@ namespace SchoolManagement
 
 		private void pbStudents_Click(object sender, EventArgs e)
 		{
-			StudentManager student = new StudentManager();
+			StudentManager studentManager = new StudentManager();
 			this.Hide();
-			student.ShowDialog();
+			studentManager.ShowDialog();
 			this.Close();
 		}
 
@@ -156,11 +158,11 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-		private void pbRole_Click(object sender, EventArgs e)
+		private void pbClass_Click(object sender, EventArgs e)
 		{
-			RoleManager roleManager = new RoleManager();
+			ClassList classList = new ClassList();
 			this.Hide();
-			roleManager.ShowDialog();
+			classList.ShowDialog();
 			this.Close();
 		}
 
@@ -177,6 +179,22 @@ namespace SchoolManagement
 			SubjectManagement subjectManager = new SubjectManagement();
 			this.Hide();
 			subjectManager.ShowDialog();
+			this.Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            PersonnelRegister personnelRegister = new PersonnelRegister();
+            this.Hide();
+            personnelRegister.ShowDialog();
+            this.Close();
+        }
+
+        private void view_Schedule(object sender, EventArgs e)
+        {
+			ViewSchedule viewDetail = new ViewSchedule(_username, _role);
+			this.Hide();
+			viewDetail.ShowDialog();
 			this.Close();
         }
     }
