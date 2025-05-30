@@ -255,6 +255,12 @@ WHERE MANV = :manv";
             return string.Empty;
         }
 
-        
+        private void label7_Click(object sender, EventArgs e)
+        {
+            ViewSchedule viewDetail = new ViewSchedule(PersonnelMenu._username, PersonnelMenu._role);
+            this.Hide();
+            viewDetail.ShowDialog();
+            this.Close();
+        }
     }
 }

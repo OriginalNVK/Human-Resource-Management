@@ -15,7 +15,7 @@ namespace SchoolManagement
 {
 	public partial class PersonnelMenu : KryptonForm
 	{
-		private string _username;
+		public static string _username;
 		private string _originalPhoneNumber;    // lưu số điện thoại ban đầu
 		private string _changePassword = null;  // gán nếu người dùng muốn thay đổi mật khẩu
 		public static string _role = null;

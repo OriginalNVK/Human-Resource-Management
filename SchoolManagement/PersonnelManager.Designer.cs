@@ -333,6 +333,7 @@ namespace SchoolManagement
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 193;
             this.label2.Text = "SCHEDULE";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
@@ -346,6 +347,7 @@ namespace SchoolManagement
             this.label5.Size = new System.Drawing.Size(185, 20);
             this.label5.TabIndex = 191;
             this.label5.Text = "REGISTER MANAGEMENT";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
             // 
@@ -386,6 +388,7 @@ namespace SchoolManagement
             this.label4.Size = new System.Drawing.Size(81, 20);
             this.label4.TabIndex = 228;
             this.label4.Text = "CLASS LIST";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label9
             // 
@@ -437,6 +440,7 @@ namespace SchoolManagement
             this.lbClasses.Size = new System.Drawing.Size(180, 20);
             this.lbClasses.TabIndex = 224;
             this.lbClasses.Text = "SUBJECT MANAGEMENT";
+            this.lbClasses.Click += new System.EventHandler(this.lbClasses_Click);
             // 
             // lbPersonnels
             // 
@@ -450,6 +454,7 @@ namespace SchoolManagement
             this.lbPersonnels.Size = new System.Drawing.Size(174, 20);
             this.lbPersonnels.TabIndex = 222;
             this.lbPersonnels.Text = "PERSONNEL MANAGER";
+            this.lbPersonnels.Click += new System.EventHandler(this.lbPersonnels_Click);
             // 
             // lbStudents
             // 
@@ -463,6 +468,7 @@ namespace SchoolManagement
             this.lbStudents.Size = new System.Drawing.Size(156, 20);
             this.lbStudents.TabIndex = 220;
             this.lbStudents.Text = "STUDENTS MANAGER";
+            this.lbStudents.Click += new System.EventHandler(this.lbStudents_Click);
             // 
             // panel2
             // 

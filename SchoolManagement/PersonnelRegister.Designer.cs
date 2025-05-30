@@ -179,6 +179,7 @@ namespace SchoolManagement
             this.lbClasses.Size = new System.Drawing.Size(180, 20);
             this.lbClasses.TabIndex = 8;
             this.lbClasses.Text = "SUBJECT MANAGEMENT";
+            this.lbClasses.Click += new System.EventHandler(this.lbClasses_Click);
             // 
             // lbProfile
             // 
@@ -290,6 +291,7 @@ namespace SchoolManagement
             this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 193;
             this.label7.Text = "SCHEDULE";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pbCalendar
             // 

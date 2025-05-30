@@ -76,7 +76,10 @@ namespace SchoolManagement
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            ClassList classList = new ClassList();
+            this.Hide();
+            classList.ShowDialog();
+            this.Close();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -197,7 +200,10 @@ namespace SchoolManagement
 
         private void label7_Click(object sender, EventArgs e)
         {
-
+            ViewSchedule viewDetail = new ViewSchedule(PersonnelMenu._username,PersonnelMenu._role);
+            this.Hide();
+            viewDetail.ShowDialog();
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)

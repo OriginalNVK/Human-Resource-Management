@@ -393,5 +393,45 @@ namespace SchoolManagement
             login.ShowDialog();
             this.Close();
         }
+
+        private void lbClasses_Click(object sender, EventArgs e)
+        {
+            SubjectManagement subjectManager = new SubjectManagement();
+            this.Hide();
+            subjectManager.ShowDialog();
+            this.Close();
+        }
+
+        private void lbStudents_Click(object sender, EventArgs e)
+        {
+            StudentManager studentManager = new StudentManager();
+            this.Hide();
+            studentManager.ShowDialog();
+            this.Close();
+        }
+
+        private void lbPersonnels_Click(object sender, EventArgs e)
+        {
+            PersonnelManager personnelManager = new PersonnelManager();
+            this.Hide();
+            personnelManager.ShowDialog();
+            this.Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            PersonnelRegister personnelRegister = new PersonnelRegister();
+            this.Hide();
+            personnelRegister.ShowDialog();
+            this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ViewSchedule viewDetail = new ViewSchedule( PersonnelMenu._username, PersonnelMenu._role);
+            this.Hide();
+            viewDetail.ShowDialog();
+            this.Close();
+        }
     }
 }

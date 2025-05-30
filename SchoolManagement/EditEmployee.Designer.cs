@@ -222,6 +222,7 @@
             this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "CLASS LIST";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -334,7 +335,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(244, 704);
             this.panel2.TabIndex = 190;
-           // this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label8
             // 
@@ -373,6 +373,7 @@
             this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 193;
             this.label7.Text = "SCHEDULE";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pbCalendar
             // 
