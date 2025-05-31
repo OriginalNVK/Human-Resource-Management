@@ -71,7 +71,7 @@ BEGIN
         policy_name     => 'student_policy',
         function_schema => 'PDB_ADMIN',
         policy_function => 'student_policy_function',
-        statement_types => 'SELECT, INSERT, UPDATE, DELETE',
+        statement_types => 'SELECT, UPDATE, DELETE',
         update_check    => TRUE,
         sec_relevant_cols => 'DCHI,DT'
     );
