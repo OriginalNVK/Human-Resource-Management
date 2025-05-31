@@ -24,14 +24,14 @@ namespace SchoolManagement
         {
             try
             {
-                string query = "SELECT TENDV FROM PDB_ADMIN.QLDH_DONVI";
+                string query = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI";
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     cmbDepartment.DataSource = dt;
-                    cmbDepartment.DisplayMember = "TENDV";
+                    cmbDepartment.DisplayMember = "MADV";
                 }
             }
             catch (Exception ex)
@@ -110,34 +110,8 @@ namespace SchoolManagement
             string donvi = cmbDepartment.Text.ToString();
             string luong = txtSalary.Text.Trim();
             string phucap = txtBonus.Text.Trim();
-            MessageBox.Show(ngaysinh);
 
-            try
-            {
-                string queryMaDV = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE TENDV = :donvi";
-
-                using (OracleCommand cmd = new OracleCommand(queryMaDV, DatabaseSession.Connection))
-                {
-                    cmd.Parameters.Add(":donvi", OracleDbType.Varchar2).Value = donvi;
-
-                    using (OracleDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            donvi = reader["MADV"].ToString();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Không tìm thấy đơn vị!");
-                            return;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm đơn vị: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
 
             if (string.IsNullOrEmpty(manv) || string.IsNullOrEmpty(hoten) || string.IsNullOrEmpty(diachi) || string.IsNullOrEmpty(dienthoai) ||
                 string.IsNullOrEmpty(luong) || string.IsNullOrEmpty(phucap) || string.IsNullOrEmpty(donvi))

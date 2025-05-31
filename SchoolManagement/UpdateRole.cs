@@ -607,5 +607,18 @@ namespace SchoolManagement
         {
             label7.Text = RoleName;
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

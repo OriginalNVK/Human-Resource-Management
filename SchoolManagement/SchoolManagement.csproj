@@ -114,6 +114,12 @@
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="AuditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuditView.Designer.cs">
+      <DependentUpon>AuditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </Compile>
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditView.resx">
+      <DependentUpon>AuditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>

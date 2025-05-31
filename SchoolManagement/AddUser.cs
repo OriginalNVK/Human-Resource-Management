@@ -387,5 +387,13 @@ namespace SchoolManagement
 			login.ShowDialog();
 			this.Close();
 		}
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+        }
     }
 }
