@@ -34,8 +34,6 @@ namespace SchoolManagement
 			this.label1 = new System.Windows.Forms.Label();
 			this.kryptonContextMenuMonthCalendar1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar();
 			this.label7 = new System.Windows.Forms.Label();
-			this.btnExport = new System.Windows.Forms.PictureBox();
-			this.pbReload = new System.Windows.Forms.PictureBox();
 			this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.dgvStudents = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -63,8 +61,10 @@ namespace SchoolManagement
 			this.lbProfile = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.pbSection = new System.Windows.Forms.PictureBox();
-			((System.ComponentModel.ISupportInitialize)(this.btnExport)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbReload)).BeginInit();
+			this.lbEdit = new System.Windows.Forms.Label();
+			this.pbEdit = new System.Windows.Forms.PictureBox();
+			this.btnExport = new System.Windows.Forms.PictureBox();
+			this.pbReload = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -77,6 +77,9 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.btnExport)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbReload)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -104,35 +107,12 @@ namespace SchoolManagement
 			this.label7.AutoSize = true;
 			this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label7.Font = new System.Drawing.Font("Century Gothic", 10F);
-			this.label7.Location = new System.Drawing.Point(1300, 185);
+			this.label7.Location = new System.Drawing.Point(1387, 184);
 			this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(62, 21);
 			this.label7.TabIndex = 224;
 			this.label7.Text = "Export";
-			// 
-			// btnExport
-			// 
-			this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-			this.btnExport.Location = new System.Drawing.Point(1300, 135);
-			this.btnExport.Margin = new System.Windows.Forms.Padding(4);
-			this.btnExport.Name = "btnExport";
-			this.btnExport.Size = new System.Drawing.Size(52, 46);
-			this.btnExport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.btnExport.TabIndex = 223;
-			this.btnExport.TabStop = false;
-			// 
-			// pbReload
-			// 
-			this.pbReload.Image = ((System.Drawing.Image)(resources.GetObject("pbReload.Image")));
-			this.pbReload.Location = new System.Drawing.Point(1218, 143);
-			this.pbReload.Margin = new System.Windows.Forms.Padding(4);
-			this.pbReload.Name = "pbReload";
-			this.pbReload.Size = new System.Drawing.Size(52, 41);
-			this.pbReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbReload.TabIndex = 222;
-			this.pbReload.TabStop = false;
 			// 
 			// btnSearch
 			// 
@@ -452,6 +432,7 @@ namespace SchoolManagement
 			this.label2.Size = new System.Drawing.Size(102, 22);
 			this.label2.TabIndex = 262;
 			this.label2.Text = "SCHEDULE";
+			this.label2.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// lbStudents
 			// 
@@ -466,6 +447,7 @@ namespace SchoolManagement
 			this.lbStudents.Size = new System.Drawing.Size(199, 22);
 			this.lbStudents.TabIndex = 247;
 			this.lbStudents.Text = "STUDENTS MANAGER";
+			this.lbStudents.Click += new System.EventHandler(this.lbStudents_Click);
 			// 
 			// pbCalendar
 			// 
@@ -506,6 +488,7 @@ namespace SchoolManagement
 			this.label5.Size = new System.Drawing.Size(235, 22);
 			this.label5.TabIndex = 260;
 			this.label5.Text = "REGISTER MANAGEMENT";
+			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// lbTeachers
 			// 
@@ -520,6 +503,7 @@ namespace SchoolManagement
 			this.lbTeachers.Size = new System.Drawing.Size(221, 22);
 			this.lbTeachers.TabIndex = 249;
 			this.lbTeachers.Text = "PERSONNEL MANAGER";
+			this.lbTeachers.Click += new System.EventHandler(this.lbTeachers_Click);
 			// 
 			// pbDetail
 			// 
@@ -574,6 +558,7 @@ namespace SchoolManagement
 			this.label4.Size = new System.Drawing.Size(90, 22);
 			this.label4.TabIndex = 257;
 			this.label4.Text = "LOGOUT";
+			this.label4.Click += new System.EventHandler(this.label4_Click);
 			// 
 			// pbProfile
 			// 
@@ -614,6 +599,7 @@ namespace SchoolManagement
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
 			this.lbProfile.TabIndex = 253;
 			this.lbProfile.Text = "MY PROFILE";
+			this.lbProfile.Click += new System.EventHandler(this.lbProfile_Click);
 			// 
 			// label6
 			// 
@@ -628,6 +614,7 @@ namespace SchoolManagement
 			this.label6.Size = new System.Drawing.Size(103, 22);
 			this.label6.TabIndex = 255;
 			this.label6.Text = "CLASS LIST";
+			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// pbSection
 			// 
@@ -642,12 +629,62 @@ namespace SchoolManagement
 			this.pbSection.TabIndex = 254;
 			this.pbSection.TabStop = false;
 			// 
+			// lbEdit
+			// 
+			this.lbEdit.AutoSize = true;
+			this.lbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lbEdit.Font = new System.Drawing.Font("Century Gothic", 8F);
+			this.lbEdit.Location = new System.Drawing.Point(1311, 185);
+			this.lbEdit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lbEdit.Name = "lbEdit";
+			this.lbEdit.Size = new System.Drawing.Size(35, 19);
+			this.lbEdit.TabIndex = 247;
+			this.lbEdit.Text = "EDIT";
+			// 
+			// pbEdit
+			// 
+			this.pbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
+			this.pbEdit.Location = new System.Drawing.Point(1299, 134);
+			this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
+			this.pbEdit.Name = "pbEdit";
+			this.pbEdit.Size = new System.Drawing.Size(59, 46);
+			this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbEdit.TabIndex = 246;
+			this.pbEdit.TabStop = false;
+			this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+			// 
+			// btnExport
+			// 
+			this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+			this.btnExport.Location = new System.Drawing.Point(1387, 134);
+			this.btnExport.Margin = new System.Windows.Forms.Padding(4);
+			this.btnExport.Name = "btnExport";
+			this.btnExport.Size = new System.Drawing.Size(52, 46);
+			this.btnExport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.btnExport.TabIndex = 223;
+			this.btnExport.TabStop = false;
+			// 
+			// pbReload
+			// 
+			this.pbReload.Image = ((System.Drawing.Image)(resources.GetObject("pbReload.Image")));
+			this.pbReload.Location = new System.Drawing.Point(1218, 143);
+			this.pbReload.Margin = new System.Windows.Forms.Padding(4);
+			this.pbReload.Name = "pbReload";
+			this.pbReload.Size = new System.Drawing.Size(52, 41);
+			this.pbReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbReload.TabIndex = 222;
+			this.pbReload.TabStop = false;
+			// 
 			// StudentManager
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
 			this.ClientSize = new System.Drawing.Size(1754, 853);
+			this.Controls.Add(this.lbEdit);
+			this.Controls.Add(this.pbEdit);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.btnExport);
@@ -661,8 +698,6 @@ namespace SchoolManagement
 			this.Name = "StudentManager";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "STUDENT MANAGER";
-			((System.ComponentModel.ISupportInitialize)(this.btnExport)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbReload)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -677,6 +712,9 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.btnExport)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbReload)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -716,5 +754,7 @@ namespace SchoolManagement
 		private System.Windows.Forms.Label lbProfile;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.PictureBox pbSection;
+		private System.Windows.Forms.Label lbEdit;
+		private System.Windows.Forms.PictureBox pbEdit;
 	}
 }
