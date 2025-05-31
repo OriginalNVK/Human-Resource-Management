@@ -54,6 +54,7 @@ namespace SchoolManagement
 			this.pbDetail = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			this.txtHello = new System.Windows.Forms.Label();
 			this.txtRoleName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -74,7 +75,6 @@ namespace SchoolManagement
 			this.txtHoTen = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.lb02 = new System.Windows.Forms.Label();
 			this.txtBonus = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-			this.notifications = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -192,9 +192,9 @@ namespace SchoolManagement
 			this.lbClasses.Location = new System.Drawing.Point(68, 146);
 			this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lbClasses.Name = "lbClasses";
-			this.lbClasses.Size = new System.Drawing.Size(226, 22);
+			this.lbClasses.Size = new System.Drawing.Size(189, 22);
 			this.lbClasses.TabIndex = 8;
-			this.lbClasses.Text = "SUBJECT MANAGEMENT";
+			this.lbClasses.Text = "SUBJECT MANAGER";
 			this.lbClasses.Click += new System.EventHandler(this.pbSubject_Click);
 			// 
 			// lbProfile
@@ -328,9 +328,9 @@ namespace SchoolManagement
 			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
 			this.Dashboard.Location = new System.Drawing.Point(367, 37);
 			this.Dashboard.Name = "Dashboard";
-			this.Dashboard.Size = new System.Drawing.Size(92, 32);
+			this.Dashboard.Size = new System.Drawing.Size(115, 32);
 			this.Dashboard.TabIndex = 37;
-			this.Dashboard.Text = "Profile";
+			this.Dashboard.Text = "PROFILE";
 			// 
 			// panel2
 			// 
@@ -363,6 +363,7 @@ namespace SchoolManagement
 			this.label8.Size = new System.Drawing.Size(78, 22);
 			this.label8.TabIndex = 195;
 			this.label8.Text = "GRADE";
+			this.label8.Click += new System.EventHandler(this.label8_Click);
 			// 
 			// pbGrade
 			// 
@@ -415,9 +416,9 @@ namespace SchoolManagement
 			this.label5.Location = new System.Drawing.Point(76, 639);
 			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(235, 22);
+			this.label5.Size = new System.Drawing.Size(198, 22);
 			this.label5.TabIndex = 191;
-			this.label5.Text = "REGISTER MANAGEMENT";
+			this.label5.Text = "REGISTER MANAGER";
 			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// pbDetail
@@ -457,6 +458,17 @@ namespace SchoolManagement
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1325, 100);
 			this.panel1.TabIndex = 189;
+			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(968, 19);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 210;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
 			// 
 			// txtHello
 			// 
@@ -848,17 +860,6 @@ namespace SchoolManagement
 			this.txtBonus.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
 			this.txtBonus.TabIndex = 208;
 			this.txtBonus.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// notifications
-			// 
-			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
-			this.notifications.Location = new System.Drawing.Point(968, 19);
-			this.notifications.Name = "notifications";
-			this.notifications.Size = new System.Drawing.Size(63, 50);
-			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.notifications.TabIndex = 210;
-			this.notifications.TabStop = false;
-			this.notifications.Click += new System.EventHandler(this.notifications_Click);
 			// 
 			// PersonnelMenu
 			// 

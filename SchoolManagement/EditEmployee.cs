@@ -92,7 +92,7 @@ namespace SchoolManagement
 
         private void lbProfile_Click(object sender, EventArgs e)
         {
-            AdminProfile myProfile = new AdminProfile();
+            PersonnelMenu myProfile = new PersonnelMenu(Login.ID);
             this.Hide();
             myProfile.ShowDialog();
             this.Close();
@@ -266,6 +266,14 @@ WHERE MANV = :manv";
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void lbClasses_Click_1(object sender, EventArgs e)
+		{
+			SubjectManagement subjectManager = new SubjectManagement();
+			this.Hide();
+			subjectManager.ShowDialog();
+			this.Close();
 		}
 	}
 }

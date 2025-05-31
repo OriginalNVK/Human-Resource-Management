@@ -274,12 +274,23 @@ namespace SchoolManagement
 		// CLass list
 		private void label6_Click(object sender, EventArgs e)
 		{
-
+			ClassList classList = new ClassList();
+			this.Hide();
+			classList.ShowDialog();
+			this.Close();
 		}
 
 		private void StudentManager_Load(object sender, EventArgs e)
 		{
 
+		}
+
+		private void lbClasses_Click(object sender, EventArgs e)
+		{
+			SubjectManagement subjectManager = new SubjectManagement();
+			this.Hide();
+			subjectManager.ShowDialog();
+			this.Close();
 		}
 	}
 }

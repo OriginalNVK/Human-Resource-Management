@@ -53,6 +53,7 @@
 			this.pbDetail = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.txtHello = new System.Windows.Forms.Label();
 			this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.lbSalary = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
 			this.txtID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.lblRole = new System.Windows.Forms.Label();
 			this.cmbRole = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -87,10 +87,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cmbGender)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cmbDepartment)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cmbRole)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -199,7 +199,7 @@
 			this.lbClasses.Size = new System.Drawing.Size(226, 22);
 			this.lbClasses.TabIndex = 8;
 			this.lbClasses.Text = "SUBJECT MANAGEMENT";
-			this.lbClasses.Click += new System.EventHandler(this.label2_Click);
+			this.lbClasses.Click += new System.EventHandler(this.lbClasses_Click_1);
 			// 
 			// lbProfile
 			// 
@@ -252,7 +252,7 @@
 			this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
 			this.pbLogout.Location = new System.Drawing.Point(19, 692);
-			this.pbLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
 			this.pbLogout.Name = "pbLogout";
 			this.pbLogout.Size = new System.Drawing.Size(39, 54);
 			this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -264,7 +264,7 @@
 			this.pbSection.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbSection.Image = ((System.Drawing.Image)(resources.GetObject("pbSection.Image")));
 			this.pbSection.Location = new System.Drawing.Point(19, 198);
-			this.pbSection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbSection.Margin = new System.Windows.Forms.Padding(4);
 			this.pbSection.Name = "pbSection";
 			this.pbSection.Size = new System.Drawing.Size(39, 50);
 			this.pbSection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -276,7 +276,7 @@
 			this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
 			this.pbProfile.Location = new System.Drawing.Point(19, 393);
-			this.pbProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
 			this.pbProfile.Name = "pbProfile";
 			this.pbProfile.Size = new System.Drawing.Size(39, 54);
 			this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -288,7 +288,7 @@
 			this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
 			this.pbClasses.Location = new System.Drawing.Point(19, 135);
-			this.pbClasses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
 			this.pbClasses.Name = "pbClasses";
 			this.pbClasses.Size = new System.Drawing.Size(39, 44);
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -300,7 +300,7 @@
 			this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
 			this.pbTeachers.Location = new System.Drawing.Point(19, 322);
-			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
 			this.pbTeachers.Name = "pbTeachers";
 			this.pbTeachers.Size = new System.Drawing.Size(39, 54);
 			this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -312,7 +312,7 @@
 			this.pbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbStudents.Image = ((System.Drawing.Image)(resources.GetObject("pbStudents.Image")));
 			this.pbStudents.Location = new System.Drawing.Point(19, 257);
-			this.pbStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbStudents.Margin = new System.Windows.Forms.Padding(4);
 			this.pbStudents.Name = "pbStudents";
 			this.pbStudents.Size = new System.Drawing.Size(39, 50);
 			this.pbStudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -327,9 +327,9 @@
 			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
 			this.Dashboard.Location = new System.Drawing.Point(367, 37);
 			this.Dashboard.Name = "Dashboard";
-			this.Dashboard.Size = new System.Drawing.Size(208, 32);
+			this.Dashboard.Size = new System.Drawing.Size(207, 32);
 			this.Dashboard.TabIndex = 37;
-			this.Dashboard.Text = "Add Employee";
+			this.Dashboard.Text = "EDIT EMPLOYEE";
 			// 
 			// panel2
 			// 
@@ -369,7 +369,7 @@
 			this.pbGrade.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbGrade.Image = ((System.Drawing.Image)(resources.GetObject("pbGrade.Image")));
 			this.pbGrade.Location = new System.Drawing.Point(19, 565);
-			this.pbGrade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbGrade.Margin = new System.Windows.Forms.Padding(4);
 			this.pbGrade.Name = "pbGrade";
 			this.pbGrade.Size = new System.Drawing.Size(43, 46);
 			this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -397,7 +397,7 @@
 			this.pbCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbCalendar.Image = ((System.Drawing.Image)(resources.GetObject("pbCalendar.Image")));
 			this.pbCalendar.Location = new System.Drawing.Point(19, 496);
-			this.pbCalendar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbCalendar.Margin = new System.Windows.Forms.Padding(4);
 			this.pbCalendar.Name = "pbCalendar";
 			this.pbCalendar.Size = new System.Drawing.Size(43, 47);
 			this.pbCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -425,7 +425,7 @@
 			this.pbDetail.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbDetail.Image = ((System.Drawing.Image)(resources.GetObject("pbDetail.Image")));
 			this.pbDetail.Location = new System.Drawing.Point(19, 625);
-			this.pbDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbDetail.Margin = new System.Windows.Forms.Padding(4);
 			this.pbDetail.Name = "pbDetail";
 			this.pbDetail.Size = new System.Drawing.Size(43, 49);
 			this.pbDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -457,6 +457,17 @@
 			this.panel1.Size = new System.Drawing.Size(1325, 100);
 			this.panel1.TabIndex = 189;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(1000, 19);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(68, 50);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 216;
+			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+			// 
 			// txtHello
 			// 
 			this.txtHello.AutoSize = true;
@@ -472,7 +483,7 @@
 			// btnSave
 			// 
 			this.btnSave.Location = new System.Drawing.Point(747, 719);
-			this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnSave.Margin = new System.Windows.Forms.Padding(4);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -544,7 +555,7 @@
 			// txtPhone
 			// 
 			this.txtPhone.Location = new System.Drawing.Point(747, 409);
-			this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
 			this.txtPhone.Name = "txtPhone";
 			this.txtPhone.Size = new System.Drawing.Size(341, 39);
 			this.txtPhone.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -581,7 +592,7 @@
             "Nam",
             "Nữ"});
 			this.cmbGender.Location = new System.Drawing.Point(747, 240);
-			this.cmbGender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.cmbGender.Margin = new System.Windows.Forms.Padding(4);
 			this.cmbGender.Name = "cmbGender";
 			this.cmbGender.Size = new System.Drawing.Size(341, 42);
 			this.cmbGender.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
@@ -613,7 +624,7 @@
 			// txtAddress
 			// 
 			this.txtAddress.Location = new System.Drawing.Point(747, 352);
-			this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
 			this.txtAddress.Name = "txtAddress";
 			this.txtAddress.Size = new System.Drawing.Size(341, 39);
 			this.txtAddress.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -664,7 +675,7 @@
             "Cơ khí",
             "Xây dựng"});
 			this.cmbDepartment.Location = new System.Drawing.Point(747, 519);
-			this.cmbDepartment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.cmbDepartment.Margin = new System.Windows.Forms.Padding(4);
 			this.cmbDepartment.Name = "cmbDepartment";
 			this.cmbDepartment.Size = new System.Drawing.Size(341, 42);
 			this.cmbDepartment.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
@@ -694,7 +705,7 @@
 			// txtSalary
 			// 
 			this.txtSalary.Location = new System.Drawing.Point(747, 578);
-			this.txtSalary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtSalary.Margin = new System.Windows.Forms.Padding(4);
 			this.txtSalary.Name = "txtSalary";
 			this.txtSalary.Size = new System.Drawing.Size(341, 39);
 			this.txtSalary.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -717,7 +728,7 @@
 			this.dtpBirth.CustomFormat = "dd-MMM-yyyy";
 			this.dtpBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dtpBirth.Location = new System.Drawing.Point(747, 295);
-			this.dtpBirth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.dtpBirth.Margin = new System.Windows.Forms.Padding(4);
 			this.dtpBirth.Name = "dtpBirth";
 			this.dtpBirth.Size = new System.Drawing.Size(341, 42);
 			this.dtpBirth.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -748,7 +759,7 @@
 			// txtBonus
 			// 
 			this.txtBonus.Location = new System.Drawing.Point(747, 635);
-			this.txtBonus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtBonus.Margin = new System.Windows.Forms.Padding(4);
 			this.txtBonus.Name = "txtBonus";
 			this.txtBonus.Size = new System.Drawing.Size(341, 39);
 			this.txtBonus.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -780,7 +791,7 @@
 			// txtName
 			// 
 			this.txtName.Location = new System.Drawing.Point(747, 185);
-			this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtName.Margin = new System.Windows.Forms.Padding(4);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(341, 39);
 			this.txtName.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -813,7 +824,7 @@
 			// 
 			this.txtID.Enabled = false;
 			this.txtID.Location = new System.Drawing.Point(747, 128);
-			this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtID.Margin = new System.Windows.Forms.Padding(4);
 			this.txtID.Name = "txtID";
 			this.txtID.Size = new System.Drawing.Size(341, 39);
 			this.txtID.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -855,7 +866,7 @@
             "NV CTSV",
             "TRGĐV"});
 			this.cmbRole.Location = new System.Drawing.Point(747, 464);
-			this.cmbRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.cmbRole.Margin = new System.Windows.Forms.Padding(4);
 			this.cmbRole.Name = "cmbRole";
 			this.cmbRole.Size = new System.Drawing.Size(341, 42);
 			this.cmbRole.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
@@ -872,17 +883,6 @@
 			this.cmbRole.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
 			this.cmbRole.TabIndex = 215;
 			this.cmbRole.Text = "NVCB";
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(1000, 19);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(68, 50);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 216;
-			this.pictureBox1.TabStop = false;
-			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// EditEmployee
 			// 
@@ -923,7 +923,7 @@
 			this.Controls.Add(this.pbStudents);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "EditEmployee";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PERSONNEL MENU";
@@ -940,10 +940,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cmbGender)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cmbDepartment)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cmbRole)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

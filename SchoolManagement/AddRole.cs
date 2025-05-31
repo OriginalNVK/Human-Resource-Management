@@ -55,22 +55,6 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-		private void label9_Click(object sender, EventArgs e)
-		{
-			StudentManager student = new StudentManager();
-			this.Hide();
-			student.ShowDialog();
-			this.Close();
-		}
-
-		private void lbPersonnel_Click(object sender, EventArgs e)
-		{
-			PersonnelManager personnelManager = new PersonnelManager();
-			this.Hide();
-			personnelManager.ShowDialog();
-			this.Close();
-		}
-
 		private void lbProfile_Click(object sender, EventArgs e)
 		{
 			AdminProfile myProfile = new AdminProfile();

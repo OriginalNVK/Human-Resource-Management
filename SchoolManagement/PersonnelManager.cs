@@ -438,5 +438,21 @@ namespace SchoolManagement
 		{
 
 		}
+
+		private void label4_Click_1(object sender, EventArgs e)
+		{
+			ClassList classList = new ClassList();
+			this.Hide();
+			classList.ShowDialog();
+			this.Close();
+		}
+
+		private void lbProfile_Click_1(object sender, EventArgs e)
+		{
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+			this.Hide();
+			personnelMenu.ShowDialog();
+			this.Close();
+		}
 	}
 }

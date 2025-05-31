@@ -136,9 +136,9 @@ namespace SchoolManagement
 
 		private void pbProfile_Click(object sender, EventArgs e)
 		{
-			AdminProfile myProfile = new AdminProfile();
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
 			this.Hide();
-			myProfile.ShowDialog();
+			personnelMenu.ShowDialog();
 			this.Close();
 		}
 
@@ -199,6 +199,11 @@ namespace SchoolManagement
         }
 
 		private void notifications_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label8_Click(object sender, EventArgs e)
 		{
 
 		}

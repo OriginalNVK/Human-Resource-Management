@@ -182,11 +182,11 @@ namespace SchoolManagement
 
         private void lbProfile_Click(object sender, EventArgs e)
         {
-            AdminProfile myProfile = new AdminProfile();
-            this.Hide();
-            myProfile.ShowDialog();
-            this.Close();
-        }
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+			this.Hide();
+			personnelMenu.ShowDialog();
+			this.Close();
+		}
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -258,5 +258,6 @@ namespace SchoolManagement
 		{
 
 		}
+
 	}
 }

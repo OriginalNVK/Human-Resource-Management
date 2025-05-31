@@ -345,9 +345,9 @@ namespace SchoolManagement
 			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
 			this.Dashboard.Location = new System.Drawing.Point(367, 37);
 			this.Dashboard.Name = "Dashboard";
-			this.Dashboard.Size = new System.Drawing.Size(159, 32);
+			this.Dashboard.Size = new System.Drawing.Size(179, 32);
 			this.Dashboard.TabIndex = 37;
-			this.Dashboard.Text = "Dashboard";
+			this.Dashboard.Text = "DASHBOARD";
 			// 
 			// panel2
 			// 

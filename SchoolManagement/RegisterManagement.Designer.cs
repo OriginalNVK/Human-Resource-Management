@@ -58,14 +58,14 @@
 			this.pbLogout = new System.Windows.Forms.PictureBox();
 			this.pbDetail = new System.Windows.Forms.PictureBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.Dashboard = new System.Windows.Forms.Label();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.dgvSubject = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.txtMASV = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.pbPrev = new System.Windows.Forms.PictureBox();
-			this.notifications = new System.Windows.Forms.PictureBox();
-			this.Dashboard = new System.Windows.Forms.Label();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -77,9 +77,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbPrev)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -176,9 +176,9 @@
 			this.lbClasses.Location = new System.Drawing.Point(68, 146);
 			this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lbClasses.Name = "lbClasses";
-			this.lbClasses.Size = new System.Drawing.Size(226, 22);
+			this.lbClasses.Size = new System.Drawing.Size(189, 22);
 			this.lbClasses.TabIndex = 8;
-			this.lbClasses.Text = "SUBJECT MANAGEMENT";
+			this.lbClasses.Text = "SUBJECT MANAGER";
 			this.lbClasses.Click += new System.EventHandler(this.lbClasses_Click);
 			// 
 			// lbProfile
@@ -254,7 +254,7 @@
 			this.pbSection.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbSection.Image = ((System.Drawing.Image)(resources.GetObject("pbSection.Image")));
 			this.pbSection.Location = new System.Drawing.Point(16, 229);
-			this.pbSection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbSection.Margin = new System.Windows.Forms.Padding(4);
 			this.pbSection.Name = "pbSection";
 			this.pbSection.Size = new System.Drawing.Size(39, 50);
 			this.pbSection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -281,7 +281,7 @@
 			this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
 			this.pbProfile.Location = new System.Drawing.Point(16, 423);
-			this.pbProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
 			this.pbProfile.Name = "pbProfile";
 			this.pbProfile.Size = new System.Drawing.Size(39, 54);
 			this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -309,7 +309,7 @@
 			this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
 			this.pbClasses.Location = new System.Drawing.Point(16, 166);
-			this.pbClasses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
 			this.pbClasses.Name = "pbClasses";
 			this.pbClasses.Size = new System.Drawing.Size(39, 44);
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -326,9 +326,9 @@
 			this.label5.Location = new System.Drawing.Point(76, 639);
 			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(235, 22);
+			this.label5.Size = new System.Drawing.Size(198, 22);
 			this.label5.TabIndex = 191;
-			this.label5.Text = "REGISTER MANAGEMENT";
+			this.label5.Text = "REGISTER MANAGER";
 			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// pbTeachers
@@ -337,7 +337,7 @@
 			this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
 			this.pbTeachers.Location = new System.Drawing.Point(16, 353);
-			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
 			this.pbTeachers.Name = "pbTeachers";
 			this.pbTeachers.Size = new System.Drawing.Size(39, 54);
 			this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -350,7 +350,7 @@
 			this.pbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbStudents.Image = ((System.Drawing.Image)(resources.GetObject("pbStudents.Image")));
 			this.pbStudents.Location = new System.Drawing.Point(16, 288);
-			this.pbStudents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbStudents.Margin = new System.Windows.Forms.Padding(4);
 			this.pbStudents.Name = "pbStudents";
 			this.pbStudents.Size = new System.Drawing.Size(39, 50);
 			this.pbStudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -376,7 +376,7 @@
 			this.pbGrade.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbGrade.Image = ((System.Drawing.Image)(resources.GetObject("pbGrade.Image")));
 			this.pbGrade.Location = new System.Drawing.Point(16, 562);
-			this.pbGrade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbGrade.Margin = new System.Windows.Forms.Padding(4);
 			this.pbGrade.Name = "pbGrade";
 			this.pbGrade.Size = new System.Drawing.Size(43, 46);
 			this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -389,7 +389,7 @@
 			this.pbCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbCalendar.Image = ((System.Drawing.Image)(resources.GetObject("pbCalendar.Image")));
 			this.pbCalendar.Location = new System.Drawing.Point(16, 494);
-			this.pbCalendar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbCalendar.Margin = new System.Windows.Forms.Padding(4);
 			this.pbCalendar.Name = "pbCalendar";
 			this.pbCalendar.Size = new System.Drawing.Size(43, 47);
 			this.pbCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -402,7 +402,7 @@
 			this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
 			this.pbLogout.Location = new System.Drawing.Point(16, 689);
-			this.pbLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
 			this.pbLogout.Name = "pbLogout";
 			this.pbLogout.Size = new System.Drawing.Size(39, 54);
 			this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -415,7 +415,7 @@
 			this.pbDetail.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbDetail.Image = ((System.Drawing.Image)(resources.GetObject("pbDetail.Image")));
 			this.pbDetail.Location = new System.Drawing.Point(16, 623);
-			this.pbDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbDetail.Margin = new System.Windows.Forms.Padding(4);
 			this.pbDetail.Name = "pbDetail";
 			this.pbDetail.Size = new System.Drawing.Size(43, 49);
 			this.pbDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -434,10 +434,33 @@
 			this.panel1.Size = new System.Drawing.Size(1325, 100);
 			this.panel1.TabIndex = 189;
 			// 
+			// Dashboard
+			// 
+			this.Dashboard.AutoSize = true;
+			this.Dashboard.BackColor = System.Drawing.SystemColors.Highlight;
+			this.Dashboard.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
+			this.Dashboard.Location = new System.Drawing.Point(371, 32);
+			this.Dashboard.Name = "Dashboard";
+			this.Dashboard.Size = new System.Drawing.Size(275, 32);
+			this.Dashboard.TabIndex = 212;
+			this.Dashboard.Text = "REGISTER MANAGER";
+			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(1062, 24);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 211;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
+			// 
 			// btnSearch
 			// 
 			this.btnSearch.Location = new System.Drawing.Point(691, 137);
-			this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
 			this.btnSearch.Name = "btnSearch";
 			this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -498,7 +521,7 @@
 			// txtSearch
 			// 
 			this.txtSearch.Location = new System.Drawing.Point(365, 137);
-			this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
 			this.txtSearch.Name = "txtSearch";
 			this.txtSearch.Size = new System.Drawing.Size(301, 37);
 			this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -525,7 +548,7 @@
 			this.dgvSubject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSubject.ImeMode = System.Windows.Forms.ImeMode.On;
 			this.dgvSubject.Location = new System.Drawing.Point(365, 204);
-			this.dgvSubject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.dgvSubject.Margin = new System.Windows.Forms.Padding(4);
 			this.dgvSubject.Name = "dgvSubject";
 			this.dgvSubject.ReadOnly = true;
 			this.dgvSubject.RowHeadersWidth = 51;
@@ -567,7 +590,7 @@
 			// kryptonButton1
 			// 
 			this.kryptonButton1.Location = new System.Drawing.Point(1097, 137);
-			this.kryptonButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.kryptonButton1.Margin = new System.Windows.Forms.Padding(4);
 			this.kryptonButton1.Name = "kryptonButton1";
 			this.kryptonButton1.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.kryptonButton1.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -628,7 +651,7 @@
 			// txtMASV
 			// 
 			this.txtMASV.Location = new System.Drawing.Point(849, 137);
-			this.txtMASV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtMASV.Margin = new System.Windows.Forms.Padding(4);
 			this.txtMASV.Name = "txtMASV";
 			this.txtMASV.Size = new System.Drawing.Size(225, 37);
 			this.txtMASV.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -650,36 +673,13 @@
 			this.pbPrev.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbPrev.Image = ((System.Drawing.Image)(resources.GetObject("pbPrev.Image")));
 			this.pbPrev.Location = new System.Drawing.Point(1212, 137);
-			this.pbPrev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbPrev.Margin = new System.Windows.Forms.Padding(4);
 			this.pbPrev.Name = "pbPrev";
 			this.pbPrev.Size = new System.Drawing.Size(52, 41);
 			this.pbPrev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbPrev.TabIndex = 230;
 			this.pbPrev.TabStop = false;
 			this.pbPrev.Click += new System.EventHandler(this.pbPrev_Click);
-			// 
-			// notifications
-			// 
-			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
-			this.notifications.Location = new System.Drawing.Point(1062, 24);
-			this.notifications.Name = "notifications";
-			this.notifications.Size = new System.Drawing.Size(63, 50);
-			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.notifications.TabIndex = 211;
-			this.notifications.TabStop = false;
-			this.notifications.Click += new System.EventHandler(this.notifications_Click);
-			// 
-			// Dashboard
-			// 
-			this.Dashboard.AutoSize = true;
-			this.Dashboard.BackColor = System.Drawing.SystemColors.Highlight;
-			this.Dashboard.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
-			this.Dashboard.Location = new System.Drawing.Point(371, 32);
-			this.Dashboard.Name = "Dashboard";
-			this.Dashboard.Size = new System.Drawing.Size(245, 32);
-			this.Dashboard.TabIndex = 212;
-			this.Dashboard.Text = "Register Manager";
 			// 
 			// RegisterManagement
 			// 
@@ -699,7 +699,7 @@
 			this.Controls.Add(this.lbStudents);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "RegisterManagement";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PERSONNEL MENU";
@@ -716,9 +716,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvSubject)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbPrev)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

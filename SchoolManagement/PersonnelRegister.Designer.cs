@@ -40,8 +40,12 @@ namespace SchoolManagement
 			this.label3 = new System.Windows.Forms.Label();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label8 = new System.Windows.Forms.Label();
+			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pbGrade = new System.Windows.Forms.PictureBox();
+			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.pbCalendar = new System.Windows.Forms.PictureBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -49,6 +53,7 @@ namespace SchoolManagement
 			this.label1 = new System.Windows.Forms.Label();
 			this.pbLogout = new System.Windows.Forms.PictureBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
 			this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -57,26 +62,21 @@ namespace SchoolManagement
 			this.pbDelete = new System.Windows.Forms.PictureBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.pbAddRoles = new System.Windows.Forms.PictureBox();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.pictureBox3 = new System.Windows.Forms.PictureBox();
-			this.pictureBox4 = new System.Windows.Forms.PictureBox();
-			this.notifications = new System.Windows.Forms.PictureBox();
 			this.panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbGrade)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvRegister)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbAddRoles)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -182,9 +182,9 @@ namespace SchoolManagement
 			this.lbClasses.Location = new System.Drawing.Point(68, 146);
 			this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lbClasses.Name = "lbClasses";
-			this.lbClasses.Size = new System.Drawing.Size(226, 22);
+			this.lbClasses.Size = new System.Drawing.Size(189, 22);
 			this.lbClasses.TabIndex = 8;
-			this.lbClasses.Text = "SUBJECT MANAGEMENT";
+			this.lbClasses.Text = "SUBJECT MANAGER";
 			this.lbClasses.Click += new System.EventHandler(this.lbClasses_Click);
 			// 
 			// lbProfile
@@ -240,9 +240,9 @@ namespace SchoolManagement
 			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
 			this.Dashboard.Location = new System.Drawing.Point(367, 37);
 			this.Dashboard.Name = "Dashboard";
-			this.Dashboard.Size = new System.Drawing.Size(92, 32);
+			this.Dashboard.Size = new System.Drawing.Size(286, 32);
 			this.Dashboard.TabIndex = 37;
-			this.Dashboard.Text = "Profile";
+			this.Dashboard.Text = "PERSONNEL REGISTER";
 			// 
 			// panel2
 			// 
@@ -266,6 +266,32 @@ namespace SchoolManagement
 			this.panel2.Size = new System.Drawing.Size(308, 866);
 			this.panel2.TabIndex = 190;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(19, 223);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(39, 50);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 232;
+			this.pictureBox1.TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(19, 418);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(39, 54);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox2.TabIndex = 231;
+			this.pictureBox2.TabStop = false;
+			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -280,18 +306,44 @@ namespace SchoolManagement
 			this.label8.TabIndex = 195;
 			this.label8.Text = "GRADE";
 			// 
+			// pictureBox3
+			// 
+			this.pictureBox3.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+			this.pictureBox3.Location = new System.Drawing.Point(19, 347);
+			this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+			this.pictureBox3.Name = "pictureBox3";
+			this.pictureBox3.Size = new System.Drawing.Size(39, 54);
+			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox3.TabIndex = 230;
+			this.pictureBox3.TabStop = false;
+			// 
 			// pbGrade
 			// 
 			this.pbGrade.BackColor = System.Drawing.Color.White;
 			this.pbGrade.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbGrade.Image = ((System.Drawing.Image)(resources.GetObject("pbGrade.Image")));
 			this.pbGrade.Location = new System.Drawing.Point(19, 565);
-			this.pbGrade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbGrade.Margin = new System.Windows.Forms.Padding(4);
 			this.pbGrade.Name = "pbGrade";
 			this.pbGrade.Size = new System.Drawing.Size(43, 46);
 			this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbGrade.TabIndex = 194;
 			this.pbGrade.TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			this.pictureBox4.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+			this.pictureBox4.Location = new System.Drawing.Point(19, 282);
+			this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+			this.pictureBox4.Name = "pictureBox4";
+			this.pictureBox4.Size = new System.Drawing.Size(39, 50);
+			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox4.TabIndex = 229;
+			this.pictureBox4.TabStop = false;
 			// 
 			// label7
 			// 
@@ -314,7 +366,7 @@ namespace SchoolManagement
 			this.pbCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbCalendar.Image = ((System.Drawing.Image)(resources.GetObject("pbCalendar.Image")));
 			this.pbCalendar.Location = new System.Drawing.Point(19, 496);
-			this.pbCalendar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbCalendar.Margin = new System.Windows.Forms.Padding(4);
 			this.pbCalendar.Name = "pbCalendar";
 			this.pbCalendar.Size = new System.Drawing.Size(43, 47);
 			this.pbCalendar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -331,9 +383,9 @@ namespace SchoolManagement
 			this.label5.Location = new System.Drawing.Point(76, 639);
 			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(235, 22);
+			this.label5.Size = new System.Drawing.Size(198, 22);
 			this.label5.TabIndex = 191;
-			this.label5.Text = "REGISTER MANAGEMENT";
+			this.label5.Text = "REGISTER MANAGER";
 			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// pbDetail
@@ -342,7 +394,7 @@ namespace SchoolManagement
 			this.pbDetail.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbDetail.Image = ((System.Drawing.Image)(resources.GetObject("pbDetail.Image")));
 			this.pbDetail.Location = new System.Drawing.Point(19, 625);
-			this.pbDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbDetail.Margin = new System.Windows.Forms.Padding(4);
 			this.pbDetail.Name = "pbDetail";
 			this.pbDetail.Size = new System.Drawing.Size(43, 49);
 			this.pbDetail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -368,7 +420,7 @@ namespace SchoolManagement
 			this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
 			this.pbLogout.Location = new System.Drawing.Point(19, 692);
-			this.pbLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
 			this.pbLogout.Name = "pbLogout";
 			this.pbLogout.Size = new System.Drawing.Size(39, 54);
 			this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -386,12 +438,23 @@ namespace SchoolManagement
 			this.panel1.Size = new System.Drawing.Size(1325, 100);
 			this.panel1.TabIndex = 189;
 			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(1090, 19);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 211;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
+			// 
 			// pbClasses
 			// 
 			this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
 			this.pbClasses.Location = new System.Drawing.Point(19, 135);
-			this.pbClasses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
 			this.pbClasses.Name = "pbClasses";
 			this.pbClasses.Size = new System.Drawing.Size(39, 44);
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -401,7 +464,7 @@ namespace SchoolManagement
 			// btnSearch
 			// 
 			this.btnSearch.Location = new System.Drawing.Point(868, 162);
-			this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
 			this.btnSearch.Name = "btnSearch";
 			this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
 			this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -462,7 +525,7 @@ namespace SchoolManagement
 			// txtSearch
 			// 
 			this.txtSearch.Location = new System.Drawing.Point(373, 162);
-			this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
 			this.txtSearch.Name = "txtSearch";
 			this.txtSearch.Size = new System.Drawing.Size(448, 37);
 			this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
@@ -489,7 +552,7 @@ namespace SchoolManagement
 			this.dgvRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvRegister.ImeMode = System.Windows.Forms.ImeMode.On;
 			this.dgvRegister.Location = new System.Drawing.Point(371, 238);
-			this.dgvRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.dgvRegister.Margin = new System.Windows.Forms.Padding(4);
 			this.dgvRegister.Name = "dgvRegister";
 			this.dgvRegister.ReadOnly = true;
 			this.dgvRegister.RowHeadersWidth = 51;
@@ -545,7 +608,7 @@ namespace SchoolManagement
 			this.pbDelete.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
 			this.pbDelete.Location = new System.Drawing.Point(1172, 158);
-			this.pbDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
 			this.pbDelete.Name = "pbDelete";
 			this.pbDelete.Size = new System.Drawing.Size(44, 46);
 			this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -570,76 +633,13 @@ namespace SchoolManagement
 			this.pbAddRoles.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbAddRoles.Image = ((System.Drawing.Image)(resources.GetObject("pbAddRoles.Image")));
 			this.pbAddRoles.Location = new System.Drawing.Point(1047, 158);
-			this.pbAddRoles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.pbAddRoles.Margin = new System.Windows.Forms.Padding(4);
 			this.pbAddRoles.Name = "pbAddRoles";
 			this.pbAddRoles.Size = new System.Drawing.Size(55, 46);
 			this.pbAddRoles.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbAddRoles.TabIndex = 225;
 			this.pbAddRoles.TabStop = false;
 			this.pbAddRoles.Click += new System.EventHandler(this.pbAddRoles_Click);
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(19, 223);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(39, 50);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 232;
-			this.pictureBox1.TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(19, 418);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(39, 54);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox2.TabIndex = 231;
-			this.pictureBox2.TabStop = false;
-			// 
-			// pictureBox3
-			// 
-			this.pictureBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-			this.pictureBox3.Location = new System.Drawing.Point(19, 347);
-			this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(39, 54);
-			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox3.TabIndex = 230;
-			this.pictureBox3.TabStop = false;
-			// 
-			// pictureBox4
-			// 
-			this.pictureBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-			this.pictureBox4.Location = new System.Drawing.Point(19, 282);
-			this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox4.Name = "pictureBox4";
-			this.pictureBox4.Size = new System.Drawing.Size(39, 50);
-			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox4.TabIndex = 229;
-			this.pictureBox4.TabStop = false;
-			// 
-			// notifications
-			// 
-			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
-			this.notifications.Location = new System.Drawing.Point(1090, 19);
-			this.notifications.Name = "notifications";
-			this.notifications.Size = new System.Drawing.Size(63, 50);
-			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.notifications.TabIndex = 211;
-			this.notifications.TabStop = false;
-			this.notifications.Click += new System.EventHandler(this.notifications_Click);
 			// 
 			// PersonnelRegister
 			// 
@@ -662,26 +662,26 @@ namespace SchoolManagement
 			this.Controls.Add(this.lbStudents);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "PersonnelRegister";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "PERSONNEL MENU";
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbGrade)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
 			this.panel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvRegister)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbAddRoles)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

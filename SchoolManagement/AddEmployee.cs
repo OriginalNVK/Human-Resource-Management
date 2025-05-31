@@ -67,11 +67,10 @@ namespace SchoolManagement
 
         private void lbProfile_Click(object sender, EventArgs e)
         {
-            AdminProfile myProfile = new AdminProfile();
+            PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
             this.Hide();
-            myProfile.ShowDialog();
+			personnelMenu.ShowDialog();
             this.Close();
-
         }
 
         private void label2_Click(object sender, EventArgs e)
