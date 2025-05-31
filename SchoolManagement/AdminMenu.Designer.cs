@@ -32,8 +32,6 @@ namespace SchoolManagement
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMenu));
 			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-			this.lbStudents = new System.Windows.Forms.Label();
-			this.lbTeachers = new System.Windows.Forms.Label();
 			this.lbClasses = new System.Windows.Forms.Label();
 			this.lbProfile = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -51,8 +49,6 @@ namespace SchoolManagement
 			this.pbSection = new System.Windows.Forms.PictureBox();
 			this.pbProfile = new System.Windows.Forms.PictureBox();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
-			this.pbTeachers = new System.Windows.Forms.PictureBox();
-			this.pbStudents = new System.Windows.Forms.PictureBox();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
@@ -63,8 +59,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbStudents)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -132,36 +126,6 @@ namespace SchoolManagement
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
 			this.kryptonPalette1.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
 			// 
-			// lbStudents
-			// 
-			this.lbStudents.AutoSize = true;
-			this.lbStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbStudents.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbStudents.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbStudents.Location = new System.Drawing.Point(76, 275);
-			this.lbStudents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbStudents.Name = "lbStudents";
-			this.lbStudents.Size = new System.Drawing.Size(199, 22);
-			this.lbStudents.TabIndex = 4;
-			this.lbStudents.Text = "STUDENTS MANAGER";
-			this.lbStudents.Click += new System.EventHandler(this.pbStudents_Click);
-			// 
-			// lbTeachers
-			// 
-			this.lbTeachers.AutoSize = true;
-			this.lbTeachers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbTeachers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbTeachers.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbTeachers.Location = new System.Drawing.Point(76, 342);
-			this.lbTeachers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbTeachers.Name = "lbTeachers";
-			this.lbTeachers.Size = new System.Drawing.Size(221, 22);
-			this.lbTeachers.TabIndex = 6;
-			this.lbTeachers.Text = "PERSONNEL MANAGER";
-			this.lbTeachers.Click += new System.EventHandler(this.pbPersonnel_Click);
-			// 
 			// lbClasses
 			// 
 			this.lbClasses.AutoSize = true;
@@ -184,7 +148,7 @@ namespace SchoolManagement
 			this.lbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.lbProfile.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbProfile.Location = new System.Drawing.Point(76, 413);
+			this.lbProfile.Location = new System.Drawing.Point(76, 290);
 			this.lbProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lbProfile.Name = "lbProfile";
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
@@ -214,7 +178,7 @@ namespace SchoolManagement
 			this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label3.Location = new System.Drawing.Point(76, 478);
+			this.label3.Location = new System.Drawing.Point(76, 355);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(90, 22);
@@ -388,7 +352,7 @@ namespace SchoolManagement
 			// 
 			this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
-			this.pbLogout.Location = new System.Drawing.Point(18, 465);
+			this.pbLogout.Location = new System.Drawing.Point(18, 342);
 			this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
 			this.pbLogout.Name = "pbLogout";
 			this.pbLogout.Size = new System.Drawing.Size(39, 54);
@@ -414,7 +378,7 @@ namespace SchoolManagement
 			// 
 			this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
-			this.pbProfile.Location = new System.Drawing.Point(18, 393);
+			this.pbProfile.Location = new System.Drawing.Point(18, 270);
 			this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
 			this.pbProfile.Name = "pbProfile";
 			this.pbProfile.Size = new System.Drawing.Size(39, 54);
@@ -435,31 +399,6 @@ namespace SchoolManagement
 			this.pbClasses.TabIndex = 7;
 			this.pbClasses.TabStop = false;
 			this.pbClasses.Click += new System.EventHandler(this.pbUsers_Click);
-			// 
-			// pbTeachers
-			// 
-			this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
-			this.pbTeachers.Location = new System.Drawing.Point(18, 322);
-			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
-			this.pbTeachers.Name = "pbTeachers";
-			this.pbTeachers.Size = new System.Drawing.Size(39, 54);
-			this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbTeachers.TabIndex = 5;
-			this.pbTeachers.TabStop = false;
-			// 
-			// pbStudents
-			// 
-			this.pbStudents.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pbStudents.Image = ((System.Drawing.Image)(resources.GetObject("pbStudents.Image")));
-			this.pbStudents.Location = new System.Drawing.Point(18, 257);
-			this.pbStudents.Margin = new System.Windows.Forms.Padding(4);
-			this.pbStudents.Name = "pbStudents";
-			this.pbStudents.Size = new System.Drawing.Size(39, 50);
-			this.pbStudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbStudents.TabIndex = 0;
-			this.pbStudents.TabStop = false;
-			this.pbStudents.Click += new System.EventHandler(this.pbStudents_Click);
 			// 
 			// Dashboard
 			// 
@@ -540,10 +479,6 @@ namespace SchoolManagement
 			this.Controls.Add(this.pbProfile);
 			this.Controls.Add(this.lbClasses);
 			this.Controls.Add(this.pbClasses);
-			this.Controls.Add(this.lbTeachers);
-			this.Controls.Add(this.pbTeachers);
-			this.Controls.Add(this.lbStudents);
-			this.Controls.Add(this.pbStudents);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.Margin = new System.Windows.Forms.Padding(4);
@@ -558,8 +493,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbStudents)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
 			this.panel1.ResumeLayout(false);
@@ -572,10 +505,6 @@ namespace SchoolManagement
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private System.Windows.Forms.PictureBox pbStudents;
-        private System.Windows.Forms.Label lbStudents;
-        private System.Windows.Forms.Label lbTeachers;
-        private System.Windows.Forms.PictureBox pbTeachers;
         private System.Windows.Forms.Label lbClasses;
         private System.Windows.Forms.PictureBox pbClasses;
         private System.Windows.Forms.Label lbProfile;

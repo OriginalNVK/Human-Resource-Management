@@ -135,22 +135,6 @@ namespace SchoolManagement
             this.Close();
         }
 
-        private void pbStudents_Click(object sender, EventArgs e)
-        {
-            StudentManager student = new StudentManager(); 
-            this.Hide();
-            student.ShowDialog(); 
-            this.Close();
-        }
-
-        private void pbPersonnel_Click(object sender, EventArgs e)
-        {
-            PersonnelManager personnelManager = new PersonnelManager();
-            this.Hide();
-            personnelManager.ShowDialog();
-            this.Close();
-        }
-
         private void pbRole_Click(object sender, EventArgs e)
         {
             RoleManager roleManager = new RoleManager();
