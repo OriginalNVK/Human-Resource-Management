@@ -174,28 +174,36 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-        private void pbSubject_Click(object sender, EventArgs e)
-        {
+		private void pbSubject_Click(object sender, EventArgs e)
+		{
 			SubjectManagement subjectManager = new SubjectManagement();
 			this.Hide();
 			subjectManager.ShowDialog();
 			this.Close();
-        }
+		}
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            PersonnelRegister personnelRegister = new PersonnelRegister();
-            this.Hide();
-            personnelRegister.ShowDialog();
-            this.Close();
-        }
+		private void label5_Click(object sender, EventArgs e)
+		{
+			PersonnelRegister personnelRegister = new PersonnelRegister();
+			this.Hide();
+			personnelRegister.ShowDialog();
+			this.Close();
+		}
 
-        private void view_Schedule(object sender, EventArgs e)
-        {
+		private void view_Schedule(object sender, EventArgs e)
+		{
 			ViewSchedule viewDetail = new ViewSchedule(_username, _role);
 			this.Hide();
 			viewDetail.ShowDialog();
 			this.Close();
-        }
-    }
+		}
+
+		private void pbGrade_Click(object sender, EventArgs e)
+		{
+			GradeManager gradeManager = new GradeManager();
+			this.Hide();
+			gradeManager.ShowDialog();
+			this.Close();
+		}
+	}
 }

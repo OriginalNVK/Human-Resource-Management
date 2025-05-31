@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\personnelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:personnelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\grademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:grademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\grademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:grademanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\grademanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:grademanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\classlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:classlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonnelMenu.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\PersonnelMenu.cs",
+              "RelativeDocumentMoniker": "PersonnelMenu.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\PersonnelMenu.cs",
+              "RelativeToolTip": "PersonnelMenu.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAewB4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:52:24.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddUser.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\AddUser.cs",
+              "RelativeDocumentMoniker": "AddUser.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\AddUser.cs",
+              "RelativeToolTip": "AddUser.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAUwH8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:52:24.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StudentManager.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
+              "RelativeDocumentMoniker": "StudentManager.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
+              "RelativeToolTip": "StudentManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwA4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:40:55.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GradeManager.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.cs",
+              "RelativeDocumentMoniker": "GradeManager.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.cs",
+              "RelativeToolTip": "GradeManager.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADgvyYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:40:13.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GradeManager.Designer.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.Designer.cs",
+              "RelativeDocumentMoniker": "GradeManager.Designer.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.Designer.cs",
+              "RelativeToolTip": "GradeManager.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:39:54.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GradeManager.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.cs",
+              "RelativeDocumentMoniker": "GradeManager.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.cs [Design]",
+              "RelativeToolTip": "GradeManager.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:39:40.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClassList.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\ClassList.cs",
+              "RelativeDocumentMoniker": "ClassList.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\ClassList.cs [Design]",
+              "RelativeToolTip": "ClassList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:37:19.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminMenu.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\AdminMenu.cs",
+              "RelativeDocumentMoniker": "AdminMenu.cs",
+              "ToolTip": "D:\\\u0110\u1EA1i H\u1ECDc\\K\u00EC 2 - N\u0103m 3\\An To\u00E0n B\u1EA3o M\u1EADt HTTT\\\u0110\u1ED3 \u00C1n Th\u1EF1c H\u00E0nh\\Human-Resource-Management\\Human-Resource-Management\\SchoolManagement\\AdminMenu.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\\u0110\u1EA1i H\u1ECDc\\K\u00EC 2 - N\u0103m 3\\An To\u00E0n B\u1EA3o M\u1EADt HTTT\\\u0110\u1ED3 \u00C1n Th\u1EF1c H\u00E0nh\\Human-Resource-Management\\Human-Resource-Management\\SchoolManagement\\AdminMenu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2025-05-31T07:37:19.701Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

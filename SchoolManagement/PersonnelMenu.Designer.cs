@@ -374,10 +374,11 @@ namespace SchoolManagement
             this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGrade.TabIndex = 194;
             this.pbGrade.TabStop = false;
+            this.pbGrade.Click += new System.EventHandler(this.pbGrade_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
+                  // label7
+                  // 
+                  this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
