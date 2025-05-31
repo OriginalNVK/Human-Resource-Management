@@ -45,10 +45,6 @@ namespace SchoolManagement
 			this.kryptonContextMenuMonthCalendar1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar();
 			this.lbUsers = new System.Windows.Forms.Label();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
-			this.lbPersonnel = new System.Windows.Forms.Label();
-			this.pbTeachers = new System.Windows.Forms.PictureBox();
-			this.label9 = new System.Windows.Forms.Label();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.lbDelete = new System.Windows.Forms.Label();
 			this.pbDelete = new System.Windows.Forms.PictureBox();
 			this.lbEdit = new System.Windows.Forms.Label();
@@ -70,8 +66,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbAddRoles)).BeginInit();
@@ -128,7 +122,7 @@ namespace SchoolManagement
 			this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label4.Location = new System.Drawing.Point(81, 482);
+			this.label4.Location = new System.Drawing.Point(81, 363);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(90, 22);
@@ -140,7 +134,7 @@ namespace SchoolManagement
 			// 
 			this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
-			this.pbLogout.Location = new System.Drawing.Point(23, 469);
+			this.pbLogout.Location = new System.Drawing.Point(23, 350);
 			this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
 			this.pbLogout.Name = "pbLogout";
 			this.pbLogout.Size = new System.Drawing.Size(39, 54);
@@ -258,7 +252,7 @@ namespace SchoolManagement
 			this.lbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.lbProfile.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbProfile.Location = new System.Drawing.Point(81, 417);
+			this.lbProfile.Location = new System.Drawing.Point(81, 298);
 			this.lbProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lbProfile.Name = "lbProfile";
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
@@ -270,7 +264,7 @@ namespace SchoolManagement
 			// 
 			this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
-			this.pbProfile.Location = new System.Drawing.Point(23, 397);
+			this.pbProfile.Location = new System.Drawing.Point(23, 278);
 			this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
 			this.pbProfile.Name = "pbProfile";
 			this.pbProfile.Size = new System.Drawing.Size(39, 54);
@@ -311,60 +305,6 @@ namespace SchoolManagement
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbClasses.TabIndex = 208;
 			this.pbClasses.TabStop = false;
-			// 
-			// lbPersonnel
-			// 
-			this.lbPersonnel.AutoSize = true;
-			this.lbPersonnel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbPersonnel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbPersonnel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbPersonnel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbPersonnel.Location = new System.Drawing.Point(81, 346);
-			this.lbPersonnel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbPersonnel.Name = "lbPersonnel";
-			this.lbPersonnel.Size = new System.Drawing.Size(221, 22);
-			this.lbPersonnel.TabIndex = 207;
-			this.lbPersonnel.Text = "PERSONNEL MANAGER";
-			this.lbPersonnel.Click += new System.EventHandler(this.lbPersonnel_Click);
-			// 
-			// pbTeachers
-			// 
-			this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
-			this.pbTeachers.Location = new System.Drawing.Point(23, 326);
-			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
-			this.pbTeachers.Name = "pbTeachers";
-			this.pbTeachers.Size = new System.Drawing.Size(39, 54);
-			this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbTeachers.TabIndex = 206;
-			this.pbTeachers.TabStop = false;
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label9.Location = new System.Drawing.Point(81, 279);
-			this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(199, 22);
-			this.label9.TabIndex = 205;
-			this.label9.Text = "STUDENTS MANAGER";
-			this.label9.Click += new System.EventHandler(this.label9_Click);
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(23, 261);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(39, 50);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox2.TabIndex = 204;
-			this.pictureBox2.TabStop = false;
 			// 
 			// lbDelete
 			// 
@@ -673,10 +613,6 @@ namespace SchoolManagement
 			this.Controls.Add(this.pbProfile);
 			this.Controls.Add(this.lbUsers);
 			this.Controls.Add(this.pbClasses);
-			this.Controls.Add(this.lbPersonnel);
-			this.Controls.Add(this.pbTeachers);
-			this.Controls.Add(this.label9);
-			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.lbDelete);
 			this.Controls.Add(this.pbDelete);
 			this.Controls.Add(this.lbEdit);
@@ -701,8 +637,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbAddRoles)).EndInit();
@@ -736,10 +670,6 @@ namespace SchoolManagement
 		private ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar kryptonContextMenuMonthCalendar1;
 		private System.Windows.Forms.Label lbUsers;
 		private System.Windows.Forms.PictureBox pbClasses;
-		private System.Windows.Forms.Label lbPersonnel;
-		private System.Windows.Forms.PictureBox pbTeachers;
-		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Label lbDelete;
 		private System.Windows.Forms.PictureBox pbDelete;
 		private System.Windows.Forms.Label lbEdit;

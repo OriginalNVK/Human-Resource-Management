@@ -53,10 +53,6 @@ namespace SchoolManagement
 			this.pbProfile = new System.Windows.Forms.PictureBox();
 			this.lbUsers = new System.Windows.Forms.Label();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
-			this.lbPersonnel = new System.Windows.Forms.Label();
-			this.pbTeachers = new System.Windows.Forms.PictureBox();
-			this.lbStudent = new System.Windows.Forms.Label();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.lbHello = new System.Windows.Forms.Label();
 			this.pbReload = new System.Windows.Forms.PictureBox();
@@ -76,8 +72,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbReload)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -351,7 +345,7 @@ namespace SchoolManagement
 			this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.label4.Location = new System.Drawing.Point(81, 491);
+			this.label4.Location = new System.Drawing.Point(81, 370);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(90, 22);
@@ -363,7 +357,7 @@ namespace SchoolManagement
 			// 
 			this.pbLogout.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbLogout.Image = ((System.Drawing.Image)(resources.GetObject("pbLogout.Image")));
-			this.pbLogout.Location = new System.Drawing.Point(23, 478);
+			this.pbLogout.Location = new System.Drawing.Point(23, 357);
 			this.pbLogout.Margin = new System.Windows.Forms.Padding(4);
 			this.pbLogout.Name = "pbLogout";
 			this.pbLogout.Size = new System.Drawing.Size(39, 54);
@@ -405,7 +399,7 @@ namespace SchoolManagement
 			this.lbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.lbProfile.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbProfile.Location = new System.Drawing.Point(81, 426);
+			this.lbProfile.Location = new System.Drawing.Point(81, 305);
 			this.lbProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.lbProfile.Name = "lbProfile";
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
@@ -417,7 +411,7 @@ namespace SchoolManagement
 			// 
 			this.pbProfile.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
-			this.pbProfile.Location = new System.Drawing.Point(23, 406);
+			this.pbProfile.Location = new System.Drawing.Point(23, 285);
 			this.pbProfile.Margin = new System.Windows.Forms.Padding(4);
 			this.pbProfile.Name = "pbProfile";
 			this.pbProfile.Size = new System.Drawing.Size(39, 54);
@@ -452,60 +446,6 @@ namespace SchoolManagement
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbClasses.TabIndex = 176;
 			this.pbClasses.TabStop = false;
-			// 
-			// lbPersonnel
-			// 
-			this.lbPersonnel.AutoSize = true;
-			this.lbPersonnel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbPersonnel.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbPersonnel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbPersonnel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbPersonnel.Location = new System.Drawing.Point(81, 355);
-			this.lbPersonnel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbPersonnel.Name = "lbPersonnel";
-			this.lbPersonnel.Size = new System.Drawing.Size(221, 22);
-			this.lbPersonnel.TabIndex = 175;
-			this.lbPersonnel.Text = "PERSONNEL MANAGER";
-			this.lbPersonnel.Click += new System.EventHandler(this.lbPersonnel_Click);
-			// 
-			// pbTeachers
-			// 
-			this.pbTeachers.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pbTeachers.Image = ((System.Drawing.Image)(resources.GetObject("pbTeachers.Image")));
-			this.pbTeachers.Location = new System.Drawing.Point(23, 335);
-			this.pbTeachers.Margin = new System.Windows.Forms.Padding(4);
-			this.pbTeachers.Name = "pbTeachers";
-			this.pbTeachers.Size = new System.Drawing.Size(39, 54);
-			this.pbTeachers.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbTeachers.TabIndex = 174;
-			this.pbTeachers.TabStop = false;
-			// 
-			// lbStudent
-			// 
-			this.lbStudent.AutoSize = true;
-			this.lbStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.lbStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbStudent.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbStudent.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbStudent.Location = new System.Drawing.Point(81, 288);
-			this.lbStudent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lbStudent.Name = "lbStudent";
-			this.lbStudent.Size = new System.Drawing.Size(199, 22);
-			this.lbStudent.TabIndex = 173;
-			this.lbStudent.Text = "STUDENTS MANAGER";
-			this.lbStudent.Click += new System.EventHandler(this.lbStudent_Click);
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(23, 270);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(39, 50);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox2.TabIndex = 172;
-			this.pictureBox2.TabStop = false;
 			// 
 			// Dashboard
 			// 
@@ -672,10 +612,6 @@ namespace SchoolManagement
 			this.Controls.Add(this.pbProfile);
 			this.Controls.Add(this.lbUsers);
 			this.Controls.Add(this.pbClasses);
-			this.Controls.Add(this.lbPersonnel);
-			this.Controls.Add(this.pbTeachers);
-			this.Controls.Add(this.lbStudent);
-			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.lbDelete);
 			this.Controls.Add(this.pbDelete);
 			this.Controls.Add(this.lbEdit);
@@ -709,8 +645,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbReload)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -745,10 +679,6 @@ namespace SchoolManagement
 		private System.Windows.Forms.PictureBox pbProfile;
 		private System.Windows.Forms.Label lbUsers;
 		private System.Windows.Forms.PictureBox pbClasses;
-		private System.Windows.Forms.Label lbPersonnel;
-		private System.Windows.Forms.PictureBox pbTeachers;
-		private System.Windows.Forms.Label lbStudent;
-		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Label Dashboard;
 		private System.Windows.Forms.Label lbHello;
 		private System.Windows.Forms.PictureBox pbReload;

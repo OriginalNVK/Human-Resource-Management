@@ -562,3 +562,9 @@ D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\Sch
 D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.exe
 D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
 D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.GradeManager.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddEmployee.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.EditEmployee.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.RegisterManagement.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewSchedule.resources
+D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Đồ Án Thực Hành\Human-Resource-Management\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewSubject.resources
+>>>>>>> 691232a5fac2fcc8a5ece541073bdeb4b111279f

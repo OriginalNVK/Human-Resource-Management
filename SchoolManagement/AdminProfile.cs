@@ -33,27 +33,6 @@ namespace SchoolManagement
 
         private void LoadTextBox()
         {
-            /*try
-            {
-				string oradb = ConfigurationManager
-			   .ConnectionStrings["SchoolDB"]
-			   .ConnectionString;
-				OracleConnection conn = new OracleConnection(oradb);  // C#
-                conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.Connection = conn;
-                cmd.CommandText = "SELECT * FROM pdb_adminTAIKHOAN WHERE MATK='" + Login.ID + "'";
-                cmd.CommandType = CommandType.Text;
-                OracleDataReader dr = cmd.ExecuteReader();
-
-                dr.Read();
-                txtHoTen.Text = dr.GetString(1);
-                txtID.Text = dr.GetString(0);
-                txtPassword.Text = dr.GetString(2);
-
-                conn.Dispose();
-            }*/
-
             try
             {
                 string query = "SELECT USERNAME, USER_ID FROM dba_users WHERE username = 'ADMIN01'";
@@ -111,6 +90,9 @@ namespace SchoolManagement
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         { 
+            AdminMenu adminMenu = new AdminMenu();
+            this.Hide();
+            adminMenu.Show();
             this.Close();
         }
     }

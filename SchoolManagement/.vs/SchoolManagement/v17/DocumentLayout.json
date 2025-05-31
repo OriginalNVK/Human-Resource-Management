@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\personnelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\personnelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:personnelmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:adduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "PersonnelMenu.cs",
               "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\PersonnelMenu.cs",
               "RelativeToolTip": "PersonnelMenu.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAewB4AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAewBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-31T07:52:24.391Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "AddUser.cs",
               "ViewState": "AgIAAHIAAAAAAAAAAAAUwH8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T07:52:24.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T07:52:24.402Z"
             },
             {
               "$type": "Document",
