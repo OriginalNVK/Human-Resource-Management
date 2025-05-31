@@ -21,6 +21,11 @@ namespace SchoolManagement
         }
         private void LoadRegisterStudent()
         {
+            if (PersonnelMenu._role != "NV PĐT" && PersonnelMenu._role != "NV PKT")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 string query = @"
@@ -30,14 +35,15 @@ namespace SchoolManagement
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
                 {
-                    MessageBox.Show(adapter.ToString());
+
+
                     DataTable dt = new DataTable();
                     adapter.Fill(dt); // <- Không dùng ExecuteReader
-                    
+
 
 
                     dgvRegister.DataSource = dt;
-                    MessageBox.Show("Số dòng: " + dt.Rows.Count.ToString());
+
                     // Định dạng cột
                     dgvRegister.Columns["MAMH"].HeaderText = "Mã học phần";
                     dgvRegister.Columns["MASV"].HeaderText = "Mã sinh viên";
@@ -64,33 +70,23 @@ namespace SchoolManagement
             }
 
         }
-       
-       
-
-     
 
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-                    }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
-        private void pbClasses_Click(object sender, EventArgs e)
-        {
 
-        }
+        
 
-        private void dgvUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+      
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
+            if (PersonnelMenu._role != "NV PĐT")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (dgvRegister.SelectedRows.Count > 0)
             {
                 try
@@ -122,6 +118,11 @@ namespace SchoolManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (PersonnelMenu._role != "NV PDT" && PersonnelMenu._role != "NV PKT")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 string searchText = txtSearch.Text.Trim();
@@ -159,6 +160,98 @@ namespace SchoolManagement
             {
                 MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvRegister_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbStudents_Click(object sender, EventArgs e)
+        {
+            StudentManager studentManager = new StudentManager();
+            this.Hide();
+            studentManager.ShowDialog();
+            this.Close();
+        }
+
+        private void lbProfile_Click(object sender, EventArgs e)
+        {
+            AdminProfile myProfile = new AdminProfile();
+            this.Hide();
+            myProfile.ShowDialog();
+            this.Close();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbClasses_Click(object sender, EventArgs e)
+        {
+            SubjectManagement subjectManager = new SubjectManagement();
+            this.Hide();
+            subjectManager.ShowDialog();
+            this.Close();
+        }
+
+        private void pbAddRoles_Click(object sender, EventArgs e)
+        {
+            if (PersonnelMenu._role != "NV PĐT")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            RegisterManagement registerManagement = new RegisterManagement();
+            this.Hide();
+            registerManagement.ShowDialog();
+            this.Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            PersonnelRegister personnelRegister = new PersonnelRegister();
+            this.Hide();
+            personnelRegister.ShowDialog();
+            this.Close();
+        }
+
+        private void lbTeachers_Click(object sender, EventArgs e)
+        {
+            PersonnelManager personnelManager = new PersonnelManager();
+            this.Hide();
+            personnelManager.ShowDialog();
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            ClassList classList = new ClassList();
+            this.Hide();
+            classList.ShowDialog();
+            this.Close();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            ViewSchedule viewDetail = new ViewSchedule(PersonnelMenu._username, PersonnelMenu._role);
+            this.Hide();
+            viewDetail.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -108,17 +108,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClassList.Designer.cs">
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEmployee.Designer.cs">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonnelRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PersonnelRegister.Designer.cs">
       <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterManagement.Designer.cs">
+      <DependentUpon>RegisterManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewSchedule.cs">
       <SubType>Form</SubType>
@@ -267,11 +285,20 @@
     <Compile Include="TeacherProfile.Designer.cs">
       <DependentUpon>TeacherProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditEmployee.resx">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonnelRegister.resx">
       <DependentUpon>PersonnelRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterManagement.resx">
+      <DependentUpon>RegisterManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSchedule.resx">
       <DependentUpon>ViewSchedule.cs</DependentUpon>

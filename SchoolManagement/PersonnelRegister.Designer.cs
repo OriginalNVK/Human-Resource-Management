@@ -151,6 +151,7 @@ namespace SchoolManagement
             this.lbStudents.Size = new System.Drawing.Size(156, 20);
             this.lbStudents.TabIndex = 4;
             this.lbStudents.Text = "STUDENTS MANAGER";
+            this.lbStudents.Click += new System.EventHandler(this.lbStudents_Click);
             // 
             // lbTeachers
             // 
@@ -164,6 +165,7 @@ namespace SchoolManagement
             this.lbTeachers.Size = new System.Drawing.Size(174, 20);
             this.lbTeachers.TabIndex = 6;
             this.lbTeachers.Text = "PERSONNEL MANAGER";
+            this.lbTeachers.Click += new System.EventHandler(this.lbTeachers_Click);
             // 
             // lbClasses
             // 
@@ -177,6 +179,7 @@ namespace SchoolManagement
             this.lbClasses.Size = new System.Drawing.Size(180, 20);
             this.lbClasses.TabIndex = 8;
             this.lbClasses.Text = "SUBJECT MANAGEMENT";
+            this.lbClasses.Click += new System.EventHandler(this.lbClasses_Click);
             // 
             // lbProfile
             // 
@@ -190,6 +193,7 @@ namespace SchoolManagement
             this.lbProfile.Size = new System.Drawing.Size(93, 20);
             this.lbProfile.TabIndex = 12;
             this.lbProfile.Text = "MY PROFILE";
+            this.lbProfile.Click += new System.EventHandler(this.lbProfile_Click);
             // 
             // label2
             // 
@@ -203,6 +207,7 @@ namespace SchoolManagement
             this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "CLASS LIST";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -216,6 +221,7 @@ namespace SchoolManagement
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "LOGOUT";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Dashboard
             // 
@@ -285,6 +291,7 @@ namespace SchoolManagement
             this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 193;
             this.label7.Text = "SCHEDULE";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pbCalendar
             // 
@@ -310,6 +317,7 @@ namespace SchoolManagement
             this.label5.Size = new System.Drawing.Size(185, 20);
             this.label5.TabIndex = 191;
             this.label5.Text = "REGISTER MANAGEMENT";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pbDetail
             // 
@@ -581,6 +589,7 @@ namespace SchoolManagement
             this.pbAddRoles.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAddRoles.TabIndex = 225;
             this.pbAddRoles.TabStop = false;
+            this.pbAddRoles.Click += new System.EventHandler(this.pbAddRoles_Click);
             // 
             // PersonnelRegister
             // 
