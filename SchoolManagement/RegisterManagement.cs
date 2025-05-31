@@ -189,5 +189,10 @@ namespace SchoolManagement
             viewDetail.ShowDialog();
             this.Close();
         }
-    }
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

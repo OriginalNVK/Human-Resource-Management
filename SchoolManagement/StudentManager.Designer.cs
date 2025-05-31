@@ -65,6 +65,7 @@ namespace SchoolManagement
 			this.pbEdit = new System.Windows.Forms.PictureBox();
 			this.btnExport = new System.Windows.Forms.PictureBox();
 			this.pbReload = new System.Windows.Forms.PictureBox();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -80,6 +81,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnExport)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbReload)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -331,6 +333,7 @@ namespace SchoolManagement
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+			this.panel1.Controls.Add(this.notifications);
 			this.panel1.Controls.Add(this.lbHello);
 			this.panel1.Controls.Add(this.Dashboard);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -677,6 +680,16 @@ namespace SchoolManagement
 			this.pbReload.TabIndex = 222;
 			this.pbReload.TabStop = false;
 			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(1181, 20);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 212;
+			this.notifications.TabStop = false;
+			// 
 			// StudentManager
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -716,6 +729,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnExport)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbReload)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -757,5 +771,6 @@ namespace SchoolManagement
 		private System.Windows.Forms.PictureBox pbSection;
 		private System.Windows.Forms.Label lbEdit;
 		private System.Windows.Forms.PictureBox pbEdit;
+		private System.Windows.Forms.PictureBox notifications;
 	}
 }

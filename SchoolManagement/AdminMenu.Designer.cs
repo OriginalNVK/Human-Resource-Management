@@ -44,23 +44,23 @@ namespace SchoolManagement
 			this.lbTotalTeacher = new System.Windows.Forms.Label();
 			this.lbTotalClass = new System.Windows.Forms.Label();
 			this.lbTotalSubject = new System.Windows.Forms.Label();
-			this.pictureBox4 = new System.Windows.Forms.PictureBox();
-			this.pbLogout = new System.Windows.Forms.PictureBox();
-			this.pbSection = new System.Windows.Forms.PictureBox();
-			this.pbProfile = new System.Windows.Forms.PictureBox();
-			this.pbClasses = new System.Windows.Forms.PictureBox();
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label4 = new System.Windows.Forms.Label();
+			this.pictureBox4 = new System.Windows.Forms.PictureBox();
+			this.pbLogout = new System.Windows.Forms.PictureBox();
+			this.pbSection = new System.Windows.Forms.PictureBox();
+			this.pbProfile = new System.Windows.Forms.PictureBox();
+			this.pbClasses = new System.Windows.Forms.PictureBox();
+			this.panel2.SuspendLayout();
+			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
-			this.panel2.SuspendLayout();
-			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -337,6 +337,62 @@ namespace SchoolManagement
 			this.lbTotalSubject.TabIndex = 28;
 			this.lbTotalSubject.Text = "0";
 			// 
+			// Dashboard
+			// 
+			this.Dashboard.AutoSize = true;
+			this.Dashboard.BackColor = System.Drawing.SystemColors.Highlight;
+			this.Dashboard.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
+			this.Dashboard.Location = new System.Drawing.Point(367, 37);
+			this.Dashboard.Name = "Dashboard";
+			this.Dashboard.Size = new System.Drawing.Size(159, 32);
+			this.Dashboard.TabIndex = 37;
+			this.Dashboard.Text = "Dashboard";
+			// 
+			// panel2
+			// 
+			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.panel2.Controls.Add(this.label1);
+			this.panel2.Location = new System.Drawing.Point(0, -25);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(308, 867);
+			this.panel2.TabIndex = 190;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(3, 37);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(290, 80);
+			this.label1.TabIndex = 184;
+			this.label1.Text = "ADMIN \r\nSCHOOL PORTAL";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label1.UseWaitCursor = true;
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+			this.panel1.Controls.Add(this.label4);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1325, 100);
+			this.panel1.TabIndex = 189;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.SystemColors.Control;
+			this.label4.Location = new System.Drawing.Point(1151, 35);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(123, 22);
+			this.label4.TabIndex = 185;
+			this.label4.Text = "Hello, Admin";
+			// 
 			// pictureBox4
 			// 
 			this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -400,62 +456,6 @@ namespace SchoolManagement
 			this.pbClasses.TabStop = false;
 			this.pbClasses.Click += new System.EventHandler(this.pbUsers_Click);
 			// 
-			// Dashboard
-			// 
-			this.Dashboard.AutoSize = true;
-			this.Dashboard.BackColor = System.Drawing.SystemColors.Highlight;
-			this.Dashboard.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-			this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
-			this.Dashboard.Location = new System.Drawing.Point(367, 37);
-			this.Dashboard.Name = "Dashboard";
-			this.Dashboard.Size = new System.Drawing.Size(159, 32);
-			this.Dashboard.TabIndex = 37;
-			this.Dashboard.Text = "Dashboard";
-			// 
-			// panel2
-			// 
-			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-			this.panel2.Controls.Add(this.label1);
-			this.panel2.Location = new System.Drawing.Point(0, -25);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(308, 867);
-			this.panel2.TabIndex = 190;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(3, 37);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(290, 80);
-			this.label1.TabIndex = 184;
-			this.label1.Text = "ADMIN \r\nSCHOOL PORTAL";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.label1.UseWaitCursor = true;
-			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
-			this.panel1.Controls.Add(this.label4);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1325, 100);
-			this.panel1.TabIndex = 189;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.ForeColor = System.Drawing.SystemColors.Control;
-			this.label4.Location = new System.Drawing.Point(1151, 35);
-			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(123, 22);
-			this.label4.TabIndex = 185;
-			this.label4.Text = "Hello, Admin";
-			// 
 			// AdminMenu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -488,15 +488,15 @@ namespace SchoolManagement
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ADMIN MENU";
 			this.Load += new System.EventHandler(this.AdminMenu_Load);
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
-			this.panel2.ResumeLayout(false);
-			this.panel2.PerformLayout();
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

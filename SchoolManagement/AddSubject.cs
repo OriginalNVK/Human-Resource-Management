@@ -238,5 +238,10 @@ namespace SchoolManagement
                 MessageBox.Show("Error:\n" + ex.Message);
             }
         }
-    }
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

@@ -68,6 +68,7 @@ namespace SchoolManagement
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label6 = new System.Windows.Forms.Label();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -77,6 +78,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lbHello
@@ -408,6 +410,7 @@ namespace SchoolManagement
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+			this.panel1.Controls.Add(this.notifications);
 			this.panel1.Controls.Add(this.lbHello);
 			this.panel1.Controls.Add(this.Dashboard);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -653,6 +656,17 @@ namespace SchoolManagement
 			this.label6.TabIndex = 234;
 			this.label6.Text = "ROLE NAME: ";
 			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(1070, 17);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(62, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 235;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
+			// 
 			// AddRole
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -704,6 +718,7 @@ namespace SchoolManagement
 			this.panel2.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -747,5 +762,6 @@ namespace SchoolManagement
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.PictureBox notifications;
 	}
 }
