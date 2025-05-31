@@ -42,6 +42,7 @@ namespace SchoolManagement
 			this.Dashboard = new System.Windows.Forms.Label();
 			this.lbHello = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			this.btnUpdateSubject = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.txtCourseName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.label7 = new System.Windows.Forms.Label();
@@ -79,8 +80,8 @@ namespace SchoolManagement
 			this.pbLogout = new System.Windows.Forms.PictureBox();
 			this.facilityList = new System.Windows.Forms.ComboBox();
 			this.teacherList = new System.Windows.Forms.ComboBox();
-			this.notifications = new System.Windows.Forms.PictureBox();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
@@ -91,7 +92,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -266,6 +266,17 @@ namespace SchoolManagement
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1323, 100);
 			this.panel1.TabIndex = 204;
+			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(1067, 16);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 212;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
 			// 
 			// btnUpdateSubject
 			// 
@@ -525,6 +536,7 @@ namespace SchoolManagement
 			this.label5.Size = new System.Drawing.Size(103, 22);
 			this.label5.TabIndex = 245;
 			this.label5.Text = "CLASS LIST";
+			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// pbSection
 			// 
@@ -551,6 +563,7 @@ namespace SchoolManagement
 			this.lbProfile.Size = new System.Drawing.Size(116, 22);
 			this.lbProfile.TabIndex = 243;
 			this.lbProfile.Text = "MY PROFILE";
+			this.lbProfile.Click += new System.EventHandler(this.lbProfile_Click);
 			// 
 			// pbProfile
 			// 
@@ -604,6 +617,7 @@ namespace SchoolManagement
 			this.lbTeachers.Size = new System.Drawing.Size(221, 22);
 			this.lbTeachers.TabIndex = 239;
 			this.lbTeachers.Text = "PERSONNEL MANAGER";
+			this.lbTeachers.Click += new System.EventHandler(this.lbTeachers_Click);
 			// 
 			// pbTeachers
 			// 
@@ -630,6 +644,7 @@ namespace SchoolManagement
 			this.lbStudents.Size = new System.Drawing.Size(199, 22);
 			this.lbStudents.TabIndex = 237;
 			this.lbStudents.Text = "STUDENTS MANAGER";
+			this.lbStudents.Click += new System.EventHandler(this.lbStudents_Click);
 			// 
 			// pbStudents
 			// 
@@ -701,6 +716,7 @@ namespace SchoolManagement
 			this.label9.Size = new System.Drawing.Size(102, 22);
 			this.label9.TabIndex = 193;
 			this.label9.Text = "SCHEDULE";
+			this.label9.Click += new System.EventHandler(this.label9_Click);
 			// 
 			// pbCalendar
 			// 
@@ -728,6 +744,7 @@ namespace SchoolManagement
 			this.label15.Size = new System.Drawing.Size(235, 22);
 			this.label15.TabIndex = 191;
 			this.label15.Text = "REGISTER MANAGEMENT";
+			this.label15.Click += new System.EventHandler(this.label15_Click);
 			// 
 			// pbDetail
 			// 
@@ -801,17 +818,6 @@ namespace SchoolManagement
 			this.teacherList.Size = new System.Drawing.Size(285, 24);
 			this.teacherList.TabIndex = 249;
 			// 
-			// notifications
-			// 
-			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
-			this.notifications.Location = new System.Drawing.Point(1067, 16);
-			this.notifications.Name = "notifications";
-			this.notifications.Size = new System.Drawing.Size(63, 50);
-			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.notifications.TabIndex = 212;
-			this.notifications.TabStop = false;
-			this.notifications.Click += new System.EventHandler(this.notifications_Click);
-			// 
 			// UpdateSubject
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -859,6 +865,7 @@ namespace SchoolManagement
 			this.Text = "ADD USER";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
@@ -870,7 +877,6 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbDetail)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

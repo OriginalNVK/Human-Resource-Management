@@ -190,33 +190,32 @@ private void btnUpdateStudent_Click(object sender, EventArgs e)
 			}
 		}
 
-
-
-		private void lbUsers_Click(object sender, EventArgs e)
+		private void lbClasses_Click(object sender, EventArgs e)
 		{
-			UsersManager userManager = new UsersManager();
+			SubjectManagement subjectManager = new SubjectManagement();
 			this.Hide();
-			userManager.ShowDialog();
+			subjectManager.ShowDialog();
 			this.Close();
+
 		}
 
-		private void lbRoles_Click(object sender, EventArgs e)
+		private void label4_Click(object sender, EventArgs e)
 		{
-			RoleManager roleManager = new RoleManager();
+			ClassList classList = new ClassList();
 			this.Hide();
-			roleManager.ShowDialog();
+			classList.ShowDialog();
 			this.Close();
 		}
 
 		private void lbStudents_Click(object sender, EventArgs e)
 		{
-			StudentManager student = new StudentManager();
+			StudentManager studentManager = new StudentManager();
 			this.Hide();
-			student.ShowDialog();
+			studentManager.ShowDialog();
 			this.Close();
 		}
 
-		private void lbPersonnel_Click(object sender, EventArgs e)
+		private void lbTeachers_Click(object sender, EventArgs e)
 		{
 			PersonnelManager personnelManager = new PersonnelManager();
 			this.Hide();
@@ -226,13 +225,29 @@ private void btnUpdateStudent_Click(object sender, EventArgs e)
 
 		private void lbProfile_Click(object sender, EventArgs e)
 		{
-			AdminProfile myProfile = new AdminProfile();
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
 			this.Hide();
-			myProfile.ShowDialog();
+			personnelMenu.ShowDialog();
 			this.Close();
 		}
 
 		private void label6_Click(object sender, EventArgs e)
+		{
+			ViewSchedule viewDetail = new ViewSchedule(PersonnelMenu._username, PersonnelMenu._role);
+			this.Hide();
+			viewDetail.ShowDialog();
+			this.Close();
+		}
+
+		private void label8_Click(object sender, EventArgs e)
+		{
+			PersonnelRegister personnelRegister = new PersonnelRegister();
+			this.Hide();
+			personnelRegister.ShowDialog();
+			this.Close();
+		}
+
+		private void logoutBtn_Click(object sender, EventArgs e)
 		{
 			Login login = new Login();
 			this.Hide();
