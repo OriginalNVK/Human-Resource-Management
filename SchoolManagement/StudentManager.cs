@@ -276,5 +276,10 @@ namespace SchoolManagement
 		{
 
 		}
+
+		private void StudentManager_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

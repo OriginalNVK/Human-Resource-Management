@@ -698,6 +698,7 @@ namespace SchoolManagement
 			this.Name = "StudentManager";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "STUDENT MANAGER";
+			this.Load += new System.EventHandler(this.StudentManager_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

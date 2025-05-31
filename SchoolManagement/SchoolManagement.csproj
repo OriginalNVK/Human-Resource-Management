@@ -320,6 +320,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectManagement.resx">
       <DependentUpon>SubjectManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisteredSubject.resx">
       <DependentUpon>RegisteredSubject.cs</DependentUpon>
