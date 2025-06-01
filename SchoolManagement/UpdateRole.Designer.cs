@@ -321,7 +321,7 @@ namespace SchoolManagement
             this.dgvViews.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvViews.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvViews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvViews.Location = new System.Drawing.Point(289, 212);
+            this.dgvViews.Location = new System.Drawing.Point(289, 350);
             this.dgvViews.Name = "dgvViews";
             this.dgvViews.ReadOnly = true;
             this.dgvViews.RowHeadersWidth = 51;
@@ -368,7 +368,7 @@ namespace SchoolManagement
             this.dgvProcs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProcs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvProcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcs.Location = new System.Drawing.Point(289, 212);
+            this.dgvProcs.Location = new System.Drawing.Point(289, 488);
             this.dgvProcs.Name = "dgvProcs";
             this.dgvProcs.ReadOnly = true;
             this.dgvProcs.RowHeadersWidth = 51;
@@ -456,7 +456,7 @@ namespace SchoolManagement
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(564, 212);
+            this.btnSave.Location = new System.Drawing.Point(564, 626);
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
             this.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));

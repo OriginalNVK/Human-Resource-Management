@@ -511,3 +511,4 @@ D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateS
 D:\Human-Resource-Management\SchoolManagement\bin\Debug\BouncyCastle.Crypto.dll
 D:\Human-Resource-Management\SchoolManagement\bin\Debug\itextsharp.dll
 D:\Human-Resource-Management\SchoolManagement\bin\Debug\itextsharp.xml
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AuditView.resources

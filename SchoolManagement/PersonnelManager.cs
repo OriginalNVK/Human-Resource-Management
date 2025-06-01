@@ -303,31 +303,7 @@ namespace SchoolManagement
             {
                 string selectedEmployeeId = dgvPersonnels.SelectedRows[0].Cells["MÃ NHÂN VIÊN"].Value.ToString();
                 string selectedEmployeeVaiTro = dgvPersonnels.SelectedRows[0].Cells["VAI TRÒ"].Value.ToString();
-                if (selectedEmployeeVaiTro == "TRGĐV")
-                {
-                    string sql = @"
-					UPDATE PDB_ADMIN.QLDH_DONVI
-					SET TRUONGDV = NULL 
-					WHERE TRUONGDV = :manv";
-                    using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("manv", selectedEmployeeId));
-                        cmd.ExecuteNonQuery();
-
-                    }
-                }
-                else if (selectedEmployeeVaiTro == "GV")
-                {
-                    string sql = @"
-					UPDATE PDB_ADMIN.QLDH_MONHOC
-					SET MAGV = NULL 
-					WHERE MAGV = :manv";
-                    using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("manv", selectedEmployeeId));
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                
 
                 string query = @"
 				DELETE FROM PDB_ADMIN.QLDH_NHANVIEN 

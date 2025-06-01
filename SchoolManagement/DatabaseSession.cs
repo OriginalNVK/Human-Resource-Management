@@ -59,6 +59,12 @@ namespace SchoolManagement
 
 		public static string DetermineUserType(OracleConnection conn, string username)
 		{
+            string checkStudent = "SELECT 1 FROM pdb_admin.QLDH_SINHVIEN WHERE MASV = :username";
+            using (var cmd = new OracleCommand(checkStudent, conn))
+            {
+                cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+                if (cmd.ExecuteScalar() != null) return "SinhVien";
+            }
             string checkEmployee = "SELECT 1 FROM pdb_admin.QLDH_NHANVIEN WHERE MANV = :username";
             using (var cmd = new OracleCommand(checkEmployee, conn))
 			{
@@ -73,12 +79,7 @@ namespace SchoolManagement
 				if (cmd.ExecuteScalar() != null) return "Admin";
 			}
 
-			string checkStudent = "SELECT 1 FROM pdb_admin.QLDH_SINHVIEN WHERE MASV = :username";
-			using (var cmd = new OracleCommand(checkStudent, conn))
-			{
-				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-				if (cmd.ExecuteScalar() != null) return "SinhVien";
-			}
+			
 
 			return null;
 		}
