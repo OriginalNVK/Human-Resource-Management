@@ -43,6 +43,8 @@ namespace SchoolManagement
 
 		private void LoadStudents()
 		{
+			// check role
+			MessageBox.Show("Role: " + PersonnelMenu._role, "Role Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			if (PersonnelMenu._role == "GV")
 			{
 				try
@@ -55,8 +57,8 @@ namespace SchoolManagement
 					}
 
 					string sql = @"
-			SELECT TENHP, MASV, HOTEN, PHAI, NGSINH, DCHI, DT, TINHTRANG, DIEMTH, DIEMQT, DIEMCK, DIEMTK
-			FROM PDB_ADMIN.V_STUDENTS_BY_GV";
+					SELECT TENHP, MASV, HOTEN, PHAI, NGSINH, DCHI, DT, TINHTRANG, DIEMTH, DIEMQT, DIEMCK, DIEMTK
+					FROM PDB_ADMIN.V_STUDENTS_BY_GV";
 
 					OracleCommand cmd = new OracleCommand(sql, conn);
 					OracleDataAdapter adapter = new OracleDataAdapter(cmd);
@@ -84,7 +86,7 @@ namespace SchoolManagement
 					MessageBox.Show("Lỗi khi load danh sách sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
-			else if (PersonnelMenu._role == "NV_PDT")
+			else if (PersonnelMenu._role == "NV PĐT")
 			{
 				try
 				{
@@ -144,6 +146,64 @@ namespace SchoolManagement
 					MessageBox.Show("Lỗi khi tải danh sách SINH VIÊN Oracle:\n" + ex.Message);
 				}
 			}
+			else if (PersonnelMenu._role == "NV CTSV")
+			{
+				try
+				{
+					string userQuery = @"
+					SELECT MASV, HOTEN
+					FROM PDB_ADMIN.QLDH_SINHVIEN
+					ORDER BY HOTEN";
+
+					using (OracleCommand cmd = new OracleCommand(userQuery, DatabaseSession.Connection))
+					using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+					{
+						DataTable dt = new DataTable();
+						adapter.Fill(dt);
+
+						// Cấu hình lại DataGridView
+						dgvStudents.DataSource = null;
+						dgvStudents.Columns.Clear();
+						dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+						dgvStudents.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+						dgvStudents.RowHeadersVisible = false;
+						dgvStudents.AllowUserToAddRows = false;
+						dgvStudents.MultiSelect = false;
+						dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+						// Thêm cột checkbox
+						DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn()
+						{
+							Name = "chk",
+							HeaderText = "",
+							Width = 40,
+							ReadOnly = false
+						};
+						dgvStudents.Columns.Add(chk);
+
+						// Thêm các cột hiển thị
+						dgvStudents.Columns.Add("Ten", "HỌ TÊN");
+						dgvStudents.Columns.Add("MaSV", "MÃ SV");
+
+						// Đưa dữ liệu từ dt lên dgvStudents
+						foreach (DataRow row in dt.Rows)
+						{
+							int index = dgvStudents.Rows.Add();
+							dgvStudents.Rows[index].Cells["Ten"].Value = row["HOTEN"];
+							dgvStudents.Rows[index].Cells["MaSV"].Value = row["MASV"];
+							dgvStudents.Rows[index].Cells["chk"].Value = false;
+						}
+
+						// Gán lại sự kiện
+						dgvStudents.CellClick -= dgvStudent_CellClick;
+						dgvStudents.CellClick += dgvStudent_CellClick;
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Lỗi khi tải danh sách SINH VIÊN Oracle:\n" + ex.Message);
+				}
+			}
 		}
 
 		private void dgvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -176,7 +236,7 @@ namespace SchoolManagement
 				return;
 			}
 
-			if (PersonnelMenu._role == "NV_PDT")
+			else if (PersonnelMenu._role == "NV PĐT")
 			{
 				// Kiểm tra DataGridView tồn tại và không rỗng
 				if (dgvStudents == null || dgvStudents.Rows.Count == 0)
@@ -214,7 +274,46 @@ namespace SchoolManagement
 										   MessageBoxIcon.Warning);
 				}
 			}
+			else if (PersonnelMenu._role == "NV CTSV")
+			{
+				// Kiểm tra DataGridView tồn tại và không rỗng
+				if (dgvStudents == null || dgvStudents.Rows.Count == 0)
+				{
+					KryptonMessageBox.Show("Không có dữ liệu để chỉnh sửa!",
+										   "Thông báo",
+										   MessageBoxButtons.OK,
+										   MessageBoxIcon.Information);
+					return;
+				}
+
+				// Tìm dòng được chọn
+				var selectedRow = dgvStudents.Rows
+					.Cast<DataGridViewRow>()
+					.FirstOrDefault(row =>
+						row.Cells["chk"].Value != null &&
+						Convert.ToBoolean(row.Cells["chk"].Value));
+
+				if (selectedRow != null)
+				{
+					UpdateStudentCTSV updateForm = new UpdateStudentCTSV(
+						selectedRow.Cells["MaSV"].Value.ToString()
+					);
+
+					this.Hide();
+					updateForm.ShowDialog();
+					this.Close();
+				}
+				else
+				{
+					KryptonMessageBox.Show("Vui lòng chọn một sinh viên để chỉnh sửa.",
+										   "Thông báo",
+										   MessageBoxButtons.OK,
+										   MessageBoxIcon.Warning);
+				}
+			}
 		}
+
+		
 
 		// Login
 

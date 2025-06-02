@@ -51,6 +51,7 @@ namespace SchoolManagement
             this.label6 = new System.Windows.Forms.Label();
             this.pbGrade = new System.Windows.Forms.PictureBox();
             this.pbStudents = new System.Windows.Forms.PictureBox();
+            this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbCalendar = new System.Windows.Forms.PictureBox();
             this.pbTeachers = new System.Windows.Forms.PictureBox();
             this.pbDetail = new System.Windows.Forms.PictureBox();
@@ -68,6 +69,7 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
@@ -214,7 +216,7 @@ namespace SchoolManagement
             this.Dashboard.Name = "Dashboard";
             this.Dashboard.Size = new System.Drawing.Size(213, 26);
             this.Dashboard.TabIndex = 186;
-            this.Dashboard.Text = "STUDENT MANAGER";
+            this.Dashboard.Text = "GRADE MANAGER";
             // 
             // lbHello
             // 
@@ -573,6 +575,19 @@ namespace SchoolManagement
             this.comboBox1.Size = new System.Drawing.Size(298, 21);
             this.comboBox1.TabIndex = 246;
             // 
+			// pbEdit
+			// 
+            this.pbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
+            this.pbEdit.Location = new System.Drawing.Point(900, 100);
+            this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.pbEdit.Name = "pbEdit";
+            this.pbEdit.Size = new System.Drawing.Size(59, 46);
+            this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEdit.TabIndex = 246;
+            this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
+            // 
             // GradeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -582,6 +597,7 @@ namespace SchoolManagement
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.dgvScoreBoard);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -601,6 +617,7 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -625,6 +642,7 @@ namespace SchoolManagement
 		private System.Windows.Forms.Label lbStudents;
 		private System.Windows.Forms.PictureBox pbCalendar;
 		private System.Windows.Forms.PictureBox pbTeachers;
+        private System.Windows.Forms.PictureBox pbEdit;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label lbTeachers;
 		private System.Windows.Forms.PictureBox pbDetail;

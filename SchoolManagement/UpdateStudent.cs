@@ -60,11 +60,12 @@ namespace SchoolManagement
 				}
 
 						string query = @"
-            SELECT u.USERNAME,
-                   s.HOTEN, s.PHAI, s.DT, s.DCHI, s.NGSINH
-              FROM PDB_ADMIN.QLDH_SINHVIEN s
-              JOIN ALL_USERS u ON u.USERNAME = s.MASV
-             WHERE u.USERNAME = :username";
+						SELECT u.USERNAME,
+							s.HOTEN, s.PHAI, s.DT, s.DCHI, s.NGSINH
+						FROM PDB_ADMIN.QLDH_SINHVIEN s
+						JOIN ALL_USERS u ON u.USERNAME = s.MASV
+						WHERE u.USERNAME = :username
+						";
 
 
 				using (var cmd = new OracleCommand(query, conn))
@@ -100,73 +101,73 @@ namespace SchoolManagement
 			}
 		}
 
-private void btnUpdateStudent_Click(object sender, EventArgs e)
-{
-    try
-    {
-        string username = txtUsername.Text.Trim().ToUpper();
-        string status = StatusDropDown.SelectedItem?.ToString();
+		private void btnUpdateStudent_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				string username = txtUsername.Text.Trim().ToUpper();
+				string status = StatusDropDown.SelectedItem?.ToString();
 
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(status))
-        {
-            MessageBox.Show("Vui lòng điền Username và chọn Status.");
-            return;
-        }
+				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(status))
+				{
+					MessageBox.Show("Vui lòng điền Username và chọn Status.");
+					return;
+				}
 
-        OracleConnection conn = DatabaseSession.Connection;
-        if (conn == null || conn.State != ConnectionState.Open)
-        {
-            MessageBox.Show("Kết nối chưa khởi tạo hoặc chưa mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
+				OracleConnection conn = DatabaseSession.Connection;
+				if (conn == null || conn.State != ConnectionState.Open)
+				{
+					MessageBox.Show("Kết nối chưa khởi tạo hoặc chưa mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
 
-        MessageBox.Show($"SẴN SÀNG UPDATE:\nMASV = {username}\nTINHTRANG = {status}");
+				MessageBox.Show($"SẴN SÀNG UPDATE:\nMASV = {username}\nTINHTRANG = {status}");
 
-        string updateDetails = @"UPDATE PDB_ADMIN.QLDH_SINHVIEN 
-                                 SET TINHTRANG = :status
-                                 WHERE MASV = :username";
+				string updateDetails = @"UPDATE PDB_ADMIN.QLDH_SINHVIEN 
+										SET TINHTRANG = :status
+										WHERE MASV = :username";
 
-        using (OracleCommand updateCmd = new OracleCommand(updateDetails, conn))
-        {
-            updateCmd.CommandTimeout = 30;
-            updateCmd.BindByName = true;
-            updateCmd.Parameters.Add("status", OracleDbType.Varchar2).Value = status;
-            updateCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+				using (OracleCommand updateCmd = new OracleCommand(updateDetails, conn))
+				{
+					updateCmd.CommandTimeout = 30;
+					updateCmd.BindByName = true;
+					updateCmd.Parameters.Add("status", OracleDbType.Varchar2).Value = status;
+					updateCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 
-            int result = updateCmd.ExecuteNonQuery();
+					int result = updateCmd.ExecuteNonQuery();
 
-            if (result <= 0)
-            {
-                MessageBox.Show("Không tìm thấy thông tin người dùng để cập nhật.");
-            }
-            else
-            {
-                MessageBox.Show("Cập nhật người dùng thành công!");
-            }
-        }
-    }
-    catch (OracleException ex)
-    {
-        MessageBox.Show("Lỗi Oracle:\n" + ex.Message);
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("Lỗi hệ thống:\n" + ex.Message);
-    }
+					if (result <= 0)
+					{
+						MessageBox.Show("Không tìm thấy thông tin người dùng để cập nhật.");
+					}
+					else
+					{
+						MessageBox.Show("Cập nhật người dùng thành công!");
+					}
+				}
+			}
+			catch (OracleException ex)
+			{
+				MessageBox.Show("Lỗi Oracle:\n" + ex.Message);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi hệ thống:\n" + ex.Message);
+			}
 
-    // Quay lại form
-    try
-    {
-        this.Hide();
-        StudentManager studentManager = new StudentManager();
-        studentManager.ShowDialog();
-        this.Close();
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("Lỗi khi mở lại form quản lý:\n" + ex.Message);
-    }
-}
+			// Quay lại form
+			try
+			{
+				this.Hide();
+				StudentManager studentManager = new StudentManager();
+				studentManager.ShowDialog();
+				this.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi mở lại form quản lý:\n" + ex.Message);
+			}
+		}
 
 
 

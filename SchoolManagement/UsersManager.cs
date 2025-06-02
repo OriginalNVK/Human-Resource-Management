@@ -25,7 +25,6 @@ namespace SchoolManagement
 				return cp;
 			}
 		}
-		private int action; // 0 - add, 1 - edit
 		private bool isSelected = false;
 		private int currFrom = 1;
 		private int pageSize = 10;
