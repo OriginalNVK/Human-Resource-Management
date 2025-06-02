@@ -136,8 +136,62 @@ namespace SchoolManagement
 						cmdGrantRole.ExecuteNonQuery();
 					}
 
-					// Lấy MADV từ tên đơn vị
-					string queSeDepID = null;
+                    // Grant quyền READ_NOTICE
+                    string readNoticeQuery = $"GRANT READ_NOTICE TO {username}";
+                    using (OracleCommand cmdGrantConnect = new OracleCommand(readNoticeQuery, conn))
+                    {
+                        cmdGrantConnect.Transaction = transaction;
+                        cmdGrantConnect.ExecuteNonQuery();
+                    }
+
+                    // Gán nhãn OLS cho user bằng procedure
+                    using (OracleCommand cmdGrantLabel = new OracleCommand("PDB_ADMIN.GRANT_LABEL_FOR_USER", conn))
+                    {
+                        cmdGrantLabel.Transaction = transaction;
+                        cmdGrantLabel.CommandType = CommandType.StoredProcedure;
+                        cmdGrantLabel.Parameters.Add("p_username", OracleDbType.Varchar2).Value = username;
+
+                        // Map role thành p_role theo procedure
+                        string roleParam = "";
+                        if (selectedGrantedRole == "SV")
+                            roleParam = "SV";
+                        else if (selectedGrantedRole == "NV_TRGDV")
+                            roleParam = "TRGDV";
+                        else if (selectedGrantedRole.StartsWith("NV"))
+                            roleParam = "NV";
+                        else
+                            roleParam = "NV";  // Mặc định
+
+                        string depParam = "";
+
+                        if (department == "KH04_1" || department == "KH04_2")
+                        {
+                            depParam = "TOAN";
+                        }
+
+                        if (department == "KH05_1" || department == "KH05_2")
+                        {
+                            depParam = "LY";
+                        }
+
+                        if (department == "KH06_1" || department == "KH06_2")
+                        {
+                            depParam = "HOA";
+                        }
+
+                        if (department == "PH03_1" || department == "PH03_2")
+                        {
+                            depParam = "HANHCHINH";
+                        }
+
+                        cmdGrantLabel.Parameters.Add("p_role", OracleDbType.Varchar2).Value = roleParam;
+                        cmdGrantLabel.Parameters.Add("p_khoa", OracleDbType.Varchar2).Value = depParam;
+                        cmdGrantLabel.Parameters.Add("p_coso", OracleDbType.Varchar2).Value = location;
+                        cmdGrantLabel.ExecuteNonQuery();
+                    }
+
+                    // Lấy MADV từ tên đơn vị
+                    string queSeDepID = null;
 					using (OracleCommand cmdGetMADV = new OracleCommand("SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE MADV = :dep", conn))
 					{
 						cmdGetMADV.Transaction = transaction;
@@ -393,6 +447,14 @@ namespace SchoolManagement
             AuditView auditView = new AuditView();
             this.Hide();
             auditView.ShowDialog();
+            this.Close();
+        }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+            AddNotification addNotification = new AddNotification();
+            this.Hide();
+            addNotification.ShowDialog();
             this.Close();
         }
     }

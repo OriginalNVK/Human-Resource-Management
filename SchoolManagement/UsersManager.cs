@@ -444,5 +444,10 @@ namespace SchoolManagement
         {
 
         }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

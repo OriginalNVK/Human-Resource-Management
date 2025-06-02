@@ -436,8 +436,11 @@ namespace SchoolManagement
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-
-		}
+            ViewNotice viewNotification = new ViewNotice(Login.ID);
+            this.Hide();
+            viewNotification.ShowDialog();
+            this.Close();
+        }
 
 		private void label4_Click_1(object sender, EventArgs e)
 		{

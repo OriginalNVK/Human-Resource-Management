@@ -243,8 +243,11 @@ WHERE MANV = :manv";
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-
-		}
+            ViewNotice viewNotification = new ViewNotice(Login.ID);
+            this.Hide();
+            viewNotification.ShowDialog();
+            this.Close();
+        }
 
 		private void lbClasses_Click_1(object sender, EventArgs e)
 		{

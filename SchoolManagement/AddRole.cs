@@ -88,5 +88,13 @@ namespace SchoolManagement
         {
 
         }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+            AddNotification addNotification = new AddNotification();
+            this.Hide();
+            addNotification.ShowDialog();
+            this.Close();
+        }
     }
 }
