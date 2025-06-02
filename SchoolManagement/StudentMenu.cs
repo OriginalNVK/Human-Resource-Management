@@ -78,7 +78,9 @@ namespace SchoolManagement
         private void pbProfile_Click(object sender, EventArgs e)
         {
             StudentProfile student = new StudentProfile(); // Fixed typo in 'password'
+            this.Hide();
             student.ShowDialog();
+            this.Close();
         }
 
 		private void pbCalendar_Click(object sender, EventArgs e)
@@ -96,5 +98,13 @@ namespace SchoolManagement
             registeredSubject.ShowDialog();
             this.Close();
 		}
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+            ViewNotice viewNotification = new ViewNotice(Login.ID);
+            this.Hide();
+            viewNotification.ShowDialog();
+            this.Close();
+        }
 	}
 }

@@ -54,7 +54,7 @@ namespace SchoolManagement
                 'SPATIAL_WFS_ADMIN_USR','MGMT_VIEW',
                 'C##SCHOOL USER ADMIN','DBSFWUSER','DGPDB_INT','GSMCATUSER',
                 'MDDATA','PDB_ADMIN','SYS$UMF','SYSRAC', 'C##SCHOOL_USER_ADMIN'
-            )
+            ) AND USERNAME NOT LIKE 'C##%'
             ORDER BY USERNAME";
 
 				using (OracleCommand cmd = new OracleCommand(userQuery, DatabaseSession.Connection))
@@ -431,5 +431,22 @@ namespace SchoolManagement
 			}
 		}
 
-	}
+        private void label5_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

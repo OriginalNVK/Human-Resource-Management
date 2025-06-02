@@ -43,11 +43,13 @@ namespace SchoolManagement
 			this.pbProfile = new System.Windows.Forms.PictureBox();
 			this.pbClasses = new System.Windows.Forms.PictureBox();
 			this.label4 = new System.Windows.Forms.Label();
+			this.notifications = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbGrade)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -250,11 +252,23 @@ namespace SchoolManagement
 			this.label4.TabIndex = 32;
 			this.label4.Text = "REGISTERED SUBJECT";
 			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(730, 11);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 212;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
+			// 
 			// StudentMenu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(871, 512);
+			this.Controls.Add(this.notifications);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.pbClasses);
 			this.Controls.Add(this.label2);
@@ -277,6 +291,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -296,5 +311,6 @@ namespace SchoolManagement
         private System.Windows.Forms.PictureBox pbGrade;
 		private System.Windows.Forms.PictureBox pbClasses;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.PictureBox notifications;
 	}
 }

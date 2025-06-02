@@ -136,9 +136,9 @@ namespace SchoolManagement
 
 		private void pbProfile_Click(object sender, EventArgs e)
 		{
-			AdminProfile myProfile = new AdminProfile();
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
 			this.Hide();
-			myProfile.ShowDialog();
+			personnelMenu.ShowDialog();
 			this.Close();
 		}
 
@@ -190,20 +190,12 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-		private void view_Schedule(object sender, EventArgs e)
-		{
-			ViewSchedule viewDetail = new ViewSchedule(_username, _role);
+        private void view_Schedule(object sender, EventArgs e)
+        {
+			ViewSchedule viewDetail = new ViewSchedule(_username, Login.TYPE_ROLE);
 			this.Hide();
 			viewDetail.ShowDialog();
 			this.Close();
-		}
-
-		private void pbGrade_Click(object sender, EventArgs e)
-		{
-			GradeManager gradeManager = new GradeManager();
-			this.Hide();
-			gradeManager.ShowDialog();
-			this.Close();
-		}
-	}
+        }
+    }
 }

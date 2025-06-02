@@ -54,6 +54,7 @@ namespace SchoolManagement
             this.pbDetail = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.notifications = new System.Windows.Forms.PictureBox();
             this.txtHello = new System.Windows.Forms.Label();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.lbDelete = new System.Windows.Forms.Label();
@@ -77,6 +78,7 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDetail)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddSubject)).BeginInit();
@@ -160,6 +162,7 @@ namespace SchoolManagement
             this.lbStudents.Size = new System.Drawing.Size(199, 22);
             this.lbStudents.TabIndex = 4;
             this.lbStudents.Text = "STUDENTS MANAGER";
+            this.lbStudents.Click += new System.EventHandler(this.lbStudents_Click);
             // 
             // lbTeachers
             // 
@@ -174,6 +177,7 @@ namespace SchoolManagement
             this.lbTeachers.Size = new System.Drawing.Size(221, 22);
             this.lbTeachers.TabIndex = 6;
             this.lbTeachers.Text = "PERSONNEL MANAGER";
+            this.lbTeachers.Click += new System.EventHandler(this.lbTeachers_Click);
             // 
             // lbClasses
             // 
@@ -185,9 +189,9 @@ namespace SchoolManagement
             this.lbClasses.Location = new System.Drawing.Point(68, 146);
             this.lbClasses.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClasses.Name = "lbClasses";
-            this.lbClasses.Size = new System.Drawing.Size(226, 22);
+            this.lbClasses.Size = new System.Drawing.Size(189, 22);
             this.lbClasses.TabIndex = 8;
-            this.lbClasses.Text = "SUBJECT MANAGEMENT";
+            this.lbClasses.Text = "SUBJECT MANAGER";
             this.lbClasses.Click += new System.EventHandler(this.pbSubject_Click);
             // 
             // lbProfile
@@ -203,6 +207,7 @@ namespace SchoolManagement
             this.lbProfile.Size = new System.Drawing.Size(116, 22);
             this.lbProfile.TabIndex = 12;
             this.lbProfile.Text = "MY PROFILE";
+            this.lbProfile.Click += new System.EventHandler(this.lbProfile_Click);
             // 
             // label2
             // 
@@ -217,6 +222,7 @@ namespace SchoolManagement
             this.label2.Size = new System.Drawing.Size(103, 22);
             this.label2.TabIndex = 18;
             this.label2.Text = "CLASS LIST";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // logoutBtn
             // 
@@ -314,9 +320,9 @@ namespace SchoolManagement
             this.Dashboard.ForeColor = System.Drawing.Color.Yellow;
             this.Dashboard.Location = new System.Drawing.Point(367, 37);
             this.Dashboard.Name = "Dashboard";
-            this.Dashboard.Size = new System.Drawing.Size(111, 32);
+            this.Dashboard.Size = new System.Drawing.Size(296, 32);
             this.Dashboard.TabIndex = 37;
-            this.Dashboard.Text = "Subject";
+            this.Dashboard.Text = "Subject Management";
             // 
             // panel2
             // 
@@ -376,6 +382,7 @@ namespace SchoolManagement
             this.label7.Size = new System.Drawing.Size(102, 22);
             this.label7.TabIndex = 193;
             this.label7.Text = "SCHEDULE";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pbCalendar
             // 
@@ -400,9 +407,10 @@ namespace SchoolManagement
             this.label5.Location = new System.Drawing.Point(76, 639);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(235, 22);
+            this.label5.Size = new System.Drawing.Size(198, 22);
             this.label5.TabIndex = 191;
-            this.label5.Text = "REGISTER MANAGEMENT";
+            this.label5.Text = "REGISTER MANAGER";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pbDetail
             // 
@@ -433,6 +441,7 @@ namespace SchoolManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.notifications);
             this.panel1.Controls.Add(this.txtHello);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -440,6 +449,17 @@ namespace SchoolManagement
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1325, 100);
             this.panel1.TabIndex = 189;
+            // 
+            // notifications
+            // 
+            this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+            this.notifications.Location = new System.Drawing.Point(1005, 19);
+            this.notifications.Name = "notifications";
+            this.notifications.Size = new System.Drawing.Size(63, 50);
+            this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.notifications.TabIndex = 212;
+            this.notifications.TabStop = false;
+            this.notifications.Click += new System.EventHandler(this.notifications_Click);
             // 
             // txtHello
             // 
@@ -779,6 +799,7 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbDetail)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddSubject)).EndInit();
@@ -826,5 +847,6 @@ namespace SchoolManagement
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnLogin;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvSubject;
-    }
+		private System.Windows.Forms.PictureBox notifications;
+	}
 }

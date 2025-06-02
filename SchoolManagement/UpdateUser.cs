@@ -596,5 +596,27 @@ namespace SchoolManagement
 			login.ShowDialog();
 			this.Close();
 		}
-	}
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+            AddNotification addNotification = new AddNotification();
+            this.Hide();
+            addNotification.ShowDialog();
+            this.Close();
+        }
+    }
 }

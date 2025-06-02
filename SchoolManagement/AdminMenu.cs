@@ -150,5 +150,26 @@ namespace SchoolManagement
 			userManager.ShowDialog();
             this.Close();
         }
-	}
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+
+		}
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+        }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+			AddNotification addNotification = new AddNotification();
+            this.Hide();
+            addNotification.ShowDialog();
+			this.Close();
+        }
+    }
 }

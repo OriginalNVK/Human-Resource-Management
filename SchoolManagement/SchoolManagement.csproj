@@ -114,6 +114,18 @@
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNotification.Designer.cs">
+      <DependentUpon>AddNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AuditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuditView.Designer.cs">
+      <DependentUpon>AuditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClassList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     </Compile>
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewNotification.Designer.cs">
+      <DependentUpon>ViewNotification.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonnelRegister.cs">
       <SubType>Form</SubType>
@@ -273,12 +291,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeacherManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TeacherManager.Designer.cs">
-      <DependentUpon>TeacherManager.cs</DependentUpon>
-    </Compile>
     <Compile Include="StudentMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,20 +309,23 @@
     <Compile Include="PersonnelManager.Designer.cs">
       <DependentUpon>PersonnelManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeacherProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TeacherProfile.Designer.cs">
-      <DependentUpon>TeacherProfile.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AddEmployee.resx">
       <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNotification.resx">
+      <DependentUpon>AddNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditView.resx">
+      <DependentUpon>AuditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewNotification.resx">
+      <DependentUpon>ViewNotification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonnelRegister.resx">
       <DependentUpon>PersonnelRegister.cs</DependentUpon>
@@ -347,6 +362,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectManagement.resx">
       <DependentUpon>SubjectManagement.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisteredSubject.resx">
       <DependentUpon>RegisteredSubject.cs</DependentUpon>
@@ -394,9 +410,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TeacherManager.resx">
-      <DependentUpon>TeacherManager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="StudentMenu.resx">
       <DependentUpon>StudentMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,9 +418,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PersonnelManager.resx">
       <DependentUpon>PersonnelManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TeacherProfile.resx">
-      <DependentUpon>TeacherProfile.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
       <SubType>Designer</SubType>

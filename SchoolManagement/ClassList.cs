@@ -216,5 +216,61 @@ namespace SchoolManagement
 				MessageBox.Show("Lỗi khi xuất PDF: " + ex.Message, "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+		private void lbClasses_Click(object sender, EventArgs e)
+		{
+			SubjectManagement subjectManager = new SubjectManagement();
+			this.Hide();
+			subjectManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbStudents_Click(object sender, EventArgs e)
+		{
+			StudentManager studentManager = new StudentManager();
+			this.Hide();
+			studentManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbTeachers_Click(object sender, EventArgs e)
+		{
+			PersonnelManager personnelManager = new PersonnelManager();
+			this.Hide();
+			personnelManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbProfile_Click(object sender, EventArgs e)
+		{
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+			this.Hide();
+			personnelMenu.ShowDialog();
+			this.Close();
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+			ViewSchedule viewDetail = new ViewSchedule(PersonnelMenu._username, PersonnelMenu._role);
+			this.Hide();
+			viewDetail.ShowDialog();
+			this.Close();
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+			PersonnelRegister personnelRegister = new PersonnelRegister();
+			this.Hide();
+			personnelRegister.ShowDialog();
+			this.Close();
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+			Login login = new Login();
+			this.Hide();
+			login.ShowDialog();
+			this.Close();
+		}
 	}
 }

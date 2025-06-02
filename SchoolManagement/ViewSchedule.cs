@@ -34,21 +34,21 @@ namespace SchoolManagement
                 string subjectQuery;
                 switch (role)
                 {
-                    case "NV_GV":
+                    case "GV":
                         subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC
                                      FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
                                      JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
                                      JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
                                      WHERE mh.MAGV = :manv";
                         break;
-                    case "NV_TRGDV":
+                    case "TRGĐV":
                         subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC
                                        FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
                                        JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
                                        JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
                                        WHERE nv.MADV = (
-                                       SELECT MADV 
-                                       FROM pdb_admin.QLDH_NHANVIEN 
+                                       SELECT p.MADV 
+                                       FROM pdb_admin.QLDH_NHANVIEN p 
                                        WHERE MANV = :manv)";
                         break;
                     default:
@@ -119,5 +119,69 @@ namespace SchoolManagement
                 MessageBox.Show("Error:\n" + ex.Message);
             }
         }
-    }
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+            ViewNotice viewNotification = new ViewNotice(Login.ID);
+            this.Hide();
+            viewNotification.ShowDialog();
+            this.Close();
+        }
+
+		private void lbClasses_Click(object sender, EventArgs e)
+		{
+			SubjectManagement subjectManager = new SubjectManagement();
+			this.Hide();
+			subjectManager.ShowDialog();
+			this.Close();
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+			ClassList classList = new ClassList();
+			this.Hide();
+			classList.ShowDialog();
+			this.Close();
+		}
+
+		private void lbStudents_Click(object sender, EventArgs e)
+		{
+			StudentManager studentManager = new StudentManager();
+			this.Hide();
+			studentManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbTeachers_Click(object sender, EventArgs e)
+		{
+			PersonnelManager personnelManager = new PersonnelManager();
+			this.Hide();
+			personnelManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbProfile_Click(object sender, EventArgs e)
+		{
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+			this.Hide();
+			personnelMenu.ShowDialog();
+			this.Close();
+		}
+
+		private void label7_Click(object sender, EventArgs e)
+		{
+			ViewSchedule viewDetail = new ViewSchedule(PersonnelMenu._username, PersonnelMenu._role);
+			this.Hide();
+			viewDetail.ShowDialog();
+			this.Close();
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+			PersonnelRegister personnelRegister = new PersonnelRegister();
+			this.Hide();
+			personnelRegister.ShowDialog();
+			this.Close();
+		}
+	}
 }

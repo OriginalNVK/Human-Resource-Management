@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Microsoft.Office.Interop.Excel;
 using Oracle.ManagedDataAccess.Client;
+using static System.Windows.Forms.Design.AxImporter;
 
 
 namespace SchoolManagement
@@ -36,6 +38,8 @@ namespace SchoolManagement
         public static string SubjectID;
         public static int limited;
 
+        private Dictionary<string, List<string>> selectedColumnsByPrivilege = new Dictionary<string, List<string>>();
+
         public string RoleName { get; private set; }
         public UpdateRole(string roleName)
         {
@@ -44,8 +48,6 @@ namespace SchoolManagement
             this.Load += UpdateRole_Load;
             this.dgvTables.CellClick += dgvTables_CellClick;
             this.dgvViews.CellClick += dvgViews_CellClick;
-            this.dgvProcs.CellClick += dvgProcs_CellClick;
-
         }
 
         private void UpdateRole_Load(object sender, EventArgs e)
@@ -66,267 +68,62 @@ namespace SchoolManagement
         {
             try
             {
-                OracleConnection conn = DatabaseSession.Connection;
-                if (conn == null || conn.State != ConnectionState.Open)
-                {
-                    MessageBox.Show("Failed to connect with database!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Lấy danh sách bảng
                 string queryTables = "SELECT table_name FROM all_tables WHERE table_name LIKE 'QLDH_%' AND table_name != 'QLDH_ADMIN' ORDER BY table_name";
-                OracleDataAdapter tableAdapter = new OracleDataAdapter(queryTables, conn); // Renamed to 'tableAdapter'
-                DataTable dtTables = new DataTable();
-                tableAdapter.Fill(dtTables);
-
-                // Thêm cột INSERT, DELETE, SELECT và UPDATE vào DataTable
-                dtTables.Columns.Add("INSERT", typeof(string));
-                dtTables.Columns.Add("DELETE", typeof(string));
-                dtTables.Columns.Add("SELECT_COLUMN", typeof(string)); // Thêm cột SELECT
-                dtTables.Columns.Add("UPDATE_COLUMN", typeof(string)); // Thêm cột UPDATE
-
-                // Gán DataSource cho DataGridView
-                dgvTables.DataSource = dtTables;
-
-                // Ẩn các cột SELECT_COLUMN và UPDATE_COLUMN (chúng ta sẽ dùng ComboBox thay thế)
-                dgvTables.Columns["SELECT_COLUMN"].Visible = false;
-                dgvTables.Columns["UPDATE_COLUMN"].Visible = false;
-
-                // Tạo và cấu hình cột SELECT là ComboBox
-                DataGridViewComboBoxColumn selectColumn = new DataGridViewComboBoxColumn();
-                selectColumn.Name = "SELECT";
-                selectColumn.HeaderText = "SELECT";
-                selectColumn.DataPropertyName = "SELECT_COLUMN"; // Liên kết với cột ẩn
-                selectColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing; // Chỉ hiển thị khi click
-                selectColumn.FlatStyle = FlatStyle.Flat;
-                dgvTables.Columns.Add(selectColumn);
-
-                // Tạo và cấu hình cột UPDATE là ComboBox
-                DataGridViewComboBoxColumn updateColumn = new DataGridViewComboBoxColumn();
-                updateColumn.Name = "UPDATE";
-                updateColumn.HeaderText = "UPDATE";
-                updateColumn.DataPropertyName = "UPDATE_COLUMN"; // Liên kết với cột ẩn
-                updateColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing; // Chỉ hiển thị khi click
-                updateColumn.FlatStyle = FlatStyle.Flat;
-                dgvTables.Columns.Add(updateColumn);
-
-                // Điền dữ liệu dropdown cho từng dòng
-                foreach (DataGridViewRow row in dgvTables.Rows)
+                using (OracleCommand cmd = new OracleCommand(queryTables, DatabaseSession.Connection))
+                using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
                 {
-                    if (row.IsNewRow) continue; // Bỏ qua dòng mới
+                    System.Data.DataTable dt = new System.Data.DataTable();
+                    adapter.Fill(dt);
+                    dt.Columns.Add("INSERT", typeof(string));
+                    dt.Columns.Add("DELETE", typeof(string));
+                    dt.Columns.Add("SELECT", typeof(string));
+                    dt.Columns.Add("UPDATE", typeof(string));
 
-                    string tableName = row.Cells["TABLE_NAME"].Value?.ToString();
-                    if (string.IsNullOrEmpty(tableName)) continue;
-
-                    List<string> columns = GetColumnsFromTable(tableName);
-
-                    if (columns.Count > 0)
+                    foreach (DataRow row in dt.Rows)
                     {
-                        var selectCell = (DataGridViewComboBoxCell)row.Cells["SELECT"];
-                        selectCell.DataSource = new List<string>(columns);
-                        selectCell.Value = selectCell.Items.Count > 0 ? selectCell.Items[0] : null;
-
-                        var updateCell = (DataGridViewComboBoxCell)row.Cells["UPDATE"];
-                        updateCell.DataSource = new List<string>(columns);
-                        updateCell.Value = updateCell.Items.Count > 0 ? updateCell.Items[0] : null;
+                        row["SELECT"] = "x";
+                        row["INSERT"] = "x";
+                        row["UPDATE"] = "x";
+                        row["DELETE"] = "x";
                     }
-                }
 
-                // Đánh dấu quyền đã được cấp (INSERT/DELETE)
-                foreach (DataGridViewRow row in dgvTables.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    string tableName = row.Cells["TABLE_NAME"].Value?.ToString();
-                    if (string.IsNullOrEmpty(tableName)) continue;
-
-                    string queryPrivs = @"SELECT privilege FROM dba_tab_privs
-                          WHERE grantee = :roleName AND table_name = :tableName";
-
-                    using (OracleCommand cmd = new OracleCommand(queryPrivs, conn))
+                    // Check quyền đã được cấp
+                    foreach (DataRow row in dt.Rows)
                     {
-                        cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
-                        cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
+                        string tableName = row["TABLE_NAME"].ToString();
+                        string queryPrivs = @"SELECT privilege
+                                     FROM dba_tab_privs
+                                     WHERE grantee = :roleName AND table_name = :tableName";
 
-                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        using (OracleCommand command = new OracleCommand(queryPrivs, DatabaseSession.Connection))
                         {
-                            while (reader.Read())
+                            command.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
+                            command.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
+
+                            using (OracleDataReader reader = command.ExecuteReader())
                             {
-                                string privilege = reader["PRIVILEGE"].ToString().ToUpper();
-                                if (privilege == "INSERT") row.Cells["INSERT"].Value = "v";
-                                if (privilege == "DELETE") row.Cells["DELETE"].Value = "v";
+                                while (reader.Read())
+                                {
+                                    string privilege = reader["PRIVILEGE"].ToString().ToUpper();
+                                    if (privilege == "SELECT") row["SELECT"] = "v";
+                                    if (privilege == "INSERT") row["INSERT"] = "v";
+                                    if (privilege == "UPDATE") row["UPDATE"] = "v";
+                                    if (privilege == "DELETE") row["DELETE"] = "v";
+                                }
                             }
                         }
                     }
+
+
+                    dgvTables.DataSource = dt;
+                    dgvTables.Columns["TABLE_NAME"].HeaderText = "TABLE";
                 }
-
-                // Xử lý sự kiện CellClick để kích hoạt dropdown
-                dgvTables.CellClick += (sender, e) =>
-                {
-                    if (e.RowIndex >= 0 && (e.ColumnIndex == dgvTables.Columns["SELECT"].Index ||
-                                           e.ColumnIndex == dgvTables.Columns["UPDATE"].Index))
-                    {
-                        dgvTables.BeginEdit(true);
-                        if (dgvTables.EditingControl is DataGridViewComboBoxEditingControl editingControl)
-                        {
-                            editingControl.DroppedDown = true;
-                        }
-                    }
-                };
-
-                // ===== Lấy danh sách VIEWS =====
-                string queryViews = @"
-											SELECT view_name 
-											FROM all_views 
-											WHERE view_name LIKE 'QLDH_%'
-											ORDER BY view_name";
-
-                DataTable dtViews = new DataTable();
-                using (OracleDataAdapter viewAdapter = new OracleDataAdapter(queryViews, conn)) // Renamed to 'viewAdapter'
-                {
-                    viewAdapter.Fill(dtViews);
-                }
-
-                dtViews.Columns.Add("SELECT", typeof(string));
-                dtViews.Columns.Add("INSERT", typeof(string));
-                dtViews.Columns.Add("UPDATE", typeof(string));
-                dtViews.Columns.Add("DELETE", typeof(string));
-
-                foreach (DataRow row in dtViews.Rows)
-                {
-                    row["SELECT"] = "x";
-                    row["INSERT"] = "x";
-                    row["UPDATE"] = "x";
-                    row["DELETE"] = "x";
-                }
-                // ===== Lấy danh sách STORED PROCEDURES và FUNCTIONS =====
-                string queryProcs = @"
-            SELECT object_name AS name, object_type AS type
-            FROM all_objects 
-            WHERE (object_type = 'PROCEDURE' OR object_type = 'FUNCTION') AND object_name LIKE 'QLDH_%'
-            ORDER BY object_name";
-
-                DataTable dtProcs = new DataTable();
-                using (OracleDataAdapter adapter = new OracleDataAdapter(queryProcs, conn))
-                {
-                    adapter.Fill(dtProcs);
-                }
-
-                dtProcs.Columns.Add("EXECUTE", typeof(string));
-
-                foreach (DataRow row in dtProcs.Rows)
-                {
-                    row["EXECUTE"] = "x"; // Mặc định không có quyền
-                }
-                // ===== Kiểm tra quyền trên View =====
-                string privilegeQuery = @"
-			SELECT privilege 
-			FROM dba_tab_privs 
-			WHERE grantee = :roleName AND table_name = :tableName";
-
-                foreach (DataRow row in dtViews.Rows)
-                {
-                    string viewName = row["VIEW_NAME"].ToString();
-                    using (OracleCommand cmd = new OracleCommand(privilegeQuery, conn))
-                    {
-                        cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
-                        cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = viewName.ToUpper();
-                        using (OracleDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                string privilege = reader["PRIVILEGE"].ToString().ToUpper();
-                                if (privilege == "SELECT") row["SELECT"] = "v";
-                                if (privilege == "INSERT") row["INSERT"] = "v";
-                                if (privilege == "UPDATE") row["UPDATE"] = "v";
-                                if (privilege == "DELETE") row["DELETE"] = "v";
-                            }
-                        }
-                    }
-                }
-                // ===== Kiểm tra quyền trên Procedure/Function =====
-
-                string procPrivilegeQuery = @"
-            SELECT privilege
-            FROM dba_tab_privs
-            WHERE grantee = :roleName AND table_name = :procName AND privilege = 'EXCUTE'";
-                foreach (DataRow row in dtProcs.Rows)
-                {
-                    string procName = row["NAME"].ToString();
-                    using (OracleCommand cmd = new OracleCommand(procPrivilegeQuery, conn))
-                    {
-                        cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
-                        cmd.Parameters.Add(":procName", OracleDbType.Varchar2).Value = procName.ToUpper();
-                        using (OracleDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                string privilege = reader["PRIVILEGE"].ToString().ToUpper();
-                                if (privilege == "EXECUTE") row["EXECUTE"] = "v";
-                            }
-                        }
-                    }
-                }
-                // ===== Gán DataSource cho DataGridView Views =====
-                dgvViews.DataSource = null;
-                dgvViews.DataSource = dtViews;
-                dgvViews.AutoGenerateColumns = true;
-                dgvViews.AllowUserToAddRows = false;
-
-                // Hiển thị Stored Procedures
-                dgvProcs.DataSource = null;
-                dgvProcs.DataSource = dtProcs;
-                if (dgvProcs.Columns["EXECUTE"] != null)
-                {
-
-                    dgvProcs.Columns["NAME"].Width = 380;
-                }
-                dgvProcs.AutoGenerateColumns = true;
-                dgvProcs.AllowUserToAddRows = false;
-
-
-                dgvTables.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dgvTables.AllowUserToAddRows = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error to fetch privileges data\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error:\n" + ex.Message);
             }
         }
-
-        // Get list of table columns
-        private List<string> GetColumnsFromTable(string tableName)
-        {
-            List<string> columns = new List<string>();
-            try
-            {
-                string query = @"SELECT column_name 
-                         FROM all_tab_columns 
-                         WHERE table_name = :tableName
-                         ORDER BY column_id";
-
-                using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
-                {
-                    cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
-
-                    using (OracleDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            columns.Add(reader.GetString(0));
-                        }
-                    }
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy danh sách cột của bảng " + tableName + ":\n" + ex.Message);
-            }
-            return columns;
-        }
-
 
         private void dgvTables_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -338,40 +135,112 @@ namespace SchoolManagement
                 string columnName = dgvTables.Columns[e.ColumnIndex].Name;
                 if (columnName == "SELECT" || columnName == "UPDATE")
                 {
-                    DataGridViewComboBoxCell cell = dgvTables.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
-                    if (cell == null) return;
+                    string roleName = RoleName;
+                    string tableName = dgvTables.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
 
-                    string selectedColumn = cell.Value?.ToString();
-
-                    // Nếu đã chọn cột => thu hồi quyền
-                    if (!string.IsNullOrEmpty(selectedColumn))
+                    // Lấy danh sách cột bảng
+                    List<string> columns = new List<string>();
+                    string queryColumns = @"SELECT COLUMN_NAME FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = :tableName ORDER BY COLUMN_ID";
+                    using (OracleCommand cmd = new OracleCommand(queryColumns, DatabaseSession.Connection))
                     {
-                        DialogResult result = MessageBox.Show($"Bạn có muốn thu hồi quyền {columnName} trên cột '{selectedColumn}'?",
-                            "Xác nhận thu hồi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
 
-                        if (result == DialogResult.Yes)
+                        using (OracleDataReader reader = cmd.ExecuteReader())
                         {
-                            cell.Value = null; // Thu hồi
-                                               // TODO: Gọi hàm revoke ở đây nếu cần thiết
+                            while (reader.Read())
+                            {
+                                columns.Add(reader["COLUMN_NAME"].ToString());
+                            }
                         }
                     }
-                    else
+
+                    // Tạo key cho Dictionary lưu trạng thái
+                    string key = $"{roleName.ToUpper()}|{tableName.ToUpper()}|{columnName.ToUpper()}";
+
+                    // Lấy danh sách cột đã chọn trước đó nếu có
+                    List<string> selectedColumns;
+                    if (!selectedColumnsByPrivilege.TryGetValue(key, out selectedColumns))
+                        selectedColumns = new List<string>();
+
+                    using (Form form = new Form())
                     {
-                        // Hiện dropdown mặc định của ComboBox (người dùng sẽ chọn)
-                        dgvTables.BeginEdit(true);
+                        form.Text = $"Chọn cột cho quyền {columnName} - Bảng {tableName}";
+                        form.StartPosition = FormStartPosition.CenterParent;
+                        form.Size = new Size(300, 400);
+                        form.FormBorderStyle = FormBorderStyle.FixedDialog;
+                        form.MaximizeBox = false;
+                        form.MinimizeBox = false;
+
+                        System.Windows.Forms.Panel panel = new System.Windows.Forms.Panel()
+                        {
+                            Dock = DockStyle.Top,
+                            AutoScroll = true,
+                            Height = 300,
+                        };
+                        form.Controls.Add(panel);
+
+                        int y = 10;
+                        foreach (var col in columns)
+                        {
+                            var cb = new System.Windows.Forms.CheckBox()
+                            {
+                                Text = col,
+                                Location = new System.Drawing.Point(10, y),
+                                AutoSize = true,
+                                Checked = selectedColumns.Contains(col)
+                            };
+                            panel.Controls.Add(cb);
+                            y += 25;
+                        }
+
+                        System.Windows.Forms.Button btnOk = new System.Windows.Forms.Button()
+                        {
+                            Text = "OK",
+                            DialogResult = DialogResult.OK,
+                            Location = new System.Drawing.Point(form.ClientSize.Width / 2 - 80, panel.Bottom + 10),
+                            Size = new Size(75, 30)
+                        };
+                        form.Controls.Add(btnOk);
+
+                        System.Windows.Forms.Button btnCancel = new System.Windows.Forms.Button()
+                        {
+                            Text = "Cancel",
+                            DialogResult = DialogResult.Cancel,
+                            Location = new System.Drawing.Point(form.ClientSize.Width / 2 + 10, panel.Bottom + 10),
+                            Size = new Size(75, 30)
+                        };
+                        form.Controls.Add(btnCancel);
+
+                        form.AcceptButton = btnOk;
+                        form.CancelButton = btnCancel;
+
+                        if (form.ShowDialog() == DialogResult.OK)
+                        {
+                            List<string> newSelectedCols = panel.Controls.OfType<System.Windows.Forms.CheckBox>()
+                                .Where(cb => cb.Checked)
+                                .Select(cb => cb.Text)
+                                .ToList();
+
+                            // Lưu lại trạng thái đã chọn
+                            selectedColumnsByPrivilege[key] = newSelectedCols;
+
+                            // Cập nhật cell dgvTables thành "v"
+                            if (newSelectedCols.Count > 0)
+                                dgvTables.Rows[e.RowIndex].Cells[columnName].Value = "v";
+                            else
+                                dgvTables.Rows[e.RowIndex].Cells[columnName].Value = "x";
+
+                            // Bạn có thể xử lý thêm lưu quyền theo cột nếu cần
+                        }
                     }
                 }
                 else if (columnName == "INSERT" || columnName == "DELETE")
                 {
-                    // Toggle kiểu checkbox (v hoặc "")
                     DataGridViewCell cell = dgvTables.Rows[e.RowIndex].Cells[e.ColumnIndex];
                     string currentValue = cell.Value?.ToString();
 
-                    cell.Value = currentValue == "v" ? "" : "v";
+                    cell.Value = currentValue == "v" ? "x" : "v";
                 }
-
-
-
             }
             catch (Exception ex)
             {
@@ -383,55 +252,27 @@ namespace SchoolManagement
         {
             try
             {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                    return;
+
+                string columnName = dgvTables.Columns[e.ColumnIndex].Name;
+                if (columnName == "SELECT" || columnName == "UPDATE")
                 {
-                    DataGridViewColumn column = dgvViews.Columns[e.ColumnIndex];
-                    string columnName = column.Name;
-                    // Chỉ cho phép click vào các cột quyền
-                    if (columnName == "SELECT" || columnName == "INSERT" || columnName == "UPDATE" || columnName == "DELETE")
-                    {
-                        DataGridViewRow row = dgvViews.Rows[e.RowIndex];
-                        string currentValue = row.Cells[columnName].Value?.ToString();
-                        if (currentValue == "x")
-                        {
-                            row.Cells[columnName].Value = "v";  // cấp quyền
-                        }
-                        else if (currentValue == "v")
-                        {
-                            row.Cells[columnName].Value = "x";  // thu hồi quyền
-                        }
-                    }
+                    // Lấy tên bảng ở dòng hiện tại
+                    string tableName = dgvTables.Rows[e.RowIndex].Cells["TABLE_NAME"].Value?.ToString();
+
+                    // Hiện MessageBox
+                    MessageBox.Show($"Bạn vừa click vào quyền {columnName} của bảng {tableName}.",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Nếu cần thêm xử lý khác thì viết ở đây
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error while toggling permission:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private void dvgProcs_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                else if (columnName == "INSERT" || columnName == "DELETE")
                 {
-                    DataGridViewColumn column = dgvProcs.Columns[e.ColumnIndex];
-                    string columnName = column.Name;
-                    // Chỉ cho phép click vào các cột quyền
-                    if (columnName == "EXECUTE")
-                    {
-                        DataGridViewRow row = dgvProcs.Rows[e.RowIndex];
-                        string currentValue = row.Cells[columnName].Value?.ToString();
-                        if (currentValue == "x")
-                        {
-                            row.Cells[columnName].Value = "v";  // cấp quyền
-                        }
-                        else if (currentValue == "v")
-                        {
-                            row.Cells[columnName].Value = "x";  // thu hồi quyền
-                        }
-                    }
+                    DataGridViewCell cell = dgvTables.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    string currentValue = cell.Value?.ToString();
+
+                    cell.Value = currentValue == "v" ? "" : "v";
                 }
             }
             catch (Exception ex)
@@ -492,113 +333,51 @@ namespace SchoolManagement
         {
             try
             {
-                OracleConnection conn = DatabaseSession.Connection;
-
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                OracleTransaction transaction = conn.BeginTransaction();  // Bắt đầu transaction
-
-                using (OracleCommand cmd = new OracleCommand())
+                string roleName = RoleName;
+                foreach (DataGridViewRow row in dgvTables.Rows)
                 {
-                    cmd.Connection = conn;
-                    cmd.Transaction = transaction;
+                    string tableName = row.Cells["TABLE_NAME"].Value.ToString();
 
-                    foreach (DataGridViewRow row in dgvTables.Rows)
+                    foreach (string privilege in new[] { "SELECT", "INSERT", "UPDATE", "DELETE" })
                     {
-                        if (row.IsNewRow) continue;
+                        var cellValue = row.Cells[privilege].Value?.ToString();
+                        if (cellValue != "v") continue;
 
-                        string tableName = row.Cells["TABLE_NAME"].Value.ToString().ToUpper();
-                        string[] privileges = { "SELECT", "INSERT", "UPDATE", "DELETE" };
+                        string sql = "";
 
-                        foreach (string privilege in privileges)
+                        if ((privilege == "SELECT" || privilege == "UPDATE"))
                         {
-                            string cellValue = row.Cells[privilege].Value?.ToString();
-
-                            if (cellValue == "v")
+                            // Kiểm tra nếu có lựa chọn cột từ form phụ
+                            string key = $"{roleName}|{tableName}|{privilege}";
+                            if (selectedColumnsByPrivilege.TryGetValue(key, out var columns) && columns.Count > 0)
                             {
-                                cmd.CommandText = $"BEGIN PDB_ADMIN.GRANT_PRIVS_TO_ROLE(:roleName, :tableName, :privilege); END;";
-                            }
-                            else if (cellValue == "x")
-                            {
-                                cmd.CommandText = $"BEGIN PDB_ADMIN.REVOKE_PRIVS_FROM_ROLE(:roleName, :tableName, :privilege); END;";
+                                string columnList = string.Join(", ", columns);
+                                sql = $"GRANT {privilege}({columnList}) ON PDB_ADMIN.{tableName} TO {roleName}";
                             }
                             else
                             {
                                 continue;
                             }
+                        }
+                        else if (privilege == "INSERT" || privilege == "DELETE")
+                        {
+                            sql = $"GRANT {privilege} ON PDB_ADMIN.{tableName} TO {roleName}";
+                        }
 
-                            cmd.Parameters.Clear();
-                            cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = RoleName;
-                            cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName;
-                            cmd.Parameters.Add(":privilege", OracleDbType.Varchar2).Value = privilege;
+                        //MessageBox.Show("SQL: " + sql);
 
+                        using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
+                        {
                             cmd.ExecuteNonQuery();
                         }
-                    }
-
-                    foreach (DataGridViewRow row in dgvViews.Rows)
-                    {
-                        if (row.IsNewRow) continue;
-
-                        string viewName = row.Cells["VIEW_NAME"].Value.ToString().ToUpper();
-                        string[] privileges = { "SELECT", "INSERT", "UPDATE", "DELETE" };
-
-                        foreach (string privilege in privileges)
-                        {
-                            string cellValue = row.Cells[privilege].Value?.ToString();
-
-                            if (cellValue == "v")
-                            {
-                                cmd.CommandText = $"BEGIN PDB_ADMIN.GRANT_PRIVS_TO_ROLE(:roleName, :viewName, :privilege); END;";
-                            }
-                            else if (cellValue == "x")
-                            {
-                                cmd.CommandText = $"BEGIN PDB_ADMIN.REVOKE_PRIVS_FROM_ROLE(:roleName, :viewName, :privilege); END;";
-                            }
-                            else
-                            {
-                                continue;
-                            }
-
-                            cmd.Parameters.Clear();
-                            cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = RoleName;
-                            cmd.Parameters.Add(":viewName", OracleDbType.Varchar2).Value = viewName;
-                            cmd.Parameters.Add(":privilege", OracleDbType.Varchar2).Value = privilege;
-
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                    foreach (DataGridViewRow row in dgvProcs.Rows)
-                    {
-                        if (row.IsNewRow) continue;
-                        string procName = row.Cells["NAME"].Value.ToString().ToUpper();
-                        string cellValue = row.Cells["EXECUTE"].Value?.ToString();
-                        if (cellValue == "v")
-                        {
-                            cmd.CommandText = $"BEGIN PDB_ADMIN.GRANT_PRIVS_TO_ROLE(:roleName, :procName, 'EXECUTE'); END;";
-                        }
-                        else if (cellValue == "x")
-                        {
-                            cmd.CommandText = $"BEGIN PDB_ADMIN.REVOKE_PRIVS_FROM_ROLE(:roleName, :procName, 'EXECUTE'); END;";
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                        cmd.Parameters.Clear();
-                        cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = RoleName;
-                        cmd.Parameters.Add(":procName", OracleDbType.Varchar2).Value = procName;
-                        cmd.ExecuteNonQuery();
                     }
                 }
 
-                transaction.Commit();
-                MessageBox.Show("Permissions updated successfully!", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Grant privileges successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show("Failed to update permissions:\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error:\n" +  ex.Message);
             }
         }
 
@@ -606,6 +385,32 @@ namespace SchoolManagement
         private void label7_Click(object sender, EventArgs e)
         {
             label7.Text = RoleName;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+            AddNotification addNotification = new AddNotification();
+            this.Hide();
+            addNotification.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

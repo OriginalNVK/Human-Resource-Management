@@ -303,31 +303,7 @@ namespace SchoolManagement
             {
                 string selectedEmployeeId = dgvPersonnels.SelectedRows[0].Cells["MÃ NHÂN VIÊN"].Value.ToString();
                 string selectedEmployeeVaiTro = dgvPersonnels.SelectedRows[0].Cells["VAI TRÒ"].Value.ToString();
-                if (selectedEmployeeVaiTro == "TRGĐV")
-                {
-                    string sql = @"
-					UPDATE PDB_ADMIN.QLDH_DONVI
-					SET TRUONGDV = NULL 
-					WHERE TRUONGDV = :manv";
-                    using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("manv", selectedEmployeeId));
-                        cmd.ExecuteNonQuery();
-
-                    }
-                }
-                else if (selectedEmployeeVaiTro == "GV")
-                {
-                    string sql = @"
-					UPDATE PDB_ADMIN.QLDH_MONHOC
-					SET MAGV = NULL 
-					WHERE MAGV = :manv";
-                    using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("manv", selectedEmployeeId));
-                        cmd.ExecuteNonQuery();
-                    }
-                }
+                
 
                 string query = @"
 				DELETE FROM PDB_ADMIN.QLDH_NHANVIEN 
@@ -433,5 +409,29 @@ namespace SchoolManagement
             viewDetail.ShowDialog();
             this.Close();
         }
-    }
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+            ViewNotice viewNotification = new ViewNotice(Login.ID);
+            this.Hide();
+            viewNotification.ShowDialog();
+            this.Close();
+        }
+
+		private void label4_Click_1(object sender, EventArgs e)
+		{
+			ClassList classList = new ClassList();
+			this.Hide();
+			classList.ShowDialog();
+			this.Close();
+		}
+
+		private void lbProfile_Click_1(object sender, EventArgs e)
+		{
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+			this.Hide();
+			personnelMenu.ShowDialog();
+			this.Close();
+		}
+	}
 }

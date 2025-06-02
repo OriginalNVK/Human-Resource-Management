@@ -55,22 +55,6 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-		private void label9_Click(object sender, EventArgs e)
-		{
-			StudentManager student = new StudentManager();
-			this.Hide();
-			student.ShowDialog();
-			this.Close();
-		}
-
-		private void lbPersonnel_Click(object sender, EventArgs e)
-		{
-			PersonnelManager personnelManager = new PersonnelManager();
-			this.Hide();
-			personnelManager.ShowDialog();
-			this.Close();
-		}
-
 		private void lbProfile_Click(object sender, EventArgs e)
 		{
 			AdminProfile myProfile = new AdminProfile();
@@ -86,5 +70,31 @@ namespace SchoolManagement
 			login.ShowDialog();
 			this.Close();
 		}
-	}
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+
+		}
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            AuditView auditView = new AuditView();
+            this.Hide();
+            auditView.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNoticeBtn_Click(object sender, EventArgs e)
+        {
+            AddNotification addNotification = new AddNotification();
+            this.Hide();
+            addNotification.ShowDialog();
+            this.Close();
+        }
+    }
 }
