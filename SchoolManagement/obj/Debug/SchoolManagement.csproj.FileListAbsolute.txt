@@ -583,3 +583,5 @@ D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code2\Human-
 D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code2\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.pdb
 D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code2\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddNotification.resources
 D:\HCMUS\2024-2025\2nd\Data Security in Information Systems\Project\Code2\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNotice.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AuditView.resources
+>>>>>>> b074c6231d5d314fe70b63d70abfba70a9a4c556

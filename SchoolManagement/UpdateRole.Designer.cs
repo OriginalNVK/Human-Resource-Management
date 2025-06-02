@@ -45,6 +45,9 @@ namespace SchoolManagement
             this.dgvViews = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.dgvProcs = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.addNoticeBtn = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Dashboard = new System.Windows.Forms.Label();
@@ -57,20 +60,17 @@ namespace SchoolManagement
             this.pbSection = new System.Windows.Forms.PictureBox();
             this.pbProfile = new System.Windows.Forms.PictureBox();
             this.pbClasses = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.addNoticeBtn = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViews)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcs)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // lbHello
@@ -237,11 +237,11 @@ namespace SchoolManagement
             this.dgvTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTables.ImeMode = System.Windows.Forms.ImeMode.On;
             this.dgvTables.Location = new System.Drawing.Point(385, 261);
-            this.dgvTables.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTables.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTables.Name = "dgvTables";
             this.dgvTables.ReadOnly = true;
             this.dgvTables.RowHeadersWidth = 51;
-            this.dgvTables.Size = new System.Drawing.Size(899, 150);
+            this.dgvTables.Size = new System.Drawing.Size(899, 239);
             this.dgvTables.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dgvTables.StateCommon.Background.Color2 = System.Drawing.Color.White;
             this.dgvTables.StateCommon.Background.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
@@ -285,7 +285,7 @@ namespace SchoolManagement
             this.dgvViews.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvViews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvViews.Location = new System.Drawing.Point(385, 261);
-            this.dgvViews.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvViews.Margin = new System.Windows.Forms.Padding(4);
             this.dgvViews.Name = "dgvViews";
             this.dgvViews.ReadOnly = true;
             this.dgvViews.RowHeadersWidth = 51;
@@ -333,7 +333,7 @@ namespace SchoolManagement
             this.dgvProcs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvProcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcs.Location = new System.Drawing.Point(385, 261);
-            this.dgvProcs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProcs.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProcs.Name = "dgvProcs";
             this.dgvProcs.ReadOnly = true;
             this.dgvProcs.RowHeadersWidth = 51;
@@ -385,6 +385,48 @@ namespace SchoolManagement
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(316, 866);
             this.panel2.TabIndex = 217;
+            // 
+            // addNoticeBtn
+            // 
+            this.addNoticeBtn.AutoSize = true;
+            this.addNoticeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.addNoticeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addNoticeBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNoticeBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.addNoticeBtn.Location = new System.Drawing.Point(81, 499);
+            this.addNoticeBtn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.addNoticeBtn.Name = "addNoticeBtn";
+            this.addNoticeBtn.Size = new System.Drawing.Size(190, 22);
+            this.addNoticeBtn.TabIndex = 241;
+            this.addNoticeBtn.Text = "ADD NOTIFICATION";
+            this.addNoticeBtn.Click += new System.EventHandler(this.addNoticeBtn_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(23, 486);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(39, 54);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 240;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(23, 422);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(39, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 238;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label5
             // 
@@ -438,8 +480,8 @@ namespace SchoolManagement
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(752, 261);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(736, 554);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
             this.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
@@ -578,47 +620,6 @@ namespace SchoolManagement
             this.pbClasses.TabIndex = 208;
             this.pbClasses.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(23, 422);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 54);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 238;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // addNoticeBtn
-            // 
-            this.addNoticeBtn.AutoSize = true;
-            this.addNoticeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.addNoticeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addNoticeBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNoticeBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addNoticeBtn.Location = new System.Drawing.Point(81, 499);
-            this.addNoticeBtn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.addNoticeBtn.Name = "addNoticeBtn";
-            this.addNoticeBtn.Size = new System.Drawing.Size(190, 22);
-            this.addNoticeBtn.TabIndex = 241;
-            this.addNoticeBtn.Text = "ADD NOTIFICATION";
-            this.addNoticeBtn.Click += new System.EventHandler(this.addNoticeBtn_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(23, 486);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(39, 54);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 240;
-            this.pictureBox3.TabStop = false;
-            // 
             // UpdateRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -641,7 +642,7 @@ namespace SchoolManagement
             this.Controls.Add(this.dgvProcs);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateRole";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CLASS SECTION MANAGER";
@@ -650,14 +651,14 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcs)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
