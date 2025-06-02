@@ -11,6 +11,8 @@ namespace SchoolManagement
 		public static string CurrentUser { get; private set; }
 		public static string UserType { get; private set; }
 
+		public static string UserRole { get; private set; }
+
 		public static bool InitializeSession(string username, string password)
 		{
 			try
@@ -28,8 +30,7 @@ namespace SchoolManagement
 					
                     tempConn.Open();
 					
-                    string userType = DetermineUserType(tempConn, username);
-					
+                    string userType = DetermineUserType(tempConn, username);					
 					
                     if (userType == null)
 					{
@@ -46,6 +47,7 @@ namespace SchoolManagement
 
 				CurrentUser = username;
 				UserType = DetermineUserType(Connection, username); // Kiểm tra lại
+				UserRole = DetermineUserRole(Connection, username);
 				
 
 				return true;
@@ -83,6 +85,24 @@ namespace SchoolManagement
 
 			return null;
 		}
+
+		public static string DetermineUserRole(OracleConnection conn, string username)
+		{
+			string checkRole = "SELECT VAITRO FROM PDB_ADMIN.QLDH_NHANVIEN WHERE MANV = :username";
+            using (var cmd = new OracleCommand(checkRole, conn))
+            {
+                cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
+                object result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    string grantedRole = result.ToString().ToUpper();
+
+                    return grantedRole;
+                }
+            }
+			return null;
+        }
 
 		public static void CloseSession()
 		{

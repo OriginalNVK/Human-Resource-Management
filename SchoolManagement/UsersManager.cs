@@ -55,7 +55,7 @@ namespace SchoolManagement
                 'SPATIAL_WFS_ADMIN_USR','MGMT_VIEW',
                 'C##SCHOOL USER ADMIN','DBSFWUSER','DGPDB_INT','GSMCATUSER',
                 'MDDATA','PDB_ADMIN','SYS$UMF','SYSRAC', 'C##SCHOOL_USER_ADMIN'
-            )
+            ) AND USERNAME NOT LIKE 'C##%'
             ORDER BY USERNAME";
 
 				using (OracleCommand cmd = new OracleCommand(userQuery, DatabaseSession.Connection))

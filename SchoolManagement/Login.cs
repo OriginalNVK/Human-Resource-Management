@@ -17,6 +17,7 @@ namespace SchoolManagement
 	{
 		public static string ID;
 		public static string TYPE_USER;
+		public static string TYPE_ROLE;
 		public Login()
 		{
 			InitializeComponent();
@@ -39,6 +40,7 @@ namespace SchoolManagement
 			{
 				// Đăng nhập thành công, mở form tương ứng
 				string userType = DatabaseSession.UserType;
+				TYPE_ROLE = DatabaseSession.UserRole;
                 OpenUserForm(userType);
 			}
 			else

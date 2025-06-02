@@ -34,21 +34,21 @@ namespace SchoolManagement
                 string subjectQuery;
                 switch (role)
                 {
-                    case "NV_GV":
+                    case "GV":
                         subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC
                                      FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
                                      JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
                                      JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
                                      WHERE mh.MAGV = :manv";
                         break;
-                    case "NV_TRGDV":
+                    case "TRGĐV":
                         subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC
                                        FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
                                        JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
                                        JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
                                        WHERE nv.MADV = (
-                                       SELECT MADV 
-                                       FROM pdb_admin.QLDH_NHANVIEN 
+                                       SELECT p.MADV 
+                                       FROM pdb_admin.QLDH_NHANVIEN p 
                                        WHERE MANV = :manv)";
                         break;
                     default:

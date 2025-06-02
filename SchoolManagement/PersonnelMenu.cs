@@ -192,7 +192,7 @@ namespace SchoolManagement
 
         private void view_Schedule(object sender, EventArgs e)
         {
-			ViewSchedule viewDetail = new ViewSchedule(_username, _role);
+			ViewSchedule viewDetail = new ViewSchedule(_username, Login.TYPE_ROLE);
 			this.Hide();
 			viewDetail.ShowDialog();
 			this.Close();
