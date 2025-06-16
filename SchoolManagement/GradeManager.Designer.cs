@@ -372,6 +372,7 @@ namespace SchoolManagement
             this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 257;
             this.label4.Text = "LOGOUT";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // lbProfile
             // 
@@ -494,6 +495,7 @@ namespace SchoolManagement
             this.pbLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogout.TabIndex = 256;
             this.pbLogout.TabStop = false;
+            this.pbLogout.Click += new System.EventHandler(this.label4_Click);
             // 
             // pbSection
             // 
