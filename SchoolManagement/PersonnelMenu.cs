@@ -190,12 +190,25 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-        private void view_Schedule(object sender, EventArgs e)
-        {
+		private void view_Schedule(object sender, EventArgs e)
+		{
 			ViewSchedule viewDetail = new ViewSchedule(_username, Login.TYPE_ROLE);
 			this.Hide();
 			viewDetail.ShowDialog();
 			this.Close();
-        }
+		}
+
+		private void label8_Click(object sender, EventArgs e)
+		{
+			GradeManager gradeManager = new GradeManager();
+			this.Hide();
+			gradeManager.ShowDialog();
+			this.Close();
+		}
+
+		private void notifications_Click(object sender, EventArgs e)
+		{
+
+		}
     }
 }

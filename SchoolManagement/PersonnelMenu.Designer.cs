@@ -377,6 +377,7 @@ namespace SchoolManagement
 			this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbGrade.TabIndex = 194;
 			this.pbGrade.TabStop = false;
+			this.pbGrade.Click += new System.EventHandler(this.label8_Click);
 			// 
 			// label7
 			// 
