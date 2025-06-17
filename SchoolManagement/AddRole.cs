@@ -73,7 +73,10 @@ namespace SchoolManagement
 
 		private void notifications_Click(object sender, EventArgs e)
 		{
-
+			ViewNotice viewNotification = new ViewNotice(Login.ID);
+			this.Hide();
+			viewNotification.ShowDialog();
+			this.Close();
 		}
 
         private void label7_Click(object sender, EventArgs e)

@@ -143,19 +143,10 @@ END;
 --END;
 --/
 
--- Cấp quyền cho vai trò
-GRANT SELECT, UPDATE (DCHI, DT) ON PDB_ADMIN.QLDH_SINHVIEN TO SV;
-GRANT SELECT, INSERT, UPDATE, DELETE ON PDB_ADMIN.QLDH_SINHVIEN TO NV_CTSV;
-GRANT SELECT, INSERT, UPDATE, DELETE ON PDB_ADMIN.QLDH_SINHVIEN TO NV_PDT;
-GRANT SELECT ON PDB_ADMIN.QLDH_SINHVIEN TO NV_GV;
-
-
-
 -----------------------------------------------------------------------------------
 
 --Câu 4: Em hãy ép thỏa các chính sách bảo mật trên quan hệ ĐANGKY dùng cơ chế VPD
 --theo mô tả bên dưới và cài đặt giao diện cho những người dùng liên quan:
-
 
 CREATE OR REPLACE FUNCTION pdb_admin.register_policy_function(
     p_schema IN VARCHAR2,

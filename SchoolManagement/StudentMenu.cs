@@ -106,5 +106,10 @@ namespace SchoolManagement
             viewNotification.ShowDialog();
             this.Close();
         }
+
+		private void StudentMenu_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -31,13 +32,18 @@ namespace SchoolManagement
             InitializeComponent();
             getAllFacility();
             getAllTeacher();
-        }
+			facilityList.SelectedIndexChanged += FacilityOrLocationChanged;
+			locationList.SelectedIndexChanged += FacilityOrLocationChanged;
+		}
 
         private void getAllFacility()
         {
             try
             {
-                string facilityQuery = @"SELECT MADV, TENDV FROM pdb_admin.QLDH_DONVI";
+                string facilityQuery = @"SELECT MIN(MADV) AS MADV, TENDV
+										   FROM pdb_admin.QLDH_DONVI
+										   GROUP BY TENDV
+										   ORDER BY TENDV";
 
                 using (OracleCommand cmd = new OracleCommand(facilityQuery, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
@@ -60,7 +66,8 @@ namespace SchoolManagement
         {
             try
             {
-                string teacherQuery = @"SELECT MANV, HOTEN FROM pdb_admin.QLDH_NHANVIEN";
+                string teacherQuery = @"SELECT MANV, HOTEN 
+                                        FROM pdb_admin.QLDH_NHANVIEN";
 
                 using (OracleCommand cmd = new OracleCommand(teacherQuery, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
@@ -79,7 +86,63 @@ namespace SchoolManagement
             }
         }
 
-        private void lbClasses_Click(object sender, EventArgs e)
+		private void FacilityOrLocationChanged(object sender, EventArgs e)
+		{
+			if (facilityList.SelectedItem == null || locationList.SelectedItem == null)
+				return;
+
+			string selectedFacility = facilityList.Text.ToString();
+			string selectedLocation = locationList.Text.ToString();
+
+			try
+			{
+				string getIdQuery = @"SELECT MADV 
+                              FROM PDB_ADMIN.QLDH_DONVI 
+                              WHERE TENDV = :dep AND COSO = :location";
+
+				string queSeDepID = null;
+
+				using (OracleCommand cmdGetMADV = new OracleCommand(getIdQuery, DatabaseSession.Connection))
+				{
+					cmdGetMADV.Parameters.Add(new OracleParameter("dep", selectedFacility));
+					cmdGetMADV.Parameters.Add(new OracleParameter("location", selectedLocation));
+
+					using (OracleDataReader reader = cmdGetMADV.ExecuteReader())
+					{
+						if (reader.Read())
+							queSeDepID = reader.GetString(0);
+						else
+						{
+							teacherList.DataSource = null;
+							MessageBox.Show("Không tìm thấy đơn vị phù hợp.");
+							return;
+						}
+					}
+				}
+
+				string teacherQuery = @"SELECT MANV, HOTEN FROM pdb_admin.QLDH_NHANVIEN WHERE MADV = :kh";
+
+				using (OracleCommand cmd = new OracleCommand(teacherQuery, DatabaseSession.Connection))
+				{
+					cmd.Parameters.Add(new OracleParameter("kh", queSeDepID));
+					using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+					{
+						DataTable dt = new DataTable();
+						adapter.Fill(dt);
+
+						teacherList.DataSource = dt;
+						teacherList.DisplayMember = "HOTEN";
+						teacherList.ValueMember = "MANV";
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi cập nhật danh sách giáo viên: " + ex.Message);
+			}
+		}
+
+		private void lbClasses_Click(object sender, EventArgs e)
         {
             SubjectManagement subjectManagement = new SubjectManagement();
             this.Hide();
@@ -175,12 +238,43 @@ namespace SchoolManagement
                 string subjectCode = txtSubjectCode.Text.Trim();
                 string courseCode = txtCourseCode.Text.Trim();
                 string courseName = txtCourseName.Text.Trim();
-                string facility = facilityList.SelectedValue.ToString();
+                string facility = facilityList.Text.ToString();
+                string location = locationList.Text.ToString();
                 string teacherCode = teacherList.SelectedValue.ToString();
                 string start = startDay.Value.Date.ToString("dd-MM-yyyy");
                 string end = endDay.Value.Date.ToString("dd-MM-yyyy");
 
-                string insertCourse = @"INSERT INTO pdb_admin.QLDH_HOCPHAN (MAHP, TENHP, SOTC, STLT, STTH, MADV)
+				string queSeDepID = null;
+                string getIdQuery = @"SELECT MADV 
+                                      FROM PDB_ADMIN.QLDH_DONVI 
+                                      WHERE TENDV = :dep 
+                                      AND COSO = :location";
+
+				using (OracleTransaction transaction = DatabaseSession.Connection.BeginTransaction())
+                {
+                    using (OracleCommand cmdGetMADV = new OracleCommand(getIdQuery, DatabaseSession.Connection))
+                    {
+                        cmdGetMADV.Transaction = transaction;
+                        cmdGetMADV.Parameters.Add(new OracleParameter("dep", OracleDbType.Varchar2)).Value = facility;
+						cmdGetMADV.Parameters.Add(new OracleParameter("location", OracleDbType.Varchar2)).Value = location;
+
+						using (OracleDataReader reader = cmdGetMADV.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                queSeDepID = reader.GetString(0);
+                            }
+                            else
+                            {
+                                transaction.Rollback();
+                                MessageBox.Show("Không tìm thấy đơn vị phù hợp.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
+                }
+
+				string insertCourse = @"INSERT INTO pdb_admin.QLDH_HOCPHAN (MAHP, TENHP, SOTC, STLT, STTH, MADV)
                                         VALUES (:mahp, :tenhp, :tc, :lt, :th, :khoa)";
 
                 string insertSubject = @"INSERT INTO pdb_admin.QLDH_MONHOC (MAMH, MAHP, MAGV, HK, NAM, NGAYBATDAU, NGAYKETTHUC)
@@ -198,7 +292,7 @@ namespace SchoolManagement
                             cmd1.Parameters.Add(new OracleParameter("tc", credits));
                             cmd1.Parameters.Add(new OracleParameter("lt", theory));
                             cmd1.Parameters.Add(new OracleParameter("th", practical));
-                            cmd1.Parameters.Add(new OracleParameter("khoa", facility));
+                            cmd1.Parameters.Add(new OracleParameter("khoa", queSeDepID));
                             cmd1.ExecuteNonQuery();
                         }
 
@@ -232,7 +326,7 @@ namespace SchoolManagement
                         MessageBox.Show("Error:\n" + ex.Message, "Insert failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
+			}
             catch (Exception ex)
             {
                 MessageBox.Show("Error:\n" + ex.Message);

@@ -80,6 +80,8 @@ namespace SchoolManagement
 			this.pbLogout = new System.Windows.Forms.PictureBox();
 			this.facilityList = new System.Windows.Forms.ComboBox();
 			this.teacherList = new System.Windows.Forms.ComboBox();
+			this.locationList = new System.Windows.Forms.ComboBox();
+			this.label17 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
@@ -280,7 +282,7 @@ namespace SchoolManagement
 			// 
 			// btnUpdateSubject
 			// 
-			this.btnUpdateSubject.Location = new System.Drawing.Point(709, 693);
+			this.btnUpdateSubject.Location = new System.Drawing.Point(705, 718);
 			this.btnUpdateSubject.Margin = new System.Windows.Forms.Padding(4);
 			this.btnUpdateSubject.Name = "btnUpdateSubject";
 			this.btnUpdateSubject.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
@@ -372,7 +374,7 @@ namespace SchoolManagement
 			// 
 			// txtCredits
 			// 
-			this.txtCredits.Location = new System.Drawing.Point(788, 367);
+			this.txtCredits.Location = new System.Drawing.Point(787, 412);
 			this.txtCredits.Margin = new System.Windows.Forms.Padding(4);
 			this.txtCredits.Name = "txtCredits";
 			this.txtCredits.Size = new System.Drawing.Size(285, 37);
@@ -394,7 +396,7 @@ namespace SchoolManagement
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label11.Location = new System.Drawing.Point(575, 377);
+			this.label11.Location = new System.Drawing.Point(574, 422);
 			this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(200, 22);
@@ -403,7 +405,7 @@ namespace SchoolManagement
 			// 
 			// txtTheory
 			// 
-			this.txtTheory.Location = new System.Drawing.Point(787, 412);
+			this.txtTheory.Location = new System.Drawing.Point(786, 457);
 			this.txtTheory.Margin = new System.Windows.Forms.Padding(4);
 			this.txtTheory.Name = "txtTheory";
 			this.txtTheory.Size = new System.Drawing.Size(285, 37);
@@ -425,7 +427,7 @@ namespace SchoolManagement
 			// 
 			this.label12.AutoSize = true;
 			this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(573, 422);
+			this.label12.Location = new System.Drawing.Point(572, 467);
 			this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(168, 22);
@@ -436,7 +438,7 @@ namespace SchoolManagement
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(577, 466);
+			this.label13.Location = new System.Drawing.Point(576, 511);
 			this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(202, 22);
@@ -458,7 +460,7 @@ namespace SchoolManagement
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(576, 514);
+			this.label4.Location = new System.Drawing.Point(575, 559);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(98, 22);
@@ -469,7 +471,7 @@ namespace SchoolManagement
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(576, 562);
+			this.label3.Location = new System.Drawing.Point(575, 607);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(112, 22);
@@ -480,7 +482,7 @@ namespace SchoolManagement
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(579, 615);
+			this.label8.Location = new System.Drawing.Point(578, 660);
 			this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(98, 22);
@@ -489,7 +491,7 @@ namespace SchoolManagement
 			// 
 			// txtPractical
 			// 
-			this.txtPractical.Location = new System.Drawing.Point(788, 459);
+			this.txtPractical.Location = new System.Drawing.Point(787, 504);
 			this.txtPractical.Margin = new System.Windows.Forms.Padding(4);
 			this.txtPractical.Name = "txtPractical";
 			this.txtPractical.Size = new System.Drawing.Size(285, 37);
@@ -509,7 +511,7 @@ namespace SchoolManagement
 			// 
 			// endDay
 			// 
-			this.endDay.Location = new System.Drawing.Point(788, 615);
+			this.endDay.Location = new System.Drawing.Point(787, 660);
 			this.endDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.endDay.Name = "endDay";
 			this.endDay.Size = new System.Drawing.Size(285, 22);
@@ -517,7 +519,7 @@ namespace SchoolManagement
 			// 
 			// startDay
 			// 
-			this.startDay.Location = new System.Drawing.Point(788, 562);
+			this.startDay.Location = new System.Drawing.Point(787, 607);
 			this.startDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.startDay.Name = "startDay";
 			this.startDay.Size = new System.Drawing.Size(285, 22);
@@ -812,17 +814,43 @@ namespace SchoolManagement
 			// teacherList
 			// 
 			this.teacherList.FormattingEnabled = true;
-			this.teacherList.Location = new System.Drawing.Point(787, 512);
+			this.teacherList.Location = new System.Drawing.Point(786, 557);
 			this.teacherList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.teacherList.Name = "teacherList";
 			this.teacherList.Size = new System.Drawing.Size(285, 24);
 			this.teacherList.TabIndex = 249;
+			// 
+			// locationList
+			// 
+			this.locationList.AllowDrop = true;
+			this.locationList.FormattingEnabled = true;
+			this.locationList.Items.AddRange(new object[] {
+            "CS1",
+            "CS2"});
+			this.locationList.Location = new System.Drawing.Point(787, 367);
+			this.locationList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.locationList.Name = "locationList";
+			this.locationList.Size = new System.Drawing.Size(285, 24);
+			this.locationList.TabIndex = 251;
+			// 
+			// label17
+			// 
+			this.label17.AutoSize = true;
+			this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label17.Location = new System.Drawing.Point(573, 368);
+			this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(115, 22);
+			this.label17.TabIndex = 250;
+			this.label17.Text = "LOCATION:";
 			// 
 			// UpdateSubject
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1323, 846);
+			this.Controls.Add(this.locationList);
+			this.Controls.Add(this.label17);
 			this.Controls.Add(this.teacherList);
 			this.Controls.Add(this.facilityList);
 			this.Controls.Add(this.label5);
@@ -930,5 +958,7 @@ namespace SchoolManagement
         private ComboBox facilityList;
         private ComboBox teacherList;
 		private PictureBox notifications;
+		private ComboBox locationList;
+		private Label label17;
 	}
 }

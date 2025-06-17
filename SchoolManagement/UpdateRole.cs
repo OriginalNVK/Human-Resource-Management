@@ -157,12 +157,62 @@ namespace SchoolManagement
                     // Tạo key cho Dictionary lưu trạng thái
                     string key = $"{roleName.ToUpper()}|{tableName.ToUpper()}|{columnName.ToUpper()}";
 
-                    // Lấy danh sách cột đã chọn trước đó nếu có
-                    List<string> selectedColumns;
-                    if (!selectedColumnsByPrivilege.TryGetValue(key, out selectedColumns))
-                        selectedColumns = new List<string>();
+					// Lấy danh sách cột đã chọn trước đó nếu có
+					List<string> selectedColumns;
+					if (selectedColumnsByPrivilege.ContainsKey(key))
+					{
+						// Nếu đã có trong cache → dùng luôn
+						selectedColumns = selectedColumnsByPrivilege[key];
+					}
+					else
+					{
+						selectedColumns = new List<string>();
 
-                    using (Form form = new Form())
+						// Kiểm tra xem quyền có được cấp trên toàn bảng không
+						string checkTabPriv = @"SELECT 1 FROM DBA_TAB_PRIVS 
+                            WHERE GRANTEE = :roleName 
+                              AND TABLE_NAME = :tableName 
+                              AND PRIVILEGE = :privilege";
+						using (OracleCommand cmd = new OracleCommand(checkTabPriv, DatabaseSession.Connection))
+						{
+							cmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
+							cmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
+							cmd.Parameters.Add(":privilege", OracleDbType.Varchar2).Value = columnName.ToUpper();
+
+							object result = cmd.ExecuteScalar();
+							if (result != null)
+							{
+								selectedColumns = new List<string>(columns);
+							}
+							else
+							{
+								string queryColPrivs = @"SELECT COLUMN_NAME FROM DBA_COL_PRIVS 
+                                     WHERE GRANTEE = :roleName 
+                                       AND TABLE_NAME = :tableName 
+                                       AND PRIVILEGE = :privilege";
+
+								using (OracleCommand colCmd = new OracleCommand(queryColPrivs, DatabaseSession.Connection))
+								{
+									colCmd.Parameters.Add(":roleName", OracleDbType.Varchar2).Value = roleName.ToUpper();
+									colCmd.Parameters.Add(":tableName", OracleDbType.Varchar2).Value = tableName.ToUpper();
+									colCmd.Parameters.Add(":privilege", OracleDbType.Varchar2).Value = columnName.ToUpper();
+
+									using (OracleDataReader reader = colCmd.ExecuteReader())
+									{
+										while (reader.Read())
+										{
+											selectedColumns.Add(reader["COLUMN_NAME"].ToString());
+										}
+									}
+								}
+							}
+						}
+
+						// Lưu lần đầu vào cache
+						selectedColumnsByPrivilege[key] = selectedColumns;
+					}
+
+					using (Form form = new Form())
                     {
                         form.Text = $"Chọn cột cho quyền {columnName} - Bảng {tableName}";
                         form.StartPosition = FormStartPosition.CenterParent;
@@ -229,8 +279,6 @@ namespace SchoolManagement
                                 dgvTables.Rows[e.RowIndex].Cells[columnName].Value = "v";
                             else
                                 dgvTables.Rows[e.RowIndex].Cells[columnName].Value = "x";
-
-                            // Bạn có thể xử lý thêm lưu quyền theo cột nếu cần
                         }
                     }
                 }
@@ -264,8 +312,6 @@ namespace SchoolManagement
                     // Hiện MessageBox
                     MessageBox.Show($"Bạn vừa click vào quyền {columnName} của bảng {tableName}.",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Nếu cần thêm xử lý khác thì viết ở đây
                 }
                 else if (columnName == "INSERT" || columnName == "DELETE")
                 {
@@ -331,55 +377,111 @@ namespace SchoolManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string roleName = RoleName;
-                foreach (DataGridViewRow row in dgvTables.Rows)
-                {
-                    string tableName = row.Cells["TABLE_NAME"].Value.ToString();
+			try
+			{
+				string roleName = RoleName.ToUpper();
 
-                    foreach (string privilege in new[] { "SELECT", "INSERT", "UPDATE", "DELETE" })
-                    {
-                        var cellValue = row.Cells[privilege].Value?.ToString();
-                        if (cellValue != "v") continue;
+				foreach (DataGridViewRow row in dgvTables.Rows)
+				{
+					string tableName = row.Cells["TABLE_NAME"].Value.ToString().ToUpper();
 
-                        string sql = "";
+					foreach (string privilege in new[] { "SELECT", "INSERT", "UPDATE", "DELETE" })
+					{
+						string cellValue = row.Cells[privilege].Value?.ToString();
+						bool isChecked = cellValue == "v";
+						string key = $"{roleName}|{tableName}|{privilege}";
+						string sql = "";
 
-                        if ((privilege == "SELECT" || privilege == "UPDATE"))
-                        {
-                            // Kiểm tra nếu có lựa chọn cột từ form phụ
-                            string key = $"{roleName}|{tableName}|{privilege}";
-                            if (selectedColumnsByPrivilege.TryGetValue(key, out var columns) && columns.Count > 0)
-                            {
-                                string columnList = string.Join(", ", columns);
-                                sql = $"GRANT {privilege}({columnList}) ON PDB_ADMIN.{tableName} TO {roleName}";
-                            }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                        else if (privilege == "INSERT" || privilege == "DELETE")
-                        {
-                            sql = $"GRANT {privilege} ON PDB_ADMIN.{tableName} TO {roleName}";
-                        }
+						if (isChecked)
+						{
+							// --- GRANT ---
+							if (privilege == "SELECT" || privilege == "UPDATE")
+							{
+								if (selectedColumnsByPrivilege.TryGetValue(key, out var columns) && columns.Count > 0)
+								{
+									string columnList = string.Join(", ", columns.Select(c => $"{c}"));
+									sql = $"GRANT {privilege}({columnList}) ON PDB_ADMIN.{tableName} TO {roleName}";
+								}
+								else
+								{
+									// Nếu không có cột nào được chọn, bỏ qua
+									continue;
+								}
+							}
+							else
+							{
+								sql = $"GRANT {privilege} ON PDB_ADMIN.\"{tableName}\" TO \"{roleName}\"";
+							}
 
-                        //MessageBox.Show("SQL: " + sql);
+                            MessageBox.Show(sql);
 
-                        using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
-                        {
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                }
+							using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
+							{
+								cmd.ExecuteNonQuery();
+							}
+						}
+						else
+						{
+							// --- REVOKE ---
+							bool hasPrivilege = false;
 
-                MessageBox.Show("Grant privileges successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error:\n" +  ex.Message);
-            }
-        }
+							// Kiểm tra quyền cấp trên bảng
+							string checkTablePrivSql = @"SELECT 1 FROM DBA_TAB_PRIVS WHERE GRANTEE = :p_role AND TABLE_NAME = :p_table AND PRIVILEGE = :p_privilege";
+
+							//string checkTablePrivSql = $"SELECT 1 FROM DBA_TAB_PRIVS WHERE GRANTEE = {roleName} AND TABLE_NAME = {tableName} AND PRIVILEGE = {privilege}";
+                            //MessageBox.Show("checkTablePrivSql = " + checkTablePrivSql);
+
+							using (OracleCommand checkCmd = new OracleCommand(checkTablePrivSql, DatabaseSession.Connection))
+							{
+								checkCmd.Parameters.Add(":p_role", OracleDbType.Varchar2).Value = roleName;
+								checkCmd.Parameters.Add(":p_table", OracleDbType.Varchar2).Value = tableName;
+								checkCmd.Parameters.Add(":p_privilege", OracleDbType.Varchar2).Value = privilege;
+
+								hasPrivilege = checkCmd.ExecuteScalar() != null;
+							}
+
+							// Nếu không có trên bảng → kiểm tra trên cột
+							if (!hasPrivilege && (privilege == "SELECT" || privilege == "UPDATE"))
+							{
+								string checkColPrivSql = @"SELECT 1 FROM DBA_COL_PRIVS WHERE GRANTEE = :p_role AND TABLE_NAME = :p_table AND PRIVILEGE = :p_privilege";
+
+								//string checkColPrivSql = $"SELECT 1 FROM DBA_COL_PRIVS WHERE GRANTEE = {roleName} AND TABLE_NAME = {tableName} AND PRIVILEGE = {privilege}";
+
+								using (OracleCommand checkColCmd = new OracleCommand(checkColPrivSql, DatabaseSession.Connection))
+								{
+									checkColCmd.Parameters.Add(":p_role", OracleDbType.Varchar2).Value = roleName;
+									checkColCmd.Parameters.Add(":p_table", OracleDbType.Varchar2).Value = tableName;
+									checkColCmd.Parameters.Add(":p_privilege", OracleDbType.Varchar2).Value = privilege;
+
+									hasPrivilege = checkColCmd.ExecuteScalar() != null;
+								}
+
+								//MessageBox.Show("checkColPrivSql = " + checkColPrivSql);
+							}
+
+							// Nếu có quyền → REVOKE
+							if (hasPrivilege)
+							{
+								string revokeSql = $"REVOKE {privilege} ON PDB_ADMIN.\"{tableName}\" FROM \"{roleName}\"";
+
+                                //MessageBox.Show("revokeSql = " +  revokeSql);
+
+								using (OracleCommand revokeCmd = new OracleCommand(revokeSql, DatabaseSession.Connection))
+								{
+									revokeCmd.ExecuteNonQuery();
+								}
+							}
+						}
+					}
+				}
+
+				MessageBox.Show("Cập nhật quyền thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi lưu quyền:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
 
 
         private void label7_Click(object sender, EventArgs e)

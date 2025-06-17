@@ -35,7 +35,7 @@ namespace SchoolManagement
         {
             try
             {
-                string query = "SELECT USERNAME, USER_ID FROM dba_users WHERE username = 'ADMIN01'";
+                string query = "SELECT USERNAME, USER_ID FROM dba_users WHERE username = 'PDB_ADMIN'";
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
                 using (OracleDataReader reader = cmd.ExecuteReader())
                 {
@@ -92,7 +92,7 @@ namespace SchoolManagement
         { 
             AdminMenu adminMenu = new AdminMenu();
             this.Hide();
-            adminMenu.Show();
+            adminMenu.ShowDialog();
             this.Close();
         }
     }

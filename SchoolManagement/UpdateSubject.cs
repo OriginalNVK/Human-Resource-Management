@@ -37,13 +37,18 @@ namespace SchoolManagement
             getAllFacility();
             getAllTeacher(kh);
             getSubjectInformation(mamh);
-        }
+			facilityList.SelectedIndexChanged += FacilityOrLocationChanged;
+			locationList.SelectedIndexChanged += FacilityOrLocationChanged;
+		}
 
         private void getAllFacility()
         {
             try
             {
-                string facilityQuery = @"SELECT MADV, TENDV FROM pdb_admin.QLDH_DONVI";
+                string facilityQuery = @"SELECT MIN(MADV) AS MADV, TENDV
+										   FROM pdb_admin.QLDH_DONVI
+										   GROUP BY TENDV
+										   ORDER BY TENDV";
 
                 using (OracleCommand cmd = new OracleCommand(facilityQuery, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
@@ -88,7 +93,64 @@ namespace SchoolManagement
             }
         }
 
-        private void getSubjectInformation(string mamh)
+		private void FacilityOrLocationChanged(object sender, EventArgs e)
+		{
+			if (facilityList.SelectedItem == null || locationList.SelectedItem == null)
+				return;
+
+			string selectedFacility = facilityList.Text.ToString();
+			string selectedLocation = locationList.Text.ToString();
+
+			try
+			{
+				string getIdQuery = @"SELECT MADV 
+                              FROM PDB_ADMIN.QLDH_DONVI 
+                              WHERE TENDV = :dep AND COSO = :location";
+
+				string queSeDepID = null;
+
+				using (OracleCommand cmdGetMADV = new OracleCommand(getIdQuery, DatabaseSession.Connection))
+				{
+					cmdGetMADV.Parameters.Add(new OracleParameter("dep", selectedFacility));
+					cmdGetMADV.Parameters.Add(new OracleParameter("location", selectedLocation));
+
+					using (OracleDataReader reader = cmdGetMADV.ExecuteReader())
+					{
+						if (reader.Read())
+							queSeDepID = reader.GetString(0);
+						else
+						{
+							teacherList.DataSource = null;
+							MessageBox.Show("Không tìm thấy đơn vị phù hợp.");
+							return;
+						}
+					}
+				}
+
+				string teacherQuery = @"SELECT MANV, HOTEN FROM pdb_admin.QLDH_NHANVIEN WHERE MADV = :kh";
+
+				using (OracleCommand cmd = new OracleCommand(teacherQuery, DatabaseSession.Connection))
+				{
+					cmd.Parameters.Add(new OracleParameter("kh", queSeDepID));
+					using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+					{
+						DataTable dt = new DataTable();
+						adapter.Fill(dt);
+
+						teacherList.DataSource = dt;
+						teacherList.DisplayMember = "HOTEN";
+						teacherList.ValueMember = "MANV";
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Lỗi khi cập nhật danh sách giáo viên: " + ex.Message);
+			}
+		}
+
+
+		private void getSubjectInformation(string mamh)
         {
             try
             {
@@ -227,12 +289,43 @@ namespace SchoolManagement
                 string subjectCode = txtSubjectCode.Text.Trim();
                 string courseCode = txtCourseCode.Text.Trim();
                 string courseName = txtCourseName.Text.Trim();
-                string facility = facilityList.SelectedValue.ToString();
+                string facility = facilityList.Text.ToString();
+                string location = locationList.Text.ToString();
                 string teacherCode = teacherList.SelectedValue.ToString();
                 string start = startDay.Value.Date.ToString("dd-MM-yyyy");
                 string end = endDay.Value.Date.ToString("dd-MM-yyyy");
 
-                string updateCourse = @"UPDATE pdb_admin.QLDH_HOCPHAN 
+				string queSeDepID = null;
+				string getIdQuery = @"SELECT MADV 
+                                      FROM PDB_ADMIN.QLDH_DONVI 
+                                      WHERE TENDV = :dep 
+                                      AND COSO = :location";
+
+				using (OracleTransaction transaction = DatabaseSession.Connection.BeginTransaction())
+				{
+					using (OracleCommand cmdGetMADV = new OracleCommand(getIdQuery, DatabaseSession.Connection))
+					{
+						cmdGetMADV.Transaction = transaction;
+						cmdGetMADV.Parameters.Add(new OracleParameter("dep", OracleDbType.Varchar2)).Value = facility;
+						cmdGetMADV.Parameters.Add(new OracleParameter("location", OracleDbType.Varchar2)).Value = location;
+
+						using (OracleDataReader reader = cmdGetMADV.ExecuteReader())
+						{
+							if (reader.Read())
+							{
+								queSeDepID = reader.GetString(0);
+							}
+							else
+							{
+								transaction.Rollback();
+								MessageBox.Show("Không tìm thấy đơn vị phù hợp.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+								return;
+							}
+						}
+					}
+				}
+
+				string updateCourse = @"UPDATE pdb_admin.QLDH_HOCPHAN 
                                 SET TENHP = :tenhp, SOTC = :tc, STLT = :lt, STTH = :th, MADV = :khoa 
                                 WHERE MAHP = :mahp";
 
@@ -253,7 +346,7 @@ namespace SchoolManagement
                             cmd1.Parameters.Add(new OracleParameter("tc", credits));
                             cmd1.Parameters.Add(new OracleParameter("lt", theory));
                             cmd1.Parameters.Add(new OracleParameter("th", practical));
-                            cmd1.Parameters.Add(new OracleParameter("khoa", facility));
+                            cmd1.Parameters.Add(new OracleParameter("khoa", queSeDepID));
                             cmd1.ExecuteNonQuery();
                         }
 

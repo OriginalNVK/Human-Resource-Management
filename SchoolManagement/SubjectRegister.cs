@@ -84,7 +84,7 @@ namespace SchoolManagement
 
 				OracleCommand cmd = new OracleCommand(sql, conn);
 				cmd.Parameters.Add(":hk", OracleDbType.Varchar2).Value = currentHK;
-				cmd.Parameters.Add(":nam", OracleDbType.Int32).Value = currentYear;
+				cmd.Parameters.Add(":nam", OracleDbType.Int32).Value = currentYear - 1 ;
 
 				OracleDataAdapter adapter = new OracleDataAdapter(cmd);
 				DataTable dt = new DataTable();

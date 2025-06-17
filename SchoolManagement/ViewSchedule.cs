@@ -35,21 +35,10 @@ namespace SchoolManagement
                 switch (role)
                 {
                     case "GV":
-                        subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC
-                                     FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
-                                     JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
-                                     JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
-                                     WHERE mh.MAGV = :manv";
+                        subjectQuery = @"SELECT * FROM PDB_ADMIN.QLDH_VIEW_SCHEDULES_BY_GV";
                         break;
                     case "TRGĐV":
-                        subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.SOTC, hp.STLT, hp.STTH, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC
-                                       FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
-                                       JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
-                                       JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
-                                       WHERE nv.MADV = (
-                                       SELECT p.MADV 
-                                       FROM pdb_admin.QLDH_NHANVIEN p 
-                                       WHERE MANV = :manv)";
+                        subjectQuery = @"SELECT * FROM PDB_ADMIN.VIEW_SCHEDULE_OF_EMPLOYEES";
                         break;
                     default:
                         MessageBox.Show("Vai trò không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

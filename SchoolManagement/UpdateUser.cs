@@ -66,7 +66,12 @@ namespace SchoolManagement
              WHERE u.USERNAME = :username";
 						break;
 
-					case "NHAN VIEN":
+					case "GV":
+					case "NV PĐT":
+					case "NV PKT":
+					case "NV TCHC":
+					case "NV CTSV":
+					case "TRGĐV":
 						query = @"
             SELECT u.USERNAME,
                    n.HOTEN, n.PHAI, n.DT, n.DCHI, n.NGSINH
@@ -157,7 +162,6 @@ namespace SchoolManagement
 
 				// Lấy kết nối database (giữ nguyên logic cũ)
 				OracleConnection conn = DatabaseSession.Connection;
-				MessageBox.Show(conn.ToString());
 				if (conn == null || conn.State != ConnectionState.Open)
 				{
 					MessageBox.Show("Kết nối chưa khởi tạo hoặc chưa mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -241,14 +245,12 @@ namespace SchoolManagement
 					string updateDetails = "";
 					switch (_mainRole.ToUpper())
 					{
-						case "ADMIN":
-							updateDetails = @"UPDATE PDB_ADMIN.QLDH_ADMIN 
-										SET HOTEN = :fullname, PHAI = :gender, 
-											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 
-											DCHI = :address, DT = :phoNum 
-										WHERE MAAD = :username";
-							break;
-						case "NHAN VIEN":
+						case "GV":
+						case "NV PĐT":
+						case "NV PKT":
+						case "NV TCHC":
+						case "NV CTSV":
+						case "TRGĐV":
 							updateDetails = @"UPDATE PDB_ADMIN.QLDH_NHANVIEN 
 										SET HOTEN = :fullname, PHAI = :gender, 
 											NGSINH = TO_DATE(:dob, 'DD-MON-YYYY'), 

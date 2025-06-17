@@ -1,0 +1,11 @@
+
+connect target /
+shutdown immediate;
+startup mount;
+catalog start with 'D:\App\Oracle\Backup';
+run {
+    SET UNTIL TIME "TO_DATE('2025-06-18 03:09:55', 'YYYY-MM-DD HH24:MI:SS')";
+    restore database;
+    recover database;
+}
+alter database open resetlogs;

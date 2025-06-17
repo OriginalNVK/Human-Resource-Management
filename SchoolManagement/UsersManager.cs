@@ -71,29 +71,14 @@ namespace SchoolManagement
 					{
 						string username = row["USERNAME"].ToString();
 						string role = "";
-
-						// ADMIN
-						using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM PDB_ADMIN.QLDH_ADMIN WHERE MAAD = :username", DatabaseSession.Connection))
+						using (OracleCommand roleCmd = new OracleCommand("SELECT VaiTro FROM PDB_ADMIN.QLDH_NHANVIEN WHERE MANV = :username", DatabaseSession.Connection))
 						{
 							roleCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
 							var result = roleCmd.ExecuteScalar();
 							if (result != null)
 							{
-								role = "ADMIN";
-							}
-						}
-
-						// NHAN VIEN
-						if (role == "")
-						{
-							using (OracleCommand roleCmd = new OracleCommand("SELECT 1 FROM PDB_ADMIN.QLDH_NHANVIEN WHERE MANV = :username", DatabaseSession.Connection))
-							{
-								roleCmd.Parameters.Add("username", OracleDbType.Varchar2).Value = username;
-								var result = roleCmd.ExecuteScalar();
-								if (result != null)
-								{
-									role = "NHAN VIEN";
-								}
+								//role = "NHAN VIEN";
+								role = result.ToString();
 							}
 						}
 
@@ -409,8 +394,8 @@ namespace SchoolManagement
 					}
 				}
 
-					// Thực thi DROP USER … CASCADE
-					string sql = $"DROP USER \"{usernameToDelete.ToUpper()}\" CASCADE";
+				// Thực thi DROP USER … CASCADE
+				string sql = $"DROP USER \"{usernameToDelete.ToUpper()}\" CASCADE";
 				using (var cmd = new OracleCommand(sql, conn))
 				{
 					cmd.ExecuteNonQuery();
@@ -431,22 +416,22 @@ namespace SchoolManagement
 			}
 		}
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            AuditView auditView = new AuditView();
-            this.Hide();
-            auditView.ShowDialog();
-            this.Close();
-        }
+		private void label5_Click(object sender, EventArgs e)
+		{
+			AuditView auditView = new AuditView();
+			this.Hide();
+			auditView.ShowDialog();
+			this.Close();
+		}
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
+		private void pictureBox2_Click(object sender, EventArgs e)
+		{
 
-        }
+		}
 
-        private void addNoticeBtn_Click(object sender, EventArgs e)
-        {
+		private void addNoticeBtn_Click(object sender, EventArgs e)
+		{
 
-        }
-    }
+		}
+	}
 }

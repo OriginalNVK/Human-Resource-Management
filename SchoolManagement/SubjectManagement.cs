@@ -29,11 +29,7 @@ namespace SchoolManagement
 		{
 			try
 			{
-				string subjectQuery = @"SELECT mh.MAMH, mh.MAHP, hp.TENHP, hp.MADV, dv.TENDV, hp.SOTC ,nv.HOTEN, mh.HK, TO_CHAR(mh.NAM) || '-' || TO_CHAR(mh.NAM + 1) AS NAMHOC, mh.NGAYBATDAU, mh.NGAYKETTHUC 
-                                        FROM pdb_admin.QLDH_MONHOC mh JOIN pdb_admin.QLDH_HOCPHAN hp ON mh.MAHP = hp.MAHP
-                                        JOIN pdb_admin.QLDH_NHANVIEN nv ON nv.MANV = mh.MAGV
-                                        JOIN pdb_admin.QLDH_DONVI dv ON dv.MADV = hp.MADV
-                                        WHERE mh.NGAYBATDAU <= SYSDATE AND mh.NGAYKETTHUC >= SYSDATE";
+				string subjectQuery = @"SELECT * FROM PDB_ADMIN.QLDH_VIEW_VIEW_SUBJECT_PDT";
 
                 using (OracleCommand cmd = new OracleCommand(subjectQuery, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))

@@ -1,0 +1,98 @@
+
+Recovery Manager: Release 21.0.0.0.0 - Production on Wed Jun 18 03:11:34 2025
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+RMAN> 
+RMAN> connect target *
+2> shutdown immediate;
+3> startup mount;
+4> catalog start with 'D:\App\Oracle\Backup';
+5> run {
+6>     SET UNTIL TIME "TO_DATE('2025-06-18 03:09:55', 'YYYY-MM-DD HH24:MI:SS')";
+7>     restore database;
+8>     recover database;
+9> }
+10> alter database open resetlogs;
+11> 
+connected to target database: XE (DBID=3079148829)
+
+using target database control file instead of recovery catalog
+database closed
+database dismounted
+Oracle instance shut down
+
+connected to target database (not started)
+Oracle instance started
+database mounted
+
+Total System Global Area    1610610072 bytes
+
+Fixed Size                     9856408 bytes
+Variable Size                771751936 bytes
+Database Buffers             822083584 bytes
+Redo Buffers                   6918144 bytes
+
+searching for all files that match the pattern D:\App\Oracle\Backup
+no files found to be unknown to the database
+
+executing command: SET until clause
+
+Starting restore at 18-JUN-25
+allocated channel: ORA_DISK_1
+channel ORA_DISK_1: SID=1101 device type=DISK
+
+skipping datafile 5; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+skipping datafile 6; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+skipping datafile 8; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+skipping datafile 13; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\SYSTEM01.DBF
+skipping datafile 14; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\SYSAUX01.DBF
+skipping datafile 15; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\UNDOTBS01.DBF
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00001 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\SYSTEM01.DBF
+channel ORA_DISK_1: restoring datafile 00003 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\SYSAUX01.DBF
+channel ORA_DISK_1: restoring datafile 00004 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\UNDOTBS01.DBF
+channel ORA_DISK_1: restoring datafile 00007 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\USERS01.DBF
+channel ORA_DISK_1: reading from backup piece D:\APP\ORACLE\BACKUP\1M3S9JTS_54_1_1.BKP
+channel ORA_DISK_1: piece handle=D:\APP\ORACLE\BACKUP\1M3S9JTS_54_1_1.BKP tag=TAG20250618T024932
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00009 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\SYSTEM01.DBF
+channel ORA_DISK_1: restoring datafile 00010 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\SYSAUX01.DBF
+channel ORA_DISK_1: restoring datafile 00011 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
+channel ORA_DISK_1: restoring datafile 00012 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\USERS01.DBF
+channel ORA_DISK_1: reading from backup piece D:\APP\ORACLE\BACKUP\1N3S9JTV_55_1_1.BKP
+channel ORA_DISK_1: piece handle=D:\APP\ORACLE\BACKUP\1N3S9JTV_55_1_1.BKP tag=TAG20250618T024932
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting datafile backup set restore
+channel ORA_DISK_1: specifying datafile(s) to restore from backup set
+channel ORA_DISK_1: restoring datafile 00028 to C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\SYSTEM01.DBF
+channel ORA_DISK_1: restoring datafile 00029 to C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\SYSAUX01.DBF
+channel ORA_DISK_1: restoring datafile 00030 to C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\UNDOTBS01.DBF
+channel ORA_DISK_1: reading from backup piece D:\APP\ORACLE\BACKUP\1P3S9JU3_57_1_1.BKP
+channel ORA_DISK_1: piece handle=D:\APP\ORACLE\BACKUP\1P3S9JU3_57_1_1.BKP tag=TAG20250618T024932
+channel ORA_DISK_1: restored backup piece 1
+channel ORA_DISK_1: restore complete, elapsed time: 00:00:03
+Finished restore at 18-JUN-25
+
+Starting recover at 18-JUN-25
+using channel ORA_DISK_1
+
+starting media recovery
+
+archived log for thread 1 with sequence 49 is already on disk as file C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000049_1202567845.0001
+archived log for thread 1 with sequence 50 is already on disk as file C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000050_1202567845.0001
+archived log for thread 1 with sequence 1 is already on disk as file C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000001_1204081140.0001
+archived log file name=C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000049_1202567845.0001 thread=1 sequence=49
+archived log file name=C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000050_1202567845.0001 thread=1 sequence=50
+media recovery complete, elapsed time: 00:00:01
+Finished recover at 18-JUN-25
+
+Statement processed
+
+Recovery Manager complete.

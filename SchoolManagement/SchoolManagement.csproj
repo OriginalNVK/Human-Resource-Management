@@ -120,6 +120,12 @@
     <Compile Include="AddNotification.Designer.cs">
       <DependentUpon>AddNotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Backup.Designer.cs">
+      <DependentUpon>Backup.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuditView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,11 +138,18 @@
     <Compile Include="ClassList.Designer.cs">
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
+    <Compile Include="BackupHelper.cs" />
     <Compile Include="EditEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewNoticeStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewNoticeStudent.Designer.cs">
+      <DependentUpon>ViewNoticeStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewNotification.cs">
       <SubType>Form</SubType>
@@ -315,6 +328,9 @@
     <EmbeddedResource Include="AddNotification.resx">
       <DependentUpon>AddNotification.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Backup.resx">
+      <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AuditView.resx">
       <DependentUpon>AuditView.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewNoticeStudent.resx">
+      <DependentUpon>ViewNoticeStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewNotification.resx">
       <DependentUpon>ViewNotification.cs</DependentUpon>

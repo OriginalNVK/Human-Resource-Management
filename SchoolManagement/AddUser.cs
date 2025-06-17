@@ -73,8 +73,8 @@ namespace SchoolManagement
 				string phoNum = txtPhoneNum.Text.Trim();
 				string address = txtAddress.Text.Trim();
 				string dob = dtpDOB.Value.ToString("dd-MMM-yyyy");
-				string department = comboDepartment.SelectedValue.ToString();
-				string location = locationList.SelectedItem?.ToString();
+				string department = comboDepartment.Text.ToString();
+				string location = locationList.Text.ToString();
 
 				// Duyệt và lấy đúng 1 role từ DataGridView
 				foreach (DataGridViewRow row in dgvUser.Rows)
@@ -96,7 +96,7 @@ namespace SchoolManagement
 					MessageBox.Show("Vui lòng nhập đầy đủ Username, Password và chọn một Role.");
 					return;
 				}
-
+				
 				var conn = DatabaseSession.Connection;
 				if (conn.State != ConnectionState.Open)
 					conn.Open();
@@ -190,24 +190,34 @@ namespace SchoolManagement
                         cmdGrantLabel.ExecuteNonQuery();
                     }
 
-                    // Lấy MADV từ tên đơn vị
-                    string queSeDepID = null;
-					using (OracleCommand cmdGetMADV = new OracleCommand("SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE MADV = :dep", conn))
+					// Lấy MADV từ tên đơn vị
+					string queSeDepID = null;
+					string getIdQuery = @"SELECT MADV 
+                                      FROM PDB_ADMIN.QLDH_DONVI 
+                                      WHERE TENDV = :dep 
+                                      AND COSO = :location";
+
+					using (OracleCommand cmdGetMADV = new OracleCommand(getIdQuery, DatabaseSession.Connection))
 					{
 						cmdGetMADV.Transaction = transaction;
-						cmdGetMADV.Parameters.Add("dep", OracleDbType.Varchar2).Value = department;
-						using (var reader = cmdGetMADV.ExecuteReader())
+						cmdGetMADV.Parameters.Add(new OracleParameter("dep", OracleDbType.Varchar2)).Value = department;
+						cmdGetMADV.Parameters.Add(new OracleParameter("location", OracleDbType.Varchar2)).Value = location;
+
+						using (OracleDataReader reader = cmdGetMADV.ExecuteReader())
 						{
 							if (reader.Read())
+							{
 								queSeDepID = reader.GetString(0);
+							}
 							else
 							{
 								transaction.Rollback();
-								MessageBox.Show("Không tìm thấy đơn vị phù hợp.");
+								MessageBox.Show("Không tìm thấy đơn vị phù hợp.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 								return;
 							}
 						}
 					}
+
 
 					if (selectedGrantedRole == "SV")
 					{

@@ -286,6 +286,7 @@ namespace SchoolManagement
 			this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "STUDENT MENU";
+			this.Load += new System.EventHandler(this.StudentMenu_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pbGrade)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
