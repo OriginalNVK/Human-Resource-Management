@@ -739,6 +739,11 @@ D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNoticeStudent.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Backup.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddNotification.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Backup.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AuditView.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNoticeStudent.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNotice.resources
 C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddNotification.resources
 C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Backup.resources
 C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AuditView.resources
@@ -754,3 +759,5 @@ D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNot
 D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.GradeManager.resources
 D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateGrade.resources
 D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateStudentCTSV.resources
+>>>>>>> f75cbafe995868beaf5aa65a60128b12e0940b84
+>>>>>>> origin/TN2

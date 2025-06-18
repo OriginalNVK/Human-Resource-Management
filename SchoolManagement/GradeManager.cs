@@ -25,11 +25,6 @@ namespace SchoolManagement
 			}
 		}
 
-		private int action; // 0 - add, 1 - edit
-		private bool isSelected = false;
-		private int currFrom = 1;
-		private int pageSize = 10;
-
 		public GradeManager()
 		{
 			// display the role of the user
@@ -335,6 +330,72 @@ namespace SchoolManagement
 					}
 				}
 			}
+		}
+
+		private void lbClasses_Click(object sender, EventArgs e)
+		{
+			SubjectManagement subjectManagement = new SubjectManagement();
+			this.Hide();
+			subjectManagement.ShowDialog();
+			this.Close();
+		}
+
+		private void label6_Click(object sender, EventArgs e)
+		{
+			ClassList classList = new ClassList();
+			this.Hide();
+			classList.ShowDialog();
+			this.Close();
+		}
+
+		private void lbStudents_Click(object sender, EventArgs e)
+		{
+			StudentManager studentManager = new StudentManager();
+			this.Hide();
+			studentManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbTeachers_Click(object sender, EventArgs e)
+		{
+			PersonnelManager personnelManager = new PersonnelManager();
+			this.Hide();
+			personnelManager.ShowDialog();
+			this.Close();
+		}
+
+		private void lbProfile_Click(object sender, EventArgs e)
+		{
+			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+			this.Hide();
+			personnelMenu.ShowDialog();
+			this.Close();
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+			ViewSchedule viewSchedule = new ViewSchedule(Login.ID, PersonnelMenu._role);
+			this.Hide();
+			viewSchedule.ShowDialog();
+			this.Close();
+		}
+
+		private void label8_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label5_Click(object sender, EventArgs e)
+		{
+			
+		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+			Login login = new Login();
+			this.Hide();
+			login.ShowDialog();
+			this.Close();
 		}
 	}
 	

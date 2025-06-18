@@ -293,7 +293,7 @@ namespace SchoolManagement
 			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbClasses.TabIndex = 7;
 			this.pbClasses.TabStop = false;
-			this.pbClasses.Click += new System.EventHandler(this.pbUsers_Click);
+			this.pbClasses.Click += new System.EventHandler(this.pbSubject_Click);
 			// 
 			// pbTeachers
 			// 
@@ -363,6 +363,7 @@ namespace SchoolManagement
 			this.label8.Size = new System.Drawing.Size(78, 22);
 			this.label8.TabIndex = 195;
 			this.label8.Text = "GRADE";
+			this.label8.Click += new System.EventHandler(this.label8_Click);
 			// 
 			// pbGrade
 			// 

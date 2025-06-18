@@ -362,6 +362,7 @@
 			this.label8.Size = new System.Drawing.Size(78, 22);
 			this.label8.TabIndex = 195;
 			this.label8.Text = "GRADE";
+			this.label8.Click += new System.EventHandler(this.label8_Click);
 			// 
 			// pbGrade
 			// 
@@ -590,7 +591,7 @@
 			this.cmbGender.DropDownWidth = 195;
 			this.cmbGender.Items.AddRange(new object[] {
             "Nam",
-            "Nữ"});
+            "Nu"});
 			this.cmbGender.Location = new System.Drawing.Point(747, 240);
 			this.cmbGender.Margin = new System.Windows.Forms.Padding(4);
 			this.cmbGender.Name = "cmbGender";
@@ -608,7 +609,6 @@
 			this.cmbGender.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cmbGender.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
 			this.cmbGender.TabIndex = 200;
-			this.cmbGender.Text = "Nam";
 			// 
 			// lbAddress
 			// 

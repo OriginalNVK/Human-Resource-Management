@@ -32,7 +32,7 @@ namespace SchoolManagement
         {
             if (PersonnelMenu._role != "TRGĐV" && PersonnelMenu._role != "NV TCHC")
             {
-                MessageBox.Show("Bạn không có quyền xem, vui lòng thử lại sau!", "CẢNH BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn không có quyền xem, vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -431,6 +431,14 @@ namespace SchoolManagement
 			PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
 			this.Hide();
 			personnelMenu.ShowDialog();
+			this.Close();
+		}
+
+		private void label8_Click(object sender, EventArgs e)
+		{
+			GradeManager gradeManager = new GradeManager();
+			this.Hide();
+			gradeManager.ShowDialog();
 			this.Close();
 		}
 	}

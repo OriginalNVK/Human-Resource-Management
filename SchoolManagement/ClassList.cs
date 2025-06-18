@@ -272,5 +272,13 @@ namespace SchoolManagement
 			login.ShowDialog();
 			this.Close();
 		}
+
+		private void label8_Click(object sender, EventArgs e)
+		{
+			GradeManager gradeManager = new GradeManager();
+			this.Hide();
+			gradeManager.ShowDialog();
+			this.Close();
+		}
 	}
 }

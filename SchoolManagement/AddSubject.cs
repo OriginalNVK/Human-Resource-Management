@@ -388,5 +388,13 @@ namespace SchoolManagement
 			personnelRegister.ShowDialog();
 			this.Close();
 		}
+
+		private void label6_Click(object sender, EventArgs e)
+		{
+			GradeManager gradeManager = new GradeManager();
+			this.Hide();
+			gradeManager.ShowDialog();
+			this.Close();
+		}
 	}
 }

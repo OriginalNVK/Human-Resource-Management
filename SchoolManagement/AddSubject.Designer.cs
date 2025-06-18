@@ -691,6 +691,7 @@ namespace SchoolManagement
 			this.label6.Size = new System.Drawing.Size(78, 22);
 			this.label6.TabIndex = 195;
 			this.label6.Text = "GRADE";
+			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// pbGrade
 			// 
