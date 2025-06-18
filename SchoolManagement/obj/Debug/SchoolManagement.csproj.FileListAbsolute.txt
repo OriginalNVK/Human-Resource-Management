@@ -747,3 +747,10 @@ C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\D
 C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.GradeManager.resources
 C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateGrade.resources
 C:\Users\trant\OneDrive\Desktop\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateStudentCTSV.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddNotification.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Backup.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNoticeStudent.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNotice.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.GradeManager.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateGrade.resources
+D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateStudentCTSV.resources

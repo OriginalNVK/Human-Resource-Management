@@ -145,6 +145,12 @@
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateRole.Designer.cs">
+      <DependentUpon>UpdateRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewNoticeStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,12 +248,6 @@
     <Compile Include="SubjectRegister.Designer.cs">
       <DependentUpon>SubjectRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateRole.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateRole.Designer.cs">
-      <DependentUpon>UpdateRole.cs</DependentUpon>
-    </Compile>
     <Compile Include="PersonnelMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +340,9 @@
     <EmbeddedResource Include="EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRole.resx">
+      <DependentUpon>UpdateRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewNoticeStudent.resx">
       <DependentUpon>ViewNoticeStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,9 +391,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectRegister.resx">
       <DependentUpon>SubjectRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdateRole.resx">
-      <DependentUpon>UpdateRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonnelMenu.resx">
       <DependentUpon>PersonnelMenu.cs</DependentUpon>
