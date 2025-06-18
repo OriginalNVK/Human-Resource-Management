@@ -35,7 +35,6 @@ namespace SchoolManagement
 		public StudentManager()
 		{
 			InitializeComponent();
-			lbHello.Text = $"Hello, {Login.ID}";
 			string loginId = Login.ID;
 
 			LoadStudents();
@@ -44,7 +43,7 @@ namespace SchoolManagement
 		private void LoadStudents()
 		{
 			// check role
-			MessageBox.Show("Role: " + PersonnelMenu._role, "Role Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			//MessageBox.Show("Role: " + PersonnelMenu._role, "Role Check", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			if (PersonnelMenu._role == "GV")
 			{
 				try

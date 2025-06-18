@@ -298,5 +298,13 @@ namespace SchoolManagement
 			login.ShowDialog();
 			this.Close();
 		}
-	}
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            StudentManager student = new StudentManager();
+            this.Hide();
+            student.ShowDialog();
+            this.Close();
+        }
+    }
 }

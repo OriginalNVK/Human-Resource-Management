@@ -29,7 +29,7 @@ namespace SchoolManagement
 		{
 			try
 			{
-				string subjectQuery = @"SELECT * FROM PDB_ADMIN.QLDH_VIEW_VIEW_SUBJECT_PDT";
+				string subjectQuery = @"SELECT * FROM PDB_ADMIN.QLDH_VIEW_SUBJECT_PDT";
 
                 using (OracleCommand cmd = new OracleCommand(subjectQuery, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))

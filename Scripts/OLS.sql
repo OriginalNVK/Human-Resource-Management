@@ -144,7 +144,7 @@ END;
 SET SERVEROUTPUT ON;
 -- Gán label cho user
 -- Cách 2: Gán trực tiếp (Bug nếu như Label chưa được tạo
-/*CREATE OR REPLACE PROCEDURE GRANT_LABEL_FOR_USER(
+CREATE OR REPLACE PROCEDURE GRANT_LABEL_FOR_USER(
     p_username   IN VARCHAR2,
     p_role       IN VARCHAR2,
     p_khoa       IN VARCHAR2,
@@ -185,7 +185,7 @@ EXCEPTION
         RAISE;
 END GRANT_LABEL_FOR_USER;
 /
-*/
+
 
 -- Cách 3: Kiểm tra theo danh sách tĩnh
 CONN PDB_ADMIN/123@localhost:1521/PDBQLDH;

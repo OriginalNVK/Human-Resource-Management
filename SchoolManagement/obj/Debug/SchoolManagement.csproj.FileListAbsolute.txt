@@ -739,3 +739,8 @@ D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.csproj.CopyComplete
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNoticeStudent.resources
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Backup.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AddNotification.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.Backup.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.AuditView.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNoticeStudent.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.ViewNotice.resources

@@ -33,13 +33,9 @@ namespace SchoolManagement
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentManager));
             this.label1 = new System.Windows.Forms.Label();
             this.kryptonContextMenuMonthCalendar1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.txtSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.dgvStudents = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.Dashboard = new System.Windows.Forms.Label();
-            this.lbHello = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.notifications = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -64,8 +60,6 @@ namespace SchoolManagement
             this.pbSection = new System.Windows.Forms.PictureBox();
             this.lbEdit = new System.Windows.Forms.Label();
             this.pbEdit = new System.Windows.Forms.PictureBox();
-            this.btnExport = new System.Windows.Forms.PictureBox();
-            this.pbReload = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
@@ -80,8 +74,6 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbReload)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -103,98 +95,6 @@ namespace SchoolManagement
             this.kryptonContextMenuMonthCalendar1.SelectionEnd = new System.DateTime(2023, 5, 4, 0, 0, 0, 0);
             this.kryptonContextMenuMonthCalendar1.SelectionStart = new System.DateTime(2023, 5, 4, 0, 0, 0, 0);
             this.kryptonContextMenuMonthCalendar1.TodayDate = new System.DateTime(2023, 5, 4, 0, 0, 0, 0);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label7.Location = new System.Drawing.Point(1387, 184);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 21);
-            this.label7.TabIndex = 224;
-            this.label7.Text = "Export";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(1082, 140);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.OverrideDefault.Back.ColorAngle = 62F;
-            this.btnSearch.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.OverrideDefault.Border.ColorAngle = 62F;
-            this.btnSearch.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnSearch.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSearch.OverrideDefault.Border.Rounding = 20;
-            this.btnSearch.OverrideDefault.Border.Width = 1;
-            this.btnSearch.Size = new System.Drawing.Size(128, 41);
-            this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateCommon.Back.ColorAngle = 62F;
-            this.btnSearch.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateCommon.Border.ColorAngle = 62F;
-            this.btnSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnSearch.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSearch.StateCommon.Border.Rounding = 20;
-            this.btnSearch.StateCommon.Border.Width = 1;
-            this.btnSearch.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.btnSearch.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black;
-            this.btnSearch.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.StatePressed.Back.ColorAngle = 62F;
-            this.btnSearch.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.StatePressed.Border.ColorAngle = 62F;
-            this.btnSearch.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnSearch.StatePressed.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSearch.StatePressed.Border.Rounding = 20;
-            this.btnSearch.StatePressed.Border.Width = 1;
-            this.btnSearch.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateTracking.Back.ColorAngle = 62F;
-            this.btnSearch.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(197)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(195)))), ((int)(((byte)(252)))));
-            this.btnSearch.StateTracking.Border.ColorAngle = 62F;
-            this.btnSearch.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnSearch.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSearch.StateTracking.Border.Rounding = 20;
-            this.btnSearch.StateTracking.Border.Width = 1;
-            this.btnSearch.TabIndex = 221;
-            this.btnSearch.Values.Text = "Search";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(645, 143);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(409, 37);
-            this.txtSearch.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSearch.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.txtSearch.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.txtSearch.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSearch.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSearch.StateCommon.Border.Rounding = 20;
-            this.txtSearch.StateCommon.Border.Width = 1;
-            this.txtSearch.StateCommon.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtSearch.TabIndex = 220;
             // 
             // dgvStudents
             // 
@@ -319,22 +219,10 @@ namespace SchoolManagement
             this.Dashboard.TabIndex = 186;
             this.Dashboard.Text = "STUDENT MANAGER";
             // 
-            // lbHello
-            // 
-            this.lbHello.AutoSize = true;
-            this.lbHello.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHello.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbHello.Location = new System.Drawing.Point(1151, 35);
-            this.lbHello.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbHello.Name = "lbHello";
-            this.lbHello.Size = new System.Drawing.Size(0, 22);
-            this.lbHello.TabIndex = 185;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel1.Controls.Add(this.notifications);
-            this.panel1.Controls.Add(this.lbHello);
             this.panel1.Controls.Add(this.Dashboard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -669,29 +557,6 @@ namespace SchoolManagement
             this.pbEdit.TabStop = false;
             this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             // 
-            // btnExport
-            // 
-            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.Location = new System.Drawing.Point(1387, 134);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(52, 46);
-            this.btnExport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnExport.TabIndex = 223;
-            this.btnExport.TabStop = false;
-            // 
-            // pbReload
-            // 
-            this.pbReload.Image = ((System.Drawing.Image)(resources.GetObject("pbReload.Image")));
-            this.pbReload.Location = new System.Drawing.Point(1218, 143);
-            this.pbReload.Margin = new System.Windows.Forms.Padding(4);
-            this.pbReload.Name = "pbReload";
-            this.pbReload.Size = new System.Drawing.Size(52, 41);
-            this.pbReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbReload.TabIndex = 222;
-            this.pbReload.TabStop = false;
-            // 
             // StudentManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -701,11 +566,6 @@ namespace SchoolManagement
             this.Controls.Add(this.lbEdit);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.pbReload);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -730,8 +590,6 @@ namespace SchoolManagement
             ((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbReload)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,15 +599,9 @@ namespace SchoolManagement
 
 		private System.Windows.Forms.Label label1;
 		private ComponentFactory.Krypton.Toolkit.KryptonContextMenuMonthCalendar kryptonContextMenuMonthCalendar1;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.PictureBox btnExport;
-		private System.Windows.Forms.PictureBox pbReload;
-		private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearch;
-		private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtSearch;
 		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgvStudents;
 		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
 		private System.Windows.Forms.Label Dashboard;
-		private System.Windows.Forms.Label lbHello;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label8;
