@@ -42,13 +42,9 @@ namespace SchoolManagement
 					return;
 				}
 
-				string sql = @"SELECT MASV, HOTEN, PHAI, NGSINH, DCHI, DT, TINHTRANG, TENDV
-                   FROM PDB_ADMIN.QLDH_SINHVIEN SV
-                   JOIN PDB_ADMIN.QLDH_DONVI DV ON SV.KHOA = DV.MADV
-                   WHERE SV.MASV = :username";
+				string sql = @"SELECT * FROM VIEW_INFO_SV";
 
 				OracleCommand cmd = new OracleCommand(sql, conn);
-				cmd.Parameters.Add("username", OracleDbType.Varchar2).Value = Login.ID;
 
 				OracleDataReader dr = cmd.ExecuteReader();
 				if (dr.HasRows)
