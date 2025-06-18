@@ -335,7 +335,7 @@
 			this.Dashboard.Size = new System.Drawing.Size(213, 32);
 			this.Dashboard.TabIndex = 37;
 			this.Dashboard.Text = "ADD EMPLOYEE";
-			this.Dashboard.Click += new System.EventHandler(this.Dashboard_Click);
+			//this.Dashboard.Click += new System.EventHandler(this.Dashboard_Click);
 			// 
 			// panel2
 			// 
@@ -354,7 +354,7 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(325, 866);
 			this.panel2.TabIndex = 190;
-			this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+			//this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
 			// 
 			// label8
 			// 
