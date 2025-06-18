@@ -71,15 +71,6 @@ namespace SchoolManagement
 
         }
 
-
-
-
-
-
-        
-
-      
-
         private void pbDelete_Click(object sender, EventArgs e)
         {
             if (PersonnelMenu._role != "NV PĐT")

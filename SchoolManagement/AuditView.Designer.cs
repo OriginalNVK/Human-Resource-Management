@@ -60,6 +60,8 @@ namespace SchoolManagement
 			this.lbEdit = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.btnExport = new System.Windows.Forms.PictureBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.pictureBox4 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
@@ -73,6 +75,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.cmbType)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnExport)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -264,6 +267,8 @@ namespace SchoolManagement
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.panel2.Controls.Add(this.label6);
+			this.panel2.Controls.Add(this.pictureBox4);
 			this.panel2.Controls.Add(this.addNoticeBtn);
 			this.panel2.Controls.Add(this.pictureBox3);
 			this.panel2.Controls.Add(this.pictureBox2);
@@ -579,6 +584,31 @@ namespace SchoolManagement
 			this.btnExport.TabStop = false;
 			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.label6.Location = new System.Drawing.Point(76, 588);
+			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(85, 22);
+			this.label6.TabIndex = 247;
+			this.label6.Text = "BACKUP";
+			this.label6.Click += new System.EventHandler(this.label6_Click);
+			// 
+			// pictureBox4
+			// 
+			this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+			this.pictureBox4.Location = new System.Drawing.Point(16, 573);
+			this.pictureBox4.Name = "pictureBox4";
+			this.pictureBox4.Size = new System.Drawing.Size(39, 51);
+			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox4.TabIndex = 246;
+			this.pictureBox4.TabStop = false;
+			// 
 			// AuditView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -623,6 +653,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.cmbType)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.btnExport)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -656,5 +687,7 @@ namespace SchoolManagement
         private Label label5;
         private Label addNoticeBtn;
         private PictureBox pictureBox3;
-    }
+		private Label label6;
+		private PictureBox pictureBox4;
+	}
 }

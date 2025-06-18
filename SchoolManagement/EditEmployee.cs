@@ -20,7 +20,7 @@ namespace SchoolManagement
             InitializeComponent();
             LoadEmployee(manv);
         }
-
+   
         private void LoadEmployee(string manv)
         {
             try
@@ -47,8 +47,8 @@ namespace SchoolManagement
                             cmbRole.SelectedItem = reader["VAITRO"].ToString();
                             cmbDepartment.Items.Clear();
                             getDepartment(); // Load departments into the combo box
-                            // Set the selected department based on MADV
-                            cmbDepartment.SelectedItem = reader["MADV"].ToString();
+                                             // Set the selected department based on MADV
+                            cmbDepartment.SelectedValue = getDepartmentName(reader["MADV"].ToString());
                             txtSalary.Text = reader["LUONG"].ToString();
                             txtBonus.Text = reader["PHUCAP"].ToString();
                         }
@@ -133,7 +133,9 @@ namespace SchoolManagement
             string diachi = txtAddress.Text.Trim();
             string dienthoai = txtPhone.Text.Trim();
             string vaitro = cmbRole.Text.ToString();
-            string donvi = cmbDepartment.SelectedItem.ToString(); // Get the department ID based on the selected name
+            
+            string donvi = getDepartmentID(cmbDepartment.Text.ToString()); // Get the department ID based on the selected name
+     
             string luong = txtSalary.Text.Trim();
             string phucap = txtBonus.Text.Trim();
 
@@ -188,16 +190,23 @@ WHERE MANV = :manv";
         {
             try
             {
-                string query = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI";
+                string query = "SELECT TENDV, COSO FROM PDB_ADMIN.QLDH_DONVI";
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+                using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
                 {
-                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    // Thêm cột hiển thị tạm thời
+                    dt.Columns.Add("HIENTHI", typeof(string));
+                    foreach (DataRow row in dt.Rows)
                     {
-                        while (reader.Read())
-                        {
-                            cmbDepartment.Items.Add(reader["MADV"].ToString());
-                        }
+                        row["HIENTHI"] = $"{row["TENDV"]} ({row["COSO"]})";
                     }
+
+                    cmbDepartment.DataSource = dt;
+                    cmbDepartment.DisplayMember = "HIENTHI";  // Hiển thị TENDV (COSO)
+                    cmbDepartment.ValueMember = "TENDV";      // Nếu bạn muốn lấy lại giá trị khi chọn
                 }
             }
             catch (Exception ex)
@@ -205,32 +214,33 @@ WHERE MANV = :manv";
                 MessageBox.Show("Lỗi khi tải danh sách đơn vị: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private string getDepartmentID(string nameDepartment)
+        private string getDepartmentID(string departmentName)
         {
-            try
+            string name = departmentName.Substring(0, departmentName.IndexOf('(')).Trim(); // Lấy tên phòng ban trước dấu ngoặc
+            string coso = departmentName.Substring(departmentName.IndexOf('(') + 1, departmentName.IndexOf(')') - departmentName.IndexOf('(') - 1).Trim(); // Lấy cơ sở trong ngoặc
+            string query = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE TENDV = :name AND COSO = :coso";
+            using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
             {
-                string query = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE TENDV = :nameDepartment";
-                using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+                cmd.Parameters.Add(":name", OracleDbType.Varchar2).Value = name;
+                cmd.Parameters.Add(":coso", OracleDbType.Varchar2).Value = coso;
+                return cmd.ExecuteScalar()?.ToString();
+            }
+        }
+        private string getDepartmentName(string departmentID)
+        {
+            string query = "SELECT TENDV, COSO FROM PDB_ADMIN.QLDH_DONVI WHERE MADV = :madv";
+            using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+            {
+                cmd.Parameters.Add(":madv", OracleDbType.Varchar2).Value = departmentID;
+                using (OracleDataReader reader = cmd.ExecuteReader())
                 {
-                    cmd.Parameters.Add(":nameDepartment", OracleDbType.Varchar2).Value = nameDepartment;
-                    using (OracleDataReader reader = cmd.ExecuteReader())
+                    if (reader.Read())
                     {
-                        if (reader.Read())
-                        {
-                            return reader["MADV"].ToString();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Không tìm thấy mã đơn vị cho tên: " + nameDepartment, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        return reader["TENDV"].ToString(); // Trả về tên phòng ban và cơ sở
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy mã đơn vị: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return string.Empty;
+            return null; // Trả về null nếu không tìm thấy
         }
 
         private void label7_Click(object sender, EventArgs e)

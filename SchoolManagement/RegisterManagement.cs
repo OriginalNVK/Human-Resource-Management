@@ -24,9 +24,9 @@ namespace SchoolManagement
             try
             {
                 string query = @"
-                SELECT MAMH, TENHP
-                FROM PDB_ADMIN.QLDH_MONHOC JOIN PDB_ADMIN.QLDH_HOCPHAN ON PDB_ADMIN.QLDH_MONHOC.MAHP = PDB_ADMIN.QLDH_HOCPHAN.MAHP
-                WHERE SYSDATE BETWEEN NGAYBATDAU AND NGAYBATDAU + 15 
+                    SELECT MAMH, TENHP
+                    FROM PDB_ADMIN.QLDH_MONHOC JOIN PDB_ADMIN.QLDH_HOCPHAN ON PDB_ADMIN.QLDH_MONHOC.MAHP = PDB_ADMIN.QLDH_HOCPHAN.MAHP
+                    WHERE SYSDATE BETWEEN NGAYBATDAU AND NGAYBATDAU + 15 
                 ";
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))

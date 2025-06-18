@@ -81,11 +81,11 @@ namespace SchoolManagement
 				WHERE MASV = SYS_CONTEXT('USERENV','SESSION_USER')
 			)
 			AND HK = :hk AND NAM = :nam";
-
 				OracleCommand cmd = new OracleCommand(sql, conn);
 				cmd.Parameters.Add(":hk", OracleDbType.Varchar2).Value = currentHK;
 				cmd.Parameters.Add(":nam", OracleDbType.Int32).Value = currentYear - 1 ;
 
+                // Fix for CS1503: Convert the integer to a string using the ToString() method.
 				OracleDataAdapter adapter = new OracleDataAdapter(cmd);
 				DataTable dt = new DataTable();
 				adapter.Fill(dt);

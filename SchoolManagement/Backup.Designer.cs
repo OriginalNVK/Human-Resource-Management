@@ -53,6 +53,8 @@ namespace SchoolManagement
 			this.pbClasses = new System.Windows.Forms.PictureBox();
 			this.btnRevert = new System.Windows.Forms.Button();
 			this.btnBackup = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -63,6 +65,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -203,6 +206,8 @@ namespace SchoolManagement
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.panel2.Controls.Add(this.label6);
+			this.panel2.Controls.Add(this.pictureBox1);
 			this.panel2.Controls.Add(this.addNoticeBtn);
 			this.panel2.Controls.Add(this.pictureBox3);
 			this.panel2.Controls.Add(this.pictureBox2);
@@ -401,6 +406,30 @@ namespace SchoolManagement
 			this.btnBackup.UseVisualStyleBackColor = false;
 			this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.label6.Location = new System.Drawing.Point(79, 599);
+			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(85, 22);
+			this.label6.TabIndex = 243;
+			this.label6.Text = "BACKUP";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(19, 584);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(39, 51);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 242;
+			this.pictureBox1.TabStop = false;
+			// 
 			// Backup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -439,6 +468,7 @@ namespace SchoolManagement
 			((System.ComponentModel.ISupportInitialize)(this.pbSection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -468,5 +498,7 @@ namespace SchoolManagement
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Button btnRevert;
 		private System.Windows.Forms.Button btnBackup;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }

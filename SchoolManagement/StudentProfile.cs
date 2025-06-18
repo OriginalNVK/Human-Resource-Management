@@ -42,7 +42,7 @@ namespace SchoolManagement
 					return;
 				}
 
-				string sql = @"SELECT * FROM VIEW_INFO_SV";
+				string sql = @"SELECT * FROM PDB_ADMIN.VIEW_INFO_SV";
 
 				OracleCommand cmd = new OracleCommand(sql, conn);
 

@@ -260,5 +260,13 @@ namespace SchoolManagement
 			addNotification.ShowDialog();
 			this.Close();
 		}
+
+		private void label6_Click(object sender, EventArgs e)
+		{
+			Backup backup = new Backup();
+			this.Hide();
+			backup.ShowDialog();
+			this.Close();
+		}
 	}
 }
