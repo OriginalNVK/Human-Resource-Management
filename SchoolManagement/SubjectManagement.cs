@@ -27,36 +27,46 @@ namespace SchoolManagement
 
 		private void LoadSubject()
 		{
-			try
-			{
-				string subjectQuery = @"SELECT * FROM PDB_ADMIN.QLDH_VIEW_SUBJECT_PDT";
-
-                using (OracleCommand cmd = new OracleCommand(subjectQuery, DatabaseSession.Connection))
-                using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    dgvSubject.DataSource = dt;
-
-                    // Show subjects information
-                    dgvSubject.Columns["MAMH"].HeaderText = "SUBJECT CODE";
-                    dgvSubject.Columns["MAHP"].HeaderText = "COURSE CODE";
-                    dgvSubject.Columns["TENHP"].HeaderText = "COURSE NAME";
-                    dgvSubject.Columns["MADV"].HeaderText = "FACILITY CODE";
-                    dgvSubject.Columns["TENDV"].HeaderText = "FACILITY NAME";
-                    dgvSubject.Columns["SOTC"].HeaderText = "CREDIT";
-                    dgvSubject.Columns["HOTEN"].HeaderText = "TEACHER";
-                    dgvSubject.Columns["HK"].HeaderText = "TERM";
-                    dgvSubject.Columns["NAMHOC"].HeaderText = "YEAR";
-                    dgvSubject.Columns["NGAYBATDAU"].HeaderText = "START";
-                    dgvSubject.Columns["NGAYKETTHUC"].HeaderText = "END";
-                }
+            if (PersonnelMenu._role != "NV PĐT")
+            {
+                MessageBox.Show("\"Error:\\n\" Vai trò không hợp lệ");
+                //PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
+                //this.Hide();
+                //personnelMenu.ShowDialog();
+                //this.Close();
+                return;
             }
-			catch (Exception ex)
-			{
-                MessageBox.Show("Error:\n" + ex.Message);
-			}
+                try
+                {
+                    string subjectQuery = @"SELECT * FROM PDB_ADMIN.QLDH_VIEW_SUBJECT_PDT";
+
+                    using (OracleCommand cmd = new OracleCommand(subjectQuery, DatabaseSession.Connection))
+                    using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        dgvSubject.DataSource = dt;
+
+                        // Show subjects information
+                        dgvSubject.Columns["MAMH"].HeaderText = "SUBJECT CODE";
+                        dgvSubject.Columns["MAHP"].HeaderText = "COURSE CODE";
+                        dgvSubject.Columns["TENHP"].HeaderText = "COURSE NAME";
+                        dgvSubject.Columns["MADV"].HeaderText = "FACILITY CODE";
+                        dgvSubject.Columns["TENDV"].HeaderText = "FACILITY NAME";
+                        dgvSubject.Columns["SOTC"].HeaderText = "CREDIT";
+                        dgvSubject.Columns["HOTEN"].HeaderText = "TEACHER";
+                        dgvSubject.Columns["HK"].HeaderText = "TERM";
+                        dgvSubject.Columns["NAMHOC"].HeaderText = "YEAR";
+                        dgvSubject.Columns["NGAYBATDAU"].HeaderText = "START";
+                        dgvSubject.Columns["NGAYKETTHUC"].HeaderText = "END";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:\n" + ex.Message);
+                }
+            
 		}
 
         private void pbSubject_Click(object sender, EventArgs e)
