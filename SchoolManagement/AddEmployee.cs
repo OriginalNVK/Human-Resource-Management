@@ -24,14 +24,23 @@ namespace SchoolManagement
         {
             try
             {
-                string query = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI";
+                string query = "SELECT TENDV, COSO FROM PDB_ADMIN.QLDH_DONVI";
                 using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
                 using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
+
+                    // Thêm cột hiển thị tạm thời
+                    dt.Columns.Add("HIENTHI", typeof(string));
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        row["HIENTHI"] = $"{row["TENDV"]} ({row["COSO"]})";
+                    }
+
                     cmbDepartment.DataSource = dt;
-                    cmbDepartment.DisplayMember = "MADV";
+                    cmbDepartment.DisplayMember = "HIENTHI";  // Hiển thị TENDV (COSO)
+                    cmbDepartment.ValueMember = "TENDV";      // Nếu bạn muốn lấy lại giá trị khi chọn
                 }
             }
             catch (Exception ex)
@@ -39,6 +48,7 @@ namespace SchoolManagement
                 MessageBox.Show("Lỗi khi tải danh sách phòng ban: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         private void lbClasses_Click(object sender, EventArgs e)
@@ -97,7 +107,23 @@ namespace SchoolManagement
             login.ShowDialog();
             this.Close();
         }
+        private void label8_Click(object sender, EventArgs e)
+        {
+          
+        }
 
+        private string getIDDepartment(string departmentName)
+        {
+            string name = departmentName.Substring(0, departmentName.IndexOf('(')).Trim(); // Lấy tên phòng ban trước dấu ngoặc
+            string coso = departmentName.Substring(departmentName.IndexOf('(') + 1, departmentName.IndexOf(')') - departmentName.IndexOf('(') - 1).Trim(); // Lấy cơ sở trong ngoặc
+            string query = "SELECT MADV FROM PDB_ADMIN.QLDH_DONVI WHERE TENDV = :name AND COSO = :coso";
+            using (OracleCommand cmd = new OracleCommand(query, DatabaseSession.Connection))
+            {
+                cmd.Parameters.Add(":name", OracleDbType.Varchar2).Value = name;
+                cmd.Parameters.Add(":coso", OracleDbType.Varchar2).Value = coso;
+                return cmd.ExecuteScalar()?.ToString();
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             string manv = txtID.Text.Trim();
@@ -107,7 +133,7 @@ namespace SchoolManagement
             string diachi = txtAddress.Text.Trim();
             string dienthoai = txtPhone.Text.Trim();
             string vaitro = cmbRole.Text.ToString();
-            string donvi = cmbDepartment.Text.ToString();
+            string donvi = getIDDepartment(cmbDepartment.Text); // Get the department ID from the selected item in the ComboBox
             string luong = txtSalary.Text.Trim();
             string phucap = txtBonus.Text.Trim();
 
@@ -151,25 +177,7 @@ namespace SchoolManagement
             }
         }
 
-        private void kryptonPalette1_PalettePaint(object sender, PaletteLayoutEventArgs e)
-        {
-
-        }
-
-        private void Dashboard_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -338,5 +346,11 @@ namespace SchoolManagement
         {
 
         }
+        private void kryptonPalette1_PalettePaint(object sender, PaletteLayoutEventArgs e)
+        {
+            // This method can be used to customize the palette if needed
+            // Currently, it does nothing
+        }
+
     }
 }
