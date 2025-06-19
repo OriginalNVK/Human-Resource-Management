@@ -158,8 +158,8 @@ namespace SchoolManagement
 
 					if (elapsed.TotalDays <= 14 && elapsed.TotalDays >= 0) // Chỉ trong vòng 14 ngày
 					{
-						string insertSql = @"INSERT INTO pdb_admin.QLDH_DANGKY (MASV, MAMH, NGAYDK) 
-                                     VALUES (:masv, :mamh, :ngaydk)";
+						string insertSql = @"INSERT INTO pdb_admin.QLDH_DANGKY (MASV, MAMH, NGAYDK, DIEMTH, DIEMCK, DIEMQT, DIEMTK) 
+                                     VALUES (:masv, :mamh, :ngaydk, NULL, NULL, NULL, NULL)";
 
 						OracleCommand insertCmd = new OracleCommand(insertSql, conn);
 						insertCmd.Parameters.Add(":masv", Login.ID);

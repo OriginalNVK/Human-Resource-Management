@@ -106,6 +106,38 @@ namespace SchoolManagement
 						dgvAudit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 					}
 				}
+				sql = @"SELECT ENABLED
+				FROM 
+					DBA_AUDIT_POLICIES
+				WHERE 
+					OBJECT_SCHEMA = 'PDB_ADMIN' 
+					AND OBJECT_NAME = :tableAudit";
+				using (OracleCommand cmd = new OracleCommand(sql, DatabaseSession.Connection))
+				{
+					cmd.Parameters.Add(new OracleParameter("tableAudit", tableAudit));
+					using (OracleDataReader reader = cmd.ExecuteReader())
+					{
+						if (reader.Read())
+						{
+							string enabled = reader.GetString(0);
+							if (enabled == "YES")
+							{
+								lbEdit.Text = "ON";
+								dgvAudit.ReadOnly = false;
+							}
+							else
+							{
+								lbEdit.Text = "OFF";
+								dgvAudit.ReadOnly = true;
+							}
+						}
+						else
+						{
+							MessageBox.Show("Không tìm thấy chính sách audit cho bảng này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+					}
+
+				}
 
 
 

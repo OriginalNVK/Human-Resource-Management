@@ -639,6 +639,7 @@ namespace SchoolManagement
 			this.label6.Size = new System.Drawing.Size(103, 22);
 			this.label6.TabIndex = 255;
 			this.label6.Text = "CLASS LIST";
+			this.label6.Click += new System.EventHandler(this.label6_Click);
 			// 
 			// pbSection
 			// 

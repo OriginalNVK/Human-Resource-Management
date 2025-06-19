@@ -164,31 +164,31 @@ namespace SchoolManagement
 
                         string depParam = "";
 
-                        if (department == "KH04_1" || department == "KH04_2")
+                        if (department == "Khoa Toán")
                         {
                             depParam = "TOAN";
                         }
 
-                        if (department == "KH05_1" || department == "KH05_2")
+                        if (department == "Khoa Lý")
                         {
                             depParam = "LY";
                         }
 
-                        if (department == "KH06_1" || department == "KH06_2")
+                        if (department == "Khoa Hóa")
                         {
                             depParam = "HOA";
                         }
 
-                        if (department == "PH03_1" || department == "PH03_2")
+                        if (department == "Phòng Hành Chính")
                         {
                             depParam = "HANHCHINH";
                         }
 
-                        cmdGrantLabel.Parameters.Add("p_role", OracleDbType.Varchar2).Value = roleParam;
-                        cmdGrantLabel.Parameters.Add("p_khoa", OracleDbType.Varchar2).Value = depParam;
-                        cmdGrantLabel.Parameters.Add("p_coso", OracleDbType.Varchar2).Value = location;
-                        cmdGrantLabel.ExecuteNonQuery();
-                    }
+					cmdGrantLabel.Parameters.Add("p_role", OracleDbType.Varchar2).Value = roleParam;
+					cmdGrantLabel.Parameters.Add("p_khoa", OracleDbType.Varchar2).Value = depParam;
+					cmdGrantLabel.Parameters.Add("p_coso", OracleDbType.Varchar2).Value = location;
+					cmdGrantLabel.ExecuteNonQuery();
+				}
 
 					// Lấy MADV từ tên đơn vị
 					string queSeDepID = null;

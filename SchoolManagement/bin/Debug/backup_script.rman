@@ -2,6 +2,6 @@
 connect target /
 run {
     backup database plus archivelog
-        format 'D:\App\Oracle\Backup\BACKUP_20250618_030955_%U.BKP'
-        tag='20250618_030955';
+        format 'D:\App\Oracle\Backup\BACKUP_20250619_123246_%U.BKP'
+        tag='20250619_123246';
 }

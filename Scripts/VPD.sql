@@ -44,8 +44,15 @@ END;
 /
 
 -- Xóa các chính sách VPD cũ để tránh xung đột
-BEGIN
-    FOR pol IN (SELECT POLICY_NAME FROM DBA_POLICIES WHERE OBJECT_NAME = 'QLDH_SINHVIEN' AND OBJECT_OWNER = 'PDB_ADMIN') LOOP
+B
+
+
+
+
+
+
+
+FOR pol IN (SELECT POLICY_NAME FROM DBA_POLICIES WHERE OBJECT_NAME = 'QLDH_SINHVIEN' AND OBJECT_OWNER = 'PDB_ADMIN') LOOP
         DBMS_RLS.DROP_POLICY(
             object_schema => 'PDB_ADMIN',
             object_name   => 'QLDH_SINHVIEN',
@@ -55,13 +62,7 @@ BEGIN
 END;
 /
 
-BEGIN
-    DBMS_RLS.DROP_POLICY(
-        object_schema => 'PDB_ADMIN',
-        object_name   => 'QLDH_SINHVIEN',
-        policy_name   => 'student_policy'
-    );
-END;
+
 
 -- Áp dụng chính sách VPD mới
 BEGIN
@@ -144,6 +145,22 @@ END;
 --/
 
 -----------------------------------------------------------------------------------
+BEGIN
+    DBMS_RLS.DROP_POLICY(
+        object_schema => 'PDB_ADMIN',
+        object_name   => 'QLDH_DANGKY',
+        policy_name   => 'register_policy'  -- hoặc thay bằng tên đúng nếu khác
+    );
+END;
+/
+
+SELECT *
+FROM DBA_POLICIES
+WHERE OBJECT_OWNER = 'PDB_ADMIN'
+  AND OBJECT_NAME = 'QLDH_DANGKY';
+DROP TRIGGER PDB_ADMIN.TRG_RESTRICT_DANGKY;
+DROP TRIGGER PDB_ADMIN.TRG_RESTRICT_DANGKY;
+
 
 --Câu 4: Em hãy ép thỏa các chính sách bảo mật trên quan hệ ĐANGKY dùng cơ chế VPD
 --theo mô tả bên dưới và cài đặt giao diện cho những người dùng liên quan:
@@ -185,8 +202,6 @@ EXCEPTION
 END;
 /
 
-SELECT * FROM QLDH_MONHOC;
-SELECT * FROM QLDH_HOCPHAN;
 BEGIN
     FOR pol IN (SELECT POLICY_NAME FROM DBA_POLICIES WHERE OBJECT_NAME = 'QLDH_DANGKY' AND OBJECT_OWNER = 'PDB_ADMIN') LOOP
         DBMS_RLS.DROP_POLICY(
@@ -207,7 +222,6 @@ BEGIN
     );
 END;
 /
-
 
 CREATE OR REPLACE TRIGGER pdb_admin.trg_restrict_dangky
 BEFORE INSERT OR UPDATE OR DELETE ON PDB_ADMIN.QLDH_DANGKY
@@ -248,14 +262,8 @@ BEGIN
         IF SYSDATE < v_ngaybatdau OR SYSDATE > v_ngaybatdau + 14 THEN
             RAISE_APPLICATION_ERROR(-20003, 'Sinh viên chỉ được thao tác trong 14 ngày đầu học kỳ.');
         END IF;
-        -- Đảm bảo điểm số là NULL
-        IF INSERTING OR UPDATING THEN
-            :NEW.DIEMTH := NULL;
-            :NEW.DIEMQT := NULL;
-            :NEW.DIEMCK := NULL;
-            :NEW.DIEMTK := NULL;
-            :NEW.NGAYDK := SYSDATE;
-        END IF;
+
+        
         -- Kiểm tra MASV khớp với SESSION_USER
         IF INSERTING OR UPDATING THEN
             IF :NEW.MASV != SYS_CONTEXT('USERENV', 'SESSION_USER') THEN
@@ -274,13 +282,7 @@ BEGIN
             RAISE_APPLICATION_ERROR(-20005, 'NV PĐT chỉ được thao tác trong 14 ngày đầu học kỳ.');
         END IF;
         -- Đảm bảo điểm số là NULL
-        IF INSERTING OR UPDATING THEN
-            :NEW.DIEMTH := NULL;
-            :NEW.DIEMQT := NULL;
-            :NEW.DIEMCK := NULL;
-            :NEW.DIEMTK := NULL;
-            :NEW.NGAYDK := SYSDATE;
-        END IF;
+        
     
     -- NV PKT
     ELSIF v_vaitro = 'NV PKT' THEN

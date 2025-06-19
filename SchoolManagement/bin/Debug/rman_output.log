@@ -1,98 +1,155 @@
 
-Recovery Manager: Release 21.0.0.0.0 - Production on Wed Jun 18 03:11:34 2025
+Recovery Manager: Release 21.0.0.0.0 - Production on Thu Jun 19 12:32:46 2025
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
 
 RMAN> 
 RMAN> connect target *
-2> shutdown immediate;
-3> startup mount;
-4> catalog start with 'D:\App\Oracle\Backup';
-5> run {
-6>     SET UNTIL TIME "TO_DATE('2025-06-18 03:09:55', 'YYYY-MM-DD HH24:MI:SS')";
-7>     restore database;
-8>     recover database;
-9> }
-10> alter database open resetlogs;
-11> 
+2> run {
+3>     backup database plus archivelog
+4>         format 'D:\App\Oracle\Backup\BACKUP_20250619_123246_%U.BKP'
+5>         tag='20250619_123246';
+6> }
+7> 
 connected to target database: XE (DBID=3079148829)
 
+
+Starting backup at 19-JUN-25
+current log archived
 using target database control file instead of recovery catalog
-database closed
-database dismounted
-Oracle instance shut down
-
-connected to target database (not started)
-Oracle instance started
-database mounted
-
-Total System Global Area    1610610072 bytes
-
-Fixed Size                     9856408 bytes
-Variable Size                771751936 bytes
-Database Buffers             822083584 bytes
-Redo Buffers                   6918144 bytes
-
-searching for all files that match the pattern D:\App\Oracle\Backup
-no files found to be unknown to the database
-
-executing command: SET until clause
-
-Starting restore at 18-JUN-25
 allocated channel: ORA_DISK_1
-channel ORA_DISK_1: SID=1101 device type=DISK
+channel ORA_DISK_1: SID=131 device type=DISK
+channel ORA_DISK_1: starting archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=28 RECID=34 STAMP=1203549749
+input archived log thread=1 sequence=29 RECID=35 STAMP=1203549823
+input archived log thread=1 sequence=30 RECID=36 STAMP=1203585109
+input archived log thread=1 sequence=31 RECID=37 STAMP=1203629882
+input archived log thread=1 sequence=32 RECID=38 STAMP=1203714944
+input archived log thread=1 sequence=33 RECID=39 STAMP=1203717859
+input archived log thread=1 sequence=34 RECID=40 STAMP=1203727494
+input archived log thread=1 sequence=35 RECID=41 STAMP=1203789132
+input archived log thread=1 sequence=36 RECID=42 STAMP=1203800311
+input archived log thread=1 sequence=37 RECID=43 STAMP=1203859239
+input archived log thread=1 sequence=38 RECID=44 STAMP=1203889671
+input archived log thread=1 sequence=39 RECID=45 STAMP=1203929227
+input archived log thread=1 sequence=40 RECID=46 STAMP=1203966583
+input archived log thread=1 sequence=41 RECID=47 STAMP=1204016011
+input archived log thread=1 sequence=42 RECID=48 STAMP=1204031517
+input archived log thread=1 sequence=43 RECID=49 STAMP=1204031591
+input archived log thread=1 sequence=44 RECID=50 STAMP=1204044900
+input archived log thread=1 sequence=45 RECID=51 STAMP=1204053701
+input archived log thread=1 sequence=46 RECID=52 STAMP=1204078219
+input archived log thread=1 sequence=47 RECID=53 STAMP=1204078233
+input archived log thread=1 sequence=48 RECID=54 STAMP=1204080570
+input archived log thread=1 sequence=49 RECID=55 STAMP=1204080585
+input archived log thread=1 sequence=50 RECID=56 STAMP=1204081140
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\BACKUP_20250619_123246_283SDAFG_72_1_1.BKP tag=20250619_123246 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=2 RECID=61 STAMP=1204125747
+input archived log thread=1 sequence=3 RECID=62 STAMP=1204141215
+input archived log thread=1 sequence=4 RECID=63 STAMP=1204178034
+input archived log thread=1 sequence=5 RECID=64 STAMP=1204185935
+input archived log thread=1 sequence=6 RECID=65 STAMP=1204195212
+input archived log thread=1 sequence=7 RECID=66 STAMP=1204201968
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\BACKUP_20250619_123246_293SDAFI_73_1_1.BKP tag=20250619_123246 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=1 RECID=60 STAMP=1204117435
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\BACKUP_20250619_123246_2A3SDAFJ_74_1_1.BKP tag=20250619_123246 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=1 RECID=57 STAMP=1204081796
+input archived log thread=1 sequence=2 RECID=58 STAMP=1204081812
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\BACKUP_20250619_123246_2B3SDAFK_75_1_1.BKP tag=20250619_123246 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=3 RECID=59 STAMP=1204081916
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\BACKUP_20250619_123246_2C3SDAFL_76_1_1.BKP tag=20250619_123246 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+Finished backup at 19-JUN-25
 
-skipping datafile 5; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\SYSTEM01.DBF
-skipping datafile 6; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\SYSAUX01.DBF
-skipping datafile 8; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
-skipping datafile 13; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\SYSTEM01.DBF
-skipping datafile 14; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\SYSAUX01.DBF
-skipping datafile 15; already restored to file C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\UNDOTBS01.DBF
-channel ORA_DISK_1: starting datafile backup set restore
-channel ORA_DISK_1: specifying datafile(s) to restore from backup set
-channel ORA_DISK_1: restoring datafile 00001 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\SYSTEM01.DBF
-channel ORA_DISK_1: restoring datafile 00003 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\SYSAUX01.DBF
-channel ORA_DISK_1: restoring datafile 00004 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\UNDOTBS01.DBF
-channel ORA_DISK_1: restoring datafile 00007 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\USERS01.DBF
-channel ORA_DISK_1: reading from backup piece D:\APP\ORACLE\BACKUP\1M3S9JTS_54_1_1.BKP
-channel ORA_DISK_1: piece handle=D:\APP\ORACLE\BACKUP\1M3S9JTS_54_1_1.BKP tag=TAG20250618T024932
-channel ORA_DISK_1: restored backup piece 1
-channel ORA_DISK_1: restore complete, elapsed time: 00:00:03
-channel ORA_DISK_1: starting datafile backup set restore
-channel ORA_DISK_1: specifying datafile(s) to restore from backup set
-channel ORA_DISK_1: restoring datafile 00009 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\SYSTEM01.DBF
-channel ORA_DISK_1: restoring datafile 00010 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\SYSAUX01.DBF
-channel ORA_DISK_1: restoring datafile 00011 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
-channel ORA_DISK_1: restoring datafile 00012 to C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\USERS01.DBF
-channel ORA_DISK_1: reading from backup piece D:\APP\ORACLE\BACKUP\1N3S9JTV_55_1_1.BKP
-channel ORA_DISK_1: piece handle=D:\APP\ORACLE\BACKUP\1N3S9JTV_55_1_1.BKP tag=TAG20250618T024932
-channel ORA_DISK_1: restored backup piece 1
-channel ORA_DISK_1: restore complete, elapsed time: 00:00:01
-channel ORA_DISK_1: starting datafile backup set restore
-channel ORA_DISK_1: specifying datafile(s) to restore from backup set
-channel ORA_DISK_1: restoring datafile 00028 to C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\SYSTEM01.DBF
-channel ORA_DISK_1: restoring datafile 00029 to C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\SYSAUX01.DBF
-channel ORA_DISK_1: restoring datafile 00030 to C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\UNDOTBS01.DBF
-channel ORA_DISK_1: reading from backup piece D:\APP\ORACLE\BACKUP\1P3S9JU3_57_1_1.BKP
-channel ORA_DISK_1: piece handle=D:\APP\ORACLE\BACKUP\1P3S9JU3_57_1_1.BKP tag=TAG20250618T024932
-channel ORA_DISK_1: restored backup piece 1
-channel ORA_DISK_1: restore complete, elapsed time: 00:00:03
-Finished restore at 18-JUN-25
-
-Starting recover at 18-JUN-25
+Starting backup at 19-JUN-25
 using channel ORA_DISK_1
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00001 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\SYSTEM01.DBF
+input datafile file number=00003 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\SYSAUX01.DBF
+input datafile file number=00004 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\UNDOTBS01.DBF
+input datafile file number=00007 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\USERS01.DBF
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\2D3SDAFM_77_1_1.BKP tag=TAG20250619T123254 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00010 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\SYSAUX01.DBF
+input datafile file number=00009 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\SYSTEM01.DBF
+input datafile file number=00011 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\UNDOTBS01.DBF
+input datafile file number=00012 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\XEPDB1\USERS01.DBF
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\2E3SDAFP_78_1_1.BKP tag=TAG20250619T123254 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00014 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\SYSAUX01.DBF
+input datafile file number=00013 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\SYSTEM01.DBF
+input datafile file number=00015 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\QLHS_22120158\PDBSEED\UNDOTBS01.DBF
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\2F3SDAFQ_79_1_1.BKP tag=TAG20250619T123254 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00029 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\SYSAUX01.DBF
+input datafile file number=00028 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\SYSTEM01.DBF
+input datafile file number=00030 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XEPDBQLDH\PDBSEED\UNDOTBS01.DBF
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\2G3SDAFR_80_1_1.BKP tag=TAG20250619T123254 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+channel ORA_DISK_1: starting full datafile backup set
+channel ORA_DISK_1: specifying datafile(s) in backup set
+input datafile file number=00006 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\SYSAUX01.DBF
+input datafile file number=00005 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\SYSTEM01.DBF
+input datafile file number=00008 name=C:\APP\LK47\PRODUCT\21C\ORADATA\XE\PDBSEED\UNDOTBS01.DBF
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\2H3SDAFT_81_1_1.BKP tag=TAG20250619T123254 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:03
+Finished backup at 19-JUN-25
 
-starting media recovery
+Starting backup at 19-JUN-25
+current log archived
+using channel ORA_DISK_1
+channel ORA_DISK_1: starting archived log backup set
+channel ORA_DISK_1: specifying archived log(s) in backup set
+input archived log thread=1 sequence=8 RECID=67 STAMP=1204201984
+channel ORA_DISK_1: starting piece 1 at 19-JUN-25
+channel ORA_DISK_1: finished piece 1 at 19-JUN-25
+piece handle=D:\APP\ORACLE\BACKUP\BACKUP_20250619_123246_2I3SDAG0_82_1_1.BKP tag=20250619_123246 comment=NONE
+channel ORA_DISK_1: backup set complete, elapsed time: 00:00:01
+Finished backup at 19-JUN-25
 
-archived log for thread 1 with sequence 49 is already on disk as file C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000049_1202567845.0001
-archived log for thread 1 with sequence 50 is already on disk as file C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000050_1202567845.0001
-archived log for thread 1 with sequence 1 is already on disk as file C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000001_1204081140.0001
-archived log file name=C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000049_1202567845.0001 thread=1 sequence=49
-archived log file name=C:\APP\LK47\PRODUCT\21C\HOMES\ORADB21HOME2\RDBMS\ARC0000000050_1202567845.0001 thread=1 sequence=50
-media recovery complete, elapsed time: 00:00:01
-Finished recover at 18-JUN-25
-
-Statement processed
+Starting Control File and SPFILE Autobackup at 19-JUN-25
+piece handle=C:\APP\LK47\PRODUCT\21C\DBHOMEXE\DATABASE\C-3079148829-20250619-00 comment=NONE
+Finished Control File and SPFILE Autobackup at 19-JUN-25
 
 Recovery Manager complete.
