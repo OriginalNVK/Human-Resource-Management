@@ -3,7 +3,23 @@
   "WorkspaceRootPath": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\studentmanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:studentmanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -19,7 +35,7 @@
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:subjectmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\subjectmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\subjectmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:subjectmanagement.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,16 +43,12 @@
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updatestudent.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\subjectmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\subjectmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:subjectmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\subjectmanagement.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\subjectmanagement.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:subjectmanagement.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|d:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalproject\\human-resource-management\\schoolmanagement\\studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:studentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\subjectregister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\updatestudentctsv.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updatestudentctsv.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|solutionrelative:updatestudentctsv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCA30E90-ADB4-47C2-94AD-C98BF093A40A}|SchoolManagement.csproj|D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\usersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -118,11 +126,107 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentManager.Designer.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.Designer.cs",
+              "RelativeDocumentMoniker": "StudentManager.Designer.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.Designer.cs",
+              "RelativeToolTip": "StudentManager.Designer.cs",
+              "ViewState": "AgIAADECAAAAAAAAAAAQwEACAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T01:30:32.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentManager.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
+              "RelativeDocumentMoniker": "StudentManager.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs [Design]",
+              "RelativeToolTip": "StudentManager.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T01:23:46.338Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SubjectManagement.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.cs",
+              "RelativeDocumentMoniker": "SubjectManagement.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.cs [Design]",
+              "RelativeToolTip": "SubjectManagement.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T12:43:10.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateStudent.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.cs",
+              "RelativeDocumentMoniker": "UpdateStudent.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.cs [Design]",
+              "RelativeToolTip": "UpdateStudent.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:31:56.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UpdateStudentCTSV.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentCTSV.cs",
+              "RelativeDocumentMoniker": "UpdateStudentCTSV.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentCTSV.cs",
+              "RelativeToolTip": "UpdateStudentCTSV.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAApwDIBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T14:15:43.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "StudentManager.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
+              "RelativeDocumentMoniker": "StudentManager.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
+              "RelativeToolTip": "StudentManager.cs",
+              "ViewState": "AgIAAN4BAAAAAAAAAAAQwOUBAACeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T07:40:55.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SubjectRegister.cs [Design]",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectRegister.cs",
+              "RelativeDocumentMoniker": "SubjectRegister.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectRegister.cs [Design]",
+              "RelativeToolTip": "SubjectRegister.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T12:43:07.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateStudent.Designer.cs",
+              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.Designer.cs",
+              "RelativeDocumentMoniker": "UpdateStudent.Designer.cs",
+              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.Designer.cs",
+              "RelativeToolTip": "UpdateStudent.Designer.cs",
+              "ViewState": "AgIAAPgBAAAAAAAAAAAewAUCAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T13:31:58.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UpdateStudentCTSV.cs [Design]",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentCTSV.cs",
               "RelativeDocumentMoniker": "UpdateStudentCTSV.cs",
@@ -134,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "SubjectManagement.Designer.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.Designer.cs",
               "RelativeDocumentMoniker": "SubjectManagement.Designer.cs",
@@ -142,61 +246,11 @@
               "RelativeToolTip": "SubjectManagement.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T14:14:28.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T14:14:28.258Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateStudent.Designer.cs",
-              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.Designer.cs",
-              "RelativeDocumentMoniker": "UpdateStudent.Designer.cs",
-              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.Designer.cs",
-              "RelativeToolTip": "UpdateStudent.Designer.cs",
-              "ViewState": "AgIAAPgBAAAAAAAAAAAewAUCAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T13:31:58.533Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SubjectRegister.cs [Design]",
-              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectRegister.cs",
-              "RelativeDocumentMoniker": "SubjectRegister.cs",
-              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectRegister.cs [Design]",
-              "RelativeToolTip": "SubjectRegister.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T12:43:07.29Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SubjectManagement.cs [Design]",
-              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.cs",
-              "RelativeDocumentMoniker": "SubjectManagement.cs",
-              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.cs [Design]",
-              "RelativeToolTip": "SubjectManagement.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T12:43:10.44Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UpdateStudent.cs [Design]",
-              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.cs",
-              "RelativeDocumentMoniker": "UpdateStudent.cs",
-              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.cs [Design]",
-              "RelativeToolTip": "UpdateStudent.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T13:31:56.088Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "UpdateStudent.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudent.cs",
               "RelativeDocumentMoniker": "UpdateStudent.cs",
@@ -204,12 +258,11 @@
               "RelativeToolTip": "UpdateStudent.cs",
               "ViewState": "AgIAAK0AAAAAAAAAAAApwMgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T13:31:33.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T13:31:33.709Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "SubjectRegister.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectRegister.cs",
               "RelativeDocumentMoniker": "SubjectRegister.cs",
@@ -217,24 +270,22 @@
               "RelativeToolTip": "SubjectRegister.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAApwGsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T14:53:04.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T14:53:04.266Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "SubjectManagement.resx",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.resx",
               "RelativeDocumentMoniker": "SubjectManagement.resx",
               "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.resx",
               "RelativeToolTip": "SubjectManagement.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-06-18T13:23:38.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T13:23:38.078Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "SubjectManagement.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\SubjectManagement.cs",
               "RelativeDocumentMoniker": "SubjectManagement.cs",
@@ -242,25 +293,11 @@
               "RelativeToolTip": "SubjectManagement.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAApwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T13:23:47.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T13:23:47.553Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "StudentManager.cs",
-              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
-              "RelativeDocumentMoniker": "StudentManager.cs",
-              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\StudentManager.cs",
-              "RelativeToolTip": "StudentManager.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAACQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T07:40:55.355Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "UpdateGrade.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateGrade.cs",
               "RelativeDocumentMoniker": "UpdateGrade.cs",
@@ -272,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "UpdateStudentCTSV.Designer.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentCTSV.Designer.cs",
               "RelativeDocumentMoniker": "UpdateStudentCTSV.Designer.cs",
@@ -280,12 +317,11 @@
               "RelativeToolTip": "UpdateStudentCTSV.Designer.cs",
               "ViewState": "AgIAAHQCAAAAAAAAAAAQwIECAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T13:54:51.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T13:54:51.712Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "GradeManager.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.cs",
               "RelativeDocumentMoniker": "GradeManager.cs",
@@ -297,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "UpdateGrade.Designer.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateGrade.Designer.cs",
               "RelativeDocumentMoniker": "UpdateGrade.Designer.cs",
@@ -309,20 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UpdateStudentCTSV.cs",
-              "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentCTSV.cs",
-              "RelativeDocumentMoniker": "UpdateStudentCTSV.cs",
-              "ToolTip": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentCTSV.cs",
-              "RelativeToolTip": "UpdateStudentCTSV.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAQwHUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T14:15:43.572Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "AddRole.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\AddRole.cs",
               "RelativeDocumentMoniker": "AddRole.cs",
@@ -334,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "UsersManager.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UsersManager.cs",
               "RelativeDocumentMoniker": "UsersManager.cs",
@@ -346,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "UpdateStudentPDT.resx",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentPDT.resx",
               "RelativeDocumentMoniker": "UpdateStudentPDT.resx",
@@ -357,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "UpdateStudentPDT.Designer.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentPDT.Designer.cs",
               "RelativeDocumentMoniker": "UpdateStudentPDT.Designer.cs",
@@ -369,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "UpdateStudentPDT.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\UpdateStudentPDT.cs",
               "RelativeDocumentMoniker": "UpdateStudentPDT.cs",
@@ -381,7 +404,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "PersonnelMenu.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\PersonnelMenu.cs",
               "RelativeDocumentMoniker": "PersonnelMenu.cs",
@@ -393,7 +416,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "AddUser.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\AddUser.cs",
               "RelativeDocumentMoniker": "AddUser.cs",
@@ -405,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "GradeManager.Designer.cs",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.Designer.cs",
               "RelativeDocumentMoniker": "GradeManager.Designer.cs",
@@ -417,7 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "GradeManager.cs [Design]",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\GradeManager.cs",
               "RelativeDocumentMoniker": "GradeManager.cs",
@@ -428,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "ClassList.cs [Design]",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\ClassList.cs",
               "RelativeDocumentMoniker": "ClassList.cs",
@@ -439,7 +462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "AdminMenu.cs [Design]",
               "DocumentMoniker": "D:\\lilsadfoqs\\studypath\\nam3ki2\\secis\\finalProject\\Human-Resource-Management\\SchoolManagement\\AdminMenu.cs",
               "RelativeDocumentMoniker": "AdminMenu.cs",

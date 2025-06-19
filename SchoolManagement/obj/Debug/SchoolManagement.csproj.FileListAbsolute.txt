@@ -762,3 +762,4 @@ D:\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.UpdateS
 >>>>>>> f75cbafe995868beaf5aa65a60128b12e0940b84
 >>>>>>> origin/TN2
 D:\Đại Học\Kì 2 - Năm 3\An Toàn Bảo Mật HTTT\Seminar\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentScore.resources
+D:\lilsadfoqs\studypath\nam3ki2\secis\finalProject\Human-Resource-Management\SchoolManagement\obj\Debug\SchoolManagement.StudentScore.resources

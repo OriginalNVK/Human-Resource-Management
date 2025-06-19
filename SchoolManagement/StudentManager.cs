@@ -312,7 +312,7 @@ namespace SchoolManagement
 			}
 		}
 
-		
+
 
 		// Login
 
@@ -363,7 +363,7 @@ namespace SchoolManagement
 		// Student Manager
 		private void lbStudents_Click(object sender, EventArgs e)
 		{
-			StudentManager studentManager= new StudentManager();
+			StudentManager studentManager = new StudentManager();
 			this.Hide();
 			studentManager.ShowDialog();
 			this.Close();
@@ -391,12 +391,108 @@ namespace SchoolManagement
 			this.Close();
 		}
 
-        private void notifications_Click(object sender, EventArgs e)
-        {
-            ViewNotice viewNotification = new ViewNotice(Login.ID);
-            this.Hide();
-            viewNotification.ShowDialog();
-            this.Close();
-        }
+		private void notifications_Click(object sender, EventArgs e)
+		{
+			ViewNotice viewNotification = new ViewNotice(Login.ID);
+			this.Hide();
+			viewNotification.ShowDialog();
+			this.Close();
+		}
+		
+		private void pbDelete_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (PersonnelMenu._role == "NV PĐT")
+				{
+					// Nhân viên PĐT không có quyền xóa sinh viên
+					KryptonMessageBox.Show("Bạn không có quyền thực hiện chức năng này!",
+										   "Cảnh báo",
+										   MessageBoxButtons.OK,
+										   MessageBoxIcon.Warning);
+					return;
+				}
+				else if (PersonnelMenu._role == "NV CTSV")
+				{
+						// Nhân viên CTSV có quyền xóa sinh viên
+						// Lấy connection chung đã mở từ DatabaseSession
+					OracleConnection conn = DatabaseSession.Connection;
+					if (conn == null || conn.State != ConnectionState.Open)
+					{
+						MessageBox.Show("Kết nối chưa được khởi tạo hoặc chưa mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+
+					string usernameToDelete = null;
+					foreach (DataGridViewRow row in dgvStudents.Rows)
+					{
+						if (Convert.ToBoolean(row.Cells["chk"].Value ?? false))
+						{
+							usernameToDelete = row.Cells["MaSV"].Value?.ToString();
+							break;
+						}
+					}
+
+					if (string.IsNullOrWhiteSpace(usernameToDelete))
+					{
+						MessageBox.Show("Vui lòng chọn SV để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						return;
+					}
+
+					var dlg = MessageBox.Show(
+						$"Bạn có chắc chắn muốn xóa SV '{usernameToDelete}' không?",
+						"Xác nhận xóa SV",
+						MessageBoxButtons.YesNo,
+						MessageBoxIcon.Warning
+					);
+					if (dlg != DialogResult.Yes)
+						return;
+
+					// Xóa bản ghi con trước
+					string deleteQuery = "DELETE FROM PDB_ADMIN.QLDH_DANGKY WHERE MASV = :username";
+					if (!string.IsNullOrEmpty(deleteQuery))
+					{
+						using (var cmdDelete = new OracleCommand(deleteQuery, conn))
+						{
+							cmdDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = usernameToDelete.ToUpper();
+							cmdDelete.ExecuteNonQuery();
+							Console.WriteLine($"Đã xóa dữ liệu liên quan trong QLDH_DANGKY cho MASV: {usernameToDelete}");
+							MessageBox.Show("Done");
+						}
+					}
+
+					// Xóa bản ghi cha
+					deleteQuery = "DELETE FROM PDB_ADMIN.QLDH_SINHVIEN WHERE MASV = :username";
+					if (!string.IsNullOrEmpty(deleteQuery))
+					{
+						using (var cmdDelete = new OracleCommand(deleteQuery, conn))
+						{
+							cmdDelete.Parameters.Add("username", OracleDbType.Varchar2).Value = usernameToDelete.ToUpper();
+							cmdDelete.ExecuteNonQuery();
+							Console.WriteLine($"Đã xóa dữ liệu SinhVien cho MASV: {usernameToDelete}");
+						}
+					}
+
+					MessageBox.Show($"Đã xóa sinh viên '{usernameToDelete}' thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+				}
+				
+				// Làm mới danh sách
+				LoadStudents();
+			}
+			catch (OracleException oex)
+			{
+				if (oex.Number == 2292)
+					MessageBox.Show($"Lỗi: Không thể xóa sinh viên vì vẫn còn dữ liệu liên quan trong các bảng con (ví dụ: QLDH_DANGKY). Vui lòng xóa dữ liệu liên quan trước.", "Lỗi Oracle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				else if (oex.Number == 1918)
+					MessageBox.Show($"Lỗi: Role NV_CTSV không có quyền thực hiện thao tác này.", "Lỗi Oracle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				else
+					MessageBox.Show($"Lỗi Oracle khi xóa sinh viên:\n{oex.Message}", "Lỗi Oracle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Lỗi khi xóa sinh viên:\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
     }
 }
