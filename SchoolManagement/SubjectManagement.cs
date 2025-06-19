@@ -29,7 +29,7 @@ namespace SchoolManagement
 		{
             if (PersonnelMenu._role != "NV PĐT")
             {
-                MessageBox.Show("\"Error:\\n\" Vai trò không hợp lệ");
+                MessageBox.Show("Không có quyền truy cập thông tin này", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //PersonnelMenu personnelMenu = new PersonnelMenu(Login.ID);
                 //this.Hide();
                 //personnelMenu.ShowDialog();

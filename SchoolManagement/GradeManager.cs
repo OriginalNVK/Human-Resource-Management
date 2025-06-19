@@ -159,7 +159,7 @@ namespace SchoolManagement
 								DIEMQT as ""ĐIỂM QT"",
 								DIEMCK as ""ĐIỂM CK"",
 								DIEMTK as ""ĐIỂM TK""
-							FROM PDB_ADMIN.QLDH_VIEW_SCOREBOARD
+							FROM PDB_ADMIN.QLDH_VIEW_SCOREBOARD1
 							WHERE MAHP = :subjectId
 							ORDER BY MASV
 						";

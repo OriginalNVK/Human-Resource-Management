@@ -43,6 +43,11 @@ namespace SchoolManagement
 
 		private void LoadClasses()
 		{
+			if (Login.TYPE_ROLE != "GV")
+			{
+				MessageBox.Show("Không có quyền truy cập thông tin này", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 			try
 			{
 				OracleConnection conn = DatabaseSession.Connection;
