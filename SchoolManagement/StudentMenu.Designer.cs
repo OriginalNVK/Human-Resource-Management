@@ -37,19 +37,19 @@ namespace SchoolManagement
 			this.lbProfile = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.notifications = new System.Windows.Forms.PictureBox();
+			this.pbClasses = new System.Windows.Forms.PictureBox();
 			this.pbGrade = new System.Windows.Forms.PictureBox();
 			this.pbCalendar = new System.Windows.Forms.PictureBox();
 			this.pbLogout = new System.Windows.Forms.PictureBox();
 			this.pbProfile = new System.Windows.Forms.PictureBox();
-			this.pbClasses = new System.Windows.Forms.PictureBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.notifications = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbGrade)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// kryptonPalette1
@@ -176,6 +176,42 @@ namespace SchoolManagement
 			this.label2.TabIndex = 30;
 			this.label2.Text = "GRADE";
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(597, 355);
+			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(196, 22);
+			this.label4.TabIndex = 32;
+			this.label4.Text = "REGISTERED SUBJECT";
+			// 
+			// notifications
+			// 
+			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
+			this.notifications.Location = new System.Drawing.Point(730, 11);
+			this.notifications.Name = "notifications";
+			this.notifications.Size = new System.Drawing.Size(63, 50);
+			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.notifications.TabIndex = 212;
+			this.notifications.TabStop = false;
+			this.notifications.Click += new System.EventHandler(this.notifications_Click);
+			// 
+			// pbClasses
+			// 
+			this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
+			this.pbClasses.Location = new System.Drawing.Point(608, 147);
+			this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
+			this.pbClasses.Name = "pbClasses";
+			this.pbClasses.Size = new System.Drawing.Size(174, 204);
+			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbClasses.TabIndex = 31;
+			this.pbClasses.TabStop = false;
+			this.pbClasses.Click += new System.EventHandler(this.pbClasses_Click);
+			// 
 			// pbGrade
 			// 
 			this.pbGrade.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -187,6 +223,7 @@ namespace SchoolManagement
 			this.pbGrade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbGrade.TabIndex = 29;
 			this.pbGrade.TabStop = false;
+			this.pbGrade.Click += new System.EventHandler(this.pbGrade_Click);
 			// 
 			// pbCalendar
 			// 
@@ -227,42 +264,6 @@ namespace SchoolManagement
 			this.pbProfile.TabStop = false;
 			this.pbProfile.Click += new System.EventHandler(this.pbProfile_Click);
 			// 
-			// pbClasses
-			// 
-			this.pbClasses.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pbClasses.Image = ((System.Drawing.Image)(resources.GetObject("pbClasses.Image")));
-			this.pbClasses.Location = new System.Drawing.Point(608, 147);
-			this.pbClasses.Margin = new System.Windows.Forms.Padding(4);
-			this.pbClasses.Name = "pbClasses";
-			this.pbClasses.Size = new System.Drawing.Size(174, 204);
-			this.pbClasses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbClasses.TabIndex = 31;
-			this.pbClasses.TabStop = false;
-			this.pbClasses.Click += new System.EventHandler(this.pbClasses_Click);
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(597, 355);
-			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(196, 22);
-			this.label4.TabIndex = 32;
-			this.label4.Text = "REGISTERED SUBJECT";
-			// 
-			// notifications
-			// 
-			this.notifications.Image = ((System.Drawing.Image)(resources.GetObject("notifications.Image")));
-			this.notifications.Location = new System.Drawing.Point(730, 11);
-			this.notifications.Name = "notifications";
-			this.notifications.Size = new System.Drawing.Size(63, 50);
-			this.notifications.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.notifications.TabIndex = 212;
-			this.notifications.TabStop = false;
-			this.notifications.Click += new System.EventHandler(this.notifications_Click);
-			// 
 			// StudentMenu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -287,12 +288,12 @@ namespace SchoolManagement
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "STUDENT MENU";
 			this.Load += new System.EventHandler(this.StudentMenu_Load);
+			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbGrade)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbCalendar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogout)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pbClasses)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.notifications)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

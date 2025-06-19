@@ -111,5 +111,13 @@ namespace SchoolManagement
 		{
 
 		}
+
+		private void pbGrade_Click(object sender, EventArgs e)
+		{
+            StudentScore viewScore = new StudentScore();
+            this.Hide();
+            viewScore.ShowDialog();
+            this.Close();
+		}
 	}
 }
